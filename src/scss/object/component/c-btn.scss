@@ -1,0 +1,52 @@
+@use '../../foundation' as *;
+
+// ベースボタン
+.c-btn {
+  display: inline-block;
+  padding: prem(10) prem(20);
+  border: none;
+  border-radius: 4px;
+  font-size: prem(16);
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: $color-red;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: darken($color-red, 10%);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// ボタンバリエーション
+.c-btn--primary {
+  background-color: $color-red;
+
+  &:hover {
+    background-color: darken($color-red, 10%);
+  }
+}
+
+.c-btn--secondary {
+  background-color: #6c757d;
+
+  &:hover {
+    background-color: darken(#6c757d, 10%);
+  }
+}
+
+.c-btn--large {
+  padding: prem(15) prem(30);
+  font-size: prem(18);
+}
+
+.c-btn--small {
+  padding: prem(5) prem(15);
+  font-size: prem(14);
+}

@@ -1,0 +1,59 @@
+@use "sass:math";
+@use 'variables' as *;
+
+/*****************************************
+ * 数値から単位を取り除く
+ * 参考
+ * https://css-tricks.com/snippets/sass/
+******************************************/
+@function strip-unit($number) {
+  @if type-of($number)=="number" and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+/*****************************************
+ * px→remの計算
+ * 参考
+ * https://webdou.net/sass-rem/
+ * Sassではmath.div関数の使用が推奨のため、スラッシュ(/)演算子から変更
+******************************************/
+@function prem($pixels) {
+  @return math.div($pixels , strip-unit($base-font-size)) * 1rem;
+}
+
+/*****************************************
+ * vwの計算
+ * 参考
+ * https://webdou.net/sass-vw/
+ * Sassではmath.div関数の使用が推奨のため、スラッシュ(/)演算子から変更
+******************************************/
+@function vw($screen-size, $pixels) {
+  @return math.div($pixels , $screen-size) * 100vw;
+}
+
+/*****************************************
+ * 1920pxカンプを基準にしたレスポンシブ値の計算
+ * 1920pxのカンプ値をそのまま入れると、画面幅に応じてスケーリング
+ * 例: prem-vw(100) → 1920px画面で100px、960px画面で50px
+******************************************/
+@function prem-vw($pixels, $screen-size: 1920) {
+  @return math.div($pixels , $screen-size) * 100vw;
+}
+
+/*****************************************
+ * 1920pxカンプを基準にしたclamp値の計算
+ * 最小値、最大値を指定してスムーズにスケーリング
+ * 例: prem-clamp(20, 100) → 最小20px、最大100px、1920px基準
+ * 注意: $base-font-sizeは16pxを想定
+******************************************/
+@function prem-clamp($min-px, $max-px, $max-screen: 1920) {
+  $base-size: 16; // $base-font-sizeの値を直接指定（循環参照を避ける）
+  $min-rem: math.div($min-px, $base-size) * 1rem;
+  $max-rem: math.div($max-px, $base-size) * 1rem;
+  $max-vw: math.div($max-px, $max-screen) * 100vw;
+
+  @return clamp(#{$min-rem}, #{$max-vw}, #{$max-rem});
+}

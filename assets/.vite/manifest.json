@@ -1,0 +1,13 @@
+{
+  "src/js/script.js": {
+    "file": "js/script.js",
+    "name": "script",
+    "src": "src/js/script.js",
+    "isEntry": true
+  },
+  "src/scss/style.scss": {
+    "file": "css/style.css",
+    "src": "src/scss/style.scss",
+    "isEntry": true
+  }
+}

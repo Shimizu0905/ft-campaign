@@ -1,0 +1,35 @@
+{
+  "name": "wordpress-flocss-theme",
+  "version": "1.0.0",
+  "description": "WordPress theme with FLOCSS and Vite",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config .config/vite.config.js",
+    "copy-images": "rm -rf assets/images && mkdir -p assets/images && cp -r src/images/* assets/images/",
+    "build": "npm run lint:css:fix && npm run copy-images && vite build --config .config/vite.config.js && npm run minify:js && npm run minify:css",
+    "minify:js": "node scripts/minify-js.js",
+    "minify:css": "node scripts/minify-css.js",
+    "preview": "vite preview --config .config/vite.config.js",
+    "optimize-images": "node scripts/optimize-images.js",
+    "lint:css": "stylelint \"src/**/*.{css,scss}\" --config .config/.stylelintrc.json",
+    "lint:css:fix": "stylelint \"src/**/*.{css,scss}\" --fix --config .config/.stylelintrc.json"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "chokidar": "^3.5.3",
+    "cssnano": "^7.1.2",
+    "glob": "^10.3.10",
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-svgo": "^10.0.0",
+    "postcss": "^8.4.32",
+    "sass": "^1.69.0",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard-scss": "^16.0.0",
+    "stylelint-order": "^6.0.4",
+    "stylelint-scss": "^6.13.0",
+    "terser": "^5.44.1",
+    "vite": "^5.0.0"
+  }
+}

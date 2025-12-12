@@ -1,0 +1,140 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "order/properties-order": [
+      [
+        {
+          "groupName": "レイアウト",
+          "emptyLineBefore": "never",
+          "properties": [
+            "position",
+            "top",
+            "right",
+            "bottom",
+            "left",
+            "z-index",
+            "display",
+            "flex",
+            "flex-direction",
+            "flex-wrap",
+            "justify-content",
+            "align-items",
+            "align-content",
+            "gap",
+            "grid",
+            "grid-template-columns",
+            "grid-template-rows",
+            "grid-template-areas",
+            "grid-column",
+            "grid-row",
+            "float",
+            "clear"
+          ]
+        },
+        {
+          "groupName": "ボックスモデル",
+          "emptyLineBefore": "never",
+          "properties": [
+            "box-sizing",
+            "width",
+            "min-width",
+            "max-width",
+            "height",
+            "min-height",
+            "max-height",
+            "margin",
+            "margin-top",
+            "margin-right",
+            "margin-bottom",
+            "margin-left",
+            "padding",
+            "padding-top",
+            "padding-right",
+            "padding-bottom",
+            "padding-left",
+            "border",
+            "border-width",
+            "border-style",
+            "border-color",
+            "border-top",
+            "border-right",
+            "border-bottom",
+            "border-left",
+            "border-radius",
+            "box-shadow"
+          ]
+        },
+        {
+          "groupName": "タイポグラフィ",
+          "emptyLineBefore": "never",
+          "properties": [
+            "font",
+            "font-family",
+            "font-size",
+            "font-weight",
+            "font-style",
+            "line-height",
+            "text-align",
+            "text-decoration",
+            "text-transform",
+            "letter-spacing",
+            "word-spacing",
+            "color"
+          ]
+        },
+        {
+          "groupName": "視覚効果",
+          "emptyLineBefore": "never",
+          "properties": [
+            "background",
+            "background-color",
+            "background-image",
+            "background-position",
+            "background-size",
+            "background-repeat",
+            "opacity",
+            "visibility",
+            "overflow",
+            "overflow-x",
+            "overflow-y",
+            "clip",
+            "zoom"
+          ]
+        },
+        {
+          "groupName": "その他",
+          "emptyLineBefore": "never",
+          "properties": [
+            "cursor",
+            "list-style",
+            "transition",
+            "transform",
+            "animation"
+          ]
+        }
+      ],
+      {
+        "unspecified": "bottom"
+      }
+    ],
+    "order/properties-alphabetical-order": null,
+    "scss/at-rule-no-unknown": null,
+    "scss/dollar-variable-pattern": null,
+    "scss/operator-no-unspaced": null,
+    "scss/no-global-function-names": null,
+    "selector-class-pattern": null,
+    "custom-property-pattern": null,
+    "no-descending-specificity": null,
+    "keyframes-name-pattern": null
+  },
+  "ignoreFiles": [
+    "node_modules/**",
+    "assets/**"
+  ]
+}
+
