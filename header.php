@@ -21,7 +21,8 @@
   <!-- DNS Prefetch -->
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
   <link rel="dns-prefetch" href="//kit.fontawesome.com">
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="//www.googletagmanager.com">
 
@@ -56,12 +57,8 @@
   </script>
   <!-- / SEO SIMPLE PACK -->
 
-  <!-- スライダー -->
-  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/> -->
-
   <!-- 外部ライブラリ -->
-  <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Open+Sans:ital,wght@0,800;1,800&family=Roboto:wght@400;500;700&display=swap" type="text/css" media="all">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css?ver=1.11.3" type="text/css" media="all">
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?ver=1.0.1" id="jquery-js"></script>
   <script type="text/javascript" src="//kit.fontawesome.com/e6a238fcba.js" id="fontawesome-kit-js"></script>
@@ -94,56 +91,28 @@
       <div class="header__inner">
         <div class="header__logo js-header__logo">
           <a href="<?php echo esc_url(home_url("/")) ?>">
-            <img src="<?php echo esc_url(get_theme_file_uri("./assets/images/common/logo.png")); ?>" class="header__logo-img" alt="わか杉の郷">
+            <img src="<?php echo esc_url(get_theme_file_uri("./assets/images/common/logo.png")); ?>" class="header__logo-img" alt="葛城病院">
           </a>
         </div>
         <nav class="header__nav md-none">
           <ul class="header__nav-list">
-          <a href="<?php echo esc_url(home_url("/")) ?>">
-            <img src="<?php echo esc_url(get_theme_file_uri("./assets/images/common/tel-btn-img.png")); ?>" class="header__logo-img" alt="電話">
-          </a>
+            <li class="header__nav-item">
+              <a href="tel:072-422-9909">
+                <img src="<?php echo esc_url(get_theme_file_uri("./assets/images/common/tel-btn-img.png")); ?>" class="header__logo-img" alt="電話">
+              </a>
+            </li>
+            <li class="header__nav-item">
+              <a href="https://lin.ee/9Q6D6U9" target="_blank" rel="noopener noreferrer">
+                <img src="<?php echo esc_url(get_theme_file_uri("./assets/images/common/line-btn-img.png")); ?>" class="header__logo-img" alt="LINE">
+              </a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#contact">
+                <img src="<?php echo esc_url(get_theme_file_uri("./assets/images/common/contact-btn-img.png")); ?>" class="header__logo-img" alt="お問い合わせフォームから応募する">
+              </a>
+            </li>
           </ul>
         </nav>
-        <!-- ハンバーガーメニュー -->
-        <div class="hamburger js-hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <!-- ドロワーメニュー -->
-        <div class="drawer-menu js-drawer">
-          <div class="drawer-menu__inner">
-            <nav class="drawer-nav">
-              <ul class="drawer-list">
-                <li class="drawer__nav-item">
-                  <a href="<?php echo esc_url(home_url("/")) ?>">ホーム</a>
-                </li>
-                <li class="drawer__nav-item">
-                  <a href="<?php echo esc_url(home_url("/news")) ?>">お知らせ</a>
-                </li>
-                <li class="drawer__nav-item">
-                  <a href="<?php echo esc_url(home_url("/info")) ?>">施設案内</a>
-                </li>
-                <li class="drawer__nav-item">
-                  <a href="<?php echo esc_url(home_url("/info")) ?>">採用情報</a>
-                </li>
-                <li class="drawer__nav-item">
-                  <a href="<?php echo esc_url(home_url("/flow")) ?>">情報公開</a>
-                </li>
-                <li class="drawer__nav-item drawer__nav-item--contact">
-                  <a href="<?php echo esc_url(home_url("/contact")) ?>">お問い合わせ
-                    <img class="button__icon button__icon--header" src="<?php echo get_template_directory_uri(); ?>/assets/images/common/icon-arrow.svg" alt="">
-                  </a>
-                </li>
-                <li class="drawer__nav-item drawer__nav-item--tel">
-                  <a href="tel:0185-71-1515">お電話はこちら
-                    <img class="button__icon button__icon--header" src="<?php echo get_template_directory_uri(); ?>/assets/images/common/icon-arrow.svg" alt="">
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
       </div>
       <div class="overlay js-overlay" id="js-overlay"></div>
     </header>

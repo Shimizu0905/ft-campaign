@@ -1,0 +1,254 @@
+@use '../../foundation' as *;
+
+// プライバシーポリシーモーダル
+.c-privacy-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  display: none;
+  width: 100%;
+  height: 100%;
+
+  &.is-active {
+    display: block;
+  }
+}
+
+.c-privacy-modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 70%);
+  cursor: pointer;
+}
+
+.c-privacy-modal__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: prem(800);
+  max-height: 90vh;
+  border-radius: prem(20);
+  background-color: $color-white;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+
+  @include mq("md") {
+    width: 95%;
+    max-height: 95vh;
+    border-radius: prem(15);
+  }
+}
+
+.c-privacy-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: prem(30) prem(40);
+  border-bottom: 1px solid #e0e0e0;
+  flex-shrink: 0;
+
+  @include mq("md") {
+    padding: prem(20);
+  }
+}
+
+.c-privacy-modal__title {
+  margin: 0;
+  font-size: prem(24);
+  font-weight: $bold;
+  color: $text-black;
+
+  @include mq("md") {
+    font-size: prem(20);
+  }
+}
+
+.c-privacy-modal__close {
+  width: prem(40);
+  height: prem(40);
+  padding: 0;
+  border: none;
+  font-size: prem(32);
+  line-height: 1;
+  color: $text-black;
+  background-color: transparent;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  @include mq("md") {
+    width: prem(35);
+    height: prem(35);
+    font-size: prem(28);
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.c-privacy-modal__body {
+  flex: 1;
+  padding: prem(40);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  @include mq("md") {
+    padding: prem(20);
+  }
+}
+
+.c-privacy-modal__subtitle {
+  margin-top: prem(30);
+  margin-bottom: prem(15);
+  font-size: prem(20);
+  font-weight: $bold;
+  color: $text-black;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  @include mq("md") {
+    margin-top: prem(20);
+    margin-bottom: prem(10);
+    font-size: prem(18);
+  }
+}
+
+.c-privacy-modal__subtitle-small {
+  margin-top: prem(20);
+  margin-bottom: prem(10);
+  font-size: prem(18);
+  font-weight: $bold;
+  color: $text-black;
+
+  @include mq("md") {
+    margin-top: prem(15);
+    margin-bottom: prem(8);
+    font-size: prem(16);
+  }
+}
+
+.c-privacy-modal__body p {
+  margin-bottom: prem(15);
+  font-size: prem(16);
+  line-height: 1.8;
+  color: $text-black;
+
+  @include mq("md") {
+    margin-bottom: prem(12);
+    font-size: prem(15);
+  }
+}
+
+.c-privacy-modal__body ul {
+  margin: prem(15) 0;
+  padding-left: prem(25);
+
+  @include mq("md") {
+    margin: prem(12) 0;
+    padding-left: prem(20);
+  }
+}
+
+.c-privacy-modal__body li {
+  margin-bottom: prem(8);
+  font-size: prem(16);
+  line-height: 1.8;
+  color: $text-black;
+  list-style-type: disc;
+
+  @include mq("md") {
+    margin-bottom: prem(6);
+    font-size: prem(15);
+  }
+}
+
+.c-privacy-modal__date {
+  margin-top: prem(20);
+  margin-bottom: prem(20);
+  text-align: right;
+
+  @include mq("md") {
+    margin-top: prem(15);
+    margin-bottom: prem(15);
+  }
+}
+
+.c-privacy-modal__notes {
+  margin-top: prem(20);
+  padding: prem(20);
+  border-radius: prem(8);
+  background-color: #f5f5f5;
+
+  @include mq("md") {
+    margin-top: prem(15);
+    padding: prem(15);
+  }
+
+  p {
+    margin-bottom: prem(10);
+    font-size: prem(14);
+
+    @include mq("md") {
+      margin-bottom: prem(8);
+      font-size: prem(13);
+    }
+  }
+}
+
+.c-privacy-modal__footer {
+  padding: prem(20) prem(40);
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+  flex-shrink: 0;
+
+  @include mq("md") {
+    padding: prem(15) prem(20);
+  }
+}
+
+.c-privacy-modal__scroll-notice {
+  margin-bottom: prem(15);
+  font-size: prem(14);
+  color: #999;
+
+  @include mq("md") {
+    margin-bottom: prem(10);
+    font-size: prem(13);
+  }
+}
+
+.c-privacy-modal__agree-btn {
+  padding: prem(12) prem(40);
+  border: none;
+  border-radius: prem(30);
+  font-size: prem(16);
+  font-weight: $bold;
+  color: $color-white;
+  background-color: $main-green;
+  cursor: pointer;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+
+  @include mq("md") {
+    width: 100%;
+    padding: prem(10) prem(30);
+    font-size: prem(15);
+  }
+
+  &:hover:not(:disabled) {
+    background-color: lighten($main-green, 10%);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

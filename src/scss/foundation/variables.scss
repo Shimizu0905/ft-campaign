@@ -1,58 +1,77 @@
 @use "sass:math";
 
-// ブレイクポイントの設定
+// ========================================
+// ブレイクポイント設定
+// ========================================
 // ＊＊＊＊＊SP・PCファーストについて、この設定を変更します＊＊＊＊＊
-$break-flg: 1 !default; // 0:SPファースト、1：PCファースト
+$break-flg: 1 !default; // 0:SPファースト、1:PCファースト
 
 $breakpoints: null;
 
-@if $break-flg ==0 {
+@if $break-flg == 0 {
+  // SPファースト（min-width）
   $breakpoints: (
     "sm": "screen and (min-width: 400px)",
     "md": "screen and (min-width: 768px)",
     "lg": "screen and (min-width: 1000px)",
-    "xl": "screen and (min-width: 1200px)",
+    "xl": "screen and (min-width: 1240px)",
+    "xxl": "screen and (min-width: 1440px)",
   );
 } @else {
-  // ブレイクポイントの設定
+  // PCファースト（max-width）
   $breakpoints: (
-    "sm": "screen and (max-width: 399px)",
+    "sm": "screen and (max-width: 500px)",
     "md": "screen and (max-width: 767px)",
-    "lg": "screen and (max-width: 999px)",
-    "xl": "screen and (max-width: 1199px)",
+    "lg": "screen and (max-width: 1000px)",
+    "xl": "screen and (max-width: 1240px)",
+    "xxl": "screen and (max-width: 1440px)",
   );
 }
 
-// inner
-$inner: 1200px;
+// ========================================
+// レイアウト設定
+// ========================================
+$inner: 1250px;
+$design-width: 1920px; // デザインカンプの基準幅
 
-// デザインカンプの基準幅（1920pxカンプの場合）
-$design-width: 1920px;
+// ========================================
+// 余白設定
+// ========================================
+$padding-pc: 25px;
+$padding-sp: 20px;
 
-// 余白
-$padding-pc: 25px; // PC用余白設定
-$padding-sp: 20px; // スマホ用余白設定
+// ========================================
+// フォント設定
+// ========================================
+$font-family-base: 'Noto Sans JP', sans-serif;
+$base-font-size: 16px;
 
-// フォント
-$font-family-base: 'Noto Sans JP', sans-serif; // ベースフォント設定
-
+// フォントウェイト
 $regular: 400;
 $medium: 500;
 $semi-bold: 600;
 $bold: 700;
 $extra-bold: 800;
 
-// ベースフォントサイズ
-$base-font-size: 16px;
-
-// Color
+// ========================================
+// カラー設定
+// ========================================
+// ベースカラー
 $color-black: #212529;
-$color-white: #fff; // 白色
-$color-red: #dc3545; // デフォルトの赤色（必要に応じて変更）
+$color-white: #fff;
+$color-red: #dc3545;
+
+// テキストカラー
 $text-black: #212529;
-$text-blown: #52291A;
+$text-brown: #52291A;
+
+// メインカラー
 $main-green: #07913A;
+
+// 背景カラー
 $bg-beige: #FCF9F3;
 $bg-light-green: #DBEBE1;
-$bg-green: #07913A; // メイングリーンと同じ色（必要に応じて変更）
-$title-orange: #FF6B35; // タイトル用オレンジ色（必要に応じて変更）
+$bg-green: #07913A;
+
+// アクセントカラー
+$title-orange: #FF6B35;

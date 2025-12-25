@@ -1,167 +1,64 @@
 <?php get_header(); ?>
-
+<?php
+/*
+Template Name: トップページ
+*/
+get_header();
+?>
 <main>
-  <h2 class="c-title">front-page.php</h2>
-
-  <section style="padding: 40px; max-width: 1200px; margin: 0 auto;">
-    <h3 style="margin-bottom: 30px;">SVG画像の表示確認</h3>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px;">
-      <div style="border: 1px solid #ddd; padding: 20px; text-align: center; background: #f9f9f9;">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/number/01-No.svg'); ?>" alt="01-No" style="max-width: 100%; height: auto; margin-bottom: 10px;">
-        <p style="font-size: 12px; color: #666;">01-No.svg</p>
-      </div>
-
-      <div style="border: 1px solid #ddd; padding: 20px; text-align: center; background: #f9f9f9;">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/number/02-No-01.svg'); ?>" alt="02-No-01" style="max-width: 100%; height: auto; margin-bottom: 10px;">
-        <p style="font-size: 12px; color: #666;">02-No-01.svg</p>
-      </div>
-
-      <div style="border: 1px solid #ddd; padding: 20px; text-align: center; background: #f9f9f9;">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/number/02-No-02.svg'); ?>" alt="02-No-02" style="max-width: 100%; height: auto; margin-bottom: 10px;">
-        <p style="font-size: 12px; color: #666;">02-No-02.svg</p>
-      </div>
-
-      <div style="border: 1px solid #ddd; padding: 20px; text-align: center; background: #f9f9f9;">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/number/02-No-03.svg'); ?>" alt="02-No-03" style="max-width: 100%; height: auto; margin-bottom: 10px;">
-        <p style="font-size: 12px; color: #666;">02-No-03.svg</p>
-      </div>
-
-      <div style="border: 1px solid #ddd; padding: 20px; text-align: center; background: #f9f9f9;">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/number/03-No.svg'); ?>" alt="03-No" style="max-width: 100%; height: auto; margin-bottom: 10px;">
-        <p style="font-size: 12px; color: #666;">03-No.svg</p>
-      </div>
-
-      <div style="border: 1px solid #ddd; padding: 20px; text-align: center; background: #f9f9f9;">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/number/04-men.svg'); ?>" alt="04-men" style="max-width: 100%; height: auto; margin-bottom: 10px;">
-        <p style="font-size: 12px; color: #666;">04-men.svg</p>
-      </div>
-
-      <div style="border: 1px solid #ddd; padding: 20px; text-align: center; background: #f9f9f9;">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/number/04-women.svg'); ?>" alt="04-women" style="max-width: 100%; height: auto; margin-bottom: 10px;">
-        <p style="font-size: 12px; color: #666;">04-women.svg</p>
-      </div>
-
-      <div style="border: 1px solid #ddd; padding: 20px; text-align: center; background: #f9f9f9;">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/number/05-No.svg'); ?>" alt="05-No" style="max-width: 100%; height: auto; margin-bottom: 10px;">
-        <p style="font-size: 12px; color: #666;">05-No.svg</p>
-      </div>
-
-      <div style="border: 1px solid #ddd; padding: 20px; text-align: center; background: #f9f9f9;">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/number/06-No.svg'); ?>" alt="06-No" style="max-width: 100%; height: auto; margin-bottom: 10px;">
-        <p style="font-size: 12px; color: #666;">06-No.svg</p>
-      </div>
-
-      <div style="border: 1px solid #ddd; padding: 20px; text-align: center; background: #f9f9f9;">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/number/2 reasons for choosing.svg'); ?>" alt="2 reasons for choosing" style="max-width: 100%; height: auto; margin-bottom: 10px;">
-        <p style="font-size: 12px; color: #666;">2 reasons for choosing.svg</p>
-      </div>
+  <!-- FVセクション -->
+  <section class="p-fv">
+    <div class="p-fv__bg">
+      <picture>
+        <source media="(max-width: 765px)" srcset="<?php echo esc_url(get_template_directory_uri() . '/assets/images/fv/sp-fv-bg.png'); ?>">
+        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/fv/fv-img.png'); ?>" alt="看護師" class="p-fv__bg-img">
+      </picture>
     </div>
-
-    <h3 style="margin-bottom: 30px; margin-top: 40px;">PNG画像の表示確認</h3>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
-      <div style="border: 1px solid #ddd; padding: 20px; text-align: center; background: #f9f9f9;">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/number/07-yukyu-85.png'); ?>" alt="07-yukyu-85" style="max-width: 100%; height: auto; margin-bottom: 10px;">
-        <p style="font-size: 12px; color: #666;">07-yukyu-85.png</p>
-      </div>
-
-      <div style="border: 1px solid #ddd; padding: 20px; text-align: center; background: #f9f9f9;">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/number/09-graph-91.png'); ?>" alt="09-graph-91" style="max-width: 100%; height: auto; margin-bottom: 10px;">
-        <p style="font-size: 12px; color: #666;">09-graph-91.png</p>
-      </div>
+    <div class="p-fv__inner">
     </div>
   </section>
-  <section class="p-faq">
-    <div class="p-faq__inner inner">
-      <img class="p-faq__accent p-faq__accent-01" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/FAQ/FAQ.svg'); ?>" alt="">
-      <img class="p-faq__accent p-faq__accent-02" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/FAQ/FAQ.svg'); ?>" alt="">
-      <img class="p-faq__accent p-faq__accent-03" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/FAQ/FAQ.svg'); ?>" alt="">
-      <h3 class="p-faq__title section-title-penki  text-outline-white">
-        よくあるご質問
+  <!-- CTAセクション -->
+  <section class="c-cta l-cta" style="--cta-bg-image: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/common/cta-bg.png'); ?>'); --cta-bg-image-sp: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/common/sp-CTA-bg.png'); ?>');">
+  </section>
+
+  <section id="contact" class="p-contact">
+    <div class="p-contact__inner l-inner">
+      <h3 class="p-contact__title c-section-title" style="--title-bg-image: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/contact/contact-title.png'); ?>');">
+        お問い合わせフォーム
       </h3>
-      <div class="p-faq__content">
-        <div class="p-faq__content-item">
-          <div class="p-faq__content-item-title">
-            <span class="p-faq__content-item-label">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/FAQ/Q.svg'); ?>" alt="Q">
-            </span>
-            <p class="p-faq__content-item-title-text">見積もり依頼だけでも大丈夫でしょうか。</p>
-            <button class="p-faq__content-item-title-icon" type="button" aria-label="開く">
-              <span class="p-faq__content-item-title-icon-line"></span>
-            </button>
-          </div>
-          <div class="p-faq__content-item-answer">
-            <span class="p-faq__content-item-label">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/FAQ/A.svg'); ?>" alt="A">
-            </span>
-            <p class="p-faq__content-item-answer-text">
-              もちろんです。お気軽にお問い合わせください。<br>
-              お見積りを見ていただき、じっくりとご判断ください。</p>
-          </div>
-        </div>
-        <div class="p-faq__content-item">
-          <div class="p-faq__content-item-title">
-            <span class="p-faq__content-item-label">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/FAQ/Q.svg'); ?>" alt="Q">
-            </span>
-            <p class="p-faq__content-item-title-text">塗り替えのタイミングはいつが良いですか？</p>
-            <button class="p-faq__content-item-title-icon" type="button" aria-label="開く">
-              <span class="p-faq__content-item-title-icon-line"></span>
-            </button>
-          </div>
-          <div class="p-faq__content-item-answer">
-            <span class="p-faq__content-item-label">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/FAQ/A.svg'); ?>" alt="A">
-            </span>
-            <p class="p-faq__content-item-answer-text">
-              一般的に<span class="p-faq__content-item-answer-text-bold">10～15年</span>が塗替え時期です。チョーキング (白亜化)
-              ・塗膜表面のひび割れ・シーリングの劣化などの減少が見られたら、要チェックです。現地調査で状態を確認し、お客様に最適なタイミングをご提案します。
-            </p>
-          </div>
-        </div>
-        <div class="p-faq__content-item">
-          <div class="p-faq__content-item-title">
-            <span class="p-faq__content-item-label">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/FAQ/Q.svg'); ?>" alt="Q">
-            </span>
-            <p class="p-faq__content-item-title-text">工事期間はどれくらいかかりますか？</p>
-            <button class="p-faq__content-item-title-icon" type="button" aria-label="開く">
-              <span class="p-faq__content-item-title-icon-line"></span>
-            </button>
-          </div>
-          <div class="p-faq__content-item-answer">
-            <span class="p-faq__content-item-label">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/FAQ/A.svg'); ?>" alt="A">
-            </span>
-            <p class="p-faq__content-item-answer-text">
-              一般的に、<span class="p-faq__content-item-answer-text-bold">約2～3週間</span>が目安です。<br>
-              建物の状態や天候によって前後することがありますが、事前にしっかりスケジュールをご説明し、安心して施工いただけるよう管理しています。</p>
-          </div>
-        </div>
-        <div class="p-faq__content-item">
-          <div class="p-faq__content-item-title">
-            <span class="p-faq__content-item-label">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/FAQ/Q.svg'); ?>" alt="Q">
-            </span>
-            <p class="p-faq__content-item-title-text">工事の保証はありますか？</p>
-            <button class="p-faq__content-item-title-icon" type="button" aria-label="開く">
-              <span class="p-faq__content-item-title-icon-line"></span>
-            </button>
-          </div>
-          <div class="p-faq__content-item-answer">
-            <span class="p-faq__content-item-label">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/FAQ/A.svg'); ?>" alt="A">
-            </span>
-            <p class="p-faq__content-item-answer-text">
-              はい、ございますので安心してください。<br>
-              <span class="p-faq__content-item-answer-text-bold">外壁最長10年、屋根最長8年、付帯部2年</span>などです。
-            </p>
-          </div>
-        </div>
+      <div class="p-contact__form">
+      <?php
+      $sc = get_post_meta(get_the_ID(), '_contact_form_shortcode', true);
+      if (!$sc) {
+        $sc = '[contact-form-7 id="99d556f" title="お問い合わせ"]';
+      }
+      ?>
+      <div class="p-contact__form">
+        <?php echo do_shortcode($sc); ?>
+      </div>
+
       </div>
     </div>
   </section>
+
+  <!-- プライバシーポリシーモーダル -->
+  <div class="c-privacy-modal" id="privacy-modal">
+    <div class="c-privacy-modal__overlay"></div>
+    <div class="c-privacy-modal__content">
+      <div class="c-privacy-modal__header">
+        <h4 class="c-privacy-modal__title">個人情報保護方針（プライバシーポリシー）</h4>
+        <button class="c-privacy-modal__close" type="button" aria-label="閉じる">×</button>
+      </div>
+      <div class="c-privacy-modal__body" id="privacy-modal-body">
+        <h5 class="c-privacy-modal__subtitle">個人情報保護について</h5>
+        <p>当法人は信頼の医療・介護に向けて、患者様・利用者様に良い医療を受けていただけるよう日々努力を重ねております。｢患者様・利用者様の個人情報｣につきましても適切に保護し管理することが非常に重要であると考えております。そのために当法人では、以下の個人情報保護方針を定め確実な履行に努めます。</p>
+      </div>
+      <div class="c-privacy-modal__footer">
+        <p class="c-privacy-modal__scroll-notice">下までスクロールして内容をご確認ください</p>
+        <button class="c-privacy-modal__agree-btn" type="button" disabled>同意する</button>
+      </div>
+    </div>
+  </div>
 </main>
 
 <?php get_footer(); ?>

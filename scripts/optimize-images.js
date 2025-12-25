@@ -1,6 +1,7 @@
 import imagemin from 'imagemin';
 import imageminMozjpeg from 'imagemin-mozjpeg';
 import imageminPngquant from 'imagemin-pngquant';
+import imageminOptipng from 'imagemin-optipng';
 import imageminSvgo from 'imagemin-svgo';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
@@ -14,9 +15,22 @@ const projectRoot = resolve(__dirname, '..');
     const files = await imagemin([`${projectRoot}/src/images/**/*`], {
       destination: `${projectRoot}/assets/images`,
       plugins: [
-        imageminMozjpeg({ quality: 80 }),
-        imageminPngquant({ quality: [0.65, 0.8] }),
-        imageminSvgo({ plugins: [{ removeViewBox: false }] }),
+        imageminMozjpeg({ quality: 75 }),
+        imageminOptipng({ 
+          optimizationLevel: 7
+        }),
+        imageminPngquant({ 
+          quality: [0.5, 0.7],
+          speed: 1
+        }),
+        imageminSvgo({
+          plugins: [
+            {
+              name: 'removeViewBox',
+              active: false,
+            },
+          ],
+        }),
       ],
     });
 

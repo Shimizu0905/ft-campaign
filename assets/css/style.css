@@ -629,7 +629,6 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 75rem;
   height: inherit;
   padding: 0 3.625rem;
 }
@@ -660,19 +659,8 @@ a:hover {
 /* ロゴ内のリンクの共通スタイル */
 .header__logo a {
   display: block;
-  width: 100%;
   height: auto;
   padding: 0.9375rem 0;
-}
-
-/* ロゴ画像の共通スタイル */
-.header__logo-img {
-  max-width: 17.1875rem;
-}
-@media screen and (max-width: 999px) {
-  .header__logo-img {
-    max-width: 11.25rem;
-  }
 }
 
 .header__logo-img.is-scroll {
@@ -691,7 +679,6 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  min-width: 45.625rem;
   height: 100%;
 }
 @media screen and (max-width: 767px) {
@@ -713,7 +700,6 @@ a:hover {
 .header__nav-item {
   position: relative;
   height: inherit;
-  padding: 0 calc(1% + 0.125rem);
 }
 
 .header__nav-item a {
@@ -726,17 +712,6 @@ a:hover {
   color: #212529;
   overflow: hidden;
   transition: color 0.3s ease;
-}
-.header__nav-item a::after {
-  position: absolute;
-  bottom: 0.8125rem;
-  left: 50%;
-  width: 0;
-  height: 3px;
-  background-color: currentcolor;
-  transition: width 0.4s ease, left 0.3s ease;
-  transform: all 0.3s;
-  content: "";
 }
 .header__nav-item a:hover::after {
   left: 0;

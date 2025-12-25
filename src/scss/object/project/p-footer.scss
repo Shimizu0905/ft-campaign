@@ -1,0 +1,27 @@
+@use '../../foundation' as *;
+
+// フッター
+.p-footer {
+  width: 100%;
+  padding: prem(30) 0;
+  background-color: $main-green;
+
+  @include mq("md") {
+    padding: prem(20) 0;
+  }
+}
+
+.p-footer__copyright {
+  text-align: center;
+  color: $color-white;
+
+  small {
+    font-size: prem(14);
+    font-weight: $regular;
+    color: $color-white;
+
+    @include mq("md") {
+      font-size: prem(13);
+    }
+  }
+}
