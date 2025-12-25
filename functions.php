@@ -81,7 +81,7 @@ function my_script_init() {
   // CSS（JSから生成されたCSS）
   if (!empty($entry['css']) && is_array($entry['css'])) {
     foreach ($entry['css'] as $i => $css_file) {
-      $css_rel = '/assets/' . ltrim($css_file, '/'); // 例: /assets/css/script.css
+      $css_rel = '/assets/' . ltrim($css_file, '/'); // 例: /assets/css/style.css
       $css_abs = $theme_dir . $css_rel;
 
       wp_enqueue_style(

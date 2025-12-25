@@ -96,7 +96,7 @@ export default defineConfig({
     outDir: 'assets',
     emptyOutDir: false,
     manifest: true,
-    minify: true,
+    minify: false, // CSSを圧縮（コメント・改行を削除）
     rollupOptions: {
       input: {
         // JSだけをentryにする（SCSSはJSからimport）
@@ -105,7 +105,8 @@ export default defineConfig({
       output: {
         assetFileNames: (assetInfo) => {
           if (assetInfo.name && assetInfo.name.endsWith('.css')) {
-            return 'css/[name][extname]';
+            // CSSファイル名を style.css に固定
+            return 'css/style.css';
           }
           return '[name][extname]';
         },
