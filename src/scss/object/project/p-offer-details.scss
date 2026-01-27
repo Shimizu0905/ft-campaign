@@ -1,0 +1,58 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+.p-offer-details {
+  background-color: $main-green;
+}
+
+.p-offer-details__inner {
+  width: 100%;
+  max-width: 430px;
+}
+
+.p-offer-details__main {
+  border-radius: 20.27px;
+  background-color: #EBD5A1;
+  padding: 20px 20px 40px;
+
+  @media (width <= 375px) {
+    padding: prem(20) prem(20) prem(40);
+  }
+}
+
+.p-offer-details__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.p-offer-details__text {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto 20px;
+  font-size: 12px;
+  font-weight: $font-weight-r;
+  line-height: 1.6;
+  text-align: left;
+  color: $white;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(20);
+    font-size: prem(12);
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.p-offer-details__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+}

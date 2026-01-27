@@ -4,8 +4,6 @@
 
 :root {
   // カラー変数
-  --white: #{$color-white};
-  --red: #{$color-red};
   --text: #{$text-black};
   
   // フォントサイズ変数
@@ -52,15 +50,34 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   font-family: $font-family-base;
-  font-weight: $regular;
-  color: $color-black;
-  background-color: $bg-beige;
+  font-weight: $font-weight-r;
+  color: $black;
+  overflow-x: hidden;
 
   // 追従フッターの高さ分のpadding-bottom（765px以下）
   @include mq("md") {
+    padding-bottom: 58px;
+
+    @media (width <= 375px) {
     padding-bottom: prem(58);
   }
+  }
+
+  // メニュー開いている時はスクロール禁止
+  &.no-scroll {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+// 英語テキストに適用
+.en,
+[lang="en"] {
+  font-family: $font-family-en;
 }
 
 a {

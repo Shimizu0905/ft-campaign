@@ -1,8 +1,6 @@
 import { defineConfig } from 'vite';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { glob } from 'glob';
-import { readFileSync, statSync } from 'fs';
 import { watch } from 'chokidar';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -11,76 +9,10 @@ const __dirname = dirname(__filename);
 // プロジェクトルート（.config の1つ上 = テーマ直下）
 const projectRoot = resolve(__dirname, '..');
 
-// SCSS glob構文を展開する関数
-function expandScssGlob(content, filePath) {
-  const dir = resolve(filePath, '..');
-  let expanded = content;
-
-  // @use "./foundation/**" のようなglob構文を展開
-  const globPattern = /@use\s+["']([^"']+\*\*[^"']*)["']/g;
-  let match;
-  const matches = [];
-
-  while ((match = globPattern.exec(content)) !== null) {
-    matches.push(match);
-  }
-
-  for (let i = matches.length - 1; i >= 0; i--) {
-    match = matches[i];
-    const pattern = match[1];
-    const fullPattern = resolve(dir, pattern);
-
-    const allMatches = glob.sync(fullPattern.replace(/\\/g, '/'), {
-      ignore: ['**/node_modules/**'],
-    });
-
-    const files = allMatches.filter((f) => {
-      try {
-        return statSync(f).isFile() && f.endsWith('.scss');
-      } catch {
-        return false;
-      }
-    });
-
-    const indexFiles = files.filter((f) => f.includes('_index'));
-
-    let imports;
-    if (indexFiles.length > 0) {
-      const indexFile = indexFiles[0];
-      const relativePath = indexFile
-        .replace(dir + '/', './')
-        .replace(/\\/g, '/');
-      const pathWithoutExt = relativePath.replace(/\.scss$/, '');
-      const dirName = pathWithoutExt.split('/').slice(-2, -1)[0];
-      imports = `@use "${pathWithoutExt}" as ${dirName};`;
-    } else {
-      const otherFiles = files.filter((f) => !f.includes('_index'));
-      if (otherFiles.length === 0) {
-        console.warn(`globパターン "${pattern}" に一致するSCSSが見つかりません`);
-        continue;
-      }
-      imports = otherFiles
-        .map((file) => {
-          const relativePath = file
-            .replace(dir + '/', './')
-            .replace(/\\/g, '/');
-          const pathWithoutExt = relativePath.replace(/\.scss$/, '');
-          return `@use "${pathWithoutExt}";`;
-        })
-        .join('\n');
-    }
-
-    expanded =
-      expanded.substring(0, match.index) +
-      imports +
-      expanded.substring(match.index + match[0].length);
-  }
-
-  return expanded;
-}
-
 export default defineConfig({
-  // root は指定しない（←これが安定化の要点）
+  root: projectRoot,
+  base: './', // 相対パス化。サブディレクトリ配布でも崩れにくい
+  publicDir: 'public', // publicフォルダを指定（デフォルトは'public'）
 
   css: {
     postcss: resolve(__dirname, 'postcss.config.js'),
@@ -93,25 +25,37 @@ export default defineConfig({
   },
 
   build: {
-    outDir: 'assets',
-    emptyOutDir: false,
-    manifest: true,
-    minify: false, // CSSを圧縮（コメント・改行を削除）
+    outDir: 'dist', // 静的運用ではdistが安全
+    emptyOutDir: true, // 古い成果物を削除
+    manifest: false, // 静的だけなら不要
+    minify: true, // 圧縮を有効化
     rollupOptions: {
+      // 複数のエントリーポイントを設定（JSファイルを分割）
       input: {
-        // JSだけをentryにする（SCSSはJSからimport）
-        script: resolve(projectRoot, 'src/js/script.js'),
+        main: resolve(projectRoot, 'src/js/main.js'),
+        header: resolve(projectRoot, 'src/js/header.js'),
+        'features-slider': resolve(projectRoot, 'src/js/features-slider.js'),
+        experience: resolve(projectRoot, 'src/js/experience.js'),
+        'voice-slider': resolve(projectRoot, 'src/js/voice-slider.js'),
+        'crew-slider': resolve(projectRoot, 'src/js/crew-slider.js'),
+        'gallery-slider': resolve(projectRoot, 'src/js/gallery-slider.js'),
+        faq: resolve(projectRoot, 'src/js/faq.js'),
+        'join-accordion': resolve(projectRoot, 'src/js/join-accordion.js'),
+        'privacy-modal': resolve(projectRoot, 'src/js/privacy-modal.js'),
+        // HTMLもエントリーポイントとして含める
+        index: resolve(projectRoot, 'index.html'),
       },
       output: {
+        entryFileNames: 'assets/js/[name].js',
+        chunkFileNames: 'assets/js/[name]-[hash].js', // ハッシュ付きで衝突回避
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
-            // CSSファイル名を style.css に固定
-            return 'css/style.css';
+          if (assetInfo.name?.endsWith('.css')) {
+            // LP用：CSSは1本固定でOK（SCSSはmain.jsから1回だけimport）
+            return 'assets/css/style.css';
           }
-          return '[name][extname]';
+          // 画像/フォントは衝突回避のためにハッシュ付き推奨
+          return 'assets/[name]-[hash][extname]';
         },
-        entryFileNames: 'js/[name].js',
-        chunkFileNames: 'js/[name].js',
       },
     },
   },
@@ -121,54 +65,25 @@ export default defineConfig({
     port: 3000,
     strictPort: true,
     cors: true,
-    hmr: { host: 'localhost', port: 3000 },
+    // hmrは削除（ViteデフォルトでOK。LAN越しでスマホ確認する場合は削除が安定）
   },
 
   plugins: [
-    // SCSS glob構文を展開するプラグイン
+    // SCSS glob展開プラグインは削除（Sass公式推奨の@forward方式を使用）
+
+    // HTMLファイルの変更監視とリロード（静的サイト用）
+    // root配下のHTMLならViteは普通にHMR/リロード効くことが多いが、
+    // 確実性を取るなら残しておく（害は少ない）
     {
-      name: 'scss-glob',
-      load(id) {
-        if (!id.endsWith('.scss')) return null;
-
-        try {
-          const content = readFileSync(id, 'utf-8');
-          if (content.includes('**')) {
-            return expandScssGlob(content, id);
-          }
-          return content;
-        } catch (error) {
-          console.warn(`SCSS glob展開エラー (${id}):`, error.message);
-          return null;
-        }
-      },
-      transform(code, id) {
-        if (!id.endsWith('.scss')) return null;
-
-        try {
-          if (code.includes('**')) {
-            const expanded = expandScssGlob(code, id);
-            return { code: expanded, map: null };
-          }
-          return null;
-        } catch (error) {
-          console.warn(`SCSS glob展開エラー (${id}):`, error.message);
-          return null;
-        }
-      },
-    },
-
-    // PHPファイルの変更監視とリロード
-    {
-      name: 'php-reload',
+      name: 'html-reload',
       configureServer(server) {
-        const watcher = watch([resolve(projectRoot, '**/*.php')], {
-          ignored: /node_modules/,
+        const watcher = watch([resolve(projectRoot, '**/*.html')], {
+          ignored: [/node_modules/, /dist/, /assets/],
           persistent: true,
         });
 
         watcher.on('change', (path) => {
-          console.log(`PHPファイル変更検知: ${path}`);
+          console.log(`HTMLファイル変更検知: ${path}`);
           server.ws.send({ type: 'full-reload' });
         });
       },

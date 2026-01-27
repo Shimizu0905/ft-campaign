@@ -1,0 +1,173 @@
+<!--
+【体験セクションのHTML構造サンプル】
+
+【設計思想】
+・BEM記法をベースに、意味のある命名を使用
+・UI依存（tabA/tabB）ではなく、ビジネスロジック（habit/result）を反映
+・後からCSS/JSで制御しやすい構造
+・アクセシビリティを考慮（role属性、aria-controls等）
+
+【クラス命名の意図】
+・experience: 親セクション、セマンティックな意味
+・experience-route: ルート選択の共通クラス、モディファイアで区別
+・experience-route--habit: 習慣化ルート（継続重視）
+・experience-route--result: 結果重視ルート（成果重視）
+-->
+
+<section class="p-experience" id="experience">
+  <div class="p-experience__inner">
+    <!-- セクションタイトル -->
+    <h3 class="p-experience__title">
+      <img src="/assets/images/experience/experience-title.svg" alt="体験ルート" class="p-experience__title-img">
+    </h3>
+
+    <!-- ルート選択ラッパー -->
+    <div class="p-experience__route-wrapper">
+      <!-- ルート選択ボタン群 -->
+      <div class="p-experience__route-selector" role="tablist" aria-label="体験ルートを選択">
+        <button 
+          class="p-experience__route-btn p-experience__route-btn--habit is-active" 
+          role="tab" 
+          aria-selected="true" 
+          aria-controls="experience-route-habit"
+          data-route="habit"
+        >
+          <span class="p-experience__route-btn-label">マイペースで</span>
+          <span class="p-experience__route-btn-label">続けたい派</span>
+        </button>
+        <button 
+          class="p-experience__route-btn p-experience__route-btn--result" 
+          role="tab" 
+          aria-selected="false" 
+          aria-controls="experience-route-result"
+          data-route="result"
+        >
+          <span class="p-experience__route-btn-label">ちゃんと</span>
+          <span class="p-experience__route-btn-label">結果を出したい派</span>
+        </button>
+      </div>
+
+      <!-- ルートコンテンツエリア -->
+      <div class="p-experience__route-content">
+        <!-- 習慣化ルート -->
+        <div 
+          class="p-experience__route p-experience__route--habit is-active" 
+          id="experience-route-habit"
+          role="tabpanel"
+          aria-labelledby="experience-route-habit-btn"
+        >
+          <div class="p-experience__route-inner">
+            <!-- ルートタイトル -->
+            <div class="p-experience__route-header">
+              <h4 class="p-experience__route-title">「習慣化ルート」で</h4>
+              <p class="p-experience__route-subtitle">まずは習慣づくりから</p>
+            </div>
+
+            <!-- サービスロゴ/名前 -->
+            <div class="p-experience__route-service">
+              <img src="/assets/images/experience/hobit/hobit-logo-01.svg" alt="トレサポ" class="p-experience__route-service-logo">
+            </div>
+
+            <!-- ルート説明 -->
+            <div class="p-experience__route-description">
+              <p class="p-experience__route-text">えっ?24時間ジムでここまで?</p>
+              <p class="p-experience__route-text">「続けたい」をしっかり支える</p>
+              <p class="p-experience__route-text">マンツーマンサポート</p>
+            </div>
+
+            <!-- その他のコンテンツ（画像、特徴など） -->
+            <div class="p-experience__route-body">
+              <!-- ここに習慣化ルート固有のコンテンツ -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 結果重視ルート -->
+        <div 
+          class="p-experience__route p-experience__route--result" 
+          id="experience-route-result"
+          role="tabpanel"
+          aria-labelledby="experience-route-result-btn"
+        >
+          <div class="p-experience__route-inner">
+            <!-- ルートタイトル -->
+            <div class="p-experience__route-header">
+              <h4 class="p-experience__route-title">「結果重視ルート」で</h4>
+              <p class="p-experience__route-subtitle">確実に目標へ</p>
+            </div>
+
+            <!-- サービスロゴ/名前 -->
+            <div class="p-experience__route-service">
+              <img src="/assets/images/experience/personal-logo.svg" alt="FITNESS24 PERSONAL" class="p-experience__route-service-logo">
+            </div>
+
+            <!-- ルート説明 -->
+            <div class="p-experience__route-description">
+              <p class="p-experience__route-text">プロの技術を体感!</p>
+              <p class="p-experience__route-text">1回でわかる「効かせ方」の違い</p>
+              <p class="p-experience__route-text">その努力、もっと結果につなげよう!</p>
+              <p class="p-experience__route-text">プロが理想を叶えるパーソナルトレーニング</p>
+            </div>
+
+            <!-- その他のコンテンツ（画像、特徴など） -->
+            <div class="p-experience__route-body">
+              <!-- ここに結果重視ルート固有のコンテンツ -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+【命名の理由】
+
+1. p-experience
+   → プロジェクト固有のセクション（p-プレフィックス）
+   → 意味が明確で、他のセクション（p-about, p-features）と統一
+
+2. p-experience__route
+   → ルート選択の共通クラス
+   → モディファイア（--habit, --result）で区別
+   → UI依存（tab）ではなく、ビジネスロジック（route）を反映
+
+3. p-experience__route--habit
+   → 習慣化ルートを明確に識別
+   → CSS: .p-experience__route--habit { ... }
+   → JS: document.querySelector('.p-experience__route--habit')
+
+4. p-experience__route--result
+   → 結果重視ルートを明確に識別
+   → 後から「成果ルート」に変更してもクラス名は維持可能
+
+5. p-experience__route-wrapper
+   → ルート選択全体をラップ
+   → レイアウト調整が容易
+
+6. p-experience__route-selector
+   → ボタン群のコンテナ
+   → タブUIとして機能するが、意味のある命名
+
+7. p-experience__route-btn
+   → ルート選択ボタン
+   → --habit, --result で区別
+   → is-active で状態管理
+
+【CSS/JSでの使い方】
+
+CSS例:
+.p-experience__route--habit { ... }
+.p-experience__route--result { ... }
+.p-experience__route.is-active { display: block; }
+.p-experience__route:not(.is-active) { display: none; }
+
+JS例:
+const habitRoute = document.querySelector('.p-experience__route--habit');
+const resultRoute = document.querySelector('.p-experience__route--result');
+const habitBtn = document.querySelector('.p-experience__route-btn--habit');
+habitBtn.addEventListener('click', () => {
+  habitRoute.classList.add('is-active');
+  resultRoute.classList.remove('is-active');
+});
+-->

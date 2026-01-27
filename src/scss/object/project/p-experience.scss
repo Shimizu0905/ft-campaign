@@ -1,0 +1,565 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+.p-experience {
+  background-color: $white;
+}
+
+.p-experience__inner {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+.p-experience__title {
+  margin: 0 0 40px;
+  text-align: center;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(40);
+  }
+}
+
+.p-experience__title-img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+
+  @media (width <= 375px) {
+    max-width: prem(300);
+  }
+}
+
+.p-experience__route-wrapper {
+  width: 100%;
+}
+
+.p-experience__route-selector {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 0;
+
+  @media (width <= 375px) {
+    gap: prem(10);
+  }
+}
+
+.p-experience__route-btn {
+  position: relative;
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 20px 20px 0 0;
+  font-size: 14px;
+  font-weight: $font-weight-b;
+  color: $white;
+  cursor: pointer;
+  transition: border-radius 0.3s ease, opacity 0.3s ease;
+
+  @media (width <= 375px) {
+    padding: prem(12) prem(16);
+    font-size: prem(14);
+  }
+}
+
+// 各タブに常に色を設定（非選択時も色を表示）
+.p-experience__route-btn--habit {
+  background-color: $light-green;
+}
+
+.p-experience__route-btn--result {
+  background-color: $main-green;
+}
+
+// 習慣化ルート選択時（明るい緑でタブと見出し帯を一体化）
+.p-experience.is-habit {
+  .p-experience__route-btn--habit {
+    z-index: 3;
+    border-radius: 20px 20px 0 0;
+    opacity: 1;
+  }
+
+  .p-experience__route-btn--result {
+    border-radius: 20px 20px 0 0;
+  }
+
+  // 習慣化ルートの見出し帯を明るい緑にして、タブと一体化
+  #experience-route-habit .p-experience__route-header {
+    margin-top: 0;
+    padding-top: 20px;
+    border-radius: 0;
+    background-color: $light-green;
+
+    @media (width <= 375px) {
+      padding-top: prem(20);
+    }
+  }
+}
+
+// 結果重視ルート選択時（濃い緑でタブと見出し帯を一体化）
+.p-experience.is-result {
+  .p-experience__route-btn--result {
+    z-index: 3;
+    opacity: 1;
+  }
+
+  .p-experience__route-btn--habit {
+    border-radius: 20px 20px 0 0;
+  }
+
+  // 結果重視ルートの見出し帯を濃い緑にして、タブと一体化
+  #experience-route-result .p-experience__route-header {
+    margin-top: 0;
+    padding-top: 20px;
+    background-color: $main-green;
+
+    @media (width <= 375px) {
+      padding-top: prem(20);
+    }
+  }
+}
+
+.p-experience__route-btn-label {
+  display: block;
+}
+
+.p-experience__route-content {
+  position: relative;
+  width: 100%;
+  margin-top: 0;
+}
+
+.p-experience__route {
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+}
+
+.p-experience__route-inner {
+  width: 100%;
+}
+
+// ルートヘッダー（緑バナー）
+// タブと一体化するため、margin-topは0、上側の角丸はなし
+.p-experience__route-header {
+  margin-top: 0;
+  padding: 20px 16px;
+  border-top: none;
+  border-radius: 0;
+  text-align: center;
+  background-color: $main-green;
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
+
+  @media (width <= 375px) {
+    padding: prem(20) prem(16);
+  }
+}
+
+.p-experience__route-title {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: $font-weight-m;
+  text-align: center;
+  color: $white;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(8);
+  }
+}
+
+.p-experience__route-subtitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  color: $white;
+
+  @media (width <= 375px) {
+    font-size: prem(14);
+  }
+}
+
+// サービスロゴ
+.p-experience__route-service {
+  padding: 30px 20px;
+  text-align: center;
+  background-color: $white;
+
+  @media (width <= 375px) {
+    padding: prem(30) prem(20);
+  }
+}
+
+.p-experience__route-service-logo {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+
+  @media (width <= 375px) {
+    max-width: prem(200);
+  }
+}
+
+// ルート説明
+.p-experience__route-description {
+  padding: 0 20px 20px;
+  text-align: center;
+  background-color: $white;
+
+  @media (width <= 375px) {
+    padding: 0 prem(20) prem(20);
+  }
+}
+
+.p-experience__route-text {
+  font-size: 18px;
+  font-weight: $font-weight-m;
+  line-height: 1.7;
+  color: $text-black;
+}
+
+.p-experience__route-text-02 {
+  font-size: 20px;
+  font-weight: $font-weight-b;
+  line-height: 1.6;
+  color: $light-green;
+}
+
+// 女性スタッフボタン
+.p-experience__route-btn-staff {
+  width: 100%;
+  max-width: 275px;
+  margin: 0 auto;
+  padding: 8px;
+  border: none;
+  border-radius: 17.5px;
+  font-size: 16px;
+  font-weight: $font-weight-m;
+  line-height: 1.2;
+  text-align: center;
+  color: $white;
+  background-color: $light-green;
+  transition: opacity 0.3s ease;
+}
+
+// トレサポトライアル（ライトグレー）
+.p-experience__route-trial {
+  padding: 34px;
+  background-color: #e8e6df;
+
+  @media (width <= 375px) {
+    padding: prem(34);
+  }
+}
+
+.p-experience__route-trial-title {
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid $main-green;
+  font-size: 22px;
+  font-weight: $font-weight-b;
+  text-align: center;
+  color: $main-green;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(16);
+    padding-bottom: prem(12);
+  }
+}
+
+.p-experience__route-trial-title span {
+  font-size: 32px;
+}
+
+.p-experience__route-trial-text {
+  margin: 0 0 20px;
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  line-height: 1.8;
+  text-align: center;
+  color: $text-black;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(20);
+    font-size: prem(14);
+  }
+}
+
+.p-experience__route-trial-text-02 {
+  width: 100%;
+  max-width: 313px;
+  margin: 0 auto 16px;
+  padding: 9px;
+  font-size: 16px;
+  font-weight: $font-weight-m;
+  line-height: 1.2;
+  text-align: center;
+  color: $main-green;
+  background-color: $white;
+}
+
+.p-experience__route-trial-note {
+  margin: 0;
+  font-size: 12px;
+  font-weight: $font-weight-r;
+  text-align: center;
+  color: $main-green;
+
+  @media (width <= 375px) {
+    font-size: prem(12);
+  }
+}
+
+// トレサポPLUS（明るい緑背景）
+.p-experience__route-plus {
+  padding: 40px 38px 0;
+  text-align: center;
+  background-color: $light-green;
+}
+
+.p-experience__route-plus-logo {
+  margin-bottom: 20px;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(20);
+  }
+}
+
+.p-experience__route-plus-logo-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.p-experience__route-plus-title {
+  margin: 0 0 16px;
+  font-size: 20px;
+  font-weight: $font-weight-b;
+  line-height: 1.6;
+  text-align: center;
+  color: $white;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(16);
+    font-size: prem(20);
+  }
+}
+
+.p-experience__route-plus-description {
+  margin-bottom: 24px;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(24);
+  }
+}
+
+.p-experience__route-plus-text {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: $font-weight-m;
+  line-height: 1.6;
+  text-align: center;
+  color: $white;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(8);
+    font-size: prem(15);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.p-experience__route-plus-price {
+  margin-bottom: 24px;
+  text-align: center;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(24);
+  }
+}
+
+.p-experience__route-plus-price-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.p-experience__route-plus-campaign {
+  margin-bottom: 24px;
+  padding: 20px 16px;
+  border-radius: 8px;
+  text-align: center;
+  background-color: $main-orange;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(24);
+    padding: prem(20) prem(16);
+    border-radius: prem(8);
+  }
+}
+
+.p-experience__route-plus-campaign-header {
+  margin-bottom: 16px;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(16);
+  }
+}
+
+.p-experience__route-plus-campaign-label {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: $font-weight-b;
+  color: $white;
+  background-color: $text-black;
+
+  @media (width <= 375px) {
+    padding: prem(4) prem(12);
+    border-radius: prem(20);
+    font-size: prem(12);
+  }
+}
+
+.p-experience__route-plus-campaign-content {
+  color: $white;
+}
+
+.p-experience__route-plus-campaign-text {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: $font-weight-b;
+  text-align: center;
+  color: $white;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(8);
+    font-size: prem(18);
+  }
+}
+
+.p-experience__route-plus-campaign-text-small {
+  margin: 0 0 16px;
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  text-align: center;
+  color: $white;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(16);
+    font-size: prem(14);
+  }
+}
+
+.p-experience__route-plus-campaign-offer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  @media (width <= 375px) {
+    gap: prem(16);
+  }
+}
+
+.p-experience__route-plus-campaign-offer-left,
+.p-experience__route-plus-campaign-offer-right {
+  flex: 1;
+  text-align: center;
+}
+
+.p-experience__route-plus-campaign-offer-period {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  color: $white;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(4);
+    font-size: prem(14);
+  }
+}
+
+.p-experience__route-plus-campaign-offer-price {
+  margin: 0;
+  font-size: 32px;
+  font-weight: $font-weight-b;
+  line-height: 1.2;
+  color: $white;
+
+  @media (width <= 375px) {
+    font-size: prem(32);
+  }
+}
+
+.p-experience__route-plus-campaign-offer-separator {
+  position: relative;
+  width: 1px;
+  height: 40px;
+  background-color: $white;
+
+  @media (width <= 375px) {
+    height: prem(40);
+  }
+}
+
+.p-experience__route-plus-campaign-offer-plus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: $font-weight-b;
+  line-height: 20px;
+  text-align: center;
+  color: $white;
+  background-color: $main-orange;
+  transform: translate(-50%, -50%);
+
+  @media (width <= 375px) {
+    width: prem(20);
+    height: prem(20);
+    font-size: prem(14);
+    line-height: prem(20);
+  }
+}
+
+.p-experience__route-plus-lead {
+  margin-top: 24px;
+  text-align: center;
+
+  @media (width <= 375px) {
+    margin-top: prem(24);
+  }
+}
+
+.p-experience__route-plus-lead-text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: $font-weight-r;
+  text-align: center;
+  color: $white;
+
+  @media (width <= 375px) {
+    font-size: prem(16);
+  }
+}

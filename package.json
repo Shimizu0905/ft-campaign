@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "WordPress theme with FLOCSS and Vite",
   "type": "module",
+  "volta": {
+    "node": "20.11.0",
+    "npm": "10.2.4"
+  },
   "scripts": {
     "dev": "vite --config .config/vite.config.js",
-    "copy-images": "rm -rf assets/images && mkdir -p assets/images && cp -r src/images/* assets/images/",
-    "build": "npm run lint:css:fix && npm run copy-images && vite build --config .config/vite.config.js",
+    "copy-images": "echo '画像は public/assets/images に直接配置してください'",
+    "build": "npm run lint:css:fix && vite build --config .config/vite.config.js",
     "minify:js": "node scripts/minify-js.js",
     "minify:css": "node scripts/minify-css.js",
     "preview": "vite preview --config .config/vite.config.js",

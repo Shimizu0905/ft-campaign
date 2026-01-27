@@ -1,0 +1,197 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// Gym locationsセクション
+.p-locations {
+  padding: 60px 20px;
+  background-color: #f5f0e8;
+
+  @media (width <= 375px) {
+    padding: prem(60) prem(20);
+  }
+}
+
+.p-locations__inner {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+// タイトル
+.p-locations__title {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0 0 40px;
+  font-family: $font-family-en;
+  text-align: center;
+
+  @media (width <= 375px) {
+    gap: prem(8);
+    margin-bottom: prem(40);
+  }
+}
+
+.p-locations__title-outline {
+  font-size: 32px;
+  font-weight: $font-weight-b;
+  line-height: 1.2;
+  color: transparent;
+  -webkit-text-stroke: 1.5px $main-green;
+
+  @media (width <= 375px) {
+    font-size: prem(32);
+  }
+}
+
+.p-locations__title-green {
+  font-size: 32px;
+  font-weight: $font-weight-b;
+  line-height: 1.2;
+  color: $main-green;
+
+  @media (width <= 375px) {
+    font-size: prem(32);
+  }
+}
+
+// コンテンツ
+.p-locations__content {
+  text-align: center;
+}
+
+.p-locations__text {
+  margin: 0;
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  line-height: 1.8;
+  color: $text-black;
+
+  @media (width <= 375px) {
+    font-size: prem(14);
+  }
+}
+
+.p-locations__text-large {
+  margin: 8px 0 0;
+  font-size: 24px;
+  font-weight: $font-weight-b;
+  line-height: 1.4;
+  color: $text-black;
+
+  @media (width <= 375px) {
+    margin-top: prem(8);
+    font-size: prem(24);
+  }
+}
+
+.p-locations__text-note {
+  margin: 4px 0 0;
+  font-size: 11px;
+  font-weight: $font-weight-r;
+  line-height: 1.6;
+  color: $text-black;
+  opacity: 0.7;
+
+  @media (width <= 375px) {
+    margin-top: prem(4);
+    font-size: prem(11);
+  }
+}
+
+// ボタンエリア
+.p-locations__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+
+  @media (width <= 375px) {
+    gap: prem(16);
+    margin-top: prem(32);
+  }
+}
+
+.p-locations__btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 280px;
+  padding: 16px 32px;
+  border: 2px solid $main-green;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: $font-weight-b;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  color: $main-green;
+  background-color: $white;
+  transition: opacity 0.3s ease;
+
+  @media (width <= 375px) {
+    gap: prem(12);
+    max-width: prem(280);
+    padding: prem(16) prem(32);
+    border-width: prem(2);
+    border-radius: prem(40);
+    font-size: prem(16);
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.p-locations__btn-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+
+  @media (width <= 375px) {
+    width: prem(24);
+    height: prem(24);
+  }
+
+  &::before {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid $main-green;
+    border-right: 2px solid $main-green;
+    transform: rotate(45deg);
+    content: "";
+
+    @media (width <= 375px) {
+      width: prem(8);
+      height: prem(8);
+      border-top-width: prem(2);
+      border-right-width: prem(2);
+    }
+  }
+}
+
+.p-locations__link {
+  font-size: 14px;
+  font-weight: $font-weight-m;
+  line-height: 1.4;
+  text-decoration: none;
+  color: $main-green;
+  transition: opacity 0.3s ease;
+
+  @media (width <= 375px) {
+    font-size: prem(14);
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

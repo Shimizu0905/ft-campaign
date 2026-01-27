@@ -1,0 +1,670 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// Support Crewセクション
+.p-crew {
+  padding: 60px 30px;
+  background-color: $light-green;
+
+  @media (width <= 375px) {
+    padding: prem(60) 0;
+  }
+}
+
+.p-crew__title {
+  text-align: center;
+
+  @media (width <= 375px) {
+    margin-top: prem(16);
+  }
+}
+
+.p-crew__title-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+
+  @media (width <= 375px) {
+    max-width: prem(300);
+  }
+}
+
+.p-crew__lead {
+  margin: 30px 0 0;
+  font-size: 18px;
+  font-weight: $font-weight-b;
+  text-align: center;
+  color: $white;
+
+  @media (width <= 375px) {
+    margin-top: prem(40);
+    font-size: prem(14);
+  }
+}
+
+// スライダー本体（Slick Carousel使用）
+.p-crew__slider {
+  position: relative;
+  width: 100%;
+  margin-top: 32px;
+
+  @media (width <= 375px) {
+    margin-top: prem(32);
+  }
+}
+
+// モーダルが開いている間は背景スライダーを触れなくする（誤操作防止）
+body.is-modal-open .p-crew__slider {
+  pointer-events: none;
+}
+
+// スライド（各スタッフカードのラッパー）
+.p-crew__slider .p-crew__slide {
+  padding: 0 10px;
+  opacity: 1 !important;
+  transform: scale(1) !important;
+
+  @media (width <= 375px) {
+    padding: 0 prem(10);
+  }
+}
+
+// 全てのカードを同じサイズに統一
+.p-crew__slider .p-crew__slide .p-crew__card {
+  min-height: 280px;
+
+  @media (width <= 375px) {
+    min-height: prem(280);
+  }
+
+  .p-crew__name {
+    margin-top: 16px;
+
+    @media (width <= 375px) {
+      margin-top: prem(16);
+    }
+  }
+}
+
+// 全てのスライドで矢印ボタンを表示
+.p-crew__slider .p-crew__slide .p-crew__open {
+  display: flex;
+}
+
+// スタッフカード
+.p-crew__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: $light-green;
+  transition: padding 0.3s ease, min-height 0.3s ease;
+
+  @media (width <= 375px) {
+    padding: prem(20) prem(16);
+    border-radius: prem(12);
+  }
+}
+
+// スタッフ写真（全て同じサイズ）
+.p-crew__photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 250 / 264;
+  object-fit: cover;
+
+  @media (width <= 375px) {
+    width: prem(120);
+    height: prem(120);
+    margin-top: prem(16);
+  }
+}
+
+// スタッフ名（画像とボタンを縦並びで中央揃え）
+.p-crew__name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  margin-top: 16px;
+
+  @media (width <= 375px) {
+    margin-top: prem(16);
+  }
+}
+
+.p-crew__name-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+// 各画像の個別高さ設定
+.p-crew__name-img--01 {
+  height: 16px;
+
+  @media (width <= 375px) {
+    height: prem(16);
+  }
+}
+
+.p-crew__name-img--02 {
+  height: 18px;
+
+  @media (width <= 375px) {
+    height: prem(18);
+  }
+}
+
+.p-crew__name-img--03 {
+  height: 18px;
+
+  @media (width <= 375px) {
+    height: prem(18);
+  }
+}
+
+.p-crew__name-img--04 {
+  height: 22px;
+
+  @media (width <= 375px) {
+    height: prem(22);
+  }
+}
+
+// 丸い矢印ボタン（画像の下に配置、中央揃え）
+.p-crew__open {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  margin-top: 12px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  @media (width <= 375px) {
+    width: prem(40);
+    height: prem(40);
+    margin-top: prem(12);
+  }
+
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+
+  &::after {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url('/assets/images/common/arrow-white.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: '';
+
+    @media (width <= 375px) {
+      width: prem(20);
+      height: prem(20);
+    }
+  }
+}
+
+// Slick arrows カスタマイズ（featuresと同じスタイル）
+.p-crew__slider .c-crew-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transform: translateY(-50%);
+
+  @media (width <= 375px) {
+    width: prem(36);
+    height: prem(36);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &::before {
+    display: none;
+  }
+}
+
+.p-crew__slider .c-crew-arrow--prev {
+  left: 10px;
+
+  @media (width <= 375px) {
+    left: prem(10);
+  }
+}
+
+.p-crew__slider .c-crew-arrow--prev img {
+  transform: scaleX(-1);
+}
+
+.p-crew__slider .c-crew-arrow--next {
+  right: 10px;
+
+  @media (width <= 375px) {
+    right: prem(10);
+  }
+}
+
+// Slick dots カスタマイズ（featuresと同じスタイル）
+// Slick dots カスタマイズ（voiceと同じデザイン）
+.p-crew__slider .slick-dots {
+  position: relative;
+  bottom: auto;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+  text-align: center;
+
+  @media (width <= 375px) {
+    gap: prem(12);
+    margin-top: prem(30);
+  }
+}
+
+.p-crew__slider .slick-dots li {
+  width: 9px;
+  height: 9px;
+  margin: 0;
+
+  @media (width <= 375px) {
+    width: prem(10);
+    height: prem(10);
+  }
+}
+
+.p-crew__slider .slick-dots li button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0.64px solid $white;
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 50%);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  @media (width <= 375px) {
+    width: prem(10);
+    height: prem(10);
+  }
+
+  &::before {
+    display: none;
+  }
+}
+
+.p-crew__slider .slick-dots li.slick-active button {
+  background-color: $white;
+}
+
+// モーダル
+.p-crew-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+// オーバーレイ
+.p-crew-modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 60%);
+  backdrop-filter: blur(4px);
+}
+
+// モーダルコンテンツ
+.p-crew-modal__content-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  margin: 0 auto;
+  padding: 40px 24px;
+  border-radius: 16px;
+  background-color: $white;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  transform: scale(0.9);
+
+  @media (width <= 375px) {
+    width: 95%;
+    padding: prem(40) prem(24);
+    border-radius: prem(16);
+  }
+
+  .p-crew-modal.is-open & {
+    transform: scale(1);
+  }
+}
+
+// 閉じるボタン
+.p-crew-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: rgb(0 0 0 / 10%);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  @media (width <= 375px) {
+    top: prem(16);
+    right: prem(16);
+    width: prem(32);
+    height: prem(32);
+  }
+
+  &:hover {
+    background-color: rgb(0 0 0 / 20%);
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    width: 2px;
+    height: 16px;
+    background-color: $text-black;
+    content: '';
+
+    @media (width <= 375px) {
+      height: prem(16);
+    }
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+// モーダル内ナビゲーション
+.p-crew-modal__nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+  background-color: rgb(255 255 255 / 90%);
+  cursor: pointer;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+  transform: translateY(-50%);
+
+  @media (width <= 375px) {
+    width: prem(40);
+    height: prem(40);
+  }
+
+  &:hover {
+    background-color: $white;
+    opacity: 0.8;
+  }
+}
+
+.p-crew-modal__nav--prev {
+  left: 10px;
+
+  @media (width <= 375px) {
+    left: prem(10);
+  }
+
+  .p-crew-modal__nav-icon {
+    transform: scaleX(-1);
+  }
+}
+
+.p-crew-modal__nav--next {
+  right: 10px;
+
+  @media (width <= 375px) {
+    right: prem(10);
+  }
+}
+
+.p-crew-modal__nav-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+
+  @media (width <= 375px) {
+    width: prem(24);
+    height: prem(24);
+  }
+}
+
+// モーダルコンテンツ
+.p-crew-modal__content {
+  width: 100%;
+}
+
+.p-crew-modal__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0;
+  text-align: center;
+
+  @media (width <= 375px) {
+    margin-top: 0;
+  }
+}
+
+.p-crew-modal__photo {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-top: 0;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+
+  @media (width <= 375px) {
+    max-width: 100%;
+  }
+}
+
+.p-crew-modal__info {
+  width: 100%;
+  margin-top: 16px;
+
+  @media (width <= 375px) {
+    margin-top: prem(16);
+  }
+}
+
+.p-crew-modal__name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: $font-weight-b;
+  line-height: 1.6;
+  color: $text-black;
+
+  @media (width <= 375px) {
+    font-size: prem(18);
+  }
+}
+
+.p-crew-modal__store {
+  font-weight: $font-weight-r;
+  color: $text-black;
+}
+
+.p-crew-modal__body {
+  width: 100%;
+}
+
+.p-crew-modal__catchphrase {
+  margin: 0;
+  margin-top: 24px;
+  font-size: 18px;
+  font-weight: $font-weight-b;
+  line-height: 1.8;
+  text-align: left;
+  color: $text-black;
+
+  @media (width <= 375px) {
+    margin-top: prem(24);
+    font-size: prem(18);
+  }
+}
+
+.p-crew-modal__catchphrase-highlight {
+  color: $main-green;
+}
+
+.p-crew-modal__description {
+  margin-top: 24px;
+
+  @media (width <= 375px) {
+    margin-top: prem(24);
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: $font-weight-r;
+    line-height: 1.8;
+    text-align: left;
+    color: $text-black;
+
+    @media (width <= 375px) {
+      font-size: prem(14);
+    }
+  }
+}
+
+.p-crew-modal__achievements {
+  margin-top: 24px;
+
+  @media (width <= 375px) {
+    margin-top: prem(24);
+  }
+}
+
+.p-crew-modal__achievements-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.p-crew-modal__achievement-item {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  line-height: 1.6;
+  color: $text-black;
+
+  @media (width <= 375px) {
+    margin-top: prem(12);
+    font-size: prem(14);
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.p-crew-modal__achievement-title {
+  position: relative;
+  padding-left: 20px;
+
+  @media (width <= 375px) {
+    padding-left: prem(20);
+  }
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background-color: $main-green;
+    transform: translateY(-50%);
+    content: '';
+
+    @media (width <= 375px) {
+      width: prem(12);
+      height: prem(12);
+    }
+  }
+}
+
+.p-crew-modal__achievement-detail {
+  display: block;
+  margin-top: 4px;
+  padding-left: 20px;
+  font-size: 14px;
+
+  @media (width <= 375px) {
+    margin-top: prem(4);
+    padding-left: prem(20);
+    font-size: prem(14);
+  }
+}
+
+// スクロールロック（モーダル表示時）
+body.is-modal-open {
+  overflow: hidden;
+}

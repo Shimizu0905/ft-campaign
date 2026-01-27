@@ -12,10 +12,10 @@
 .l-inner {
   max-width: $inner;
   margin: 0 auto;
-  padding: 0 prem(25);
+  padding: 0 40px;
 
-  @include mq("lg") {
-    padding: 0 prem(15);
+  @media (width <= 375px) {
+    padding: 0 prem(30);
   }
 }
 
@@ -31,23 +31,40 @@
 
 // CTAエリア
 .l-cta {
+  margin-top: 60px;
+
+  @media (width <= 375px) {
   margin-top: prem(60);
+  }
 
   @include mq("sm") {
+    margin-top: 40px;
+
+    @media (width <= 375px) {
     margin-top: prem(40);
+    }
   }
 }
 
 // サイドバー付きレイアウト
 .l-sidebar {
   display: flex;
-  gap: prem(40);
+  gap: 40px;
   max-width: $inner;
   margin: 0 auto;
+  padding: 0 20px;
+
+  @media (width <= 375px) {
+    gap: prem(40);
   padding: 0 prem(20);
+  }
 
   @include mq("md") {
+    padding: 0 58px;
+
+    @media (width <= 375px) {
     padding: 0 prem(58);
+    }
   }
 }
 
@@ -56,14 +73,22 @@
 }
 
 .l-sidebar__aside {
-  width: prem(300);
+  width: 300px;
   flex-shrink: 0;
+
+  @media (width <= 375px) {
+    width: prem(300);
+  }
 }
 
 @media screen and (width <= 767px) {
   .l-sidebar {
     flex-direction: column;
+    gap: 30px;
+
+    @media (width <= 375px) {
     gap: prem(30);
+    }
   }
 
   .l-sidebar__aside {
@@ -74,7 +99,11 @@
 // グリッドレイアウト
 .l-grid {
   display: grid;
+  gap: 20px;
+
+  @media (width <= 375px) {
   gap: prem(20);
+  }
 }
 
 .l-grid--2col {
@@ -128,6 +157,10 @@
   .l-flex--between,
   .l-flex--around {
     flex-direction: column;
+    gap: 20px;
+
+    @media (width <= 375px) {
     gap: prem(20);
+    }
   }
 }

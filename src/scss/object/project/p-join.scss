@@ -1,0 +1,331 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// How to Joinセクション
+.p-join {
+  padding: 60px 20px;
+  background-color: #f5f0e8;
+
+  @media (width <= 375px) {
+    padding: prem(60) prem(20);
+  }
+}
+
+.p-join__inner {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+// タイトル
+.p-join__title {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0 0 40px;
+  font-family: $font-family-en;
+  text-align: center;
+
+  @media (width <= 375px) {
+    gap: prem(8);
+    margin-bottom: prem(40);
+  }
+}
+
+.p-join__title-outline {
+  font-size: 32px;
+  font-weight: $font-weight-b;
+  line-height: 1.2;
+  color: transparent;
+  -webkit-text-stroke: 1.5px $main-green;
+
+  @media (width <= 375px) {
+    font-size: prem(32);
+  }
+}
+
+.p-join__title-green {
+  font-size: 32px;
+  font-weight: $font-weight-b;
+  line-height: 1.2;
+  color: $main-green;
+
+  @media (width <= 375px) {
+    font-size: prem(32);
+  }
+}
+
+// アコーディオン
+.p-join__accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (width <= 375px) {
+    gap: prem(16);
+  }
+}
+
+.p-join__item {
+  border-radius: 12px;
+  background-color: $white;
+  overflow: hidden;
+
+  @media (width <= 375px) {
+    border-radius: prem(12);
+  }
+}
+
+.p-join__item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+
+  @media (width <= 375px) {
+    padding: prem(20) prem(24);
+  }
+
+  &:hover {
+    background-color: rgb(0 0 0 / 2%);
+  }
+}
+
+.p-join__item-title {
+  font-size: 16px;
+  font-weight: $font-weight-b;
+  line-height: 1.4;
+  color: #333;
+
+  @media (width <= 375px) {
+    font-size: prem(16);
+  }
+}
+
+// 下向き矢印アイコン（緑丸）
+.p-join__item-icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: $main-green;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+
+  @media (width <= 375px) {
+    width: prem(32);
+    height: prem(32);
+  }
+
+  // 下向き矢印（閉じている時）
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid $white;
+    border-bottom: 2px solid $white;
+    transition: width 0.3s ease, height 0.3s ease, border 0.3s ease, transform 0.3s ease;
+    transform: translate(-50%, -30%) rotate(45deg);
+    content: "";
+
+    @media (width <= 375px) {
+      width: prem(10);
+      height: prem(10);
+    }
+  }
+
+  // 開いた状態：横線「ー」に変形
+  .p-join__item--open & {
+    &::after {
+      width: 14px;
+      height: 2px;
+      border-right: none;
+      border-bottom: 2px solid $white;
+      transform: translate(-50%, -50%) rotate(0deg);
+
+      @media (width <= 375px) {
+        width: prem(14);
+        height: prem(2);
+      }
+    }
+  }
+}
+
+// アコーディオンの本体
+.p-join__item-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+
+  .p-join__item--open & {
+    grid-template-rows: 1fr;
+  }
+}
+
+.p-join__item-content {
+  padding: 24px 20px;
+  background-color: $white;
+  overflow: hidden;
+
+  @media (width <= 375px) {
+    padding: prem(24) prem(20);
+  }
+}
+
+.p-join__item-divider {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  background-color: #E5E5E5;
+}
+
+.p-join__item-text {
+  margin: 0;
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  line-height: 1.8;
+  color: $text-black;
+
+  @media (width <= 375px) {
+    font-size: prem(14);
+  }
+}
+
+.p-join__item-text + .p-join__item-text {
+  margin-top: 8px;
+
+  @media (width <= 375px) {
+    margin-top: prem(8);
+  }
+}
+
+// ========================================
+// 料金表
+// ========================================
+.p-join__price-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  @media (width <= 375px) {
+    margin: 0;
+  }
+}
+
+.p-join__price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #E5E5E5;
+
+  @media (width <= 375px) {
+    padding: prem(16) 0;
+  }
+
+  // トレサポプラスオプション行（.p-join__item-dividerの後に来る行は上部に横線）
+  .p-join__item-divider + & {
+    margin-top: 0;
+    border-top: 1px solid #E5E5E5;
+  }
+}
+
+.p-join__price-store {
+  font-size: 13px;
+  font-weight: $font-weight-m;
+  line-height: 1.6;
+  color: #333;
+
+  @media (width <= 375px) {
+    font-size: prem(13);
+  }
+}
+
+.p-join__price-label {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 8px;
+  border: 1px solid $main-green;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: $font-weight-m;
+  line-height: 1.6;
+  color: $main-green;
+  vertical-align: middle;
+
+  @media (width <= 375px) {
+    margin-left: prem(6);
+    padding: prem(1) prem(8);
+    border-radius: prem(4);
+    font-size: prem(10);
+  }
+}
+
+.p-join__price-value {
+  font-family: $font-family-en;
+  font-size: 20px;
+  font-weight: $font-weight-b;
+  line-height: 1.2;
+  color: #2C5F2D;
+  flex-shrink: 0;
+
+  @media (width <= 375px) {
+    font-size: prem(20);
+  }
+}
+
+.p-join__price-unit {
+  font-size: 13px;
+  font-weight: $font-weight-m;
+  color: #2C5F2D;
+
+  @media (width <= 375px) {
+    font-size: prem(13);
+  }
+}
+
+.p-join__price-note {
+  margin: 24px 0;
+  padding: 24px 0;
+  border-top: 1px solid #E5E5E5;
+  border-bottom: 1px solid #E5E5E5;
+  font-size: 12px;
+  font-weight: $font-weight-r;
+  line-height: 1.8;
+  color: #333;
+
+  @media (width <= 375px) {
+    margin: prem(24) 0;
+    padding: prem(24) 0;
+    font-size: prem(12);
+  }
+}
+
+.p-join__price-footnote {
+  margin: 0;
+  margin-top: 16px;
+  font-size: 11px;
+  font-weight: $font-weight-r;
+  line-height: 1.6;
+  text-align: center;
+  color: #999;
+
+  @media (width <= 375px) {
+    margin-top: prem(16);
+    font-size: prem(11);
+  }
+}

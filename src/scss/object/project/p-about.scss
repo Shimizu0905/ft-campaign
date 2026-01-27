@@ -1,0 +1,94 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+.p-about {
+  background-color: $white;
+}
+
+.p-about__inner {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+.p-about__title {
+  margin: 0 0 30px;
+  text-align: center;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(30);
+  }
+}
+
+.p-about__title-img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+
+  @media (width <= 375px) {
+    max-width: prem(300);
+  }
+}
+
+.p-about__content {
+  margin-bottom: 40px;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(40);
+  }
+}
+
+.p-about__subtitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: $font-weight-b;
+  color: $main-green;
+
+  @media (width <= 375px) {
+    font-size: prem(20);
+  }
+}
+
+.p-about__subtitle-large {
+  margin: 8px 0 0;
+  font-size: 32px;
+  font-weight: $font-weight-b;
+  line-height: 1.2;
+  color: $main-green;
+
+  @media (width <= 375px) {
+    margin: prem(8) 0 0;
+    font-size: prem(32);
+  }
+}
+
+.p-about__text {
+  margin: 0;
+}
+
+.p-about__text p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  line-height: 1.8;
+  color: $text-black;
+
+  @media (width <= 375px) {
+    font-size: prem(14);
+  }
+}
+
+.p-about__img {
+  width: 100%;
+}
+
+.p-about__img img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 360/486;
+  object-fit: cover;
+}

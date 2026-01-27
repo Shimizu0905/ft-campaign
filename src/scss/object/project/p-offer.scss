@@ -1,0 +1,28 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+.p-offer {
+  background-color: $main-green;
+}
+
+.p-offer__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 40px;
+
+  @media (width <= 375px) {
+    padding: prem(40);
+  }
+}
+
+.p-offer__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}

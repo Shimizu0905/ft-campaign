@@ -1,0 +1,200 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+.p-features {
+  padding: 60px 20px;
+  background-color: $white;
+
+  @media (width <= 375px) {
+    padding: prem(60) prem(20);
+  }
+}
+
+.p-features__inner {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+.p-features__title {
+  margin: 0 0 40px;
+  text-align: center;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(40);
+  }
+}
+
+.p-features__title-img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+
+  @media (width <= 375px) {
+    max-width: prem(300);
+  }
+}
+
+.p-features__slider-area {
+  position: relative;
+  width: 100%;
+}
+
+.p-features__slider .p-features__item {
+  padding: 0 10px;
+
+  @media (width <= 375px) {
+    padding: 0 prem(10);
+  }
+}
+
+.p-features__slider .p-features__item-image {
+  width: 100%;
+  margin-bottom: 20px;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(20);
+  }
+}
+
+.p-features__slider .p-features__item-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 310/295;
+}
+
+.p-features__slider .p-features__item-title {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: $font-weight-b;
+  color: $main-green;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(12);
+    font-size: prem(20);
+  }
+}
+
+.p-features__slider .p-features__item-text {
+  margin: 0;
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  line-height: 1.8;
+  color: $text-black;
+
+  @media (width <= 375px) {
+    font-size: prem(14);
+  }
+}
+
+.c-features-title-img {
+  width: auto;
+  height: 18px;
+  object-fit: contain;
+}
+
+// Slick dots カスタマイズ（voiceと同じデザイン）
+.p-features__slider .slick-dots {
+  position: relative;
+  bottom: auto;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+  text-align: center;
+
+  @media (width <= 375px) {
+    gap: prem(12);
+    margin-top: prem(30);
+  }
+}
+
+.p-features__slider .slick-dots li {
+  width: 9px;
+  height: 9px;
+  margin: 0;
+
+  @media (width <= 375px) {
+    width: prem(10);
+    height: prem(10);
+  }
+}
+
+.p-features__slider .slick-dots li button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0.64px solid $white;
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 50%);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  @media (width <= 375px) {
+    width: prem(10);
+    height: prem(10);
+  }
+
+  &::before {
+    display: none;
+  }
+}
+
+.p-features__slider .slick-dots li.slick-active button {
+  background-color: $white;
+}
+
+// Slick arrows カスタマイズ
+.p-features__slider .c-features-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transform: translateY(-50%);
+
+  @media (width <= 375px) {
+    width: prem(36);
+    height: prem(36);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &::before {
+    display: none;
+  }
+}
+
+.p-features__slider .c-features-arrow--prev {
+  left: 10px;
+
+  @media (width <= 375px) {
+    left: prem(10);
+  }
+}
+
+.p-features__slider .c-features-arrow--prev img {
+  transform: scaleX(-1);
+}
+
+.p-features__slider .c-features-arrow--next {
+  right: 10px;
+
+  @media (width <= 375px) {
+    right: prem(10);
+  }
+}

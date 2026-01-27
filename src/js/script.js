@@ -1,4 +1,5 @@
 import '../scss/style.scss';
+
 jQuery(function ($) { // $はjQueryを表す
 // この中にコードを書く
 
@@ -21,81 +22,109 @@ jQuery(function ($) {
     // ハンバーガーメニューのクリックイベント
     $(".js-hamburger").on('click', function () {
       $(".js-hamburger").toggleClass("is-active");
-      $(".js-overlay").toggleClass("is-active");
       $(".js-drawer").toggleClass("is-active");
       $(".js-header").toggleClass("is-active");
       $("body").toggleClass("no-scroll");
     });
 
     // オーバーレイのクリックイベント（メニューを閉じる）
-    $(".js-overlay").on('click', function () {
+    $(".js-drawer-overlay").on('click', function () {
       $(".js-hamburger").removeClass("is-active");
-      $(".js-overlay").removeClass("is-active");
       $(".js-drawer").removeClass("is-active");
       $(".js-header").removeClass("is-active");
       $("body").removeClass("no-scroll");
     });
 
     // ドロワーメニュー内のリンククリック時（メニューを閉じる）
-    $(".js-drawer .drawer__nav-item a").on('click', function () {
+    $(".c-drawer__item a").on('click', function () {
       $(".js-hamburger").removeClass("is-active");
-      $(".js-overlay").removeClass("is-active");
       $(".js-drawer").removeClass("is-active");
       $(".js-header").removeClass("is-active");
       $("body").removeClass("no-scroll");
     });
-  });
 
+    // ヘッダースクロール処理
+    $(window).on('scroll', function() {
+      if ($(window).scrollTop() > 50) {
+        $(".c-header").addClass("is-scrolled");
+      } else {
+        $(".c-header").removeClass("is-scrolled");
+      }
+    });
+  });
 
   //リサイズ
   $(window).on('resize', function () {
     if (window.matchMedia("(min-width: 768px)").matches) {
       $(".js-hamburger").removeClass("is-active");
-      $(".js-drawer").fadeOut().removeClass("is-active");
+      $(".js-drawer").removeClass("is-active");
+      $("body").removeClass("no-scroll");
+    }
+  });
+
+  // Features スライダー初期化
+  $(document).ready(function() {
+    if ($(".p-features__slider").length) {
+      $(".p-features__slider").slick({
+        centerMode: true,
+        centerPadding: '5%',
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 10000,
+        speed: 1000,
+        infinite: true,
+        arrows: true,
+        prevArrow: '<button type="button" class="slick-prev c-features-arrow c-features-arrow--prev"><img src="/assets/images/common/arrow-white.svg" alt="前へ"></button>',
+        nextArrow: '<button type="button" class="slick-next c-features-arrow c-features-arrow--next"><img src="/assets/images/common/arrow-white.svg" alt="次へ"></button>',
+      });
+      $(".p-features__slider").on("afterChange", function(event, slick, currentSlide, nextSlide) {
+        switch (currentSlide){
+          case 0:
+            // 1枚目のスライド
+            $(this).slick("slickSetOption", "autoplaySpeed", 10000);
+            break;
+          default:
+            // その他のスライド
+            $(this).slick("slickSetOption", "autoplaySpeed", 3500);
+            break;
+        }
+      });
+    }
+  });
+
+  // Experience ルート切り替え
+  // タブと下のルート見出しが一体化して見えるUI実装
+  $(function() {
+    const $experience = $('.p-experience');
+    
+    // タブクリック時の処理
+    $('.p-experience__route-btn').on('click', function() {
+      const $btn = $(this);
+      const route = $btn.data('route'); // 'habit' または 'result'
+      
+      // 1. 親要素に状態クラスを付与（タブと見出し帯の色を連動させるため）
+      $experience.removeClass('is-habit is-result');
+      $experience.addClass('is-' + route);
+      
+      // 2. ボタンの状態を更新
+      $('.p-experience__route-btn').removeClass('is-active').attr('aria-selected', 'false');
+      $btn.addClass('is-active').attr('aria-selected', 'true');
+      
+      // 3. ルートコンテンツの表示/非表示
+      $('.p-experience__route').removeClass('is-active');
+      $('.p-experience__route--' + route).addClass('is-active');
+    });
+    
+    // 初期状態を設定（習慣化ルートがデフォルト）
+    const $activeRoute = $experience.find('.p-experience__route.is-active');
+    if ($activeRoute.hasClass('p-experience__route--habit')) {
+      $experience.addClass('is-habit');
+    } else if ($activeRoute.hasClass('p-experience__route--result')) {
+      $experience.addClass('is-result');
     }
   });
 });
 let lastScrollTop = 0;
-
-jQuery(function ($) {
-  const mv_swiper = new Swiper(".js-mv-swiper", {
-    loop: true,
-    speed: 2000,
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true,
-    },
-    autoplay: {
-      delay: 4000,
-      disableOnInteraction: false,
-    },
-  });
-});
-
-//fadeUP
-$(window).on('scroll', function () {
-  $('.js-fadeUP').each(function () {
-    var elemPos = $(this).offset().top;
-    var scroll = $(window).scrollTop();
-    var windowHeight = $(window).height();
-    if (scroll > elemPos - windowHeight + 100) {
-      $(this).addClass('is-show');
-    }
-  });
-});
-
-$(document).ready(function() {
-  $(window).scroll(function() {
-    $(".underline-expand").each(function() {
-      var position = $(this).offset().top;
-      var scroll = $(window).scrollTop();
-      var windowHeight = $(window).height();
-      if (scroll > position - windowHeight) {
-        $(this).addClass('is-active');
-      }
-    });
-  });
-});
 
 // FAQアコーディオンの初期化
 function initFAQ() {
@@ -140,74 +169,6 @@ function initFAQ() {
 // DOMContentLoaded時にFAQを初期化
 document.addEventListener('DOMContentLoaded', function() {
   initFAQ();
-});
-
-// 募集要項タブ切り替え機能
-function initRecruitTabs() {
-  const tabs = document.querySelectorAll('.p-recruit__tab');
-  const panels = document.querySelectorAll('.p-recruit__content-panel');
-  const content = document.querySelector('.p-recruit__content');
-
-  // 両方のパネルの高さを計算して、より高い方の高さを設定
-  // これにより、一番多い文字数に合わせてコンテンツエリアが広がります
-  function setContentMinHeight() {
-    if (!content) return;
-    
-    // 画面幅を取得（mdブレークポイント: 767px以下）
-    const isMobile = window.innerWidth <= 767;
-    
-    let maxHeight = 0;
-    panels.forEach(panel => {
-      // 一時的に表示して高さを測定
-      const originalDisplay = panel.style.display;
-      panel.style.display = 'block';
-      const height = panel.offsetHeight;
-      panel.style.display = originalDisplay || '';
-      
-      if (height > maxHeight) {
-        maxHeight = height;
-      }
-    });
-    
-    if (maxHeight > 0) {
-      // スマホサイズの時は、測定した高さに少し余分な値を加える（約100px）
-      const minHeight = isMobile ? maxHeight + 50 : maxHeight;
-      content.style.minHeight = minHeight + 'px';
-    }
-  }
-
-  // 初期化時に高さを設定
-  setContentMinHeight();
-  
-  // リサイズ時にも高さを再計算
-  window.addEventListener('resize', setContentMinHeight);
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const targetTab = tab.getAttribute('data-tab');
-
-      // すべてのタブからアクティブクラスを削除
-      tabs.forEach(t => t.classList.remove('p-recruit__tab--active'));
-      // クリックされたタブにアクティブクラスを追加
-      tab.classList.add('p-recruit__tab--active');
-
-      // すべてのパネルを非表示
-      panels.forEach(panel => {
-        panel.classList.remove('p-recruit__content-panel--active');
-      });
-      // 対応するパネルを表示
-      const targetPanel = document.querySelector(`[data-content="${targetTab}"]`);
-      if (targetPanel) {
-        targetPanel.classList.add('p-recruit__content-panel--active');
-      }
-    });
-  });
-}
-
-// DOMContentLoaded時にタブ機能を初期化
-document.addEventListener('DOMContentLoaded', function() {
-  initRecruitTabs();
-  initPrivacyModal();
 });
 
 // プライバシーポリシーモーダル機能
@@ -288,3 +249,148 @@ function initPrivacyModal() {
     }
   });
 }
+
+// お客様の声スライダー（バニラJS実装）
+function initVoiceSlider() {
+  const track = document.getElementById('voice-track');
+  const prevBtn = document.getElementById('voice-prev');
+  const nextBtn = document.getElementById('voice-next');
+  const dots = document.querySelectorAll('.p-voice__dot');
+  const slides = document.querySelectorAll('.p-voice__slide');
+  
+  if (!track || !prevBtn || !nextBtn || slides.length === 0) return;
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  let slideWidth = 0;
+  let startX = 0;
+  let currentX = 0;
+  let isDragging = false;
+
+  // スライド幅を計算（リサイズ時にも再計算）
+  function calculateSlideWidth() {
+    const slider = track.closest('.p-voice__slider');
+    if (!slider) return;
+    slideWidth = slider.offsetWidth;
+    updateTrackPosition();
+  }
+
+  // トラックの位置を更新
+  function updateTrackPosition() {
+    const offset = -currentIndex * slideWidth;
+    track.style.transform = `translateX(${offset}px)`;
+    
+    // スライドのaria-current属性を更新
+    slides.forEach((slide, index) => {
+      if (index === currentIndex) {
+        slide.setAttribute('aria-current', 'true');
+      } else {
+        slide.removeAttribute('aria-current');
+      }
+    });
+    
+    // ドットの状態を更新
+    dots.forEach((dot, index) => {
+      if (index === currentIndex) {
+        dot.classList.add('is-active');
+        dot.setAttribute('aria-selected', 'true');
+      } else {
+        dot.classList.remove('is-active');
+        dot.setAttribute('aria-selected', 'false');
+      }
+    });
+    
+    // ループするためボタンは常に有効
+    prevBtn.disabled = false;
+    nextBtn.disabled = false;
+  }
+
+  // 前のスライドへ（ループ対応）
+  function goToPrev() {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = totalSlides - 1; // 最初から最後へループ
+    }
+    updateTrackPosition();
+  }
+
+  // 次のスライドへ（ループ対応）
+  function goToNext() {
+    if (currentIndex < totalSlides - 1) {
+      currentIndex++;
+    } else {
+      currentIndex = 0; // 最後から最初へループ
+    }
+    updateTrackPosition();
+  }
+
+  // 指定したスライドへ移動
+  function goToSlide(index) {
+    if (index >= 0 && index < totalSlides) {
+      currentIndex = index;
+      updateTrackPosition();
+    }
+  }
+
+  // スワイプ処理
+  function handleTouchStart(e) {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+    track.style.transition = 'none';
+  }
+
+  function handleTouchMove(e) {
+    if (!isDragging) return;
+    currentX = e.touches[0].clientX;
+    const diffX = currentX - startX;
+    const offset = -currentIndex * slideWidth + diffX;
+    track.style.transform = `translateX(${offset}px)`;
+  }
+
+  function handleTouchEnd(e) {
+    if (!isDragging) return;
+    isDragging = false;
+    track.style.transition = 'transform 0.3s ease';
+    
+    const diffX = currentX - startX;
+    const threshold = slideWidth * 0.3; // 30%以上スワイプしたら移動
+    
+    if (Math.abs(diffX) > threshold) {
+      if (diffX > 0) {
+        goToPrev(); // 右にスワイプ = 前へ（ループ対応）
+      } else {
+        goToNext(); // 左にスワイプ = 次へ（ループ対応）
+      }
+    } else {
+      updateTrackPosition(); // 元の位置に戻す
+    }
+  }
+
+  // イベントリスナーを設定
+  prevBtn.addEventListener('click', goToPrev);
+  nextBtn.addEventListener('click', goToNext);
+  
+  // ドットクリック
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => goToSlide(index));
+  });
+  
+  // スワイプイベント
+  track.addEventListener('touchstart', handleTouchStart, { passive: true });
+  track.addEventListener('touchmove', handleTouchMove, { passive: true });
+  track.addEventListener('touchend', handleTouchEnd, { passive: true });
+  
+  // リサイズ時に再計算
+  window.addEventListener('resize', () => {
+    calculateSlideWidth();
+  });
+  
+  // 初期化
+  calculateSlideWidth();
+}
+
+// DOMContentLoaded時にスライダーを初期化
+document.addEventListener('DOMContentLoaded', function() {
+  initVoiceSlider();
+});

@@ -1,0 +1,282 @@
+@use '../../foundation' as *;
+
+// ========================================
+// ドロワーメニュー
+// ========================================
+.c-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9000;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+
+  &.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+// オーバーレイ（ぼかし背景）
+.c-drawer__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/fv/fv-overlay.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  // WebP対応
+  @supports (background-image: url('/assets/images/fv/fv-overlay.webp')) {
+    background-image: url('/assets/images/fv/fv-overlay.webp');
+  }
+
+  // 明るくぼかす効果
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(255 255 255 / 60%);
+    backdrop-filter: blur(30px);
+    content: '';
+  }
+}
+
+// メニューコンテンツ
+.c-drawer__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 430px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 102px 20px 40px;
+  background: rgb(255 255 255 / 45%);
+  overflow-y: auto;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(-100%);
+  backdrop-filter: blur(10px);
+
+  @media (width <= 375px) {
+    padding: 102px prem(20) prem(40);
+  }
+
+  .c-drawer.is-active & {
+    transform: translateY(0);
+  }
+}
+
+// メニューリスト
+.c-drawer__menu {
+  width: 100%;
+  list-style: none;
+}
+
+.c-drawer__item {
+  margin: 0;
+  padding: 0;
+}
+
+.c-drawer__item a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: $main-green;
+  transition: all 0.3s ease;
+
+  @media (width <= 375px) {
+    padding: prem(10);
+  }
+}
+
+.c-drawer__item a:hover {
+  color: #07913A;
+  background: rgb(0 70 57 / 5%);
+}
+
+.c-drawer__item-img {
+  width: auto;
+  max-width: 220px; 
+  height: auto;
+  object-fit: contain;
+
+  @media (width <= 375px) {
+    max-width: prem(220);
+  }
+}
+
+// 各メニュー項目の画像サイズを個別に指定
+.c-drawer__item:nth-child(1) .c-drawer__item-img {
+  height: 21.82px;
+}
+
+.c-drawer__item:nth-child(2) .c-drawer__item-img {
+  height: 18px;
+}
+
+.c-drawer__item:nth-child(3) .c-drawer__item-img {
+  height: 23.26px;
+}
+
+.c-drawer__item:nth-child(4) .c-drawer__item-img {
+  height: 46px;
+}
+
+.c-drawer__item:nth-child(5) .c-drawer__item-img {
+  height: 22.99px;
+}
+
+.c-drawer__item:nth-child(6) .c-drawer__item-img {
+  height: 21.51px;
+}
+
+.c-drawer__item:nth-child(7) .c-drawer__item-img {
+  height: 22.99px;
+}
+
+// ソーシャルアイコン
+.c-drawer__social {
+  display: flex;
+  gap: 4px;
+  margin-top: 30px;
+
+  @media (width <= 375px) {
+    gap: prem(4);
+    margin-top: prem(30);
+  }
+}
+
+.c-drawer__social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  text-decoration: none;
+  color: $main-green;
+  transition: all 0.3s ease;
+
+  @media (width <= 375px) {
+    width: prem(48);
+    height: prem(48);
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.c-drawer__social-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+// CTAボタン
+.c-drawer__cta {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 280px;
+  margin-top: 54px;
+  padding: 16px 32px;
+  border: 1px solid $main-green;
+  border-radius: 50px;
+  background: transparent;
+  transition: all 0.3s ease;
+
+  @media (width <= 375px) {
+    min-width: prem(280);
+    margin-top: prem(54);
+    padding: prem(16) prem(32);
+    border-radius: prem(50);
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 18px;
+    font-weight: $font-weight-b;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: $main-green;
+    transition: color 0.3s ease;
+
+    @media (width <= 375px) {
+      font-size: prem(18);
+    }
+
+    &::after {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      margin-left: 12px;
+      background-image: url('/assets/images/common/green-arrow.svg');
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transition: background-image 0.3s ease;
+      content: '';
+
+      @media (width <= 375px) {
+        margin-left: prem(12);
+      }
+    }
+  }
+
+  &:hover {
+    background: $main-green;
+
+    a {
+      color: #fff;
+
+      &::after {
+        background-image: url('/assets/images/common/white-arrow.svg');
+      }
+    }
+  }
+}
+
+// レスポンシブ
+@include mq("md") {
+  .c-drawer__item a {
+    padding: 11px 10px;
+
+    @media (width <= 375px) {
+      padding: prem(11) prem(10);
+    }
+  }
+
+  .c-drawer__cta {
+    min-width: 240px;
+
+    @media (width <= 375px) {
+      min-width: prem(240);
+    }
+  }
+
+  .c-drawer__cta a {
+    font-size: 16px;
+
+    @media (width <= 375px) {
+      font-size: prem(16);
+    }
+  }
+}

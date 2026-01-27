@@ -1,0 +1,117 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// 固定CTAボタン
+.p-cta-fixed {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  z-index: 9998;
+  width: calc(100% - 40px);
+  max-width: 390px;
+  transform: translateX(-50%);
+
+  @media (width <= 375px) {
+    bottom: prem(24);
+    width: calc(100% - prem(40));
+  }
+
+  @include mq("md") {
+    bottom: 16px;
+    width: calc(100% - 32px);
+    max-width: 400px;
+
+    @media (width <= 375px) {
+      bottom: prem(16);
+      width: calc(100% - prem(32));
+    }
+  }
+}
+
+.p-cta-fixed__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 24px;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 20%);
+  text-decoration: none;
+  background-color: $main-orange;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+
+  @media (width <= 375px) {
+    padding: prem(20) prem(24);
+    border-radius: prem(40);
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.p-cta-fixed__text {
+  font-size: 18px;
+  font-weight: $font-weight-b;
+  line-height: 1.4;
+  color: $white;
+
+  @media (width <= 375px) {
+    font-size: prem(18);
+  }
+}
+
+.p-cta-fixed__text-en {
+  font-family: $font-family-en;
+  font-size: 20px;
+  font-weight: $font-weight-b;
+  color: $white;
+
+  @media (width <= 375px) {
+    font-size: prem(20);
+  }
+}
+
+.p-cta-fixed__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  margin-left: 16px;
+  border-radius: 50%;
+  background-color: $white;
+  flex-shrink: 0;
+
+  @media (width <= 375px) {
+    width: prem(32);
+    height: prem(32);
+    margin-left: prem(16);
+  }
+
+  &::before {
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin-left: -2px;
+    border-top: 2.5px solid $main-orange;
+    border-right: 2.5px solid $main-orange;
+    transform: rotate(45deg);
+    content: "";
+
+    @media (width <= 375px) {
+      width: prem(8);
+      height: prem(8);
+      margin-left: prem(-2);
+      border-top-width: prem(2.5);
+      border-right-width: prem(2.5);
+    }
+  }
+}

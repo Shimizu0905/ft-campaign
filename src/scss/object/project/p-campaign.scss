@@ -1,0 +1,45 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+.p-campaign {
+  position: relative;
+  min-height: 651px;
+  padding: 0;
+  background-color: $main-green;
+  background-image: url('/assets/images/campaign/campaign-bg.jpg');
+  background-image: image-set(
+    url('/assets/images/campaign/campaign-bg.webp') type('image/webp'),
+    url('/assets/images/campaign/campaign-bg.jpg') type('image/jpeg')
+  );
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @media (width <= 375px) {
+    min-height: prem(651);
+  }
+}
+
+.p-campaign__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 651px;
+
+  @media (width <= 375px) {
+    min-height: prem(651);
+  }
+}
+
+.p-campaign__copy {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.p-campaign__copy img {
+  position: absolute;
+  bottom: 0;
+}

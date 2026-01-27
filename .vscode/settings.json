@@ -1,31 +1,34 @@
 {
-  "editor.formatOnSave": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.stylelint": "explicit"
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "vscode.html-language-features",
+  "[html]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
   },
   "[scss]": {
-    "editor.defaultFormatter": "stylelint.vscode-stylelint",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
   },
   "[css]": {
-    "editor.defaultFormatter": "stylelint.vscode-stylelint",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
   },
-  "stylelint.validate": [
-    "css",
-    "scss"
-  ],
-  "stylelint.configFile": ".config/.stylelintrc.json",
-  "stylelint.enable": true,
-  "stylelint.snippet": [
-    "css",
-    "scss"
-  ],
-  "editor.suggest.snippetsPreventQuickSuggestions": true,
-  "editor.acceptSuggestionOnCommitCharacter": false,
-  "editor.quickSuggestions": {
-    "other": false,
-    "comments": false,
-    "strings": false
-  }
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "html.format.indentInnerHtml": true,
+  "html.format.wrapAttributes": "auto",
+  "html.format.wrapLineLength": 120,
+  "html.format.indentHandlebars": true,
+  "html.format.endWithNewline": false,
+  "html.format.extraLiners": ""
 }

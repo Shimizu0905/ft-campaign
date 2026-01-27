@@ -8,8 +8,12 @@
   z-index: 9999;
   display: none;
   width: 100%;
-  height: prem(58);
+  height: 58px;
   box-shadow: 0 -2px 10px rgb(0 0 0 / 10%);
+
+  @media (width <= 375px) {
+    height: prem(58);
+  }
 
   @include mq("md") {
     display: flex;
@@ -28,13 +32,6 @@
   cursor: pointer;
   transition: opacity 0.3s ease;
 
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &:active {
-    opacity: 0.6;
-  }
 }
 
 // 電話ボタン
@@ -57,25 +54,45 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: prem(8);
+  gap: 8px;
   width: 100%;
   height: 100%;
+  padding: 8px 4px;
+
+  @media (width <= 375px) {
+    gap: prem(8);
   padding: prem(8) prem(4);
+  }
 
   @include mq("md") {
+    gap: 6px;
+    padding: 6px 2px;
+
+    @media (width <= 375px) {
     gap: prem(6);
     padding: prem(6) prem(2);
+    }
   }
 }
 
 // 電話ボタンは横並び
 .p-sticky-footer__btn--tel .p-sticky-footer__content {
+  gap: 6px;
+  padding: 8px 8px 8px 4px;
+
+  @media (width <= 375px) {
   gap: prem(6);
   padding: prem(8) prem(8) prem(8) prem(4);
+  }
 
   @include mq("md") {
+    gap: 4px;
+    padding: 6px 6px 6px 2px;
+
+    @media (width <= 375px) {
     gap: prem(4);
     padding: prem(6) prem(6) prem(6) prem(2);
+    }
   }
 }
 
@@ -83,41 +100,73 @@
 .p-sticky-footer__btn--line .p-sticky-footer__content,
 .p-sticky-footer__btn--form .p-sticky-footer__content {
   flex-direction: column;
+  gap: 4px;
+
+  @media (width <= 375px) {
   gap: prem(4);
+  }
 
   @include mq("md") {
+    gap: 2px;
+
+    @media (width <= 375px) {
     gap: prem(2);
+    }
   }
 }
 
 .p-sticky-footer__icon {
-  width: prem(24);
-  height: prem(24);
+  width: 24px;
+  height: 24px;
   object-fit: contain;
 
+  @media (width <= 375px) {
+    width: prem(24);
+    height: prem(24);
+  }
+
   @include mq("md") {
+    width: 20px;
+    height: 20px;
+
+    @media (width <= 375px) {
     width: prem(20);
     height: prem(20);
+    }
   }
 }
 
 // 電話ボタンのアイコン
 .p-sticky-footer__btn--tel .p-sticky-footer__icon {
   width: 29vw;
-  height: prem(20);
+  height: 20px;
   flex-shrink: 0;
+
+  @media (width <= 375px) {
+    height: prem(20);
+  }
 }
 
 // LINEボタンのアイコン
 .p-sticky-footer__btn--line .p-sticky-footer__icon {
+  width: 19px;
+  height: 19px;
+
+  @media (width <= 375px) {
   width: prem(19);
   height: prem(19);
+  }
 }
 
 // フォームボタンのアイコン
 .p-sticky-footer__btn--form .p-sticky-footer__icon {
+  width: 14px;
+  height: 14px;
+
+  @media (width <= 375px) {
   width: prem(14);
   height: prem(14);
+  }
 }
 
 .p-sticky-footer__text {
@@ -125,7 +174,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  gap: 2px;
+
+  @media (width <= 375px) {
   gap: prem(2);
+  }
 }
 
 // 電話ボタンのテキストは左揃え
@@ -134,20 +187,32 @@
 }
 
 .p-sticky-footer__tel-number {
-  font-size: prem(16);
+  font-size: 16px;
   font-weight: $bold;
   line-height: 1.2;
-  color: $color-white;
+  color: $white;
+
+  @media (width <= 375px) {
+    font-size: prem(16);
+  }
 
   @include mq("md") {
+    font-size: 14px;
+
+    @media (width <= 375px) {
     font-size: prem(14);
+    }
   }
 }
 
 .p-sticky-footer__label {
-  font-size: prem(14);
+  font-size: 14px;
   font-weight: $bold;
   line-height: 1.2;
   text-align: center;
-  color: $color-white;
+  color: $white;
+
+  @media (width <= 375px) {
+    font-size: prem(14);
+  }
 }

@@ -1,0 +1,1 @@
+function s(){const n=document.getElementById("scroll-indicator");if(!n)return;const o=100;function e(){(window.scrollY||window.pageYOffset)>=o?n.classList.add("is-hidden"):n.classList.remove("is-hidden")}window.addEventListener("scroll",e,{passive:!0}),e()}document.addEventListener("DOMContentLoaded",s);

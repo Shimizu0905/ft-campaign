@@ -3,9 +3,7 @@
 // ========================================
 // ブレイクポイント設定
 // ========================================
-// ＊＊＊＊＊SP・PCファーストについて、この設定を変更します＊＊＊＊＊
-$break-flg: 1 !default; // 0:SPファースト、1:PCファースト
-
+$break-flg: 1 !default;
 $breakpoints: null;
 
 @if $break-flg == 0 {
@@ -43,10 +41,22 @@ $padding-sp: 20px;
 // ========================================
 // フォント設定
 // ========================================
-$font-family-base: 'Noto Sans JP', sans-serif;
+// Adobe Fonts
+$font-family-ja: "ryo-gothic-plusn", "Hiragino Sans", "Meiryo", sans-serif;
+$font-family-en: "futura-pt", "Century Gothic", arial, sans-serif;
+$font-family-base: $font-family-ja;
 $base-font-size: 16px;
 
-// フォントウェイト
+// フォントウェイト (Adobe Fonts準拠)
+$font-weight-el: 200; // Extra Light
+$font-weight-l: 300; // Light
+$font-weight-r: 400; // Regular
+$font-weight-m: 500; // Medium
+$font-weight-b: 700; // Bold
+$font-weight-h: 800; // Heavy
+$font-weight-uh: 900; // Ultra Heavy
+
+// 従来のウェイト変数（互換性のため残す）
 $regular: 400;
 $medium: 500;
 $semi-bold: 600;
@@ -57,21 +67,16 @@ $extra-bold: 800;
 // カラー設定
 // ========================================
 // ベースカラー
-$color-black: #212529;
-$color-white: #fff;
-$color-red: #dc3545;
+$black: #212529;
+$white: #fff;
+
 
 // テキストカラー
 $text-black: #212529;
-$text-brown: #52291A;
 
 // メインカラー
-$main-green: #07913A;
+$main-green: #004639;
+$main-orange: #EE780C;
 
-// 背景カラー
-$bg-beige: #FCF9F3;
-$bg-light-green: #DBEBE1;
-$bg-green: #07913A;
-
-// アクセントカラー
-$title-orange: #FF6B35;
+// 明るい緑
+$light-green: #428d65;

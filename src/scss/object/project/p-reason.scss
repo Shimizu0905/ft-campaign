@@ -1,0 +1,105 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// がんばらなくても ちゃんと続く理由セクション
+.p-reason {
+  background-color: $light-green;
+}
+
+.p-reason__inner {
+  padding: 0 30px;
+}
+
+.p-reason-title {
+  max-width: 242px;
+  margin: 0 auto;
+}
+
+// 理由カード
+.p-reason__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+  padding: 0;
+  list-style: none;
+
+  @media (width <= 375px) {
+    gap: prem(16);
+  }
+}
+
+.p-reason__card {
+  display: flex;
+  align-items: flex-start;
+  gap: 31px;
+  padding: 25.6px 38px;
+  border-radius: 8px;
+  background-color: $white;
+
+  @media (width <= 375px) {
+    border-radius: prem(8);
+  }
+}
+
+.p-reason__card-icon {
+  width: 80px;
+}
+
+.p-reason__card-icon img {
+  display: inline-block;
+  width: 100%;
+  height: 65px;
+  object-fit: contain;
+
+  @media (width <= 375px) {
+    height: prem(40);
+  }
+}
+
+.p-reason__card-body {
+  flex: 1;
+  width: clamp(0px, calc(100% - 111px), 70vw);
+  min-width: 0;
+}
+
+.p-reason__card-title {
+  font-size: 16px;
+  font-weight: $font-weight-b;
+  color: $light-green;
+
+  @media (width <= 375px) {
+    font-size: prem(16);
+  }
+}
+
+.p-reason__card-text {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  color: $text-black;
+
+  @media (width <= 375px) {
+    margin-top: prem(8);
+    font-size: prem(14);
+  }
+}
+
+.p-reason__img {
+  width: 100%;
+  margin-top: 78px;
+
+  @media (width <= 375px) {
+    margin-top: prem(78);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-position: center;
+    object-fit: cover;
+    aspect-ratio: 430 / 487;
+  }
+}
