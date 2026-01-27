@@ -3,11 +3,11 @@
 @use "../../foundation/mixin" as *;
 
 .p-features {
-  padding: 60px 20px;
-  background-color: $white;
+  padding: 64px 0 48px;
+  background-color: #e9e7e0;
 
   @media (width <= 375px) {
-    padding: prem(60) prem(20);
+    padding: prem(60) prem(20) prem(48);
   }
 }
 
@@ -15,28 +15,23 @@
   width: 100%;
   max-width: 430px;
   margin: 0 auto;
+  padding: 0 40px;
+
+  @media (width <= 375px) {
+    padding: prem(40);
+  }
 }
 
 .p-features__title {
-  margin: 0 0 40px;
   text-align: center;
-
-  @media (width <= 375px) {
-    margin-bottom: prem(40);
-  }
 }
 
 .p-features__title-img {
   display: block;
   width: 100%;
-  max-width: 300px;
   height: auto;
   margin: 0 auto;
   object-fit: contain;
-
-  @media (width <= 375px) {
-    max-width: prem(300);
-  }
 }
 
 .p-features__slider-area {
@@ -45,19 +40,19 @@
 }
 
 .p-features__slider .p-features__item {
-  padding: 0 10px;
+  padding: 0 8px;
 
   @media (width <= 375px) {
-    padding: 0 prem(10);
+    padding: 0 prem(8);
   }
 }
 
 .p-features__slider .p-features__item-image {
   width: 100%;
-  margin-bottom: 20px;
+  margin-top: 48px;
 
   @media (width <= 375px) {
-    margin-bottom: prem(20);
+    margin-top: prem(48);
   }
 }
 
@@ -66,7 +61,15 @@
   width: 100%;
   height: auto;
   object-fit: cover;
-  aspect-ratio: 310/295;
+  aspect-ratio: 1/1;
+}
+
+.p-features__slider .p-features__item-content {
+  padding: 24px 16px;
+
+  @media (width <= 375px) {
+    padding: prem(24) prem(16);
+  }
 }
 
 .p-features__slider .p-features__item-title {
@@ -130,9 +133,9 @@
   width: 9px;
   height: 9px;
   padding: 0;
-  border: 0.64px solid $white;
+  border: 0.64px solid $main-green;
   border-radius: 50%;
-  background-color: rgb(255 255 255 / 50%);
+  background-color: transparent;
   transition: background-color 0.3s ease, transform 0.3s ease;
 
   @media (width <= 375px) {
@@ -146,16 +149,16 @@
 }
 
 .p-features__slider .slick-dots li.slick-active button {
-  background-color: $white;
+  background-color: $main-green;
 }
 
 // Slick arrows カスタマイズ
 .p-features__slider .c-features-arrow {
   position: absolute;
-  top: 50%;
+  top: 34%;
   z-index: 10;
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   padding: 0;
   border: none;
   background: transparent;
@@ -180,10 +183,10 @@
 }
 
 .p-features__slider .c-features-arrow--prev {
-  left: 10px;
+  left: 2px;
 
   @media (width <= 375px) {
-    left: prem(10);
+    left: prem(2);
   }
 }
 
@@ -192,9 +195,9 @@
 }
 
 .p-features__slider .c-features-arrow--next {
-  right: 10px;
+  right: 2px;
 
   @media (width <= 375px) {
-    right: prem(10);
+    right: prem(2);
   }
 }

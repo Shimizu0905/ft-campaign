@@ -7,6 +7,7 @@
 }
 
 .p-offer-details__inner {
+  margin-top: 40px;
   width: 100%;
   max-width: 430px;
 }
@@ -31,7 +32,7 @@
 .p-offer-details__text {
   width: 100%;
   max-width: 430px;
-  margin: 0 auto 20px;
+  margin: 20px auto;
   font-size: 12px;
   font-weight: $font-weight-r;
   line-height: 1.6;
@@ -54,5 +55,5 @@
   align-items: center;
   width: 100%;
   max-width: 430px;
-  margin: 0 auto;
+  margin: 48px auto 0;
 }

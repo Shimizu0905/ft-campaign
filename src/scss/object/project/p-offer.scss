@@ -4,6 +4,11 @@
 
 .p-offer {
   background-color: $main-green;
+  padding: 40px 0 72px;
+
+  @media (width <= 375px) {
+    padding: prem(40) 0 prem(72);
+  }
 }
 
 .p-offer__inner {
@@ -13,7 +18,7 @@
   width: 100%;
   max-width: 430px;
   margin: 0 auto;
-  padding: 40px;
+  padding: 0 40px;
 
   @media (width <= 375px) {
     padding: prem(40);
