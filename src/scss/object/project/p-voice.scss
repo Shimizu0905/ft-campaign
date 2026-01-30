@@ -251,21 +251,38 @@
   }
 }
 
-// ドットナビゲーション（Swiper用）
+// ドットナビゲーション（Slick用）
 .p-voice__dots {
   position: relative;
   bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 20px;
+  padding: 0;
+  list-style: none;
 
-  .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
+  li {
     margin: 0 6px;
-    border: 1px solid $white;
-    background-color: rgb(255 255 255 / 50%);
-    opacity: 1;
 
-    &-active {
+    button {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: 1px solid $white;
+      border-radius: 50%;
+      font-size: 0;
+      line-height: 0;
+      background-color: rgb(255 255 255 / 50%);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &.slick-active button {
       background-color: $white;
     }
   }

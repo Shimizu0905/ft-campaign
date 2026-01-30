@@ -1,7 +1,7 @@
 /**
- * 共通スライダー実装（Swiper統合版）
+ * 共通スライダー実装（Slick統合版）
  * - IntersectionObserver で遅延初期化（初期化後 unobserve）
- * - Swiperを使用した実装
+ * - Slickを使用した実装
  * - 画面に入ってからスライダーをスタート
  */
 
@@ -24,42 +24,39 @@ const once = (selector, onEnter, options = {}) => {
 /**
  * Swiper初期化関数（画面に入ってから開始）
  */
-function initSwiperSliders() {
+function initSlickSliders() {
   // Features スライダー
-  const featuresEl = document.getElementById('features-swiper');
-  if (featuresEl) {
+  const featuresEl = document.querySelector('#features-swiper .swiper-wrapper');
+  if (featuresEl && typeof jQuery !== 'undefined' && jQuery.fn.slick) {
     once('#features-swiper', (target) => {
       const root = target.closest('section') || target.parentElement;
+      const $slider = jQuery(featuresEl);
+      const dotsEl = root.querySelector('.p-features__dots');
 
-      new Swiper(target, {
-        loop: true,
+      $slider.slick({
+        infinite: true,
         speed: 600,
-        effect: 'slide',
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: 1.15,
-        spaceBetween: 16,
-        autoplay: {
-          delay: 4000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        },
-        pagination: {
-          el: root.querySelector('.p-features__dots'),
-          clickable: true,
-          bulletClass: 'swiper-pagination-bullet p-features__dot',
-          bulletActiveClass: 'swiper-pagination-bullet-active p-features__dot--active',
-        },
-        navigation: {
-          nextEl: root.querySelector('.p-features__next'),
-          prevEl: root.querySelector('.p-features__prev'),
-        },
-        breakpoints: {
-          768: {
-            slidesPerView: 1.2,
-            spaceBetween: 24,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: '0px',
+        autoplay: true,
+        autoplaySpeed: 4000,
+        pauseOnHover: true,
+        dots: true,
+        appendDots: jQuery(dotsEl),
+        arrows: true,
+        prevArrow: root.querySelector('.p-features__prev'),
+        nextArrow: root.querySelector('.p-features__next'),
+        cssEase: 'ease-in-out',
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              centerPadding: '0px',
+            },
           },
-        },
+        ],
       });
     }, {
       threshold: 0.1,
@@ -68,33 +65,29 @@ function initSwiperSliders() {
   }
 
   // Voice スライダー
-  const voiceEl = document.getElementById('voice-swiper');
-  if (voiceEl) {
+  const voiceEl = document.querySelector('#voice-swiper .swiper-wrapper');
+  if (voiceEl && typeof jQuery !== 'undefined' && jQuery.fn.slick) {
     once('#voice-swiper', (target) => {
       const root = target.closest('section') || target.parentElement;
+      const $slider = jQuery(voiceEl);
+      const dotsEl = root.querySelector('.p-voice__dots');
 
-      new Swiper(target, {
-        loop: true,
+      $slider.slick({
+        infinite: true,
         speed: 500,
-        effect: 'slide',
-        grabCursor: true,
-        slidesPerView: 1,
-        spaceBetween: 20,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        },
-        pagination: {
-          el: root.querySelector('.p-voice__dots'),
-          clickable: true,
-          bulletClass: 'swiper-pagination-bullet p-voice__dot',
-          bulletActiveClass: 'swiper-pagination-bullet-active p-voice__dot--active',
-        },
-        navigation: {
-          nextEl: root.querySelector('.p-voice__btn--next'),
-          prevEl: root.querySelector('.p-voice__btn--prev'),
-        },
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: '6%',
+        autoplay: true,
+        autoplaySpeed: 5000,
+        pauseOnHover: true,
+        dots: true,
+        appendDots: jQuery(dotsEl),
+        arrows: true,
+        prevArrow: root.querySelector('.p-voice__btn--prev'),
+        nextArrow: root.querySelector('.p-voice__btn--next'),
+        cssEase: 'ease-in-out',
       });
     }, {
       threshold: 0.1,
@@ -496,8 +489,8 @@ function initSlider(root) {
 
 // --- エントリーポイント ---
 document.addEventListener('DOMContentLoaded', () => {
-  // Swiperスライダーを初期化（画面に入ってから開始）
-  initSwiperSliders();
+  // Slickスライダーを初期化（画面に入ってから開始）
+  initSlickSliders();
 
   // data-slider属性を使った旧スライダーも初期化（画面に入ってから開始）
   once('[data-slider]', initSlider, {

@@ -20,41 +20,20 @@
 
 // タイトル
 .p-join__title {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  gap: 8px;
-  margin: 0 0 40px;
-  font-family: $font-family-en;
+  margin: 0;
+  margin-bottom: 40px;
   text-align: center;
 
   @media (width <= 375px) {
-    gap: prem(8);
     margin-bottom: prem(40);
   }
 }
 
-.p-join__title-outline {
-  font-size: 32px;
-  font-weight: $font-weight-b;
-  line-height: 1.2;
-  color: transparent;
-  -webkit-text-stroke: 1.5px $main-green;
-
-  @media (width <= 375px) {
-    font-size: prem(32);
-  }
-}
-
-.p-join__title-green {
-  font-size: 32px;
-  font-weight: $font-weight-b;
-  line-height: 1.2;
-  color: $main-green;
-
-  @media (width <= 375px) {
-    font-size: prem(32);
-  }
+.p-join__title-img {
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
 }
 
 // アコーディオン
@@ -79,11 +58,11 @@
   width: 100%;
   padding: 30px 0;
   border: none;
+  border-bottom: 1px solid $main-green;
   background: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
   -webkit-tap-highlight-color: transparent;
-  border-bottom: 1px solid $main-green;
 
   @media (width <= 375px) {
     padding: prem(20) prem(24);
@@ -211,7 +190,7 @@
 .p-join__price-list {
   display: flex;
   flex-direction: column;
-  rgin: prem(20) 0;
+  margin: prem(20) 0;
 }
 
 .p-join__price-row {
@@ -281,9 +260,9 @@
 }
 
 .p-join__price-yen {
+  margin-right: 2px;
   font-size: 15px;
   font-weight: $font-weight-m;
-  margin-right: 2px;
 
   @media (width <= 375px) {
     font-size: prem(14);
@@ -326,7 +305,7 @@
 
   @media (width <= 375px) {
     margin-top: prem(16);
-    font-size: prem(11);
     padding-bottom: prem(58);
+    font-size: prem(11);
   }
 }

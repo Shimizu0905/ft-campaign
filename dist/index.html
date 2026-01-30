@@ -73,8 +73,6 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <!-- Slick CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
@@ -321,8 +319,12 @@
                   </div>
                 </div>
                 <!-- Navigation -->
-                <div class="swiper-button-prev p-features__prev"></div>
-                <div class="swiper-button-next p-features__next"></div>
+                <div class="swiper-button-prev p-features__prev">
+                  <img src="./assets/images/common/arrow-white.svg" alt="前へ" class="p-features__arrow-img">
+                </div>
+                <div class="swiper-button-next p-features__next">
+                  <img src="./assets/images/common/arrow-white.svg" alt="次へ" class="p-features__arrow-img">
+                </div>
                 <!-- Pagination -->
                 <div class="swiper-pagination p-features__dots"></div>
               </div>
@@ -856,8 +858,7 @@
         <section class="p-join" id="join">
           <div class="p-join__inner">
             <h3 class="p-join__title">
-              <span class="p-join__title-outline">How</span>
-              <span class="p-join__title-green">to Join</span>
+              <img src="./assets/images/join/join-title.svg" alt="How to Join" class="p-join__title-img">
             </h3>
             <div class="p-join__accordion">
               <!-- 月会費 -->
@@ -868,28 +869,30 @@
                 </button>
                 <div class="p-join__item-body">
                   <div class="p-join__item-content">
-                    <div class="p-join__item-divider"></div>
                     <!-- 料金表 -->
                     <div class="p-join__price-list">
                       <div class="p-join__price-row">
                         <span class="p-join__price-store">円山・桑園</span>
-                        <span class="p-join__price-value"><span class="p-join__price-yen">&yen;</span>7,590<span class="p-join__price-unit">/月</span></span>
+                        <span class="p-join__price-value"><span class="p-join__price-yen">&yen;</span>7,590<span
+                            class="p-join__price-unit">/月</span></span>
                       </div>
                       <div class="p-join__price-row">
                         <span class="p-join__price-store">南4条山通</span>
-                        <span class="p-join__price-value"><span class="p-join__price-yen">&yen;</span>7,040<span class="p-join__price-unit">/月</span></span>
+                        <span class="p-join__price-value"><span class="p-join__price-yen">&yen;</span>7,040<span
+                            class="p-join__price-unit">/月</span></span>
                       </div>
                       <div class="p-join__price-row">
                         <span class="p-join__price-store">菊水・南郷7丁目・南平岸・<br>江別野幌・北見幸町</span>
-                        <span class="p-join__price-value"><span class="p-join__price-yen">&yen;</span>6,490<span class="p-join__price-unit">/月</span></span>
+                        <span class="p-join__price-value"><span class="p-join__price-yen">&yen;</span>6,490<span
+                            class="p-join__price-unit">/月</span></span>
                       </div>
                     </div>
-                    <p class="p-join__price-note">●ご入会手続き時に入会登録料&yen;5,500が必要です。</p>
-                    <div class="p-join__item-divider"></div>
+                    <p class="p-join__price-note">●ご入会手続き時に入会登録料&yen;5,500が必要です。<br><br><br></p>
                     <!-- トレサポプラス -->
                     <div class="p-join__price-row">
-                      <span class="p-join__price-store">トレサポプラス<span class="p-join__price-label">オプション</span></span>
-                      <span class="p-join__price-value"><span class="p-join__price-yen">&yen;</span>4,400<span class="p-join__price-unit">/月</span></span>
+                      <span class="p-join__price-store">トレサポプラスオプション</span>
+                      <span class="p-join__price-value"><span class="p-join__price-yen">&yen;</span>4,400<span
+                          class="p-join__price-unit">/月</span></span>
                     </div>
                     <p class="p-join__price-footnote">※表示価格は税込です。</p>
                   </div>
@@ -903,10 +906,9 @@
                 </button>
                 <div class="p-join__item-body">
                   <div class="p-join__item-content">
-                    <div class="p-join__item-divider"></div>
-                    <p class="p-join__item-text">・本人確認書類（運転免許証・保険証など）</p>
-                    <p class="p-join__item-text">・クレジットカードまたはキャッシュカード</p>
-                    <p class="p-join__item-text">・緊急連絡先</p>
+                    <p class="p-join__item-text">1)本人確認書類（運転免許証・保険証など）</p>
+                    <p class="p-join__item-text">2)クレジットカードまたはキャッシュカード</p>
+                    <p class="p-join__item-text">3)緊急連絡先</p>
                   </div>
                 </div>
               </div>
@@ -975,8 +977,6 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <!-- Swiper -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Slick -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 

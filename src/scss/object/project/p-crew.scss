@@ -70,6 +70,10 @@
   }
 }
 
+.slick-list{
+  overflow: visible !important;
+}
+
 // Slick用：slick-listのoverflowを上書き（超重要）
 .p-crew__slider .slick-list {
   overflow: visible !important; // チラ見せに必須

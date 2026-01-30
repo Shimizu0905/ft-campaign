@@ -73,8 +73,6 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <!-- Slick CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
@@ -310,8 +308,12 @@
                   </div>
                 </div>
                 <!-- Navigation -->
-                <div class="swiper-button-prev p-features__prev"></div>
-                <div class="swiper-button-next p-features__next"></div>
+                <div class="swiper-button-prev p-features__prev">
+                  <img src="/assets/images/common/arrow-white.svg" alt="前へ" class="p-features__arrow-img">
+                </div>
+                <div class="swiper-button-next p-features__next">
+                  <img src="/assets/images/common/arrow-white.svg" alt="次へ" class="p-features__arrow-img">
+                </div>
                 <!-- Pagination -->
                 <div class="swiper-pagination p-features__dots"></div>
               </div>
@@ -845,8 +847,7 @@
         <section class="p-join" id="join">
           <div class="p-join__inner">
             <h3 class="p-join__title">
-              <span class="p-join__title-outline">How</span>
-              <span class="p-join__title-green">to Join</span>
+              <img src="/assets/images/join/join-title.svg" alt="How to Join" class="p-join__title-img">
             </h3>
             <div class="p-join__accordion">
               <!-- 月会費 -->
@@ -965,8 +966,6 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <!-- Swiper -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Slick -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
