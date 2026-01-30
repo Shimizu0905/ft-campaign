@@ -74,7 +74,7 @@ const crewData = [
     achievements: [
       {
         title: 'マッスルゲート札幌大会',
-        details: ['JBBF 北海道大会メンズフィジーク', '新人−172 4位<br>一般−172 5位'],
+        details: ['JBBF 北海道大会メンズフィジーク<br>新人−172 4位<br>一般−172 5位'],
       },
     ],
     photo: '/assets/images/experience/tresapo/crew/crew-04.webp',

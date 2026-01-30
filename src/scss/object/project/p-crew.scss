@@ -16,11 +16,11 @@
 .p-crew__inner {
   max-width: 100%;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 40px;
   overflow: visible;
 
   @media (width <= 375px) {
-    padding: 0;
+    padding: 0 prem(40);
   }
 }
 
@@ -320,26 +320,20 @@
 .p-crew-modal__content-wrapper {
   position: relative;
   z-index: 1;
-  width: 90%;
-  max-width: 500px;
+  width: 100%;
+  max-width: 340px;
   max-height: 90vh;
   margin: 0 auto;
   padding: 0;
-  border-radius: 16px;
   background-color: $white;
   overflow-y: auto;
   transition: transform 0.3s ease;
-  transform: scale(0.9);
   border: 1px solid #e0e0e0;
 
   @media (width <= 375px) {
     width: 95%;
     padding: 0;
     border-radius: prem(16);
-  }
-
-  .p-crew-modal.is-open & {
-    transform: scale(1);
   }
 }
 
@@ -458,10 +452,10 @@
 // モーダルコンテンツ
 .p-crew-modal__content {
   width: 100%;
-  padding: 34px;
+  padding: 32px;
 
   @media (width <= 375px) {
-    padding: prem(34);
+    padding: prem(32);
   }
 }
 
@@ -678,17 +672,17 @@ body.is-modal-open {
   &::before {
     position: absolute;
     top: -40px;
-    left: 50%;
-    width: 100%;
-    max-width: 344.35px;
+    left: -40px;
+    right: -40px;
+    width: auto;
     height: 1px;
     background-color: $white;
-    transform: translateX(-50%);
     content: '';
 
     @media (width <= 375px) {
       top: prem(-20);
-      max-width: prem(344.35);
+      left: prem(-40);
+      right: prem(-40);
     }
   }
 }
