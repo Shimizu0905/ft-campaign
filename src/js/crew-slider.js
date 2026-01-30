@@ -1,55 +1,57 @@
-// Support Crewスライダー（Slick Carousel + モーダル対応）
+// Support Crew モーダル機能（Slick対応）
 // スタッフデータ（4人分）
 const crewData = [
   {
     id: 0,
     name: '上野トレーナー',
     store: '円山店',
-    catchphrase: '"コミュ力おばけ"と言えばこの漢 円山指名率No.1!!',
-    catchphraseHighlight: ['コミュ力おばけ', '円山指名率No.1!!'], // 緑色で強調する部分
-    description: '僕自身もともと体型へのコンプレックスから無理な食事やトレーニングを行い、続かなかった経験があります。無理な目標設定や無謀な挑戦ではなくしっかりとプロセスを作り、まずは手前のゴールに導けるような指導を心がけております!',
+    catchphrase: '"コミュ力おばけ"と言えばこの漢<br>円山指名率No.1!!',
+    catchphraseHighlight: ['コミュ力おばけ', '円山指名率No.1!!'],
+    description:
+      '僕自身もともと体型へのコンプレックスから無理な食事やトレーニングを行い、続かなかった経験があります。無理な目標設定や無謀な挑戦ではなくしっかりとプロセスを作り、まずは手前のゴールに導けるような指導を心がけております!',
     achievements: [
       {
         title: '2021 MUSCLE GATE 札幌',
-        details: ['ノービス-172/4位', '-168/4位']
+        details: ['ノービス-172/4位', '-168/4位'],
       },
       {
         title: '2023 JBBF 札幌',
-        details: ['23歳以下級jrOPEN/2位', '-168/2位']
+        details: ['23歳以下級jrOPEN/2位', '-168/2位'],
       },
       {
         title: '2024 JBBF 北海道大会',
-        details: ['-168/4位']
+        details: ['-168/4位'],
       },
       {
         title: '2025 JBBF 北海道大会',
-        details: ['-168/優勝']
-      }
+        details: ['-168/優勝'],
+      },
     ],
-    photo: '/assets/images/experience/tresapo/crew/crew-01.webp'
+    photo: '/assets/images/experience/tresapo/crew/crew-01.webp',
   },
   {
     id: 1,
-    name: 'Yuki Tanaka',
-    store: 'FITNESS24 渋谷店',
-    catchphrase: '楽しく続けられるトレーニングを',
+    name: '栗生トレーナー',
+    store: '桑園店',
+    catchphrase: '桑園のマザーテレサ',
     catchphraseHighlight: [],
-    description: 'スポーツトレーナーとしての経験を活かし、機能的なトレーニングを提供。初心者の方でも安心して取り組めるよう、丁寧にサポートします。「続けること」を大切にし、無理のないペースで目標達成を目指します。',
+    description:
+      'スポーツトレーナーとしての経験を活かし、機能的なトレーニングを提供。初心者の方でも安心して取り組めるよう、丁寧にサポートします。「続けること」を大切にし、無理のないペースで目標達成を目指します。',
     achievements: [
       {
         title: 'NSCA認定パーソナルトレーナー',
-        details: []
+        details: [],
       },
       {
         title: 'ストレッチングインストラクター',
-        details: []
+        details: [],
       },
       {
         title: '延べ300名以上の指導実績',
-        details: []
-      }
+        details: [],
+      },
     ],
-    photo: '/assets/images/experience/tresapo/crew/crew-02.webp'
+    photo: '/assets/images/experience/tresapo/crew/crew-02.webp',
   },
   {
     id: 2,
@@ -57,22 +59,23 @@ const crewData = [
     store: 'FITNESS24 池袋店',
     catchphrase: '女性のためのボディメイク',
     catchphraseHighlight: [],
-    description: '女性特有の悩みに寄り添ったトレーニングプログラムを提供。食事指導も含めたトータルサポートで、理想の体を実現します。産後ダイエットや姿勢改善など、幅広いニーズに対応可能です。',
+    description:
+      '女性特有の悩みに寄り添ったトレーニングプログラムを提供。食事指導も含めたトータルサポートで、理想の体を実現します。産後ダイエットや姿勢改善など、幅広いニーズに対応可能です。',
     achievements: [
       {
         title: '女性ボディメイク専門資格',
-        details: []
+        details: [],
       },
       {
         title: '産後ケアトレーナー',
-        details: []
+        details: [],
       },
       {
         title: '延べ400名以上の指導実績',
-        details: []
-      }
+        details: [],
+      },
     ],
-    photo: '/assets/images/experience/tresapo/crew/crew-03.webp'
+    photo: '/assets/images/experience/tresapo/crew/crew-03.webp',
   },
   {
     id: 3,
@@ -80,27 +83,28 @@ const crewData = [
     store: 'FITNESS24 横浜店',
     catchphrase: '結果にこだわる本格トレーニング',
     catchphraseHighlight: [],
-    description: '競技スポーツの経験を活かし、パフォーマンス向上を重視した指導を行います。筋力アップ、パワー向上など、具体的な目標達成をサポート。科学的根拠に基づいたトレーニングメニューで、確実に結果を出します。',
+    description:
+      '競技スポーツの経験を活かし、パフォーマンス向上を重視した指導を行います。筋力アップ、パワー向上など、具体的な目標達成をサポート。科学的根拠に基づいたトレーニングメニューで、確実に結果を出します。',
     achievements: [
       {
         title: 'CSCS認定ストレングス&コンディショニングスペシャリスト',
-        details: []
+        details: [],
       },
       {
         title: 'アスリート指導経験10年',
-        details: []
+        details: [],
       },
       {
         title: '延べ600名以上の指導実績',
-        details: []
-      }
+        details: [],
+      },
     ],
-    photo: '/assets/images/experience/tresapo/crew/crew-04.webp'
-  }
+    photo: '/assets/images/experience/tresapo/crew/crew-04.webp',
+  },
 ];
 
-// スライダー初期化（Slick Carousel使用）
-function initCrewSlider() {
+// モーダル初期化
+function initCrewModal() {
   const modal = document.getElementById('crew-modal');
   const modalOverlay = document.getElementById('crew-modal-overlay');
   const modalClose = document.getElementById('crew-modal-close');
@@ -109,8 +113,7 @@ function initCrewSlider() {
 
   // モーダル状態
   let isModalOpen = false;
-  let modalCurrentIndex = 0; // モーダル内の現在のスタッフID
-  let $crew = null; // SlickのjQueryオブジェクトを保持
+  let modalCurrentIndex = 0;
 
   // モーダル内容を更新
   function updateModalContent(index) {
@@ -123,23 +126,31 @@ function initCrewSlider() {
     // キャッチフレーズのハイライト処理
     let catchphraseHtml = data.catchphrase;
     if (data.catchphraseHighlight && data.catchphraseHighlight.length > 0) {
-      data.catchphraseHighlight.forEach(highlight => {
-        catchphraseHtml = catchphraseHtml.replace(highlight, `<span class="p-crew-modal__catchphrase-highlight">${highlight}</span>`);
+      data.catchphraseHighlight.forEach((highlight) => {
+        catchphraseHtml = catchphraseHtml.replace(
+          highlight,
+          `<span class="p-crew-modal__catchphrase-highlight">${highlight}</span>`
+        );
       });
     }
 
     // 実績リストの生成
-    const achievementsHtml = data.achievements.map(achievement => {
-      const detailsHtml = achievement.details && achievement.details.length > 0
-        ? achievement.details.map(detail => `<span class="p-crew-modal__achievement-detail">${detail}</span>`).join('')
-        : '';
-      return `
+    const achievementsHtml = data.achievements
+      .map((achievement) => {
+        const detailsHtml =
+          achievement.details && achievement.details.length > 0
+            ? achievement.details
+                .map((detail) => `<span class="p-crew-modal__achievement-detail">${detail}</span>`)
+                .join(' ')
+            : '';
+        return `
         <li class="p-crew-modal__achievement-item">
           <span class="p-crew-modal__achievement-title">${achievement.title}</span>
-          ${detailsHtml}
+          ${detailsHtml ? `<span class="p-crew-modal__achievement-details-wrapper">${detailsHtml}</span>` : ''}
         </li>
       `;
-    }).join('');
+      })
+      .join('');
 
     modalContent.innerHTML = `
       <div class="p-crew-modal__header">
@@ -161,7 +172,6 @@ function initCrewSlider() {
       </div>
     `;
 
-    // aria属性更新
     modal.setAttribute('aria-labelledby', `crew-modal-title-${index}`);
     modal.setAttribute('aria-describedby', `crew-modal-desc-${index}`);
   }
@@ -176,10 +186,10 @@ function initCrewSlider() {
     modal.classList.add('is-open');
     document.body.classList.add('is-modal-open');
 
-    // 背景スライダーを確実に停止してから該当スタッフを中央に
-    if ($crew) {
-      $crew.slick('slickPause'); // 自動再生を完全に停止
-      $crew.slick('slickGoTo', index, true); // trueでアニメーションなしで同期
+    // Slickを停止して該当スタッフを表示
+    if (window.crewSlider) {
+      window.crewSlider.slick('slickPause');
+      window.crewSlider.slick('slickGoTo', index);
     }
   }
 
@@ -189,14 +199,9 @@ function initCrewSlider() {
     modal.classList.remove('is-open');
     document.body.classList.remove('is-modal-open');
 
-    // スライダーの自動再生を再開
-    if ($crew) {
-      // 現在のスライドインデックスを取得
-      const currentSlide = $crew.slick('slickCurrentSlide');
-      // 1枚目の場合は10000ms、それ以外は3500ms
-      const autoplaySpeed = currentSlide === 0 ? 6000 : 3500;
-      $crew.slick('slickSetOption', 'autoplaySpeed', autoplaySpeed, true);
-      $crew.slick('slickPlay'); // 自動再生を再開
+    // Slickの自動再生を再開
+    if (window.crewSlider) {
+      window.crewSlider.slick('slickPlay');
     }
   }
 
@@ -204,10 +209,8 @@ function initCrewSlider() {
   function modalGoToNext() {
     modalCurrentIndex = (modalCurrentIndex + 1) % crewData.length;
     updateModalContent(modalCurrentIndex);
-    // 背景スライダーも同期（自動再生は停止したまま）
-    if ($crew) {
-      $crew.slick('slickPause'); // 念のため再度停止
-      $crew.slick('slickGoTo', modalCurrentIndex, true); // trueでアニメーションなし
+    if (window.crewSlider) {
+      window.crewSlider.slick('slickGoTo', modalCurrentIndex);
     }
   }
 
@@ -215,10 +218,8 @@ function initCrewSlider() {
   function modalGoToPrev() {
     modalCurrentIndex = (modalCurrentIndex - 1 + crewData.length) % crewData.length;
     updateModalContent(modalCurrentIndex);
-    // 背景スライダーも同期（自動再生は停止したまま）
-    if ($crew) {
-      $crew.slick('slickPause'); // 念のため再度停止
-      $crew.slick('slickGoTo', modalCurrentIndex, true); // trueでアニメーションなし
+    if (window.crewSlider) {
+      window.crewSlider.slick('slickGoTo', modalCurrentIndex);
     }
   }
 
@@ -238,12 +239,12 @@ function initCrewSlider() {
     modalCurrentX = e.touches[0].clientX;
   }
 
-  function handleModalTouchEnd(e) {
+  function handleModalTouchEnd() {
     if (!isModalDragging) return;
     isModalDragging = false;
 
     const diffX = modalCurrentX - modalStartX;
-    const threshold = 50; // スワイプしきい値
+    const threshold = 50;
 
     if (Math.abs(diffX) > threshold) {
       if (diffX > 0) {
@@ -272,13 +273,16 @@ function initCrewSlider() {
     modal.addEventListener('touchend', handleModalTouchEnd, { passive: true });
   }
 
-  // モーダル開閉イベント
-  // 各カードの丸矢印ボタン（動的に追加される要素なので、イベント委譲を使用）
+  // モーダル開閉イベント（イベント委譲）
   document.addEventListener('click', (e) => {
     if (e.target.closest('.p-crew__open')) {
       const btn = e.target.closest('.p-crew__open');
       e.stopPropagation();
-      const crewId = parseInt(btn.getAttribute('data-open') || btn.closest('.p-crew__slide')?.getAttribute('data-crew') || '0');
+      const crewId = parseInt(
+        btn.getAttribute('data-open') ||
+          btn.closest('.p-crew__slide')?.getAttribute('data-crew') ||
+          '0'
+      );
       openModal(crewId);
     }
   });
@@ -299,55 +303,9 @@ function initCrewSlider() {
       closeModal();
     }
   });
-
-  // Slick Carousel初期化（features-sliderと同じ設定）
-  jQuery(function ($) {
-    $(document).ready(function() {
-      const $slider = $(".p-crew__slider");
-      if ($slider.length) {
-        // jQueryオブジェクトとして保持
-        $crew = $slider;
-        
-        $crew.slick({
-          centerMode: true,
-          centerPadding: '5%',
-          dots: true,
-          autoplay: true,
-          autoplaySpeed: 10000,
-          speed: 1000,
-          infinite: true,
-          arrows: false, // 矢印を非表示
-          swipe: true, // スワイプを有効化
-          touchMove: true, // タッチ移動を有効化
-        });
-
-        // スライド変更時にautoplaySpeedを変更（features-sliderと同じ）
-        $crew.on("afterChange", function(event, slick, currentSlide, nextSlide) {
-          // モーダルが開いている場合は同期のみ行い、autoplay関連操作は絶対にしない
-          if (isModalOpen) {
-            modalCurrentIndex = currentSlide;
-            updateModalContent(currentSlide);
-            return; // モーダルが開いている間はautoplaySpeedの変更は行わない
-          }
-
-          // モーダルが閉じている場合のみautoplaySpeedを変更
-          switch (currentSlide){
-            case 0:
-              // 1枚目のスライド
-              $crew.slick("slickSetOption", "autoplaySpeed", 10000, true);
-              break;
-            default:
-              // その他のスライド
-              $crew.slick("slickSetOption", "autoplaySpeed", 3500, true);
-              break;
-          }
-        });
-      }
-    });
-  });
 }
 
-// DOMContentLoaded時にスライダーを初期化
-document.addEventListener('DOMContentLoaded', function() {
-  initCrewSlider();
+// DOMContentLoaded時にモーダルを初期化
+document.addEventListener('DOMContentLoaded', function () {
+  initCrewModal();
 });
