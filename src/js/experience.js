@@ -1,33 +1,82 @@
 // Experience ルート切り替え
 // タブと下のルート見出しが一体化して見えるUI実装
 jQuery(function ($) {
-  $(function () {
-    const $experience = $('.p-experience');
+  const $experience = $('.p-experience');
+  if (!$experience.length) return;
+
+  // タブ切り替え関数
+  function switchTab(route) {
+    console.log('Switching to route:', route); // デバッグ用
     
-    // タブクリック時の処理
-    $('.p-experience__route-btn').on('click', function() {
+    // タブボタンの状態変更
+    $('.p-experience__route-btn').each(function() {
       const $btn = $(this);
-      const route = $btn.data('route'); // 'habit' または 'result'
-      
-      // 1. 親要素に状態クラスを付与（タブと見出し帯の色を連動させるため）
-      $experience.removeClass('is-habit is-result');
-      $experience.addClass('is-' + route);
-      
-      // 2. ボタンの状態を更新
-      $('.p-experience__route-btn').removeClass('is-active').attr('aria-selected', 'false');
-      $btn.addClass('is-active').attr('aria-selected', 'true');
-      
-      // 3. ルートコンテンツの表示/非表示
-      $('.p-experience__route').removeClass('is-active');
-      $('.p-experience__route--' + route).addClass('is-active');
+      if ($btn.data('route') === route) {
+        $btn.addClass('is-active').attr('aria-selected', 'true');
+      } else {
+        $btn.removeClass('is-active').attr('aria-selected', 'false');
+      }
     });
+
+    // パネルの表示切り替え
+    $('.p-experience__route').each(function() {
+      const $panel = $(this);
+      if ($panel.hasClass('p-experience__route--' + route)) {
+        $panel.addClass('is-active');
+      } else {
+        $panel.removeClass('is-active');
+      }
+    });
+
+    // 親状態（色連動用）
+    $experience.removeClass('is-habit is-result').addClass('is-' + route);
+  }
+
+  // タブボタンクリック
+  $experience.on('click', '.p-experience__route-btn', function () {
+    const $btn = $(this);
+    const route = $btn.data('route'); // habit / result
+    switchTab(route);
+  });
+
+  // 初期状態（HTMLで is-active を付けた方に合わせる）
+  if ($experience.find('.p-experience__route--result').hasClass('is-active')) {
+    $experience.addClass('is-result');
+  } else {
+    $experience.addClass('is-habit');
+  }
+
+  // 結果重視ルートのCTAボタン → 習慣化ルートへ
+  $(document).on('click', '.p-result__training-cta-button', function (e) {
+    e.preventDefault();
+    console.log('Result CTA clicked'); // デバッグ用
     
-    // 初期状態を設定（習慣化ルートがデフォルト）
-    const $activeRoute = $experience.find('.p-experience__route.is-active');
-    if ($activeRoute.hasClass('p-experience__route--habit')) {
-      $experience.addClass('is-habit');
-    } else if ($activeRoute.hasClass('p-experience__route--result')) {
-      $experience.addClass('is-result');
+    // 習慣化ルートに切り替え
+    switchTab('habit');
+    
+    // Experienceセクションまでスムーススクロール
+    const $experienceSection = $('#experience');
+    if ($experienceSection.length) {
+      $('html, body').animate({
+        scrollTop: $experienceSection.offset().top - 100
+      }, 800, 'swing');
+    }
+  });
+
+  // 習慣化ルートのCrewボタン → 結果重視ルートへ
+  $(document).on('click', '.p-crew__button a', function (e) {
+    e.preventDefault();
+    console.log('Crew button clicked'); // デバッグ用
+    
+    // 結果重視ルートに切り替え
+    switchTab('result');
+    
+    // Experienceセクションまでスムーススクロール
+    const $experienceSection = $('#experience');
+    if ($experienceSection.length) {
+      $('html, body').animate({
+        scrollTop: $experienceSection.offset().top - 100
+      }, 800, 'swing');
     }
   });
 });

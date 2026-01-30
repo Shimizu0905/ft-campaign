@@ -12,8 +12,8 @@
 
     <!-- 画像最適化 -->
     <style>
-      img:is([sizes="auto" i], [sizes^="auto," i]){
-        contain-intrinsic-size:3000px 1500px
+      img:is([sizes="auto" i], [sizes^="auto," i]) {
+        contain-intrinsic-size: 3000px 1500px
       }
     </style>
 
@@ -73,22 +73,15 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet">
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?ver=1.0.1"
-      id="jquery-js"></script>
-    <!-- Slick Carousel -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    <link rel="stylesheet" type="text/css"
-      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <!-- CSS -->
     <!-- style.cssはJSからimportされるため、開発環境では不要（ビルド時に自動挿入） -->
     <script type="module" crossorigin src="./assets/js/index.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/js/main.js">
     <link rel="modulepreload" crossorigin href="./assets/js/header.js">
-    <link rel="modulepreload" crossorigin href="./assets/js/features-slider.js">
+    <link rel="modulepreload" crossorigin href="./assets/js/slider.js">
     <link rel="modulepreload" crossorigin href="./assets/js/experience.js">
-    <link rel="modulepreload" crossorigin href="./assets/js/voice-slider.js">
     <link rel="modulepreload" crossorigin href="./assets/js/crew-slider.js">
     <link rel="modulepreload" crossorigin href="./assets/js/gallery-slider.js">
     <link rel="modulepreload" crossorigin href="./assets/js/faq.js">
@@ -208,11 +201,11 @@
               <img src="./assets/images/offer/offer-02.svg" alt="マンツーマンサポート特典 - トレサポプラス・単発パーソナルトレーニングの詳細"
                 class="p-offer-details__img">
             </div>
-          </div>
-          <div class="p-offer-details__text">
-            <p>※特典の適用は2026年5月末までの在籍が条件となります。<br>
-              ※期間途中で退会の場合は、施設利用の有無に関わらず違約金¥10,000のお支払いが発生いたします。<br>
-              ※表示価格は全て税込です。</p>
+            <div class="p-offer-details__text">
+              <p>※特典の適用は2026年5月末までの在籍が条件となります。<br>
+                ※期間途中で退会の場合は、施設利用の有無に関わらず違約金¥10,000のお支払いが発生いたします。<br>
+                ※表示価格は全て税込です。</p>
+            </div>
           </div>
           <div class="p-offer-details__button c-button-orenge">
             <a class="c-button" href="#">
@@ -238,7 +231,7 @@
               </div>
             </div>
             <div class="p-about__img">
-              <img src="./assets/images/about/about-01.jpg" alt="FITNESS24のジム内の様子">
+              <img src="./assets/images/about/about-01.webp" alt="FITNESS24のジム内の様子">
             </div>
           </div>
         </section>
@@ -248,80 +241,91 @@
               <img src="./assets/images/features/features-title.svg" alt="Key Features" class="p-features__title-img">
             </h3>
             <div class="p-features__slider-area">
-              <div class="p-features__slider">
-                <!-- アイテム１ -->
-                <div class="p-features__item">
-                  <div class="p-features__item-image">
-                    <img src="./assets/images/features/features-01.webp" alt="TRAINING SUPPORT"
-                      class="p-features__item-img">
-                  </div>
-                  <div class="p-features__item-content">
-                    <h4 class="p-features__item-title">
-                      <img src="./assets/images/features/features-text-01.svg" alt="TRAINING SUPPORT"
-                        class="p-features__item-title-img c-features-title-img">
-                    </h4>
-                    <p class="p-features__item-text">24時間いつでも。仕事帰りや朝活、スキマ時間も。「行けるときに行く」が、ちゃんと続く理由です。</p>
-                  </div>
-                </div>
-                <!-- アイテム2 -->
-                <div class="p-features__item">
-                  <div class="p-features__item-image">
-                    <img src="./assets/images/features/features-02.webp" alt="OPEN 24 HOURS"
-                      class="p-features__item-img">
-                  </div>
-                  <div class="p-features__item-content">
-                    <h4 class="p-features__item-title">
-                      <img src="./assets/images/features/features-text-02.svg" alt="VALUE PRICE"
-                        class="p-features__item-title-img c-features-title-img">
-                    </h4>
-                    <div class="p-features__item-sub-title">
-                      <img src="./assets/images/features/features-text-02-sub.svg" alt="VALUE PRICE"
-                        class="p-features__item-sub-title-img c-features-title-img">
+              <div class="p-features__slider" data-slider data-loop="true" data-autoplay="3500"
+                data-first-slide-delay="10000" data-dots="true" data-nav="true" data-center-mode="true"
+                data-center-padding="5%">
+                <div class="p-features__track" data-slider-track>
+                  <!-- アイテム１ -->
+                  <div class="p-features__item" data-slider-slide>
+                    <div class="p-features__item-image">
+                      <img src="./assets/images/features/features-01.webp" alt="TRAINING SUPPORT"
+                        class="p-features__item-img">
                     </div>
-                    <p class="p-features__item-text">24時間通い放題+マンツーマンサポート（5回まで無料）付きでこのプライス！</p>
-                    <p class="p-features__item-text p-features__item-text-small">※月会費は店舗により異なります。
-                    </p>
+                    <div class="p-features__item-content">
+                      <h4 class="p-features__item-title">
+                        <img src="./assets/images/features/features-text-01.svg" alt="TRAINING SUPPORT"
+                          class="p-features__item-title-img c-features-title-img">
+                      </h4>
+                      <p class="p-features__item-text">24時間いつでも。仕事帰りや朝活、スキマ時間も。「行けるときに行く」が、ちゃんと続く理由です。</p>
+                    </div>
+                  </div>
+                  <!-- アイテム2 -->
+                  <div class="p-features__item" data-slider-slide>
+                    <div class="p-features__item-image">
+                      <img src="./assets/images/features/features-02.webp" alt="OPEN 24 HOURS"
+                        class="p-features__item-img">
+                    </div>
+                    <div class="p-features__item-content">
+                      <h4 class="p-features__item-title">
+                        <img src="./assets/images/features/features-text-02.svg" alt="VALUE PRICE"
+                          class="p-features__item-title-img c-features-title-img">
+                      </h4>
+                      <div class="p-features__item-sub-title">
+                        <img src="./assets/images/features/features-text-02-sub.svg" alt="VALUE PRICE"
+                          class="p-features__item-sub-title-img c-features-title-img">
+                      </div>
+                      <p class="p-features__item-text">24時間通い放題+マンツーマンサポート（5回まで無料）付きでこのプライス！</p>
+                      <p class="p-features__item-text p-features__item-text-small">※月会費は店舗により異なります。
+                      </p>
+                    </div>
+                  </div>
+                  <!-- アイテム3 -->
+                  <div class="p-features__item" data-slider-slide>
+                    <div class="p-features__item-image">
+                      <img src="./assets/images/features/features-03.webp" alt="FEELS GOOD"
+                        class="p-features__item-img">
+                    </div>
+                    <div class="p-features__item-content">
+                      <h4 class="p-features__item-title">
+                        <img src="./assets/images/features/features-text-03.svg" alt="OPEN 24 HOURS"
+                          class="p-features__item-title-img c-features-title-img">
+                      </h4>
+                      <p class="p-features__item-text">空間からモチベーションを。心地よさと清潔さにこだわったトレーニング空間。</p>
+                    </div>
+                  </div>
+                  <!-- アイテム4 -->
+                  <div class="p-features__item" data-slider-slide>
+                    <div class="p-features__item-image">
+                      <img src="./assets/images/features/features-04.webp" alt="TRAINING SUPPORT"
+                        class="p-features__item-img">
+                    </div>
+                    <div class="p-features__item-content">
+                      <h4 class="p-features__item-title">
+                        <img src="./assets/images/features/features-text-04.svg" alt="VALUE PRICE"
+                          class="p-features__item-title-img c-features-title-img">
+                      </h4>
+                      <p class="p-features__item-text">はじめてでも安心。基本から目的に合わせたトレーニングまで、ジム通いを「習慣」へと変えるマンツーマン・サポート。</p>
+                    </div>
+                  </div>
+                  <div class="p-features__item" data-slider-slide>
+                    <div class="p-features__item-image">
+                      <img src="./assets/images/features/features-05.webp" alt="FEELS GOOD"
+                        class="p-features__item-img">
+                    </div>
+                    <div class="p-features__item-content">
+                      <h4 class="p-features__item-title">
+                        <img src="./assets/images/features/features-text-05.svg" alt="PERSONAL TRAINING"
+                          class="p-features__item-title-img c-features-title-img">
+                      </h4>
+                      <p class="p-features__item-text">本気で変わりたい人には、プロの個別指導も。結果をしっかり出したい方におすすめです。</p>
+                    </div>
                   </div>
                 </div>
-                <!-- アイテム3 -->
-                <div class="p-features__item">
-                  <div class="p-features__item-image">
-                    <img src="./assets/images/features/features-03.webp" alt="FEELS GOOD" class="p-features__item-img">
-                  </div>
-                  <div class="p-features__item-content">
-                    <h4 class="p-features__item-title">
-                      <img src="./assets/images/features/features-text-03.svg" alt="OPEN 24 HOURS"
-                        class="p-features__item-title-img c-features-title-img">
-                    </h4>
-                    <p class="p-features__item-text">空間からモチベーションを。心地よさと清潔さにこだわったトレーニング空間。</p>
-                  </div>
-                </div>
-                <!-- アイテム4 -->
-                <div class="p-features__item">
-                  <div class="p-features__item-image">
-                    <img src="./assets/images/features/features-04.webp" alt="TRAINING SUPPORT"
-                      class="p-features__item-img">
-                  </div>
-                  <div class="p-features__item-content">
-                    <h4 class="p-features__item-title">
-                      <img src="./assets/images/features/features-text-04.svg" alt="VALUE PRICE"
-                        class="p-features__item-title-img c-features-title-img">
-                    </h4>
-                    <p class="p-features__item-text">はじめてでも安心。基本から目的に合わせたトレーニングまで、ジム通いを「習慣」へと変えるマンツーマン・サポート。</p>
-                  </div>
-                </div>
-                <div class="p-features__item">
-                  <div class="p-features__item-image">
-                    <img src="./assets/images/features/features-05.webp" alt="FEELS GOOD" class="p-features__item-img">
-                  </div>
-                  <div class="p-features__item-content">
-                    <h4 class="p-features__item-title">
-                      <img src="./assets/images/features/features-text-05.svg" alt="PERSONAL TRAINING"
-                        class="p-features__item-title-img c-features-title-img">
-                    </h4>
-                    <p class="p-features__item-text">本気で変わりたい人には、プロの個別指導も。結果をしっかり出したい方におすすめです。</p>
-                  </div>
-                </div>
+                <!-- Navigation -->
+                <button class="p-features__prev c-slider__prev" data-slider-prev aria-label="前へ"></button>
+                <button class="p-features__next c-slider__next" data-slider-next aria-label="次へ"></button>
+                <!-- Dots -->
+                <div class="p-features__dots c-slider__dots" data-slider-dots></div>
               </div>
             </div>
           </div>
@@ -330,21 +334,25 @@
           <div class="p-experience__inner">
             <!-- セクションタイトル -->
             <h3 class="p-experience__title">
-              <img src="./assets/images/experience/experience-title.svg" alt="マンツーマン竿イートを今だけの特典で体験"
+              <img src="./assets/images/experience/experience-title.svg" alt="マンツーマンサポートを今だけの特典で体験"
                 class="p-experience__title-img">
             </h3>
-
+            <div class="p-experience__sub-title">
+              <img src="./assets/images/experience/experience-sub-title.svg" alt="あなたはどっち派？">
+            </div>
             <!-- ルート選択ラッパー -->
             <div class="p-experience__route-wrapper">
               <!-- ルート選択ボタン群 -->
               <div class="p-experience__route-selector" role="tablist" aria-label="体験ルートを選択">
-                <button class="p-experience__route-btn p-experience__route-btn--habit is-active" role="tab"
-                  aria-selected="true" aria-controls="experience-route-habit" data-route="habit">
+                <button id="experience-route-habit-btn"
+                  class="p-experience__route-btn p-experience__route-btn--habit is-active" role="tab"
+                  aria-selected="true" aria-controls="experience-route-habit" data-route="habit" type="button">
                   <span class="p-experience__route-btn-label">マイペースで</span>
                   <span class="p-experience__route-btn-label">続けたい派</span>
                 </button>
-                <button class="p-experience__route-btn p-experience__route-btn--result" role="tab" aria-selected="false"
-                  aria-controls="experience-route-result" data-route="result">
+                <button id="experience-route-result-btn" class="p-experience__route-btn p-experience__route-btn--result"
+                  role="tab" aria-selected="false" aria-controls="experience-route-result" data-route="result"
+                  type="button">
                   <span class="p-experience__route-btn-label">ちゃんと</span>
                   <span class="p-experience__route-btn-label">結果を出したい派</span>
                 </button>
@@ -357,8 +365,12 @@
                   <div class="p-experience__route-inner">
                     <!-- ルートタイトル -->
                     <div class="p-experience__route-header">
-                      <h4 class="p-experience__route-title">「習慣化ルート」で</h4>
-                      <p class="p-experience__route-subtitle">まずは習慣づくりから</p>
+                      <h4 class="p-experience__route-title"><span class="p-experience__route-title-group"><span
+                            class="p-experience__route-title-quote">「</span><span
+                            class="p-experience__route-title-large">習慣化ルート</span><span
+                            class="p-experience__route-title-quote">」</span><span
+                            class="p-experience__route-title-text">で</span></span><br><span
+                          class="p-experience__route-title-text">まずは習慣づくりから</span></h4>
                     </div>
 
                     <!-- サービスロゴ/名前 -->
@@ -395,11 +407,15 @@
                           class="p-experience__route-plus-logo-img">
                       </div>
                       <!-- タイトル -->
-                      <h5 class="p-experience__route-plus-title">専属トレーナー×専用メニューで「続けたい」をサポート!</h5>
-                      <!-- 説明テキスト -->
-                      <div class="p-experience__route-plus-description">
-                        <p class="p-experience__route-plus-text">成果を出したい人も、習慣化したい人も。</p>
-                        <p class="p-experience__route-plus-text">目標までの道のりに寄り添います。</p>
+                      <div class="p-experience__route-plus-title-wrapper">
+                        <h5 class="p-experience__route-plus-title">専属トレーナー×専用メニューで「続けたい」をサポート!</h5>
+                        <!-- 説明テキスト -->
+                        <div class="p-experience__route-plus-description">
+                          <p class="p-experience__route-plus-text">成果を出したい人も、習慣化したい人も。</p>
+                          <p class="p-experience__route-plus-text">目標までの道のりに寄り添います。</p>
+                        </div>
+                        <div class="p-experience__route-plus-text-02 ">
+                          5回まで無料 (1回30分)</div>
                       </div>
                       <!-- 料金表示 -->
                       <div class="p-experience__route-plus-price">
@@ -410,7 +426,7 @@
 
                     <!-- がんばらなくても ちゃんと続く理由 -->
                     <section class="p-reason">
-                      <div class="p-reason__inner">
+                      <div class="p-reason__inner l-inner">
                         <!-- セクション見出し -->
                         <h3 class="p-reason-title">
                           <img src="./assets/images/experience/tresapo/reason/reason-title.svg" alt="がんばらなくても ちゃんと続く理由"
@@ -450,7 +466,7 @@
                                   class="p-reason__card-icon-img">
                               </div>
                               <div class="p-reason__card-body">
-                                <h4 class="p-reason__card-title">レッスン感覚で通える予約制</h4>
+                                <h4 class="p-reason__card-title">レッスン感覚で通える<br>予約制</h4>
                                 <p class="p-reason__card-text">予約制だから「行こうかな」で迷わず、続きやすい。</p>
                               </div>
                             </li>
@@ -471,10 +487,10 @@
                             alt="トレサポプラスってどう？感想を聞いてみました！" class="p-voice__title-img">
                         </h3>
 
-                        <div class="p-voice__slider">
-                          <div class="p-voice__track" id="voice-track">
+                        <div class="p-voice__slider" data-slider data-loop="true" data-dots="true" data-nav="true">
+                          <div class="p-voice__track" data-slider-track>
                             <!-- スライド1 -->
-                            <div class="p-voice__slide" aria-current="true">
+                            <div class="p-voice__slide" data-slider-slide>
                               <div class="p-voice__card">
                                 <div class="p-voice__card-top">
                                   <div class="p-voice__icon">
@@ -495,7 +511,7 @@
                             </div>
 
                             <!-- スライド2 -->
-                            <div class="p-voice__slide" aria-current="true">
+                            <div class="p-voice__slide" data-slider-slide>
                               <div class="p-voice__card">
                                 <div class="p-voice__card-top">
                                   <div class="p-voice__icon">
@@ -516,7 +532,7 @@
                             </div>
 
                             <!-- スライド3 -->
-                            <div class="p-voice__slide" aria-current="true">
+                            <div class="p-voice__slide" data-slider-slide>
                               <div class="p-voice__card">
                                 <div class="p-voice__card-top">
                                   <div class="p-voice__icon">
@@ -537,7 +553,7 @@
                             </div>
 
                             <!-- スライド4 -->
-                            <div class="p-voice__slide" aria-current="true">
+                            <div class="p-voice__slide" data-slider-slide>
                               <div class="p-voice__card">
                                 <div class="p-voice__card-top">
                                   <div class="p-voice__icon">
@@ -559,22 +575,17 @@
                           </div>
 
                           <!-- 前へボタン -->
-                          <button class="p-voice__btn p-voice__btn--prev" aria-label="前のスライドへ" id="voice-prev">
+                          <button class="p-voice__btn p-voice__btn--prev" aria-label="前のスライドへ" data-slider-prev>
                             <img src="./assets/images/common/arrow-green.svg" alt="" class="p-voice__btn-icon">
                           </button>
 
                           <!-- 次へボタン -->
-                          <button class="p-voice__btn p-voice__btn--next" aria-label="次のスライドへ" id="voice-next">
+                          <button class="p-voice__btn p-voice__btn--next" aria-label="次のスライドへ" data-slider-next>
                             <img src="./assets/images/common/arrow-green.svg" alt="" class="p-voice__btn-icon">
                           </button>
-                        </div>
 
-                        <!-- ドットナビゲーション（飾り） -->
-                        <div class="p-voice__dots">
-                          <span class="p-voice__dot is-active"></span>
-                          <span class="p-voice__dot"></span>
-                          <span class="p-voice__dot"></span>
-                          <span class="p-voice__dot"></span>
+                          <!-- ドットナビゲーション -->
+                          <div class="p-voice__dots" data-slider-dots></div>
                         </div>
                       </div>
                     </section>
@@ -588,94 +599,201 @@
                         </h3>
                         <p class="p-crew__lead">リアルな経験を積んだ<br>頼れるサポートクルー</p>
 
-                        <div class="p-crew__slider">
-                          <!-- スライド1 -->
-                          <article class="p-crew__slide" data-crew="0">
-                            <div class="p-crew__card">
-                              <img src="./assets/images/experience/tresapo/crew/crew-01.webp" alt="Sena Ueno"
-                                class="p-crew__photo">
-                              <div class="p-crew__name">
-                                <img src="./assets/images/experience/tresapo/crew/crew-name-01.svg" alt="Sena Ueno"
-                                  class="p-crew__name-img p-crew__name-img--01">
-                                <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
-                                  data-open="0"></button>
+                        <div class="p-crew__slider" data-slider data-loop="true" data-autoplay="3500"
+                          data-first-slide-delay="10000" data-dots="true" data-center-mode="true"
+                          data-center-padding="60px">
+                          <div class="p-crew__track" data-slider-track>
+                            <!-- スライド1 -->
+                            <article class="p-crew__slide" data-slider-slide data-crew="0">
+                              <div class="p-crew__card">
+                                <img src="./assets/images/experience/tresapo/crew/crew-01.webp" alt="Sena Ueno"
+                                  class="p-crew__photo">
+                                <div class="p-crew__name">
+                                  <img src="./assets/images/experience/tresapo/crew/crew-name-01.svg" alt="Sena Ueno"
+                                    class="p-crew__name-img p-crew__name-img--01">
+                                  <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
+                                    data-open="0"></button>
+                                </div>
                               </div>
-                            </div>
-                          </article>
+                            </article>
 
-                          <!-- スライド2 -->
-                          <article class="p-crew__slide" data-crew="1">
-                            <div class="p-crew__card">
-                              <img src="./assets/images/experience/tresapo/crew/crew-02.webp" alt="Yuki Tanaka"
-                                class="p-crew__photo">
-                              <div class="p-crew__name">
-                                <img src="./assets/images/experience/tresapo/crew/crew-name-02.svg" alt="Yuki Tanaka"
-                                  class="p-crew__name-img p-crew__name-img--02">
-                                <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
-                                  data-open="1"></button>
+                            <!-- スライド2 -->
+                            <article class="p-crew__slide" data-slider-slide data-crew="1">
+                              <div class="p-crew__card">
+                                <img src="./assets/images/experience/tresapo/crew/crew-02.webp" alt="Yuki Tanaka"
+                                  class="p-crew__photo">
+                                <div class="p-crew__name">
+                                  <img src="./assets/images/experience/tresapo/crew/crew-name-02.svg" alt="Yuki Tanaka"
+                                    class="p-crew__name-img p-crew__name-img--02">
+                                  <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
+                                    data-open="1"></button>
+                                </div>
                               </div>
-                            </div>
-                          </article>
+                            </article>
 
-                          <!-- スライド3 -->
-                          <article class="p-crew__slide" data-crew="2">
-                            <div class="p-crew__card">
-                              <img src="./assets/images/experience/tresapo/crew/crew-03.webp" alt="Mika Suzuki"
-                                class="p-crew__photo">
-                              <div class="p-crew__name">
-                                <img src="./assets/images/experience/tresapo/crew/crew-name-03.svg" alt="Mika Suzuki"
-                                  class="p-crew__name-img p-crew__name-img--03">
-                                <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
-                                  data-open="2"></button>
+                            <!-- スライド3 -->
+                            <article class="p-crew__slide" data-slider-slide data-crew="2">
+                              <div class="p-crew__card">
+                                <img src="./assets/images/experience/tresapo/crew/crew-03.webp" alt="Mika Suzuki"
+                                  class="p-crew__photo">
+                                <div class="p-crew__name">
+                                  <img src="./assets/images/experience/tresapo/crew/crew-name-03.svg" alt="Mika Suzuki"
+                                    class="p-crew__name-img p-crew__name-img--03">
+                                  <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
+                                    data-open="2"></button>
+                                </div>
                               </div>
-                            </div>
-                          </article>
+                            </article>
 
-                          <!-- スライド4 -->
-                          <article class="p-crew__slide" data-crew="3">
-                            <div class="p-crew__card">
-                              <img src="./assets/images/experience/tresapo/crew/crew-04.webp" alt="Takeshi Yamamoto"
-                                class="p-crew__photo">
-                              <div class="p-crew__name">
-                                <img src="./assets/images/experience/tresapo/crew/crew-name-04.svg"
-                                  alt="Takeshi Yamamoto" class="p-crew__name-img p-crew__name-img--04">
-                                <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
-                                  data-open="3"></button>
+                            <!-- スライド4 -->
+                            <article class="p-crew__slide" data-slider-slide data-crew="3">
+                              <div class="p-crew__card">
+                                <img src="./assets/images/experience/tresapo/crew/crew-04.webp" alt="Takeshi Yamamoto"
+                                  class="p-crew__photo">
+                                <div class="p-crew__name">
+                                  <img src="./assets/images/experience/tresapo/crew/crew-name-04.svg"
+                                    alt="Takeshi Yamamoto" class="p-crew__name-img p-crew__name-img--04">
+                                  <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
+                                    data-open="3"></button>
+                                </div>
                               </div>
-                            </div>
-                          </article>
+                            </article>
+                          </div>
+                          <!-- Dots -->
+                          <div class="p-crew__dots c-slider__dots" data-slider-dots></div>
+                        </div>
+
+                        <div class="p-crew__button">
+                          <a href="#">
+                            <img src="./assets/images/experience/tresapo/crew/crew-button.svg" alt="Support Crew">
+                          </a>
                         </div>
                       </div>
                     </section>
                   </div>
+                </div>
 
-                  <!-- 結果重視ルート -->
-                  <div class="p-experience__route p-experience__route--result" id="experience-route-result"
-                    role="tabpanel" aria-labelledby="experience-route-result-btn">
-                    <div class="p-experience__route-inner">
-                      <!-- ルートタイトル -->
-                      <div class="p-experience__route-header">
-                        <h4 class="p-experience__route-title">「結果重視ルート」で</h4>
-                        <p class="p-experience__route-subtitle">確実に目標へ</p>
+                <!-- 結果重視ルート -->
+                <div class="p-experience__route p-experience__route--result" id="experience-route-result"
+                  role="tabpanel" aria-labelledby="experience-route-result-btn">
+                  <div class="p-result__inner">
+                    <!-- ルートタイトル -->
+                    <div class="p-experience__route-header">
+                      <h4 class="p-experience__route-title"><span class="p-experience__route-title-group"><span
+                            class="p-experience__route-title-quote">「</span><span
+                            class="p-experience__route-title-large">結果重視ルート</span><span
+                            class="p-experience__route-title-quote">」</span><span
+                            class="p-experience__route-title-text">で</span></span><br><span
+                          class="p-experience__route-title-text">確実に目標へ</span></h4>
+                    </div>
+
+                    <!-- サービスロゴ/名前 -->
+                    <div class="p-result__service">
+                      <div class="p-result__service-inner">
+                        <div class="p-result__service-logo-wrap">
+                          <img src="./assets/images/experience/result/result-logo.svg" alt="FITNESS24 PERSONAL"
+                            class="p-result__service-logo">
+                        </div>
+                        <div class="p-result__service-text-wrap">
+                          <h3 class="p-result__service-title">プロの技術を体感!<br>
+                            1回でわかる「効かせ方」の違い
+                          </h3>
+                          <p class="p-result__service-text">その努力、もっと結果につなげよう!<br>
+                            プロが理想を叶えるパーソナルトレーニング</p>
+                        </div>
+                      </div>
+                      <div class="p-result__service-image-wrap">
+                        <img src="./assets/images/experience/result/result-01.webp" alt="FITNESS24 PERSONAL"
+                          class="p-result__service-image">
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <!-- その他のコンテンツ（画像、特徴など） -->
+                  <div class="p-result__info">
+                    <div class="p-result__info-inner l-inner">
+                      <div class="p-result__info-item">
+                        <img src="./assets/images/experience/result/result-02.svg" alt="FITNESS24 PERSONAL">
+                      </div>
+                      <!-- サービス説明 -->
+                      <div class="p-result__info-description p-result__info-description--bottom">
+                        <h3 class="p-result__info-title">体のしくみを理解したプロが<br>
+                          あなたの動きを分析
+                        </h3>
+                        <p class="p-result__text">「正しい効かせ方を知る」だけで、トレーニングの手応えが変わります。プロならではの違いを体感してください!</p>
+                      </div>
+                    </div>
+                    <div class="p-result__info-img">
+                      <img src="./assets/images/experience/result/result-03.webp" alt="FITNESS24 PERSONAL">
+                    </div>
+                  </div>
+                  <!-- 継続プランセクション -->
+                  <div class="p-result__continue">
+                    <div class="p-result__continue-header">
+                      <p class="p-result__continue-title">さらに!体験後の継続も応援!/</p>
+                      <p class="p-result__continue-subtitle">本気で続けたいと思ったら</p>
+                    </div>
+                    <div class="p-result__continue-button">
+                      <a href="#" class="p-result__continue-btn p-result__continue-btn--green">継続プラン料金</a>
+                    </div>
+                    <div class="p-result__continue-discount">
+                      <p class="p-result__continue-discount-text">初月 50%OFF!!</p>
+                    </div>
+                    <div class="p-result__continue-link c-button-green">
+                      <a href="#" class="c-button">
+                        パーソナルプランについて<br>
+                        詳しくこちら
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Trainingセクション -->
+                  <div class="p-result__training">
+                    <div class="p-result__training-inner">
+                      <!-- ヘッダー -->
+                      <div class="p-result__training-header">
+                        <h3 class="p-result__training-title">あなたに合わせて、ともに進む<br>プロ設計の<br>オーダーメイドトレーニング</h3>
+                        <p class="p-result__training-description">
+                          食事指導から姿勢改善まで目標に合わせてサポートし、正しいトレーニング知識を身につけることで、セルフでも迷わず効率的に取り組めます。</p>
                       </div>
 
-                      <!-- サービスロゴ/名前 -->
-                      <div class="p-experience__route-service">
-                        <img src="/assets/images/experience/personal-logo.svg" alt="FITNESS24 PERSONAL"
-                          class="p-experience__route-service-logo">
+                      <!-- コンテンツブロック -->
+                      <div class="p-result__training-content">
+                        <!-- ブロック1: パーソナルトレーニング -->
+                        <div class="p-result__training-block">
+                          <div class="p-result__training-block-img">
+                            <img src="./assets/images/experience/result/training-01.webp" alt="パーソナルトレーニング"
+                              class="p-result__training-img">
+                          </div>
+                          <p class="p-result__training-block-text">パーソナルトレーニング×<br>24時間セルフ利用のハイブリッドスタイル</p>
+                        </div>
+
+                        <!-- ブロック2: スペシャリストサポート -->
+                        <div class="p-result__training-block">
+                          <div class="p-result__training-block-img">
+                            <img src="./assets/images/experience/result/training-02.webp" alt="カラダづくりのスペシャリスト"
+                              class="p-result__training-img">
+                          </div>
+                          <p class="p-result__training-block-text">カラダづくりのスペシャリストによる<br>指導・サポート</p>
+                        </div>
+
+                        <!-- ブロック3: 食事指導 -->
+                        <div class="p-result__training-block">
+                          <div class="p-result__training-block-img">
+                            <img src="./assets/images/experience/result/training-03.webp" alt="食事指導"
+                              class="p-result__training-img">
+                          </div>
+                          <p class="p-result__training-block-text">ライフスタイルに合わせた食事指導</p>
+                        </div>
                       </div>
 
-                      <!-- ルート説明 -->
-                      <div class="p-experience__route-description">
-                        <p class="p-experience__route-text">プロの技術を体感!</p>
-                        <p class="p-experience__route-text">1回でわかる「効かせ方」の違い</p>
-                        <p class="p-experience__route-text">その努力、もっと結果につなげよう!</p>
-                        <p class="p-experience__route-text">プロが理想を叶えるパーソナルトレーニング</p>
-                      </div>
-
-                      <!-- その他のコンテンツ（画像、特徴など） -->
-                      <div class="p-experience__route-body">
-                        <!-- ここに結果重視ルート固有のコンテンツ -->
+                      <!-- CTAボタン -->
+                      <div class="p-result__training-cta">
+                        <div class="p-result__training-cta-line"></div>
+                        <a href="#" class="p-result__training-cta-button">
+                          <img src="./assets/images/experience/result/training-btn.svg" alt="">
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -808,7 +926,6 @@
             </div>
           </div>
         </section>
-
         <!-- Gym locationsセクション -->
         <section class="p-locations" id="locations">
           <div class="p-locations__inner">
@@ -840,7 +957,6 @@
             <img src="" alt="" class="p-gallery-lightbox__img" id="gallery-lightbox-img">
           </div>
         </div>
-
       </main>
       <!-- モーダル -->
       <div class="p-crew-modal" id="crew-modal" role="dialog" aria-modal="true" aria-labelledby="crew-modal-title"
@@ -868,7 +984,22 @@
     </div>
 
     <!-- JavaScript -->
+    <!-- jQuery（他のJSより先に読み込み必須） -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <!-- 機能ごとに分割されたJSファイル -->
+    <script src="./assets/js/header.js"></script>
+    <script src="./assets/js/slider.js"></script>
+    <script src="./assets/js/experience.js"></script>
+    <script src="./assets/js/crew-slider.js"></script>
+    <script src="./assets/js/gallery-slider.js"></script>
+    <script src="./assets/js/faq.js"></script>
+    <script src="./assets/js/join-accordion.js"></script>
+    <script src="./assets/js/privacy-modal.js"></script>
 
     <!-- Custom CSS -->
     <!-- custom.cssはstyle.cssの上書き専用（後から読み込まれるため優先される） -->

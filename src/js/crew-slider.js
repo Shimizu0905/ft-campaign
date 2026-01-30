@@ -36,67 +36,45 @@ const crewData = [
     catchphrase: '桑園のマザーテレサ',
     catchphraseHighlight: [],
     description:
-      'スポーツトレーナーとしての経験を活かし、機能的なトレーニングを提供。初心者の方でも安心して取り組めるよう、丁寧にサポートします。「続けること」を大切にし、無理のないペースで目標達成を目指します。',
+      'ジムに通うことが楽しくなってくれると嬉しいので、会員様が常にモチベーションを高めていけるよう心がけて、目標に向けて全力サポートしていきます。今日も楽しかった！と思ってもらえるような時間を心がけています。',
     achievements: [
-      {
-        title: 'NSCA認定パーソナルトレーナー',
-        details: [],
-      },
-      {
-        title: 'ストレッチングインストラクター',
-        details: [],
-      },
-      {
-        title: '延べ300名以上の指導実績',
-        details: [],
-      },
     ],
     photo: '/assets/images/experience/tresapo/crew/crew-02.webp',
   },
   {
     id: 2,
-    name: 'Mika Suzuki',
-    store: 'FITNESS24 池袋店',
-    catchphrase: '女性のためのボディメイク',
+    name: '中村トレーナー',
+    store: '菊水店',
+    catchphrase: '筋トレに人生を救われた<br>筋トレオタク!',
     catchphraseHighlight: [],
     description:
-      '女性特有の悩みに寄り添ったトレーニングプログラムを提供。食事指導も含めたトータルサポートで、理想の体を実現します。産後ダイエットや姿勢改善など、幅広いニーズに対応可能です。',
+      'セルフトレーニングで効果的に実践していただくために、自分自身のトレーニング経験をもとに、無理なく最短で結果が出せるよう大切なポイントを端的に伝えることを心がけています。',
     achievements: [
       {
-        title: '女性ボディメイク専門資格',
-        details: [],
+        title: '2022 JBBF 北海道大会',
+        details: ['23歳以下級−172/5位'],
       },
       {
-        title: '産後ケアトレーナー',
-        details: [],
+        title: '2023 JBBF 北海道大会　−172/5位',
       },
       {
-        title: '延べ400名以上の指導実績',
-        details: [],
+        title: '2024 JBBF 北海道大会　−172/2位',
       },
     ],
     photo: '/assets/images/experience/tresapo/crew/crew-03.webp',
   },
   {
     id: 3,
-    name: 'Takeshi Yamamoto',
-    store: 'FITNESS24 横浜店',
-    catchphrase: '結果にこだわる本格トレーニング',
+    name: '小玉トレーナー',
+    store: '南郷7丁目店',
+    catchphrase: '細マッチョになりたいなら<br>この漢に!',
     catchphraseHighlight: [],
     description:
-      '競技スポーツの経験を活かし、パフォーマンス向上を重視した指導を行います。筋力アップ、パワー向上など、具体的な目標達成をサポート。科学的根拠に基づいたトレーニングメニューで、確実に結果を出します。',
+      'サポート前にしっかりとヒアリングを行い、不安に寄り添い解消できるよう心がけています。重さや強度も個々に適した設定をレクチャーいたしますので、安心して受講していただけます。',
     achievements: [
       {
-        title: 'CSCS認定ストレングス&コンディショニングスペシャリスト',
-        details: [],
-      },
-      {
-        title: 'アスリート指導経験10年',
-        details: [],
-      },
-      {
-        title: '延べ600名以上の指導実績',
-        details: [],
+        title: 'マッスルゲート札幌大会',
+        details: ['JBBF 北海道大会メンズフィジーク', '新人−172 4位<br>一般−172 5位'],
       },
     ],
     photo: '/assets/images/experience/tresapo/crew/crew-04.webp',

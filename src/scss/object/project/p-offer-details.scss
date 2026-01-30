@@ -7,15 +7,15 @@
 }
 
 .p-offer-details__inner {
-  margin-top: 40px;
   width: 100%;
   max-width: 430px;
+  margin-top: 40px;
 }
 
 .p-offer-details__main {
+  padding: 20px 20px 40px;
   border-radius: 20.27px;
   background-color: #EBD5A1;
-  padding: 20px 20px 40px;
 
   @media (width <= 375px) {
     padding: prem(20) prem(20) prem(40);

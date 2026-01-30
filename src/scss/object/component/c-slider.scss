@@ -1,0 +1,183 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+
+// ============================================================
+// c-slider - 共通スライダーコンポーネント
+// ============================================================
+
+// ------------------------------------------------------------
+// Container
+// ------------------------------------------------------------
+.c-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+// ------------------------------------------------------------
+// Track（スライド群を包むコンテナ）
+// ------------------------------------------------------------
+.c-slider__track {
+  display: flex;
+  will-change: transform;
+}
+
+// ------------------------------------------------------------
+// Slide
+// ------------------------------------------------------------
+.c-slider__slide {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+// ------------------------------------------------------------
+// Navigation Buttons
+// ------------------------------------------------------------
+.c-slider__prev,
+.c-slider__next {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: rgb(0 0 0 / 30%);
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  transform: translateY(-50%);
+
+  &:hover {
+    background-color: rgb(0 0 0 / 50%);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $main-green;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  @media (width <= 375px) {
+    width: prem(36);
+    height: prem(36);
+  }
+}
+
+.c-slider__prev {
+  left: 8px;
+
+  @media (width <= 375px) {
+    left: prem(8);
+  }
+}
+
+.c-slider__next {
+  right: 8px;
+
+  @media (width <= 375px) {
+    right: prem(8);
+  }
+}
+
+// 矢印アイコン（CSSで生成）
+.c-slider__prev::before,
+.c-slider__next::before {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid $white;
+  border-right: 2px solid $white;
+  content: "";
+}
+
+.c-slider__prev::before {
+  transform: rotate(-135deg) translateX(-2px);
+}
+
+.c-slider__next::before {
+  transform: rotate(45deg) translateX(-2px);
+}
+
+// ------------------------------------------------------------
+// Dots（ページネーション）
+// ------------------------------------------------------------
+.c-slider__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+
+  @media (width <= 375px) {
+    gap: prem(8);
+    margin-top: prem(16);
+  }
+}
+
+.c-slider__dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: rgb(0 0 0 / 20%);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: rgb(0 0 0 / 40%);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $main-green;
+    outline-offset: 2px;
+  }
+
+  &.is-active {
+    background-color: $main-green;
+    transform: scale(1.2);
+  }
+
+  @media (width <= 375px) {
+    width: prem(10);
+    height: prem(10);
+  }
+}
+
+// ------------------------------------------------------------
+// Center Mode
+// ------------------------------------------------------------
+.c-slider--center {
+  overflow: visible;
+
+  .c-slider__slide {
+    opacity: 0.5;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: scale(0.9);
+
+    &[aria-current="true"] {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+// ------------------------------------------------------------
+// Accessibility: reduced motion
+// ------------------------------------------------------------
+@media (prefers-reduced-motion: reduce) {
+  .c-slider__track {
+    transition: none !important;
+  }
+
+  .c-slider__slide {
+    transition: none !important;
+  }
+}

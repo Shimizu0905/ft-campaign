@@ -34,9 +34,8 @@ export default defineConfig({
       input: {
         main: resolve(projectRoot, 'src/js/main.js'),
         header: resolve(projectRoot, 'src/js/header.js'),
-        'features-slider': resolve(projectRoot, 'src/js/features-slider.js'),
+        slider: resolve(projectRoot, 'src/js/slider.js'),
         experience: resolve(projectRoot, 'src/js/experience.js'),
-        'voice-slider': resolve(projectRoot, 'src/js/voice-slider.js'),
         'crew-slider': resolve(projectRoot, 'src/js/crew-slider.js'),
         'gallery-slider': resolve(projectRoot, 'src/js/gallery-slider.js'),
         faq: resolve(projectRoot, 'src/js/faq.js'),

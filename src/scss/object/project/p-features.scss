@@ -102,102 +102,77 @@
   object-fit: contain;
 }
 
-// Slick dots カスタマイズ（voiceと同じデザイン）
-.p-features__slider .slick-dots {
+// Swiperスライダー用スタイル
+.p-features__slider {
+  overflow: visible;
+  padding-bottom: 50px;
+}
+
+// Swiperの基本CSSに負けないように明示的にoverflowを指定
+.p-features__slider.swiper {
+  overflow: visible;
+}
+
+// ドットカスタマイズ（Swiper用）
+.p-features__dots {
   position: relative;
-  bottom: auto;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 30px;
-  text-align: center;
+  bottom: 0;
+  margin-top: 20px;
 
-  @media (width <= 375px) {
-    gap: prem(12);
-    margin-top: prem(30);
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 6px;
+    border: 1px solid $main-green;
+    background-color: transparent;
+    opacity: 1;
+
+    &-active {
+      background-color: $main-green;
+    }
   }
 }
 
-.p-features__slider .slick-dots li {
-  width: 9px;
-  height: 9px;
-  margin: 0;
-
-  @media (width <= 375px) {
-    width: prem(10);
-    height: prem(10);
-  }
-}
-
-.p-features__slider .slick-dots li button {
-  width: 9px;
-  height: 9px;
-  padding: 0;
-  border: 0.64px solid $main-green;
-  border-radius: 50%;
-  background-color: transparent;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-
-  @media (width <= 375px) {
-    width: prem(10);
-    height: prem(10);
-  }
-
-  &::before {
-    display: none;
-  }
-}
-
-.p-features__slider .slick-dots li.slick-active button {
-  background-color: $main-green;
-}
-
-// Slick arrows カスタマイズ
-.p-features__slider .c-features-arrow {
+// 矢印カスタマイズ（Swiper用）
+.p-features__prev,
+.p-features__next {
   position: absolute;
   top: 34%;
   z-index: 10;
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  border: none;
+  width: 32px;
+  height: 32px;
+  margin-top: 0;
+  border-radius: 0;
   background: transparent;
-  cursor: pointer;
-  transform: translateY(-50%);
 
   @media (width <= 375px) {
-    width: prem(36);
-    height: prem(36);
+    width: prem(32);
+    height: prem(32);
   }
 
-  img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  &::after {
+    font-size: 16px;
+    font-weight: bold;
+    color: $white;
   }
 
-  &::before {
-    display: none;
+  &:hover {
+    background: transparent;
   }
 }
 
-.p-features__slider .c-features-arrow--prev {
-  left: 2px;
+.p-features__prev {
+  left: 8px;
 
   @media (width <= 375px) {
-    left: prem(2);
+    left: prem(8);
   }
 }
 
-.p-features__slider .c-features-arrow--prev img {
-  transform: scaleX(-1);
-}
-
-.p-features__slider .c-features-arrow--next {
-  right: 2px;
+.p-features__next {
+  right: 8px;
 
   @media (width <= 375px) {
-    right: prem(2);
+    right: prem(8);
   }
 }

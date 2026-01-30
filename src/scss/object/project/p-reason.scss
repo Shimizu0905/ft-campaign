@@ -4,7 +4,7 @@
 
 // がんばらなくても ちゃんと続く理由セクション
 .p-reason {
-  padding: 70px 0;
+  padding: 70px 0 0;
   background-color: $light-green;
 }
 
@@ -37,17 +37,33 @@
   background-color: $white;
 
   @media (width <= 375px) {
-    border-radius: prem(8);
     padding: prem(20.6) prem(25);
+    border-radius: prem(8);
+  }
+}
+
+.p-reason__card:nth-child(2) {
+  gap: 10px;
+
+  @media (width <= 375px) {
+    gap: prem(10);
   }
 }
 
 .p-reason__card-icon {
   width: 80px;
+
+  @media (width <= 375px) {
+    width: prem(80);
+  }
 }
 
-.p-reason__card-icon :nth-child(2) {
-  width: 100px;
+.p-reason__card:nth-child(2) .p-reason__card-icon {
+  width: 94px;
+
+  @media (width <= 375px) {
+    width: prem(94);
+  }
 }
 
 .p-reason__card-icon img {

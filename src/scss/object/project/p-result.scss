@@ -1,0 +1,611 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// ============================================================
+// p-result - 結果ページ
+// ============================================================
+
+// ------------------------------------------------------------
+// Container
+// ------------------------------------------------------------
+.p-result__inner {
+  width: 100%;
+}
+
+// ------------------------------------------------------------
+// Header（緑バナー）
+// ------------------------------------------------------------
+.p-result__header {
+  margin-top: 0;
+  padding: 20px 16px;
+  border-top: none;
+  border-radius: 0;
+  text-align: center;
+  background-color: $main-green;
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
+
+  @media (width <= 375px) {
+    padding: prem(20) prem(16);
+  }
+}
+
+.p-result__title {
+  margin: 0 0 8px;
+  font-size: 21px;
+  font-weight: $font-weight-m;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: $white;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(8);
+    font-size: prem(21);
+  }
+}
+
+.p-result__subtitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  color: $white;
+
+  @media (width <= 375px) {
+    font-size: prem(14);
+  }
+}
+
+// ------------------------------------------------------------
+// Service（サービスロゴ）
+// ------------------------------------------------------------
+.p-result__service {
+  text-align: center;
+  background-color: $white;
+}
+
+.p-result__service-inner {
+  padding: 48px 0;
+
+  @media (width <= 375px) {
+    padding: prem(48) 0;
+  }
+}
+
+.p-result__service-logo {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+
+  @media (width <= 375px) {
+    max-width: prem(200);
+  }
+}
+
+.p-result__service-text-wrap {
+  margin-top: 20px;
+}
+
+.p-result__service-title {
+  font-size: 20px;
+  font-weight: $font-weight-b;
+  text-align: center;
+  color: $main-green;
+}
+
+.p-result__service-text {
+  margin-top: 18px;
+  font-size: 15px;
+  font-weight: $font-weight-m;
+  text-align: center;
+  color: $main-green;
+}
+
+.p-result__service-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+
+// ------------------------------------------------------------
+// Description（ルート説明）
+// ------------------------------------------------------------
+.p-result__info {
+  padding: 40px 0;
+  background-color: #E8E8E6;
+}
+
+.p-result__info-description {
+  text-align: center;
+
+  &--bottom {
+    margin-top: 46px;
+
+    @media (width <= 375px) {
+      margin-top: prem(46);
+    }
+  }
+}
+
+.p-result__info-title {
+  font-size: 18px;
+  font-weight: $font-weight-b;
+  text-align: center;
+  color: $main-green;
+
+  @media (width <= 375px) {
+    font-size: prem(18);
+  }
+}
+
+.p-result__text {
+  margin-top: 24px;
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  line-height: 1.7;
+  text-align: left;
+  color: $main-green;
+
+  @media (width <= 375px) {
+    font-size: prem(14);
+  }
+}
+
+.p-result__info-img {
+  margin-top: 46px;
+
+  @media (width <= 375px) {
+    margin-top: prem(46);
+  }
+}
+
+// ------------------------------------------------------------
+// Body（メインコンテンツ）
+// ------------------------------------------------------------
+.p-result__body {
+  margin-top: 40px;
+  background-color: $white;
+
+  @media (width <= 375px) {
+    margin-top: prem(40);
+  }
+}
+
+// ------------------------------------------------------------
+// Trainers（トレーナー写真）
+// ------------------------------------------------------------
+.p-result__trainers {
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+.p-result__trainers-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+// ------------------------------------------------------------
+// Special（特典情報）
+// ------------------------------------------------------------
+.p-result__special {
+  position: relative;
+  margin-top: 40px;
+
+  @media (width <= 375px) {
+    margin-top: prem(40);
+  }
+}
+
+.p-result__special-badge {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  z-index: 1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: $font-weight-b;
+  color: $white;
+  background-color: $main-green;
+
+  @media (width <= 375px) {
+    top: prem(-10);
+    left: prem(20);
+    padding: prem(8) prem(16);
+    border-radius: prem(20);
+    font-size: prem(14);
+  }
+}
+
+.p-result__special-content {
+  padding: 30px 20px 20px;
+  border-radius: 20px;
+  background-color: $main-orange;
+
+  @media (width <= 375px) {
+    padding: prem(30) prem(20) prem(20);
+    border-radius: prem(20);
+  }
+}
+
+.p-result__special-text {
+  margin: 8px 0 0;
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  text-align: center;
+  color: $white;
+
+  @media (width <= 375px) {
+    margin-top: prem(8);
+    font-size: prem(14);
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.p-result__special-price {
+  margin: 16px 0 0;
+  font-size: 32px;
+  font-weight: $font-weight-b;
+  text-align: center;
+  color: $white;
+
+  @media (width <= 375px) {
+    margin-top: prem(16);
+    font-size: prem(32);
+  }
+}
+
+// ------------------------------------------------------------
+// Continue（継続プランセクション）
+// ------------------------------------------------------------
+.p-result__continue {
+  padding: 40px 20px;
+  background-color: #f5f5f0;
+
+  @media (width <= 375px) {
+    padding: prem(40) prem(20);
+  }
+}
+
+.p-result__continue-header {
+  text-align: center;
+}
+
+.p-result__continue-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: $font-weight-m;
+  color: $main-green;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(8);
+    font-size: prem(18);
+  }
+}
+
+.p-result__continue-subtitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: $font-weight-r;
+  color: $main-green;
+
+  @media (width <= 375px) {
+    font-size: prem(16);
+  }
+}
+
+.p-result__continue-button {
+  margin-bottom: 16px;
+  text-align: center;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(16);
+  }
+}
+
+.p-result__continue-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: $font-weight-m;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+
+  @media (width <= 375px) {
+    padding: prem(14) prem(32);
+    font-size: prem(16);
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &--green {
+    color: $white;
+    background-color: $main-green;
+  }
+}
+
+.p-result__continue-discount {
+  margin-bottom: 24px;
+  text-align: center;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(24);
+  }
+}
+
+.p-result__continue-discount-text {
+  margin: 0;
+  font-size: 24px;
+  font-weight: $font-weight-b;
+  color: $main-green;
+
+  @media (width <= 375px) {
+    font-size: prem(24);
+  }
+}
+
+.p-result__continue-link {
+  text-align: center;
+}
+
+.p-result__continue-link-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: $white;
+  transition: opacity 0.3s ease;
+
+  @media (width <= 375px) {
+    gap: prem(8);
+    padding: prem(16) prem(24);
+    border-radius: prem(8);
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.p-result__continue-link-text {
+  font-size: 16px;
+  font-weight: $font-weight-m;
+  color: $main-green;
+
+  @media (width <= 375px) {
+    font-size: prem(16);
+  }
+}
+
+.p-result__continue-link-detail {
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  color: $main-green;
+
+  @media (width <= 375px) {
+    font-size: prem(14);
+  }
+}
+
+.p-result__continue-link-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: $main-green;
+
+  @media (width <= 375px) {
+    width: prem(32);
+    height: prem(32);
+  }
+}
+
+.p-result__continue-link-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+
+  @media (width <= 375px) {
+    width: prem(16);
+    height: prem(16);
+  }
+}
+
+// ------------------------------------------------------------
+// Training（トレーニングセクション）
+// ------------------------------------------------------------
+.p-result__training {
+  margin-top: 40px;
+  padding: 40px 20px;
+  background-color: $main-green;
+
+  @media (width <= 375px) {
+    margin-top: prem(40);
+    padding: prem(40) prem(20);
+  }
+}
+
+.p-result__training-inner {
+  width: 100%;
+  max-width: 100%;
+}
+
+.p-result__training-header {
+  margin-bottom: 40px;
+  text-align: center;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(40);
+  }
+}
+
+.p-result__training-title {
+  margin: 0 0 16px;
+  font-size: 24px;
+  font-weight: $font-weight-b;
+  line-height: 1.6;
+  color: $white;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(16);
+    font-size: prem(24);
+  }
+}
+
+.p-result__training-description {
+  margin: 0;
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  line-height: 1.8;
+  color: $white;
+
+  @media (width <= 375px) {
+    font-size: prem(14);
+  }
+}
+
+.p-result__training-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 40px;
+
+  @media (width <= 375px) {
+    gap: prem(32);
+    margin-bottom: prem(40);
+  }
+}
+
+.p-result__training-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.p-result__training-block-img {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(16);
+    border-radius: prem(8);
+  }
+}
+
+.p-result__training-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.p-result__training-block-text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: $font-weight-m;
+  line-height: 1.6;
+  text-align: center;
+  color: $white;
+
+  @media (width <= 375px) {
+    font-size: prem(16);
+  }
+}
+
+.p-result__training-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  @media (width <= 375px) {
+    gap: prem(16);
+  }
+}
+
+.p-result__training-cta-line {
+  width: 1px;
+  height: 40px;
+  margin: 0 auto 16px;
+  background-color: rgb(255 255 255 / 30%);
+
+  @media (width <= 375px) {
+    height: prem(40);
+    margin-bottom: prem(16);
+  }
+}
+
+.p-result__training-cta-button {
+  display: inline-block;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.p-result__training-cta-text {
+  font-size: 14px;
+  font-weight: $font-weight-m;
+  color: $white;
+
+  @media (width <= 375px) {
+    font-size: prem(14);
+  }
+}
+
+.p-result__training-cta-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+
+  @media (width <= 375px) {
+    width: prem(24);
+    height: prem(24);
+  }
+}
+
+.p-result__training-cta-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+
+  @media (width <= 375px) {
+    width: prem(16);
+    height: prem(16);
+  }
+}

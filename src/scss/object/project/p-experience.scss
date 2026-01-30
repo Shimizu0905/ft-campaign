@@ -98,12 +98,12 @@
   // 習慣化ルートの見出し帯を明るい緑にして、タブと一体化
   #experience-route-habit .p-experience__route-header {
     margin-top: 0;
-    padding-top: 20px;
+    padding-top: 28px;
     border-radius: 0;
     background-color: $light-green;
 
     @media (width <= 375px) {
-      padding-top: prem(20);
+      padding-top: prem(28);
     }
   }
 }
@@ -122,11 +122,11 @@
   // 結果重視ルートの見出し帯を濃い緑にして、タブと一体化
   #experience-route-result .p-experience__route-header {
     margin-top: 0;
-    padding-top: 20px;
+    padding-top: 28px;
     background-color: $main-green;
 
     @media (width <= 375px) {
-      padding-top: prem(20);
+      padding-top: prem(28);
     }
   }
 }
@@ -157,7 +157,7 @@
 // タブと一体化するため、margin-topは0、上側の角丸はなし
 .p-experience__route-header {
   margin-top: 0;
-  padding: 20px 16px;
+  padding: 28px 16px 20px;
   border-top: none;
   border-radius: 0;
   text-align: center;
@@ -165,28 +165,76 @@
   transition: background-color 0.3s ease, border-radius 0.3s ease;
 
   @media (width <= 375px) {
-    padding: prem(20) prem(16);
+    padding: prem(28) prem(16) prem(20);
   }
 }
 
 .p-experience__route-title {
-  margin: 0 0 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
   font-size: 21px;
   font-weight: $font-weight-m;
+  line-height: 1.2;
   text-align: center;
   letter-spacing: 0.1em;
   color: $white;
 
   @media (width <= 375px) {
-    margin-bottom: prem(8);
     font-size: prem(21);
   }
 }
 
+.p-experience__route-title-group {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.p-experience__route-title-quote {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  font-size: 30px;
+  font-weight: $font-weight-b;
+  line-height: 1;
+
+  @media (width <= 375px) {
+    font-size: prem(30);
+  }
+}
+
+.p-experience__route-title-text {
+  display: inline-flex;
+  align-items: baseline;
+  font-size: 21px;
+  line-height: 1;
+
+  @media (width <= 375px) {
+    font-size: prem(30);
+  }
+}
+
+.p-experience__route-title br + .p-experience__route-title-text {
+  margin-top: 10px;
+
+  @media (width <= 375px) {
+    margin-top: prem(10);
+  }
+}
+
 .p-experience__route-title-large {
+  display: inline-flex;
+  align-items: center;
   font-size: 30px;
   font-weight: $font-weight-h;
+  line-height: 1;
   color: $white;
+
+  @media (width <= 375px) {
+    font-size: prem(30);
+  }
 }
 
 .p-experience__route-subtitle {
@@ -288,7 +336,6 @@
   color: $main-green;
 
   @media (width <= 375px) {
-    margin-bottom: prem(16);
     padding-bottom: prem(12);
   }
 }
@@ -344,9 +391,9 @@
 }
 
 .p-experience__route-plus-logo {
-  margin-bottom: 20px;
   max-width: 215px;
   margin: 0 auto;
+  margin-bottom: 20px;
 
   @media (width <= 375px) {
     margin-bottom: prem(20);
@@ -362,11 +409,12 @@
 }
 
 .p-experience__route-plus-title-wrapper {
-  padding: 0 16px;
   margin-top: 20px;
+  padding: 0 16px;
+
   @media (width <= 375px) {
-    padding: 0 prem(16);
     margin-top: prem(20);
+    padding: 0 prem(16);
   }
 }
 
@@ -407,6 +455,7 @@
     margin-bottom: 0;
   }
 }
+
 .p-experience__route-plus-text-02 {
   width: 100%;
   max-width: 313px;
@@ -605,5 +654,107 @@
 
   @media (width <= 375px) {
     font-size: prem(16);
+  }
+}
+
+// 結果重視ルート固有のスタイル
+.p-experience__route--result {
+  .p-experience__route-body {
+    margin-top: 40px;
+
+    @media (width <= 375px) {
+      margin-top: prem(40);
+    }
+  }
+}
+
+// トレーナー写真
+.p-experience__route-trainers {
+  width: 100%;
+  margin-top: 40px;
+  background-color: #f5f5f5;
+
+  @media (width <= 375px) {
+    margin-top: prem(40);
+  }
+}
+
+.p-experience__route-trainers-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+// 特典情報
+.p-experience__route-special {
+  position: relative;
+  margin-top: 40px;
+
+  @media (width <= 375px) {
+    margin-top: prem(40);
+  }
+}
+
+.p-experience__route-special-badge {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  z-index: 1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: $font-weight-b;
+  color: $white;
+  background-color: $main-green;
+
+  @media (width <= 375px) {
+    top: prem(-10);
+    left: prem(20);
+    padding: prem(8) prem(16);
+    border-radius: prem(20);
+    font-size: prem(14);
+  }
+}
+
+.p-experience__route-special-content {
+  padding: 30px 20px 20px;
+  border-radius: 20px;
+  background-color: $main-orange;
+
+  @media (width <= 375px) {
+    padding: prem(30) prem(20) prem(20);
+    border-radius: prem(20);
+  }
+}
+
+.p-experience__route-special-text {
+  margin: 0;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: $font-weight-r;
+  text-align: center;
+  color: $white;
+
+  @media (width <= 375px) {
+    margin-top: prem(8);
+    font-size: prem(14);
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.p-experience__route-special-price {
+  margin: 16px 0 0;
+  font-size: 32px;
+  font-weight: $font-weight-b;
+  text-align: center;
+  color: $white;
+
+  @media (width <= 375px) {
+    margin-top: prem(16);
+    font-size: prem(32);
   }
 }

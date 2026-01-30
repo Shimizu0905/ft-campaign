@@ -3,8 +3,8 @@
 @use "../../foundation/mixin" as *;
 
 .p-about {
-  background-color: $white;
   padding: 90px 0 ;
+  background-color: $white;
 
   @media (width <= 375px) {
     padding: prem(90) 0;
