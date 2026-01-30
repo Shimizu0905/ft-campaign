@@ -4,18 +4,18 @@
 
 // How to Joinセクション
 .p-join {
-  padding: 60px 20px;
+  padding: 60px 0;
   background-color: #f5f0e8;
 
   @media (width <= 375px) {
-    padding: prem(60) prem(20);
+    padding: prem(60) 0;
   }
 }
 
 .p-join__inner {
   width: 100%;
   max-width: 430px;
-  margin: 0 auto;
+  padding: 0 40px;
 }
 
 // タイトル
@@ -69,13 +69,7 @@
 }
 
 .p-join__item {
-  border-radius: 12px;
-  background-color: $white;
   overflow: hidden;
-
-  @media (width <= 375px) {
-    border-radius: prem(12);
-  }
 }
 
 .p-join__item-header {
@@ -83,19 +77,16 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 20px 24px;
+  padding: 30px 0;
   border: none;
   background: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
   -webkit-tap-highlight-color: transparent;
+  border-bottom: 1px solid $main-green;
 
   @media (width <= 375px) {
     padding: prem(20) prem(24);
-  }
-
-  &:hover {
-    background-color: rgb(0 0 0 / 2%);
   }
 }
 
@@ -103,7 +94,7 @@
   font-size: 16px;
   font-weight: $font-weight-b;
   line-height: 1.4;
-  color: #333;
+  color: $main-green;
 
   @media (width <= 375px) {
     font-size: prem(16);
@@ -116,8 +107,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 32px;
-  height: 32px;
+  width: 22.5px;
+  height: 22.5px;
   border-radius: 50%;
   background-color: $main-green;
   transition: transform 0.3s ease;
@@ -131,11 +122,11 @@
   // 下向き矢印（閉じている時）
   &::after {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-right: 2px solid $white;
     border-bottom: 2px solid $white;
     transition: width 0.3s ease, height 0.3s ease, border 0.3s ease, transform 0.3s ease;
@@ -151,6 +142,7 @@
   // 開いた状態：横線「ー」に変形
   .p-join__item--open & {
     &::after {
+      top: 50%;
       width: 14px;
       height: 2px;
       border-right: none;
@@ -167,49 +159,49 @@
 
 // アコーディオンの本体
 .p-join__item-body {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
 
   .p-join__item--open & {
-    grid-template-rows: 1fr;
-  }
-}
-
-.p-join__item-content {
-  padding: 24px 20px;
-  background-color: $white;
-  overflow: hidden;
-
-  @media (width <= 375px) {
-    padding: prem(24) prem(20);
+    max-height: 1000px;
   }
 }
 
 .p-join__item-divider {
   width: 100%;
   height: 1px;
-  margin: 0;
+  margin: 20px 0;
   background-color: #E5E5E5;
+
+  @media (width <= 375px) {
+    margin: prem(20) 0;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .p-join__item-text {
   margin: 0;
+  padding: 16px 0;
   font-size: 14px;
   font-weight: $font-weight-r;
   line-height: 1.8;
-  color: $text-black;
+  color: $main-green;
 
   @media (width <= 375px) {
+    padding: prem(16) 0;
     font-size: prem(14);
   }
-}
 
-.p-join__item-text + .p-join__item-text {
-  margin-top: 8px;
-
-  @media (width <= 375px) {
-    margin-top: prem(8);
+  &:last-child {
+    padding-bottom: 0;
   }
 }
 
@@ -219,22 +211,22 @@
 .p-join__price-list {
   display: flex;
   flex-direction: column;
-  margin: 0;
-
-  @media (width <= 375px) {
-    margin: 0;
-  }
+  rgin: prem(20) 0;
 }
 
 .p-join__price-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 0;
-  border-bottom: 1px solid #E5E5E5;
+  padding: 30px 0;
+  border-bottom: 1px solid $main-green;
 
   @media (width <= 375px) {
-    padding: prem(16) 0;
+    padding: prem(30) 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
   }
 
   // トレサポプラスオプション行（.p-join__item-dividerの後に来る行は上部に横線）
@@ -245,10 +237,10 @@
 }
 
 .p-join__price-store {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: $font-weight-m;
   line-height: 1.6;
-  color: #333;
+  color: $main-green;
 
   @media (width <= 375px) {
     font-size: prem(13);
@@ -261,7 +253,7 @@
   padding: 1px 8px;
   border: 1px solid $main-green;
   border-radius: 4px;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: $font-weight-m;
   line-height: 1.6;
   color: $main-green;
@@ -278,7 +270,7 @@
 .p-join__price-value {
   font-family: $font-family-en;
   font-size: 20px;
-  font-weight: $font-weight-b;
+  font-weight: $font-weight-m;
   line-height: 1.2;
   color: #2C5F2D;
   flex-shrink: 0;
@@ -288,10 +280,20 @@
   }
 }
 
-.p-join__price-unit {
-  font-size: 13px;
+.p-join__price-yen {
+  font-size: 15px;
   font-weight: $font-weight-m;
-  color: #2C5F2D;
+  margin-right: 2px;
+
+  @media (width <= 375px) {
+    font-size: prem(14);
+  }
+}
+
+.p-join__price-unit {
+  font-size: 15px;
+  font-weight: $font-weight-m;
+  color: $main-green;
 
   @media (width <= 375px) {
     font-size: prem(13);
@@ -299,24 +301,22 @@
 }
 
 .p-join__price-note {
-  margin: 24px 0;
-  padding: 24px 0;
-  border-top: 1px solid #E5E5E5;
-  border-bottom: 1px solid #E5E5E5;
-  font-size: 12px;
+  padding: 30px 0;
+  border-top: 1px solid $main-green;
+  border-bottom: 1px solid $main-green;
+  font-size: 13px;
   font-weight: $font-weight-r;
   line-height: 1.8;
-  color: #333;
+  color: $main-green;
 
   @media (width <= 375px) {
-    margin: prem(24) 0;
-    padding: prem(24) 0;
+    margin: prem(20) 0;
+    padding: prem(20) 0;
     font-size: prem(12);
   }
 }
 
 .p-join__price-footnote {
-  margin: 0;
   margin-top: 16px;
   font-size: 11px;
   font-weight: $font-weight-r;
@@ -327,5 +327,6 @@
   @media (width <= 375px) {
     margin-top: prem(16);
     font-size: prem(11);
+    padding-bottom: prem(58);
   }
 }

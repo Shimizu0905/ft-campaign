@@ -12,8 +12,8 @@
 
     <!-- 画像最適化 -->
     <style>
-      img:is([sizes="auto" i], [sizes^="auto," i]) {
-        contain-intrinsic-size: 3000px 1500px
+      img:is([sizes="auto" i], [sizes^="auto," i]){
+        contain-intrinsic-size:3000px 1500px
       }
     </style>
 
@@ -75,6 +75,9 @@
       rel="stylesheet">
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Slick CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
     <!-- CSS -->
     <!-- style.cssはJSからimportされるため、開発環境では不要（ビルド時に自動挿入） -->
     <script type="module" crossorigin src="./assets/js/index.js"></script>
@@ -241,12 +244,10 @@
               <img src="./assets/images/features/features-title.svg" alt="Key Features" class="p-features__title-img">
             </h3>
             <div class="p-features__slider-area">
-              <div class="p-features__slider" data-slider data-loop="true" data-autoplay="3500"
-                data-first-slide-delay="10000" data-dots="true" data-nav="true" data-center-mode="true"
-                data-center-padding="5%">
-                <div class="p-features__track" data-slider-track>
+              <div class="swiper p-features__slider" id="features-swiper">
+                <div class="swiper-wrapper">
                   <!-- アイテム１ -->
-                  <div class="p-features__item" data-slider-slide>
+                  <div class="swiper-slide p-features__item">
                     <div class="p-features__item-image">
                       <img src="./assets/images/features/features-01.webp" alt="TRAINING SUPPORT"
                         class="p-features__item-img">
@@ -260,7 +261,7 @@
                     </div>
                   </div>
                   <!-- アイテム2 -->
-                  <div class="p-features__item" data-slider-slide>
+                  <div class="swiper-slide p-features__item">
                     <div class="p-features__item-image">
                       <img src="./assets/images/features/features-02.webp" alt="OPEN 24 HOURS"
                         class="p-features__item-img">
@@ -275,15 +276,13 @@
                           class="p-features__item-sub-title-img c-features-title-img">
                       </div>
                       <p class="p-features__item-text">24時間通い放題+マンツーマンサポート（5回まで無料）付きでこのプライス！</p>
-                      <p class="p-features__item-text p-features__item-text-small">※月会費は店舗により異なります。
-                      </p>
+                      <p class="p-features__item-text p-features__item-text-small">※月会費は店舗により異なります。</p>
                     </div>
                   </div>
                   <!-- アイテム3 -->
-                  <div class="p-features__item" data-slider-slide>
+                  <div class="swiper-slide p-features__item">
                     <div class="p-features__item-image">
-                      <img src="./assets/images/features/features-03.webp" alt="FEELS GOOD"
-                        class="p-features__item-img">
+                      <img src="./assets/images/features/features-03.webp" alt="FEELS GOOD" class="p-features__item-img">
                     </div>
                     <div class="p-features__item-content">
                       <h4 class="p-features__item-title">
@@ -294,7 +293,7 @@
                     </div>
                   </div>
                   <!-- アイテム4 -->
-                  <div class="p-features__item" data-slider-slide>
+                  <div class="swiper-slide p-features__item">
                     <div class="p-features__item-image">
                       <img src="./assets/images/features/features-04.webp" alt="TRAINING SUPPORT"
                         class="p-features__item-img">
@@ -307,10 +306,10 @@
                       <p class="p-features__item-text">はじめてでも安心。基本から目的に合わせたトレーニングまで、ジム通いを「習慣」へと変えるマンツーマン・サポート。</p>
                     </div>
                   </div>
-                  <div class="p-features__item" data-slider-slide>
+                  <!-- アイテム5 -->
+                  <div class="swiper-slide p-features__item">
                     <div class="p-features__item-image">
-                      <img src="./assets/images/features/features-05.webp" alt="FEELS GOOD"
-                        class="p-features__item-img">
+                      <img src="./assets/images/features/features-05.webp" alt="FEELS GOOD" class="p-features__item-img">
                     </div>
                     <div class="p-features__item-content">
                       <h4 class="p-features__item-title">
@@ -322,10 +321,10 @@
                   </div>
                 </div>
                 <!-- Navigation -->
-                <button class="p-features__prev c-slider__prev" data-slider-prev aria-label="前へ"></button>
-                <button class="p-features__next c-slider__next" data-slider-next aria-label="次へ"></button>
-                <!-- Dots -->
-                <div class="p-features__dots c-slider__dots" data-slider-dots></div>
+                <div class="swiper-button-prev p-features__prev"></div>
+                <div class="swiper-button-next p-features__next"></div>
+                <!-- Pagination -->
+                <div class="swiper-pagination p-features__dots"></div>
               </div>
             </div>
           </div>
@@ -487,10 +486,10 @@
                             alt="トレサポプラスってどう？感想を聞いてみました！" class="p-voice__title-img">
                         </h3>
 
-                        <div class="p-voice__slider" data-slider data-loop="true" data-dots="true" data-nav="true">
-                          <div class="p-voice__track" data-slider-track>
+                        <div class="swiper p-voice__slider" id="voice-swiper">
+                          <div class="swiper-wrapper">
                             <!-- スライド1 -->
-                            <div class="p-voice__slide" data-slider-slide>
+                            <div class="swiper-slide p-voice__slide">
                               <div class="p-voice__card">
                                 <div class="p-voice__card-top">
                                   <div class="p-voice__icon">
@@ -506,12 +505,11 @@
                                     マニュアル通りじゃなく、私自身の調子を見てくれているんだ！と感動しました！</p>
                                   <p class="p-voice__card-text">だから、変に気を張らずに通えています。</p>
                                 </div>
-                                <!-- <p class="p-voice__card-summary">30代女性・通い始めて3ヶ月</p> -->
                               </div>
                             </div>
 
                             <!-- スライド2 -->
-                            <div class="p-voice__slide" data-slider-slide>
+                            <div class="swiper-slide p-voice__slide">
                               <div class="p-voice__card">
                                 <div class="p-voice__card-top">
                                   <div class="p-voice__icon">
@@ -527,12 +525,11 @@
                                     マニュアル通りじゃなく、私自身の調子を見てくれているんだ！と感動しました！</p>
                                   <p class="p-voice__card-text">だから、変に気を張らずに通えています。</p>
                                 </div>
-                                <!-- <p class="p-voice__card-summary">30代女性・通い始めて3ヶ月</p> -->
                               </div>
                             </div>
 
                             <!-- スライド3 -->
-                            <div class="p-voice__slide" data-slider-slide>
+                            <div class="swiper-slide p-voice__slide">
                               <div class="p-voice__card">
                                 <div class="p-voice__card-top">
                                   <div class="p-voice__icon">
@@ -548,12 +545,11 @@
                                     マニュアル通りじゃなく、私自身の調子を見てくれているんだ！と感動しました！</p>
                                   <p class="p-voice__card-text">だから、変に気を張らずに通えています。</p>
                                 </div>
-                                <!-- <p class="p-voice__card-summary">30代女性・通い始めて3ヶ月</p> -->
                               </div>
                             </div>
 
                             <!-- スライド4 -->
-                            <div class="p-voice__slide" data-slider-slide>
+                            <div class="swiper-slide p-voice__slide">
                               <div class="p-voice__card">
                                 <div class="p-voice__card-top">
                                   <div class="p-voice__icon">
@@ -569,23 +565,16 @@
                                     マニュアル通りじゃなく、私自身の調子を見てくれているんだ！と感動しました！</p>
                                   <p class="p-voice__card-text">だから、変に気を張らずに通えています。</p>
                                 </div>
-                                <!-- <p class="p-voice__card-summary">30代女性・通い始めて3ヶ月</p> -->
                               </div>
                             </div>
                           </div>
 
-                          <!-- 前へボタン -->
-                          <button class="p-voice__btn p-voice__btn--prev" aria-label="前のスライドへ" data-slider-prev>
-                            <img src="./assets/images/common/arrow-green.svg" alt="" class="p-voice__btn-icon">
-                          </button>
+                          <!-- Navigation -->
+                          <div class="swiper-button-prev p-voice__btn p-voice__btn--prev"></div>
+                          <div class="swiper-button-next p-voice__btn p-voice__btn--next"></div>
 
-                          <!-- 次へボタン -->
-                          <button class="p-voice__btn p-voice__btn--next" aria-label="次のスライドへ" data-slider-next>
-                            <img src="./assets/images/common/arrow-green.svg" alt="" class="p-voice__btn-icon">
-                          </button>
-
-                          <!-- ドットナビゲーション -->
-                          <div class="p-voice__dots" data-slider-dots></div>
+                          <!-- Pagination -->
+                          <div class="swiper-pagination p-voice__dots"></div>
                         </div>
                       </div>
                     </section>
@@ -599,69 +588,65 @@
                         </h3>
                         <p class="p-crew__lead">リアルな経験を積んだ<br>頼れるサポートクルー</p>
 
-                        <div class="p-crew__slider" data-slider data-loop="true" data-autoplay="3500"
-                          data-first-slide-delay="10000" data-dots="true" data-center-mode="true"
-                          data-center-padding="60px">
-                          <div class="p-crew__track" data-slider-track>
-                            <!-- スライド1 -->
-                            <article class="p-crew__slide" data-slider-slide data-crew="0">
-                              <div class="p-crew__card">
-                                <img src="./assets/images/experience/tresapo/crew/crew-01.webp" alt="Sena Ueno"
-                                  class="p-crew__photo">
-                                <div class="p-crew__name">
-                                  <img src="./assets/images/experience/tresapo/crew/crew-name-01.svg" alt="Sena Ueno"
-                                    class="p-crew__name-img p-crew__name-img--01">
-                                  <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
-                                    data-open="0"></button>
-                                </div>
+                        <div class="p-crew__slider" id="crew-slider">
+                          <!-- スライド1 -->
+                          <article class="p-crew__slide" data-crew="0">
+                            <div class="p-crew__card">
+                              <img src="./assets/images/experience/tresapo/crew/crew-01.webp" alt="Sena Ueno"
+                                class="p-crew__photo">
+                              <div class="p-crew__name">
+                                <img src="./assets/images/experience/tresapo/crew/crew-name-01.svg" alt="Sena Ueno"
+                                  class="p-crew__name-img p-crew__name-img--01">
+                                <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
+                                  data-open="0"></button>
                               </div>
-                            </article>
+                            </div>
+                          </article>
 
-                            <!-- スライド2 -->
-                            <article class="p-crew__slide" data-slider-slide data-crew="1">
-                              <div class="p-crew__card">
-                                <img src="./assets/images/experience/tresapo/crew/crew-02.webp" alt="Yuki Tanaka"
-                                  class="p-crew__photo">
-                                <div class="p-crew__name">
-                                  <img src="./assets/images/experience/tresapo/crew/crew-name-02.svg" alt="Yuki Tanaka"
-                                    class="p-crew__name-img p-crew__name-img--02">
-                                  <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
-                                    data-open="1"></button>
-                                </div>
+                          <!-- スライド2 -->
+                          <article class="p-crew__slide" data-crew="1">
+                            <div class="p-crew__card">
+                              <img src="./assets/images/experience/tresapo/crew/crew-02.webp" alt="Yuki Tanaka"
+                                class="p-crew__photo">
+                              <div class="p-crew__name">
+                                <img src="./assets/images/experience/tresapo/crew/crew-name-02.svg" alt="Yuki Tanaka"
+                                  class="p-crew__name-img p-crew__name-img--02">
+                                <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
+                                  data-open="1"></button>
                               </div>
-                            </article>
+                            </div>
+                          </article>
 
-                            <!-- スライド3 -->
-                            <article class="p-crew__slide" data-slider-slide data-crew="2">
-                              <div class="p-crew__card">
-                                <img src="./assets/images/experience/tresapo/crew/crew-03.webp" alt="Mika Suzuki"
-                                  class="p-crew__photo">
-                                <div class="p-crew__name">
-                                  <img src="./assets/images/experience/tresapo/crew/crew-name-03.svg" alt="Mika Suzuki"
-                                    class="p-crew__name-img p-crew__name-img--03">
-                                  <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
-                                    data-open="2"></button>
-                                </div>
+                          <!-- スライド3 -->
+                          <article class="p-crew__slide" data-crew="2">
+                            <div class="p-crew__card">
+                              <img src="./assets/images/experience/tresapo/crew/crew-03.webp" alt="Mika Suzuki"
+                                class="p-crew__photo">
+                              <div class="p-crew__name">
+                                <img src="./assets/images/experience/tresapo/crew/crew-name-03.svg" alt="Mika Suzuki"
+                                  class="p-crew__name-img p-crew__name-img--03">
+                                <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
+                                  data-open="2"></button>
                               </div>
-                            </article>
+                            </div>
+                          </article>
 
-                            <!-- スライド4 -->
-                            <article class="p-crew__slide" data-slider-slide data-crew="3">
-                              <div class="p-crew__card">
-                                <img src="./assets/images/experience/tresapo/crew/crew-04.webp" alt="Takeshi Yamamoto"
-                                  class="p-crew__photo">
-                                <div class="p-crew__name">
-                                  <img src="./assets/images/experience/tresapo/crew/crew-name-04.svg"
-                                    alt="Takeshi Yamamoto" class="p-crew__name-img p-crew__name-img--04">
-                                  <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
-                                    data-open="3"></button>
-                                </div>
+                          <!-- スライド4 -->
+                          <article class="p-crew__slide" data-crew="3">
+                            <div class="p-crew__card">
+                              <img src="./assets/images/experience/tresapo/crew/crew-04.webp" alt="Takeshi Yamamoto"
+                                class="p-crew__photo">
+                              <div class="p-crew__name">
+                                <img src="./assets/images/experience/tresapo/crew/crew-name-04.svg"
+                                  alt="Takeshi Yamamoto" class="p-crew__name-img p-crew__name-img--04">
+                                <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
+                                  data-open="3"></button>
                               </div>
-                            </article>
-                          </div>
-                          <!-- Dots -->
-                          <div class="p-crew__dots c-slider__dots" data-slider-dots></div>
+                            </div>
+                          </article>
                         </div>
+                        <!-- Pagination -->
+                        <div class="p-crew__dots"></div>
 
                         <div class="p-crew__button">
                           <a href="#">
@@ -805,7 +790,9 @@
         <!-- Gym Galleryセクション -->
         <section class="p-gallery" id="gallery">
           <div class="p-gallery__inner">
-            <h3 class="p-gallery__title">Gym Gallery</h3>
+            <h3 class="p-gallery__title">
+              <img src="./assets/images/gallery/gallery-title.svg" alt="Gym Gallery" class="p-gallery__title-img">
+            </h3>
             <p class="p-gallery__lead">本格的な設備と快適で<br>心地よいトレーニング空間</p>
 
             <div class="p-gallery__slider">
@@ -833,32 +820,32 @@
                 <!-- 画像5 -->
                 <div class="p-gallery__item">
                   <img src="./assets/images/gallery/gallery-05.webp" alt="ジム設備" class="p-gallery__img">
-                  <p class="p-gallery__tag">#フリーウェイト<br>#大通</p>
+                  <p class="p-gallery__tag">#フリーウェイト<br>#北見幸町</p>
                 </div>
                 <!-- 画像6 -->
                 <div class="p-gallery__item">
                   <img src="./assets/images/gallery/gallery-06.webp" alt="ジム設備" class="p-gallery__img">
-                  <p class="p-gallery__tag">#ストレッチエリア<br>#琴似</p>
+                  <p class="p-gallery__tag">#ダンベル<br>#円山</p>
                 </div>
                 <!-- 画像7 -->
                 <div class="p-gallery__item">
                   <img src="./assets/images/gallery/gallery-07.webp" alt="ジム設備" class="p-gallery__img">
-                  <p class="p-gallery__tag">#ロッカールーム<br>#麻生</p>
+                  <p class="p-gallery__tag">#ウエイトマシン<br>#南平岸</p>
                 </div>
                 <!-- 画像8 -->
                 <div class="p-gallery__item">
                   <img src="./assets/images/gallery/gallery-08.webp" alt="ジム設備" class="p-gallery__img">
-                  <p class="p-gallery__tag">#受付カウンター<br>#新札幌</p>
+                  <p class="p-gallery__tag">#ストレッチエリア<br>#円山</p>
                 </div>
                 <!-- 画像9 -->
                 <div class="p-gallery__item">
                   <img src="./assets/images/gallery/gallery-09.webp" alt="ジム設備" class="p-gallery__img">
-                  <p class="p-gallery__tag">#プロテインバー<br>#すすきの</p>
+                  <p class="p-gallery__tag">#女性レストルーム<br>#円山</p>
                 </div>
                 <!-- 画像10 -->
                 <div class="p-gallery__item">
                   <img src="./assets/images/gallery/gallery-10.webp" alt="ジム設備" class="p-gallery__img">
-                  <p class="p-gallery__tag">#エントランス<br>#東区役所前</p>
+                  <p class="p-gallery__tag">#エントランス<br>#南平岸</p>
                 </div>
               </div>
             </div>
@@ -886,15 +873,15 @@
                     <div class="p-join__price-list">
                       <div class="p-join__price-row">
                         <span class="p-join__price-store">円山・桑園</span>
-                        <span class="p-join__price-value">&yen;7,590<span class="p-join__price-unit">/月</span></span>
+                        <span class="p-join__price-value"><span class="p-join__price-yen">&yen;</span>7,590<span class="p-join__price-unit">/月</span></span>
                       </div>
                       <div class="p-join__price-row">
                         <span class="p-join__price-store">南4条山通</span>
-                        <span class="p-join__price-value">&yen;7,040<span class="p-join__price-unit">/月</span></span>
+                        <span class="p-join__price-value"><span class="p-join__price-yen">&yen;</span>7,040<span class="p-join__price-unit">/月</span></span>
                       </div>
                       <div class="p-join__price-row">
                         <span class="p-join__price-store">菊水・南郷7丁目・南平岸・<br>江別野幌・北見幸町</span>
-                        <span class="p-join__price-value">&yen;6,490<span class="p-join__price-unit">/月</span></span>
+                        <span class="p-join__price-value"><span class="p-join__price-yen">&yen;</span>6,490<span class="p-join__price-unit">/月</span></span>
                       </div>
                     </div>
                     <p class="p-join__price-note">●ご入会手続き時に入会登録料&yen;5,500が必要です。</p>
@@ -902,7 +889,7 @@
                     <!-- トレサポプラス -->
                     <div class="p-join__price-row">
                       <span class="p-join__price-store">トレサポプラス<span class="p-join__price-label">オプション</span></span>
-                      <span class="p-join__price-value">&yen;4,400<span class="p-join__price-unit">/月</span></span>
+                      <span class="p-join__price-value"><span class="p-join__price-yen">&yen;</span>4,400<span class="p-join__price-unit">/月</span></span>
                     </div>
                     <p class="p-join__price-footnote">※表示価格は税込です。</p>
                   </div>
@@ -963,17 +950,17 @@
         aria-describedby="crew-modal-desc">
         <div class="p-crew-modal__overlay" id="crew-modal-overlay"></div>
         <div class="p-crew-modal__content-wrapper">
-          <button type="button" class="p-crew-modal__close" id="crew-modal-close" aria-label="モーダルを閉じる"></button>
+          <!-- <button type="button" class="p-crew-modal__close" id="crew-modal-close" aria-label="モーダルを閉じる"></button> -->
 
           <!-- モーダル内ナビゲーション -->
-          <button type="button" class="p-crew-modal__nav p-crew-modal__nav--prev" id="crew-modal-prev"
+          <!-- <button type="button" class="p-crew-modal__nav p-crew-modal__nav--prev" id="crew-modal-prev"
             aria-label="前のスタッフ">
-            <img src="./assets/images/common/arrow-green.svg" alt="" class="p-crew-modal__nav-icon">
+            <img src="/assets/images/common/arrow-green.svg" alt="" class="p-crew-modal__nav-icon">
           </button>
           <button type="button" class="p-crew-modal__nav p-crew-modal__nav--next" id="crew-modal-next"
             aria-label="次のスタッフ">
-            <img src="./assets/images/common/arrow-green.svg" alt="" class="p-crew-modal__nav-icon">
-          </button>
+            <img src="/assets/images/common/arrow-green.svg" alt="" class="p-crew-modal__nav-icon">
+          </button> -->
 
           <!-- モーダルコンテンツ（JSで動的に更新） -->
           <div class="p-crew-modal__content">
@@ -990,16 +977,10 @@
 
     <!-- Swiper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Slick -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <!-- 機能ごとに分割されたJSファイル -->
-    <script src="./assets/js/header.js"></script>
-    <script src="./assets/js/slider.js"></script>
-    <script src="./assets/js/experience.js"></script>
-    <script src="./assets/js/crew-slider.js"></script>
-    <script src="./assets/js/gallery-slider.js"></script>
-    <script src="./assets/js/faq.js"></script>
-    <script src="./assets/js/join-accordion.js"></script>
-    <script src="./assets/js/privacy-modal.js"></script>
 
     <!-- Custom CSS -->
     <!-- custom.cssはstyle.cssの上書き専用（後から読み込まれるため優先される） -->

@@ -85,14 +85,14 @@
 .p-crew__slider .p-crew__slide {
   padding: 0 10px;
   opacity: 1; // 常に不透明度1
-  transform: scale(1); // 常に同じサイズ
   transition: none; // アニメーションなし
+  transform: scale(1); // 常に同じサイズ
 }
 
 // Slick用：slick-slideの高さとレイアウト
 .p-crew__slider .slick-slide {
-  height: auto;
   float: none; // Slickのデフォルトfloatを無効化
+  height: auto;
   opacity: 1 !important; // Slickのデフォルトopacityを上書き
   transform: scale(1) !important; // 常に同じサイズを強制
 }
@@ -325,10 +325,10 @@
   max-height: 90vh;
   margin: 0 auto;
   padding: 0;
+  border: 1px solid #e0e0e0;
   background-color: $white;
   overflow-y: auto;
   transition: transform 0.3s ease;
-  border: 1px solid #e0e0e0;
 
   @media (width <= 375px) {
     width: 95%;
@@ -537,6 +537,7 @@
     font-size: prem(18);
   }
 }
+
 .p-crew-modal__description {
   margin-top: 20px;
 
@@ -579,8 +580,8 @@
   font-size: 14px;
   font-weight: $font-weight-r;
   line-height: 1.6;
-  color: $text-black;
   text-align: left;
+  color: $text-black;
 
   @media (width <= 375px) {
     margin-top: prem(12);
@@ -607,10 +608,10 @@
   }
 
   &::before {
-    flex-shrink: 0;
     width: 8px;
     height: 8px;
     background-color: $main-green;
+    flex-shrink: 0;
     content: '';
 
     @media (width <= 375px) {
@@ -672,8 +673,8 @@ body.is-modal-open {
   &::before {
     position: absolute;
     top: -40px;
-    left: -40px;
     right: -40px;
+    left: -40px;
     width: auto;
     height: 1px;
     background-color: $white;
@@ -681,8 +682,8 @@ body.is-modal-open {
 
     @media (width <= 375px) {
       top: prem(-20);
-      left: prem(-40);
       right: prem(-40);
+      left: prem(-40);
     }
   }
 }
