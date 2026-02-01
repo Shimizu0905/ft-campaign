@@ -21,6 +21,7 @@
 
 .p-features__title {
   text-align: center;
+  overflow: hidden;
 }
 
 .p-features__title-img {
@@ -29,6 +30,41 @@
   height: auto;
   margin: 0 auto;
   object-fit: contain;
+  opacity: 0;
+  transform: translate3d(-12px, 0, 0);
+  clip-path: inset(0 100% 0 0);
+  will-change: transform, clip-path, opacity;
+}
+
+.p-features__title.is-inview .p-features__title-img {
+  animation: p-features-title-reveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes p-features-title-reveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(-12px, 0, 0);
+    clip-path: inset(0 100% 0 0);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .p-features__title-img {
+    animation: none;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    clip-path: inset(0 0 0 0);
+  }
 }
 
 .p-features__slider-area {

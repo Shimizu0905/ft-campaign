@@ -26,6 +26,7 @@
 
 .p-crew__title {
   text-align: center;
+  overflow: hidden;
 
   @media (width <= 375px) {
     margin-top: prem(16);
@@ -38,9 +39,44 @@
   height: auto;
   margin: 0 auto;
   object-fit: contain;
+  opacity: 0;
+  transform: translate3d(-12px, 0, 0);
+  clip-path: inset(0 100% 0 0);
+  will-change: transform, clip-path, opacity;
 
   @media (width <= 375px) {
     max-width: prem(300);
+  }
+}
+
+.p-crew__title.is-inview .p-crew__title-img {
+  animation: p-crew-title-reveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes p-crew-title-reveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(-12px, 0, 0);
+    clip-path: inset(0 100% 0 0);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .p-crew__title-img {
+    animation: none;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    clip-path: inset(0 0 0 0);
   }
 }
 
@@ -132,11 +168,6 @@
   text-align: center;
   background-color: $light-green;
   transition: padding 0.3s ease, min-height 0.3s ease;
-
-  @media (width <= 375px) {
-    padding: prem(20) prem(16);
-    border-radius: prem(12);
-  }
 }
 
 // スタッフ写真（全て同じサイズ）
@@ -150,8 +181,7 @@
   object-fit: cover;
 
   @media (width <= 375px) {
-    width: prem(120);
-    height: prem(120);
+    width: prem(260);
     margin-top: prem(16);
   }
 }
@@ -339,7 +369,6 @@
   @media (width <= 375px) {
     width: 95%;
     padding: 0;
-    border-radius: prem(16);
   }
 }
 

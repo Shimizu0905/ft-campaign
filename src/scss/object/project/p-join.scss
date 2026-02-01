@@ -25,6 +25,7 @@
   margin: 0;
   margin-bottom: 40px;
   text-align: center;
+  overflow: hidden;
 
   @media (width <= 375px) {
     margin-bottom: prem(40);
@@ -36,6 +37,41 @@
   width: auto;
   height: auto;
   margin: 0 auto;
+  opacity: 0;
+  transform: translate3d(-12px, 0, 0);
+  clip-path: inset(0 100% 0 0);
+  will-change: transform, clip-path, opacity;
+}
+
+.p-join__title.is-inview .p-join__title-img {
+  animation: p-join-title-reveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes p-join-title-reveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(-12px, 0, 0);
+    clip-path: inset(0 100% 0 0);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .p-join__title-img {
+    animation: none;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    clip-path: inset(0 0 0 0);
+  }
 }
 
 // アコーディオン
