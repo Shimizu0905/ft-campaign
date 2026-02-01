@@ -254,6 +254,10 @@
   }
 }
 
+.slick-dots li {
+  margin: 0 !important;
+}
+
 // ドットナビゲーション（Slick用）
 .p-crew__dots {
   position: relative;
@@ -265,8 +269,6 @@
   list-style: none;
 
   li {
-    margin: 0 6px;
-
     button {
       width: 10px;
       height: 10px;

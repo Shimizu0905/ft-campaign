@@ -917,36 +917,77 @@
         </section>
         <!-- Gym locationsセクション -->
         <section class="p-locations" id="locations">
-          <div class="p-locations__inner">
+          <div class="p-locations__inner l-inner">
             <h3 class="p-locations__title">
-              <span class="p-locations__title-outline">Gym</span>
-              <span class="p-locations__title-green">locations</span>
+              <img src="./assets/images/locations/locations-title.svg" alt="Gym locations"
+                class="p-locations__title-img">
             </h3>
             <div class="p-locations__content">
               <p class="p-locations__text">FITNESS24 道内8店舗</p>
               <p class="p-locations__text-large">相互利用可</p>
               <p class="p-locations__text-note">※登録店の利用回数を超えない範囲</p>
             </div>
-            <div class="p-locations__buttons">
-              <a href="#" class="p-locations__btn">
-                店舗情報
-                <span class="p-locations__btn-arrow"></span>
-              </a>
-              <a href="#" class="p-locations__link">お近くのFITNESS24を探す→</a>
+          </div>
+          <div class="p-locations__buttons">
+            <a href="https://www.fitness24.jp/gym-list" class="p-locations__btn">店舗情報</a>
+            <a href="#" class="p-locations__link" id="locations-map-link"
+              data-image="/assets/images/locations/location-img-01.webp">
+              お近くのFITNESS24を探す
+              <img src="./assets/images/locations/location-arrow-icon.svg" alt="" class="p-locations__link-icon">
+            </a>
+          </div>
+          <div class="p-locations__bottom">
+            <div class="p-locations__bottom-inner">
+              <div class="p-locations__bottom-button c-button-orenge">
+                <a class="c-button" href="#">
+                  さっそく<span>WEB</span>予約
+                </a>
+              </div>
             </div>
           </div>
         </section>
+      </main>
 
-        <!-- Lightbox（画像拡大表示） -->
-        <div class="p-gallery-lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="画像拡大表示">
-          <div class="p-gallery-lightbox__overlay" id="gallery-lightbox-overlay"></div>
-          <div class="p-gallery-lightbox__content">
-            <button type="button" class="p-gallery-lightbox__close" id="gallery-lightbox-close"
-              aria-label="閉じる">×</button>
-            <img src="" alt="" class="p-gallery-lightbox__img" id="gallery-lightbox-img">
+      <!-- Footer -->
+      <footer class="p-footer">
+        <div class="p-footer__inner">
+          <div class="p-footer__logo">
+            <img src="./assets/images/common/logo-green.svg" alt="FITNESS24" class="p-footer__logo-img">
+          </div>
+          <div class="p-footer__bottom">
+            <p class="p-footer__copyright">©2026 FITNESS24</p>
+            <a href="#" class="p-footer__pagetop" id="pagetop">
+              PAGE TOP
+              <span class="p-footer__pagetop-icon">↑</span>
+            </a>
           </div>
         </div>
-      </main>
+      </footer>
+
+      <!-- 固定WEB予約ボタン（SP） -->
+      <div class="p-sticky-footer p-sticky-footer--sp">
+        <a href="#" class="p-sticky-footer__link">
+          <img src="./assets/images/common/sticky-btn-sp.svg" alt="WEB予約" class="p-sticky-footer__img">
+        </a>
+      </div>
+
+      <!-- 固定WEB予約ボタン（PC） -->
+      <div class="p-sticky-footer p-sticky-footer--pc" id="sticky-button-pc">
+        <a href="#" class="p-sticky-footer__link">
+          <img src="/assets/images/common/styky-btn-pc.svg" alt="WEB予約" class="p-sticky-footer__img">
+        </a>
+      </div>
+
+      <!-- Lightbox（画像拡大表示） -->
+      <div class="p-gallery-lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="画像拡大表示">
+        <div class="p-gallery-lightbox__overlay" id="gallery-lightbox-overlay"></div>
+        <div class="p-gallery-lightbox__content">
+          <button type="button" class="p-gallery-lightbox__close" id="gallery-lightbox-close"
+            aria-label="閉じる">×</button>
+          <img src="" alt="" class="p-gallery-lightbox__img" id="gallery-lightbox-img">
+        </div>
+      </div>
+
       <!-- モーダル -->
       <div class="p-crew-modal" id="crew-modal" role="dialog" aria-modal="true" aria-labelledby="crew-modal-title"
         aria-describedby="crew-modal-desc">

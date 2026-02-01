@@ -5,10 +5,12 @@
 // How to Joinセクション
 .p-join {
   padding: 60px 0;
-  background-color: #f5f0e8;
+  background-color: $bg-beige;
+  scroll-margin-top: 100px;
 
   @media (width <= 375px) {
     padding: prem(60) 0;
+    scroll-margin-top: prem(100);
   }
 }
 
@@ -56,7 +58,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 30px 0;
+  padding: 30px 16px;
   border: none;
   border-bottom: 1px solid $main-green;
   background: none;
@@ -65,7 +67,7 @@
   -webkit-tap-highlight-color: transparent;
 
   @media (width <= 375px) {
-    padding: prem(20) prem(24);
+    padding: prem(30) prem(16);
   }
 }
 
@@ -168,7 +170,7 @@
 
 .p-join__item-text {
   margin: 0;
-  padding: 16px 0;
+  padding: 16px;
   font-size: 14px;
   font-weight: $font-weight-r;
   line-height: 1.8;
@@ -197,11 +199,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 0;
+  padding: 30px 16px;
   border-bottom: 1px solid $main-green;
 
   @media (width <= 375px) {
-    padding: prem(30) 0;
+    padding: prem(30) prem(16);
   }
 
   &:last-child {
@@ -280,7 +282,7 @@
 }
 
 .p-join__price-note {
-  padding: 30px 0;
+  padding: 30px 16px;
   border-top: 1px solid $main-green;
   border-bottom: 1px solid $main-green;
   font-size: 13px;
@@ -289,7 +291,7 @@
   color: $main-green;
 
   @media (width <= 375px) {
-    margin: prem(20) 0;
+    margin: prem(20) prem(16);
     padding: prem(20) 0;
     font-size: prem(12);
   }

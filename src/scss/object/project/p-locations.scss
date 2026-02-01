@@ -4,8 +4,8 @@
 
 // Gym locationsセクション
 .p-locations {
-  padding: 60px 20px;
-  background-color: #f5f0e8;
+  padding: 60px 0;
+  background-color: $bg-beige;
 
   @media (width <= 375px) {
     padding: prem(60) prem(20);
@@ -57,9 +57,15 @@
   }
 }
 
-// コンテンツ
-.p-locations__content {
-  text-align: center;
+.p-locations__body {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 0 26px;
+
+  @media (width <= 375px) {
+    padding: 0 prem(26);
+  }
 }
 
 .p-locations__text {
@@ -67,7 +73,7 @@
   font-size: 14px;
   font-weight: $font-weight-r;
   line-height: 1.8;
-  color: $text-black;
+  color: $main-green;
 
   @media (width <= 375px) {
     font-size: prem(14);
@@ -79,7 +85,7 @@
   font-size: 24px;
   font-weight: $font-weight-b;
   line-height: 1.4;
-  color: $text-black;
+  color: $main-green;
 
   @media (width <= 375px) {
     margin-top: prem(8);
@@ -92,7 +98,7 @@
   font-size: 11px;
   font-weight: $font-weight-r;
   line-height: 1.6;
-  color: $text-black;
+  color: $main-green;
   opacity: 0.7;
 
   @media (width <= 375px) {
@@ -103,9 +109,10 @@
 
 // ボタンエリア
 .p-locations__buttons {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   gap: 16px;
   margin-top: 32px;
 
@@ -117,18 +124,15 @@
 
 .p-locations__btn {
   display: inline-flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 12px;
   width: 100%;
-  max-width: 280px;
   padding: 16px 32px;
-  border: 2px solid $main-green;
-  border-radius: 40px;
+  border-radius: 32px;
   font-size: 16px;
   font-weight: $font-weight-b;
   line-height: 1.4;
-  text-align: center;
   text-decoration: none;
   color: $main-green;
   background-color: $white;
@@ -141,6 +145,28 @@
     border-width: prem(2);
     border-radius: prem(40);
     font-size: prem(16);
+  }
+
+  &::after {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
+    flex-shrink: 0;
+    margin-left: auto;
+    background-image: url('/assets/images/common/arrow-green.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: '';
+
+    @media (width <= 375px) {
+      width: prem(18);
+      height: prem(18);
+      min-width: prem(18);
+      min-height: prem(18);
+    }
   }
 
   &:hover {
@@ -180,6 +206,10 @@
 }
 
 .p-locations__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4.7px;
   font-size: 14px;
   font-weight: $font-weight-m;
   line-height: 1.4;
@@ -194,4 +224,30 @@
   &:hover {
     opacity: 0.7;
   }
+
+  &::after {
+    display: inline-block;
+    width: 14px;
+    height: 10px;
+    background-image: url('/assets/images/locations/location-arrow-icon.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: '';
+  }
+}
+
+.p-locations__link-icon {
+  height: 10px;
+  object-fit: contain;
+}
+
+.p-locations__bottom {
+  margin-top: 80px;
+  background-color: $white;
+  padding: 40px 0 120px;
+}
+
+.p-locations__bottom-inner {
+  text-align: center;
 }

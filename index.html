@@ -121,7 +121,7 @@
               </a>
             </li>
             <li class="c-drawer__item">
-              <a href="#training">
+              <a href="#experience">
                 <img src="/assets/images/header/training.svg" alt="One-on-one training experience"
                   class="c-drawer__item-img">
               </a>
@@ -143,10 +143,11 @@
             </li>
           </ul>
           <div class="c-drawer__social">
-            <a href="#" class="c-drawer__social-link" aria-label="Instagram">
+            <a href="https://www.instagram.com/fitness24__official/" class="c-drawer__social-link"
+              aria-label="Instagram">
               <img src="/assets/images/header/icon-insta.svg" alt="Instagram" class="c-drawer__social-icon">
             </a>
-            <a href="#" class="c-drawer__social-link" aria-label="LINE">
+            <a href="https://page.line.me/160pdxin?openQrModal=true" class="c-drawer__social-link" aria-label="LINE">
               <img src="/assets/images/header/icon-line.svg" alt="LINE" class="c-drawer__social-icon">
             </a>
           </div>
@@ -174,7 +175,7 @@
 
       <main class="l-main-content">
         <!-- Campaign Section -->
-        <section class="p-campaign">
+        <section class="p-campaign" id="campaign">
           <div class="p-campaign__inner">
             <div class="p-campaign__copy">
               <img src="/assets/images/campaign/campaign-date.svg" alt="SPRING CAMPAIGN 2026.2.21 - 3.31">
@@ -198,7 +199,8 @@
             </div>
           </div>
           <div class="p-offer-details__button c-button-orenge">
-            <a class="c-button" href="#">
+            <a class="c-button"
+              href="https://mypage.fitness24.jp/register/?_gl=1%2a1ho7pid%2a_gcl_au%2aMTM0MTY4NTAyNS4xNzAwMDIwMjQ4%E3%80%80">
               さっそく<span>WEB</span>予約
             </a>
           </div>
@@ -226,7 +228,7 @@
           </div>
         </section>
         <section class="p-features" id="features">
-          <div class="p-features__inner">
+          <div class="p-features__inner l-inner">
             <h3 class="p-features__title">
               <img src="/assets/images/features/features-title.svg" alt="Key Features" class="p-features__title-img">
             </h3>
@@ -906,36 +908,76 @@
         </section>
         <!-- Gym locationsセクション -->
         <section class="p-locations" id="locations">
-          <div class="p-locations__inner">
+          <div class="p-locations__inner l-inner">
             <h3 class="p-locations__title">
-              <span class="p-locations__title-outline">Gym</span>
-              <span class="p-locations__title-green">locations</span>
+              <img src="/assets/images/locations/locations-title.svg" alt="Gym locations"
+                class="p-locations__title-img">
             </h3>
-            <div class="p-locations__content">
-              <p class="p-locations__text">FITNESS24 道内8店舗</p>
-              <p class="p-locations__text-large">相互利用可</p>
-              <p class="p-locations__text-note">※登録店の利用回数を超えない範囲</p>
+            <div class="p-locations__body">
+              <div class="p-locations__content">
+                <p class="p-locations__text">FITNESS24 道内8店舗</p>
+                <p class="p-locations__text-large">相互利用可</p>
+                <p class="p-locations__text-note">※登録店の利用回数を超えない範囲</p>
+              </div>
+              <div class="p-locations__buttons">
+                <a href="https://www.fitness24.jp/gym-list" class="p-locations__btn">店舗情報</a>
+                <a href="#" class="p-locations__link" id="locations-map-link"
+                  data-image="/assets/images/locations/location-img-01.webp">
+                  お近くのFITNESS24を探す
+                </a>
+              </div>
             </div>
-            <div class="p-locations__buttons">
-              <a href="#" class="p-locations__btn">
-                店舗情報
-                <span class="p-locations__btn-arrow"></span>
-              </a>
-              <a href="#" class="p-locations__link">お近くのFITNESS24を探す→</a>
+          </div>
+          <div class="p-locations__bottom">
+            <div class="p-locations__bottom-inner">
+              <div class="p-locations__bottom-button c-button-orenge">
+                <a class="c-button" href="#">
+                  さっそく<span>WEB</span>予約
+                </a>
+              </div>
             </div>
           </div>
         </section>
-
-        <!-- Lightbox（画像拡大表示） -->
-        <div class="p-gallery-lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="画像拡大表示">
-          <div class="p-gallery-lightbox__overlay" id="gallery-lightbox-overlay"></div>
-          <div class="p-gallery-lightbox__content">
-            <button type="button" class="p-gallery-lightbox__close" id="gallery-lightbox-close"
-              aria-label="閉じる">×</button>
-            <img src="" alt="" class="p-gallery-lightbox__img" id="gallery-lightbox-img">
-          </div>
+        <!-- 固定WEB予約ボタン（SP） -->
+        <div class="p-sticky-footer p-sticky-footer--sp">
+          <a href="#" class="p-sticky-footer__link">
+            <img src="/assets/images/common/sticky-btn-sp.svg" alt="WEB予約" class="p-sticky-footer__img">
+          </a>
         </div>
       </main>
+
+      <!-- Footer -->
+      <footer class="p-footer">
+        <div class="p-footer__inner">
+          <div class="p-footer__logo">
+            <img src="/assets/images/common/logo-green.svg" alt="FITNESS24" class="p-footer__logo-img">
+          </div>
+          <div class="p-footer__bottom">
+            <p class="p-footer__copyright">©2026 FITNESS24</p>
+            <a href="#" class="p-footer__pagetop" id="pagetop">
+              PAGE TOP
+              <span class="p-footer__pagetop-icon">↑</span>
+            </a>
+          </div>
+        </div>
+      </footer>
+      <!-- 固定WEB予約ボタン（PC） -->
+      <div class="p-sticky-footer p-sticky-footer--pc" id="sticky-button-pc">
+        <a href="#" class="p-sticky-footer__link">
+          <img src="/assets/images/common/sticky-btn-pc.svg" alt="WEB予約" class="p-sticky-footer__img">
+        </a>
+      </div>
+
+      <!-- Lightbox（画像拡大表示） -->
+      <div class="p-gallery-lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="画像拡大表示">
+        <div class="p-gallery-lightbox__overlay" id="gallery-lightbox-overlay"></div>
+        <div class="p-gallery-lightbox__content">
+          <button type="button" class="p-gallery-lightbox__close" id="gallery-lightbox-close"
+            aria-label="閉じる">×</button>
+          <img src="" alt="" class="p-gallery-lightbox__img" id="gallery-lightbox-img">
+        </div>
+      </div>
+
       <!-- モーダル -->
       <div class="p-crew-modal" id="crew-modal" role="dialog" aria-modal="true" aria-labelledby="crew-modal-title"
         aria-describedby="crew-modal-desc">
@@ -979,6 +1021,9 @@
     <script type="module" src="./src/js/faq.js"></script>
     <script type="module" src="./src/js/join-accordion.js"></script>
     <script type="module" src="./src/js/privacy-modal.js"></script>
+    <script type="module" src="./src/js/locations-modal.js"></script>
+    <script type="module" src="./src/js/pagetop.js"></script>
+    <script type="module" src="./src/js/sticky-button.js"></script>
 
     <!-- Custom CSS -->
     <!-- custom.cssはstyle.cssの上書き専用（後から読み込まれるため優先される） -->

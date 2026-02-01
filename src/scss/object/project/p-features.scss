@@ -4,10 +4,12 @@
 
 .p-features {
   padding: 64px 0 48px;
-  background-color: #e9e7e0;
+  background-color: $bg-beige;
+  scroll-margin-top: 100px;
 
   @media (width <= 375px) {
     padding: prem(60) prem(20) prem(48);
+    scroll-margin-top: prem(100);
   }
 }
 
