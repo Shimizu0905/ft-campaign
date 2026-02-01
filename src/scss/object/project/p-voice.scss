@@ -60,19 +60,15 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  min-height: 380px;
+  height: 100%;
+  min-height: 400px;
   padding: 24px 20px;
   border-radius: 12px;
   text-align: center;
   background-color: $white;
 
-  @media (width >= 768px) {
-    min-height: 350px;
-    padding: 28px 24px;
-  }
-
   @media (width <= 375px) {
-    min-height: prem(380);
+    min-height: prem(400);
     padding: prem(24) prem(20);
     border-radius: prem(12);
   }
@@ -80,22 +76,22 @@
 
 .p-voice__card-top {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: 12px;
   flex-shrink: 0;
 
-  @media (width >= 768px) {
-    flex-direction: row;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-
   @media (width <= 375px) {
-    gap: prem(16);
-    margin-bottom: prem(16);
+    gap: prem(12);
   }
+}
+
+.p-voice__card-icon-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 // アイコン
@@ -126,24 +122,31 @@
   object-fit: cover;
 }
 
+// 年代・性別
+.p-voice__age {
+  margin: 0;
+  font-size: 12px;
+  font-weight: $font-weight-m;
+  text-align: center;
+  color: $text-black;
+
+  @media (width <= 375px) {
+    font-size: prem(12);
+  }
+}
+
 // カードタイトル
 .p-voice__card-title {
   width: 100%;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: $font-weight-b;
   line-height: 1.5;
-  text-align: center;
-  color: $text-black;
-  flex-shrink: 0;
-
-  @media (width >= 768px) {
-    font-size: 17px;
-    line-height: 1.6;
-    text-align: left;
-  }
+  color: $main-green;
+  word-break: break-word;
+  overflow-wrap: break-word;
 
   @media (width <= 375px) {
-    font-size: prem(15);
+    font-size: prem(18);
   }
 }
 
@@ -155,6 +158,7 @@
   gap: 10px;
   padding-right: 4px;
   overflow-y: auto;
+  margin-top: 24px;
 
   // カスタムスクロールバー
   &::-webkit-scrollbar {
@@ -177,16 +181,11 @@
 }
 
 .p-voice__card-text {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: $font-weight-r;
-  line-height: 1.75;
+  line-height: 1.7;
   text-align: left;
   color: $main-green;
-
-  @media (width >= 768px) {
-    font-size: 14px;
-    line-height: 1.8;
-  }
 
   @media (width <= 375px) {
     font-size: prem(13);
@@ -195,16 +194,11 @@
 
 .p-voice__card-text-large {
   margin-top: 6px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: $font-weight-b;
   line-height: 1.65;
   text-align: left;
   color: $text-black;
-
-  @media (width >= 768px) {
-    font-size: 15px;
-    line-height: 1.7;
-  }
 
   @media (width <= 375px) {
     margin-top: prem(6);

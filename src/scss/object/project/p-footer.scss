@@ -4,7 +4,7 @@
 .p-footer {
   width: 100%;
   padding: 80px 20px 114px;
-  background-color: $main-green;
+  background-color: $dark-green-2;
 
   @media (width <= 375px) {
     padding: prem(80) prem(20) prem(48);
@@ -78,8 +78,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 32px;
-  height: 32px;
+  width: 21px;
+  height: 21px;
+  transform: rotate(-90deg);
   border-radius: 50%;
   font-size: 18px;
   font-weight: $font-weight-b;
