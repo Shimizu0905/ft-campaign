@@ -414,7 +414,7 @@
 
   @media (width <= 375px) {
     margin-top: prem(20);
-    padding: 0 prem(16);
+    padding: 0;
   }
 }
 
@@ -481,7 +481,7 @@
   text-align: center;
 
   @media (width <= 375px) {
-    margin-bottom: prem(54);
+    margin-top: prem(54);
   }
 }
 

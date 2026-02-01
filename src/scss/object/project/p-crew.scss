@@ -696,29 +696,30 @@ body.is-modal-open {
 // ボタン
 .p-crew__button {
   position: relative;
-  max-width: 275.35px;
+  width: 100%;
   margin: 120px auto 0;
   text-align: center;
 
   @media (width <= 375px) {
     margin-top: prem(40);
   }
+}
 
-  // ボタンの上の線
-  &::before {
-    position: absolute;
-    top: -40px;
-    right: -40px;
-    left: -40px;
-    width: auto;
-    height: 1px;
-    background-color: $white;
-    content: '';
+.p-crew__button a {
+  display: inline-block;
+  width: 100%;
+  max-width: 275.35px;
+  margin: 0 auto;
+}
 
-    @media (width <= 375px) {
-      top: prem(-20);
-      right: prem(-40);
-      left: prem(-40);
-    }
+.p-crew__button-line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 0 auto 40px;
+  background-color: $white;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(20);
   }
 }
