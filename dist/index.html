@@ -132,7 +132,7 @@
               </a>
             </li>
             <li class="c-drawer__item">
-              <a href="#training">
+              <a href="#experience">
                 <img src="./assets/images/header/training.svg" alt="One-on-one training experience"
                   class="c-drawer__item-img">
               </a>
@@ -154,10 +154,11 @@
             </li>
           </ul>
           <div class="c-drawer__social">
-            <a href="#" class="c-drawer__social-link" aria-label="Instagram">
+            <a href="https://www.instagram.com/fitness24__official/" class="c-drawer__social-link"
+              aria-label="Instagram">
               <img src="./assets/images/header/icon-insta.svg" alt="Instagram" class="c-drawer__social-icon">
             </a>
-            <a href="#" class="c-drawer__social-link" aria-label="LINE">
+            <a href="https://page.line.me/160pdxin?openQrModal=true" class="c-drawer__social-link" aria-label="LINE">
               <img src="./assets/images/header/icon-line.svg" alt="LINE" class="c-drawer__social-icon">
             </a>
           </div>
@@ -185,7 +186,7 @@
 
       <main class="l-main-content">
         <!-- Campaign Section -->
-        <section class="p-campaign">
+        <section class="p-campaign" id="campaign">
           <div class="p-campaign__inner">
             <div class="p-campaign__copy">
               <img src="./assets/images/campaign/campaign-date.svg" alt="SPRING CAMPAIGN 2026.2.21 - 3.31">
@@ -209,7 +210,8 @@
             </div>
           </div>
           <div class="p-offer-details__button c-button-orenge">
-            <a class="c-button" href="#">
+            <a class="c-button"
+              href="https://mypage.fitness24.jp/register/?_gl=1%2a1ho7pid%2a_gcl_au%2aMTM0MTY4NTAyNS4xNzAwMDIwMjQ4%E3%80%80">
               さっそく<span>WEB</span>予約
             </a>
           </div>
@@ -237,7 +239,7 @@
           </div>
         </section>
         <section class="p-features" id="features">
-          <div class="p-features__inner">
+          <div class="p-features__inner l-inner">
             <h3 class="p-features__title">
               <img src="./assets/images/features/features-title.svg" alt="Key Features" class="p-features__title-img">
             </h3>
@@ -725,7 +727,7 @@
                       <a href="#" class="p-result__continue-btn p-result__continue-btn--green">継続プラン料金</a>
                     </div>
                     <div class="p-result__continue-discount">
-                      <p class="p-result__continue-discount-text">初月 50%OFF!!</p>
+                      <img src="./assets/images/experience/result/result-50.svg" alt="初月 50%OFF!!" class="p-result__continue-discount-img">
                     </div>
                     <div class="p-result__continue-link c-button-green">
                       <a href="#" class="c-button">
@@ -922,19 +924,20 @@
               <img src="./assets/images/locations/locations-title.svg" alt="Gym locations"
                 class="p-locations__title-img">
             </h3>
-            <div class="p-locations__content">
-              <p class="p-locations__text">FITNESS24 道内8店舗</p>
-              <p class="p-locations__text-large">相互利用可</p>
-              <p class="p-locations__text-note">※登録店の利用回数を超えない範囲</p>
+            <div class="p-locations__body">
+              <div class="p-locations__content">
+                <p class="p-locations__text">FITNESS24 道内8店舗</p>
+                <p class="p-locations__text-large">相互利用可</p>
+                <p class="p-locations__text-note">※登録店の利用回数を超えない範囲</p>
+              </div>
+              <div class="p-locations__buttons">
+                <a href="https://www.fitness24.jp/gym-list" class="p-locations__btn">店舗情報</a>
+                <a href="#" class="p-locations__link" id="locations-map-link"
+                  data-image="/assets/images/locations/location-img-01.webp">
+                  お近くのFITNESS24を探す
+                </a>
+              </div>
             </div>
-          </div>
-          <div class="p-locations__buttons">
-            <a href="https://www.fitness24.jp/gym-list" class="p-locations__btn">店舗情報</a>
-            <a href="#" class="p-locations__link" id="locations-map-link"
-              data-image="/assets/images/locations/location-img-01.webp">
-              お近くのFITNESS24を探す
-              <img src="./assets/images/locations/location-arrow-icon.svg" alt="" class="p-locations__link-icon">
-            </a>
           </div>
           <div class="p-locations__bottom">
             <div class="p-locations__bottom-inner">
@@ -946,6 +949,12 @@
             </div>
           </div>
         </section>
+        <!-- 固定WEB予約ボタン（SP） -->
+        <div class="p-sticky-footer p-sticky-footer--sp">
+          <a href="#" class="p-sticky-footer__link">
+            <img src="./assets/images/common/sticky-btn-sp.svg" alt="WEB予約" class="p-sticky-footer__img">
+          </a>
+        </div>
       </main>
 
       <!-- Footer -->
@@ -963,18 +972,10 @@
           </div>
         </div>
       </footer>
-
-      <!-- 固定WEB予約ボタン（SP） -->
-      <div class="p-sticky-footer p-sticky-footer--sp">
-        <a href="#" class="p-sticky-footer__link">
-          <img src="./assets/images/common/sticky-btn-sp.svg" alt="WEB予約" class="p-sticky-footer__img">
-        </a>
-      </div>
-
       <!-- 固定WEB予約ボタン（PC） -->
       <div class="p-sticky-footer p-sticky-footer--pc" id="sticky-button-pc">
         <a href="#" class="p-sticky-footer__link">
-          <img src="/assets/images/common/styky-btn-pc.svg" alt="WEB予約" class="p-sticky-footer__img">
+          <img src="./assets/images/common/sticky-btn-pc.svg" alt="WEB予約" class="p-sticky-footer__img">
         </a>
       </div>
 

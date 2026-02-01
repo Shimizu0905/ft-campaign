@@ -270,11 +270,21 @@
 // Continue（継続プランセクション）
 // ------------------------------------------------------------
 .p-result__continue {
-  padding: 40px 20px;
-  background-color: #f5f5f0;
+  padding: 40px 0;
+  background-color: #E8E8E6;
 
   @media (width <= 375px) {
     padding: prem(40) prem(20);
+  }
+}
+
+.p-result__continue-inner {
+  width: 100%;
+  max-width: 255px;
+  margin: 0 auto;
+
+  @media (width <= 375px) {
+    max-width: prem(255);
   }
 }
 
@@ -282,8 +292,11 @@
   text-align: center;
 }
 
+.p-result__continue-title-img {
+  margin: 0 auto;
+}
+
 .p-result__continue-title {
-  margin: 0 0 8px;
   font-size: 18px;
   font-weight: $font-weight-m;
   color: $main-green;
@@ -297,7 +310,7 @@
 .p-result__continue-subtitle {
   margin: 0;
   font-size: 16px;
-  font-weight: $font-weight-r;
+  font-weight: $font-weight-b;
   color: $main-green;
 
   @media (width <= 375px) {
@@ -305,46 +318,47 @@
   }
 }
 
-.p-result__continue-button {
-  margin-bottom: 16px;
+.p-result__continue-box {
+  width: 100%;
+  padding: 7px;
+  margin: 13px auto 0;
   text-align: center;
+  background-color: $main-green;
 
   @media (width <= 375px) {
     margin-bottom: prem(16);
   }
 }
 
-.p-result__continue-btn {
-  display: inline-block;
-  padding: 14px 32px;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: $font-weight-m;
+.p-result__continue-box p {
+  font-size: 20px;
+  font-weight: $font-weight-b;
+  color: $white;
   text-align: center;
-  text-decoration: none;
-  transition: opacity 0.3s ease;
 
   @media (width <= 375px) {
-    padding: prem(14) prem(32);
     font-size: prem(16);
-  }
-
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &--green {
-    color: $white;
-    background-color: $main-green;
   }
 }
 
 .p-result__continue-discount {
-  margin-bottom: 24px;
   text-align: center;
 
   @media (width <= 375px) {
     margin-bottom: prem(24);
+  }
+}
+
+.p-result__continue-discount-img {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: 16px auto 0;
+
+  @media (width <= 375px) {
+    margin-top: prem(16);
+    max-width: prem(280);
   }
 }
 
@@ -360,6 +374,7 @@
 }
 
 .p-result__continue-link {
+  margin-top: 38px;
   text-align: center;
 }
 
@@ -436,12 +451,12 @@
 // Training（トレーニングセクション）
 // ------------------------------------------------------------
 .p-result__training {
-  margin-top: 40px;
-  padding: 40px 20px;
+  margin-top: 21px;
+  padding: 40px 0 96px;
   background-color: $main-green;
 
   @media (width <= 375px) {
-    margin-top: prem(40);
+    margin-top: prem(21);
     padding: prem(40) prem(20);
   }
 }
@@ -462,14 +477,29 @@
 
 .p-result__training-title {
   margin: 0 0 16px;
-  font-size: 24px;
-  font-weight: $font-weight-b;
   line-height: 1.6;
   color: $white;
 
   @media (width <= 375px) {
     margin-bottom: prem(16);
-    font-size: prem(24);
+  }
+}
+
+.p-result__training-title-large {
+  font-size: 16px;
+  font-weight: $font-weight-m;
+
+  @media (width <= 375px) {
+    font-size: prem(16);
+  }
+}
+
+.p-result__training-title-text {
+  font-size: 18px;
+  font-weight: $font-weight-b;
+
+  @media (width <= 375px) {
+    font-size: prem(18);
   }
 }
 
@@ -479,6 +509,7 @@
   font-weight: $font-weight-r;
   line-height: 1.8;
   color: $white;
+  text-align: left;
 
   @media (width <= 375px) {
     font-size: prem(14);
@@ -488,12 +519,10 @@
 .p-result__training-content {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  margin-bottom: 40px;
+  gap: 46px;
 
   @media (width <= 375px) {
-    gap: prem(32);
-    margin-bottom: prem(40);
+    gap: prem(46);
   }
 }
 
@@ -506,14 +535,7 @@
 .p-result__training-block-img {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 16px;
-  border-radius: 8px;
   overflow: hidden;
-
-  @media (width <= 375px) {
-    margin-bottom: prem(16);
-    border-radius: prem(8);
-  }
 }
 
 .p-result__training-img {
@@ -524,32 +546,34 @@
 }
 
 .p-result__training-block-text {
-  margin: 0;
+  margin-top: 16px;
   font-size: 16px;
   font-weight: $font-weight-m;
-  line-height: 1.6;
   text-align: center;
   color: $white;
 
   @media (width <= 375px) {
+    margin-top: prem(16);
     font-size: prem(16);
   }
 }
 
 .p-result__training-cta {
+  margin-top: 64px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
 
   @media (width <= 375px) {
+    margin-top: prem(64);
     gap: prem(16);
   }
 }
 
 .p-result__training-cta-line {
-  width: 1px;
-  height: 40px;
+  width: 100%;
+  height: 1px;
   margin: 0 auto 16px;
   background-color: rgb(255 255 255 / 30%);
 

@@ -109,11 +109,11 @@
 
 // ボタンエリア
 .p-locations__buttons {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 16px;
+  width: 100%;
   margin-top: 32px;
 
   @media (width <= 375px) {
@@ -150,21 +150,21 @@
   &::after {
     display: inline-block;
     width: 18px;
-    height: 18px;
     min-width: 18px;
+    height: 18px;
     min-height: 18px;
-    flex-shrink: 0;
     margin-left: auto;
     background-image: url('/assets/images/common/arrow-green.svg');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    flex-shrink: 0;
     content: '';
 
     @media (width <= 375px) {
       width: prem(18);
-      height: prem(18);
       min-width: prem(18);
+      height: prem(18);
       min-height: prem(18);
     }
   }
@@ -244,8 +244,8 @@
 
 .p-locations__bottom {
   margin-top: 80px;
-  background-color: $white;
   padding: 40px 0 120px;
+  background-color: $white;
 }
 
 .p-locations__bottom-inner {
