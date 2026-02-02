@@ -320,8 +320,8 @@
 
 .p-result__continue-box {
   width: 100%;
-  padding: 7px;
   margin: 13px auto 0;
+  padding: 7px;
   text-align: center;
   background-color: $dark-green;
 
@@ -333,8 +333,8 @@
 .p-result__continue-box p {
   font-size: 20px;
   font-weight: $font-weight-b;
-  color: $white;
   text-align: center;
+  color: $white;
 
   @media (width <= 375px) {
     font-size: prem(16);
@@ -357,8 +357,8 @@
   margin: 16px auto 0;
 
   @media (width <= 375px) {
-    margin-top: prem(16);
     max-width: prem(280);
+    margin-top: prem(16);
   }
 }
 
@@ -387,7 +387,6 @@
   border-radius: 8px;
   text-decoration: none;
   background-color: $white;
-  transition: opacity 0.3s ease;
 
   @media (width <= 375px) {
     gap: prem(8);
@@ -508,8 +507,8 @@
   font-size: 14px;
   font-weight: $font-weight-r;
   line-height: 1.8;
-  color: $white;
   text-align: left;
+  color: $white;
 
   @media (width <= 375px) {
     font-size: prem(14);
@@ -559,15 +558,15 @@
 }
 
 .p-result__training-cta {
-  margin-top: 64px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  margin-top: 64px;
 
   @media (width <= 375px) {
-    margin-top: prem(64);
     gap: prem(16);
+    margin-top: prem(64);
   }
 }
 
@@ -584,19 +583,39 @@
 }
 
 .p-result__training-cta-button {
+  position: relative;
   display: inline-block;
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  overflow: hidden;
 
   img {
+    position: relative;
+    z-index: 2;
     display: block;
     width: 100%;
     max-width: 100%;
     height: auto;
+    transition: filter 0.3s ease;
   }
 
-  &:hover {
-    opacity: 0.8;
+  &::before {
+    position: absolute;
+    z-index: 1;
+    background-color: $white;
+    transition: transform 0.6s cubic-bezier(0.8, 0, 0.2, 1);
+    transform: scaleX(0);
+    inset: 0;
+    content: '';
+    transform-origin: right center;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  &:hover img {
+    filter: invert(1);
   }
 }
 

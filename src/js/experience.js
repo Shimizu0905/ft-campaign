@@ -30,6 +30,25 @@ jQuery(function ($) {
 
     // 親状態（色連動用）
     $experience.removeClass('is-habit is-result').addClass('is-' + route);
+
+    // Slickスライダーの再計算（タブ切り替え後に実行）
+    setTimeout(function() {
+      // Voice スライダー
+      const $voiceSlider = $('#voice-swiper .swiper-wrapper');
+      if ($voiceSlider.length && $voiceSlider.hasClass('slick-initialized')) {
+        $voiceSlider.slick('setPosition');
+      }
+      // Crew スライダー
+      const $crewSlider = $('.p-crew__slider');
+      if ($crewSlider.length && $crewSlider.hasClass('slick-initialized')) {
+        $crewSlider.slick('setPosition');
+      }
+      // Features スライダー
+      const $featuresSlider = $('#features-swiper .swiper-wrapper');
+      if ($featuresSlider.length && $featuresSlider.hasClass('slick-initialized')) {
+        $featuresSlider.slick('setPosition');
+      }
+    }, 300);
   }
 
   // タブボタンクリック
@@ -50,6 +69,23 @@ jQuery(function ($) {
   $(document).on('click', '.p-result__training-cta-button', function (e) {
     e.preventDefault();
     console.log('Result CTA clicked'); // デバッグ用
+    
+    // 習慣化ルートに切り替え
+    switchTab('habit');
+    
+    // Experienceセクションまでスムーススクロール
+    const $experienceSection = $('#experience');
+    if ($experienceSection.length) {
+      $('html, body').animate({
+        scrollTop: $experienceSection.offset().top - 100
+      }, 800, 'swing');
+    }
+  });
+
+  // 結果重視ルートの継続プランボタン → 習慣化ルートへ
+  $(document).on('click', '.p-result__continue-link a', function (e) {
+    e.preventDefault();
+    console.log('Continue link clicked'); // デバッグ用
     
     // 習慣化ルートに切り替え
     switchTab('habit');

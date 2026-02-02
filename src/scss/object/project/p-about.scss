@@ -27,9 +27,9 @@
   width: 100%;
   height: auto;
   margin: 0 auto;
-  object-fit: contain;
   opacity: 0;
   transform: translate3d(-12px, 0, 0);
+  object-fit: contain;
   clip-path: inset(0 100% 0 0);
   will-change: transform, clip-path, opacity;
 }
@@ -58,9 +58,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .p-about__title-img {
-    animation: none;
     opacity: 1;
     transform: translate3d(0, 0, 0);
+    animation: none;
     clip-path: inset(0 0 0 0);
   }
 }

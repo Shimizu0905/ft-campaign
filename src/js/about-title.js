@@ -1,5 +1,5 @@
 const titles = document.querySelectorAll(
-  '.p-about__title, .p-features__title, .p-crew__title, .p-gallery__title, .p-join__title, .p-locations__title'
+  '.p-fv__title, .p-about__title, .p-features__title, .p-crew__title, .p-gallery__title, .p-join__title, .p-locations__title'
 );
 
 if (titles.length > 0) {

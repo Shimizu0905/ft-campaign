@@ -4,18 +4,18 @@
     <style>
       .cls-1 {
         fill: none;
-        stroke: #0c3b2c;
+        stroke: var(--svg-stroke-color, #0c3b2c);
         stroke-linecap: round;
         stroke-linejoin: round;
         stroke-width: 1.29px;
       }
 
       .cls-2, .cls-3 {
-        fill: #fff;
+        fill: var(--svg-text-color, #fff);
       }
 
       .cls-4 {
-        fill: #004639;
+        fill: var(--svg-bg-color, #004639);
       }
 
       .cls-3 {

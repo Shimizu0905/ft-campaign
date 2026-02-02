@@ -80,12 +80,12 @@
   align-items: center;
   width: 21px;
   height: 21px;
-  transform: rotate(-90deg);
   border-radius: 50%;
   font-size: 18px;
   font-weight: $font-weight-b;
   color: $main-green;
   background-color: $white;
+  transform: rotate(-90deg);
 
   @media (width <= 375px) {
     width: prem(32);

@@ -1,28 +1,47 @@
 // ヘッダーとドロワーメニューの機能
 jQuery(function ($) {
   $(function () {
+    const $body = $("body");
+    const $hamburger = $(".js-hamburger");
+    const $drawer = $(".js-drawer");
+    const $header = $(".js-header");
+    let scrollY = 0;
+
+    function openMenu() {
+      scrollY = window.scrollY || window.pageYOffset;
+      $hamburger.addClass("is-active");
+      $drawer.addClass("is-active");
+      $header.addClass("is-active");
+      $body.addClass("no-scroll");
+      $body.css("top", `-${scrollY}px`);
+    }
+
+    function closeMenu() {
+      $hamburger.removeClass("is-active");
+      $drawer.removeClass("is-active");
+      $header.removeClass("is-active");
+      $body.removeClass("no-scroll");
+      $body.css("top", "");
+      window.scrollTo({ top: scrollY, behavior: "auto" });
+    }
+
     // ハンバーガーメニューのクリックイベント
-    $(".js-hamburger").on('click', function () {
-      $(".js-hamburger").toggleClass("is-active");
-      $(".js-drawer").toggleClass("is-active");
-      $(".js-header").toggleClass("is-active");
-      $("body").toggleClass("no-scroll");
+    $hamburger.on('click', function () {
+      if ($drawer.hasClass("is-active")) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
     // オーバーレイのクリックイベント（メニューを閉じる）
     $(".js-drawer-overlay").on('click', function () {
-      $(".js-hamburger").removeClass("is-active");
-      $(".js-drawer").removeClass("is-active");
-      $(".js-header").removeClass("is-active");
-      $("body").removeClass("no-scroll");
+      closeMenu();
     });
 
     // ドロワーメニュー内のリンククリック時（メニューを閉じる）
     $(".c-drawer__item a").on('click', function () {
-      $(".js-hamburger").removeClass("is-active");
-      $(".js-drawer").removeClass("is-active");
-      $(".js-header").removeClass("is-active");
-      $("body").removeClass("no-scroll");
+      closeMenu();
     });
 
     // ヘッダースクロール処理
@@ -40,7 +59,7 @@ jQuery(function ($) {
     if (window.matchMedia("(min-width: 768px)").matches) {
       $(".js-hamburger").removeClass("is-active");
       $(".js-drawer").removeClass("is-active");
-      $("body").removeClass("no-scroll");
+      $("body").removeClass("no-scroll").css("top", "");
     }
   });
 });

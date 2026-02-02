@@ -38,9 +38,9 @@
   width: 100%;
   height: auto;
   margin: 0 auto;
-  object-fit: contain;
   opacity: 0;
   transform: translate3d(-12px, 0, 0);
+  object-fit: contain;
   clip-path: inset(0 100% 0 0);
   will-change: transform, clip-path, opacity;
 
@@ -73,9 +73,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .p-crew__title-img {
-    animation: none;
     opacity: 1;
     transform: translate3d(0, 0, 0);
+    animation: none;
     clip-path: inset(0 0 0 0);
   }
 }
@@ -172,18 +172,27 @@
 
 // スタッフ写真（全て同じサイズ）
 .p-crew__photo {
-  display: block;
+  display: block !important;
   width: 260px;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
   aspect-ratio: 250 / 264;
   object-fit: cover;
+  opacity: 1 !important;
+  visibility: visible !important;
 
   @media (width <= 375px) {
     width: prem(260);
     margin-top: prem(16);
   }
+}
+
+// Slickクローンスライドでも画像を表示
+.p-crew__slider .slick-slide img {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 // スタッフ名（画像とボタンを縦並びで中央揃え）
@@ -706,10 +715,36 @@ body.is-modal-open {
 }
 
 .p-crew__button a {
+  position: relative;
   display: inline-block;
   width: 100%;
   max-width: 275.35px;
   margin: 0 auto;
+  overflow: hidden;
+  opacity: 1 !important;
+}
+
+.p-crew__button-svg {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: all 0.3s ease;
+  --svg-bg-color: #{$main-green};
+  --svg-text-color: #{$white};
+  --svg-stroke-color: #0c3b2c;
+}
+
+.p-crew__button a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.p-crew__button a:hover .p-crew__button-svg {
+  --svg-bg-color: #{$white};
+  --svg-text-color: #{$main-green};
+  --svg-stroke-color: #{$white};
 }
 
 .p-crew__button-line {
