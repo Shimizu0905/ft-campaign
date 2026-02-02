@@ -99,11 +99,11 @@
 .p-gallery__track {
   display: flex;
   width: fit-content;
-  animation: gallery-scroll 500s linear infinite;
+  animation: gallery-scroll 80s linear infinite;
   will-change: transform;
 
   @media (width <= 375px) {
-    animation: gallery-scroll 400s linear infinite;
+    animation: gallery-scroll 50s linear infinite;
   }
 
   // hoverで一時停止

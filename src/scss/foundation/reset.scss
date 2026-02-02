@@ -66,6 +66,12 @@ select {
   font: inherit;
 }
 
+/* Make buttons and clickable elements have pointer cursor */
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {

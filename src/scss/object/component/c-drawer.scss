@@ -235,6 +235,7 @@
       background-size: contain;
       background-repeat: no-repeat;
       content: '';
+      transition: background-image 0.3s ease;
 
       @media (width <= 375px) {
         margin-left: prem(12);
@@ -247,6 +248,10 @@
 
     a {
       color: #fff;
+
+      &::after {
+        background-image: url('/assets/images/common/arrow-white.svg');
+      }
     }
   }
 }
