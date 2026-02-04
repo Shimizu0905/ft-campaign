@@ -27,7 +27,7 @@
     <meta name="description"
       content="FITNESS24は24時間営業のハイブリッドジム。マンツーマンサポートで初心者も安心。札幌市内5店舗で春のキャンペーン実施中！先着100名限定、月会費0円・入会登録料0円。">
     <meta name="keywords" content="FITNESS24, フィットネス24, 24時間ジム, パーソナルトレーニング, 札幌, ジム, トレーニング, マンツーマンサポート, トレサポ">
-    <link rel="canonical" href="/">
+    <link rel="canonical" href="./">
     <meta property="og:locale" content="ja_JP">
     <meta property="og:type" content="website">
     <meta property="og:image" content="./assets/images/mv.jpg">
@@ -78,6 +78,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
     <!-- CSS -->
     <!-- style.cssはJSからimportされるため、開発環境では不要（ビルド時に自動挿入） -->
+    <script type="module" src="./src/js/main.js"></script>
+    <script type="module" src="./src/js/header.js"></script>
+    <script type="module" src="./src/js/slider.js"></script>
+    <script type="module" src="./src/js/experience.js"></script>
+    <script type="module" src="./src/js/crew-slider.js"></script>
+    <script type="module" src="./src/js/gallery-slider.js"></script>
+    <script type="module" src="./src/js/faq.js"></script>
+    <script type="module" src="./src/js/join-accordion.js"></script>
+    <script type="module" src="./src/js/privacy-modal.js"></script>
+    <script type="module" src="./src/js/locations-modal.js"></script>
   </head>
 
   <body>
@@ -89,7 +99,7 @@
         <div class="c-header__inner">
           <h1 class="c-header__logo js-header__logo">
             <a href="./" class="c-header__logo-link">
-              <img src="/assets/images/common/logo-green.svg" alt="FITNESS24" class="c-header__logo-img">
+              <img src="./assets/images/common/logo-green.svg" alt="FITNESS24" class="c-header__logo-img">
             </a>
           </h1>
           <button class="c-header__hamburger js-hamburger" aria-label="メニューを開く">
@@ -107,52 +117,53 @@
           <ul class="c-drawer__menu">
             <li class="c-drawer__item">
               <a href="#campaign">
-                <img src="/assets/images/header/compaign.svg" alt="Campaign" class="c-drawer__item-img">
+                <img src="./assets/images/header/compaign.svg" alt="Campaign" class="c-drawer__item-img">
               </a>
             </li>
             <li class="c-drawer__item">
               <a href="#about">
-                <img src="/assets/images/header/what.svg" alt="What's FITNESS24?" class="c-drawer__item-img">
+                <img src="./assets/images/header/what.svg" alt="What's FITNESS24?" class="c-drawer__item-img">
               </a>
             </li>
             <li class="c-drawer__item">
               <a href="#features">
-                <img src="/assets/images/header/features.svg" alt="Key features" class="c-drawer__item-img">
+                <img src="./assets/images/header/features.svg" alt="Key features" class="c-drawer__item-img">
               </a>
             </li>
             <li class="c-drawer__item">
               <a href="#experience">
-                <img src="/assets/images/header/training.svg" alt="One-on-one training experience"
+                <img src="./assets/images/header/training.svg" alt="One-on-one training experience"
                   class="c-drawer__item-img">
               </a>
             </li>
             <li class="c-drawer__item">
               <a href="#gallery">
-                <img src="/assets/images/header/gallery.svg" alt="Gym Gallery" class="c-drawer__item-img">
+                <img src="./assets/images/header/gallery.svg" alt="Gym Gallery" class="c-drawer__item-img">
               </a>
             </li>
             <li class="c-drawer__item">
               <a href="#join">
-                <img src="/assets/images/header/how.svg" alt="How to join" class="c-drawer__item-img">
+                <img src="./assets/images/header/how.svg" alt="How to join" class="c-drawer__item-img">
               </a>
             </li>
             <li class="c-drawer__item">
               <a href="#locations">
-                <img src="/assets/images/header/locations.svg" alt="Gym locations" class="c-drawer__item-img">
+                <img src="./assets/images/header/locations.svg" alt="Gym locations" class="c-drawer__item-img">
               </a>
             </li>
           </ul>
           <div class="c-drawer__social">
             <a href="https://www.instagram.com/fitness24__official/" class="c-drawer__social-link"
               aria-label="Instagram">
-              <img src="/assets/images/header/icon-insta.svg" alt="Instagram" class="c-drawer__social-icon">
+              <img src="./assets/images/header/icon-insta.svg" alt="Instagram" class="c-drawer__social-icon">
             </a>
             <a href="https://page.line.me/160pdxin?openQrModal=true" class="c-drawer__social-link" aria-label="LINE">
-              <img src="/assets/images/header/icon-line.svg" alt="LINE" class="c-drawer__social-icon">
+              <img src="./assets/images/header/icon-line.svg" alt="LINE" class="c-drawer__social-icon">
             </a>
           </div>
           <div class="c-drawer__cta">
-            <a href="#reserve">WEB予約</a>
+            <a href="https://mypage.fitness24.jp/register/?_gl=1%2a1ho7pid%2a_gcl_au%2aMTM0MTY4NTAyNS4xNzAwMDIwMjQ4%E3%80%80"
+              target="_blank" rel="noopener noreferrer">WEB予約</a>
           </div>
         </nav>
       </div>
@@ -221,29 +232,30 @@
         <section class="p-campaign" id="campaign">
           <div class="p-campaign__inner">
             <div class="p-campaign__copy">
-              <img src="/assets/images/campaign/campaign-date.svg" alt="SPRING CAMPAIGN 2026.2.21 - 3.31">
+              <img src="./assets/images/campaign/campaign-date.svg" alt="SPRING CAMPAIGN 2026.2.21 - 3.31">
             </div>
           </div>
         </section>
         <section class="p-offer">
           <div class="p-offer__inner l-inner">
-            <img src="/assets/images/offer/offer-01.svg" alt="キャンペーン特典詳細 - 各店先着100名様限定特典、月会費0円・入会登録料0円、オプション無料"
+            <img src="./assets/images/offer/offer-01.svg" alt="キャンペーン特典詳細 - 各店先着100名様限定特典、月会費0円・入会登録料0円、オプション無料"
               class="p-offer__img">
           </div>
-          <div class="p-offer-details__inner l-inner">
+          <div class="p-offer-details__inner">
             <div class="p-offer-details__main">
-              <img src="/assets/images/offer/offer-02.svg" alt="マンツーマンサポート特典 - トレサポプラス・単発パーソナルトレーニングの詳細"
+              <img src="./assets/images/offer/offer-02.svg" alt="マンツーマンサポート特典 - トレサポプラス・単発パーソナルトレーニングの詳細"
                 class="p-offer-details__img">
             </div>
-            <div class="p-offer-details__text">
-              <p>※特典の適用は2026年5月末までの在籍が条件となります。<br>
-                ※期間途中で退会の場合は、施設利用の有無に関わらず違約金¥10,000のお支払いが発生いたします。<br>
-                ※表示価格は全て税込です。</p>
+            <div class="p-offer-details__text u-text-kuten">
+              <p>※特典の適用は2026年5月末までの在籍が条件となります。</p>
+              <p>※期間途中で退会の場合は、施設利用の有無に関わらず違約金¥10,000のお支払いが発生いたします。</p>
+              <p>※表示価格は全て税込です。</p>
             </div>
           </div>
           <div class="p-offer-details__button c-button-orenge">
             <a class="c-button"
-              href="https://mypage.fitness24.jp/register/?_gl=1%2a1ho7pid%2a_gcl_au%2aMTM0MTY4NTAyNS4xNzAwMDIwMjQ4%E3%80%80">
+              href="https://mypage.fitness24.jp/register/?_gl=1%2a1ho7pid%2a_gcl_au%2aMTM0MTY4NTAyNS4xNzAwMDIwMjQ4%E3%80%80"
+              target="_blank" rel="noopener noreferrer">
               さっそく<span>WEB</span>予約
             </a>
           </div>
@@ -251,7 +263,7 @@
         <section class="p-about" id="about">
           <div class="p-about__inner l-inner">
             <h3 class="p-about__title">
-              <img src="/assets/images/about/about-title.svg" alt="What's FITNESS24?" class="p-about__title-img">
+              <img src="./assets/images/about/about-title.svg" alt="What's FITNESS24?" class="p-about__title-img">
             </h3>
             <div class="p-about__content">
               <h4 class="p-about__subtitle">24時間ジム+<br>
@@ -266,14 +278,14 @@
               </div>
             </div>
             <div class="p-about__img">
-              <img src="/assets/images/about/about-01.webp" alt="FITNESS24のジム内の様子">
+              <img src="./assets/images/about/about-01.webp" alt="FITNESS24のジム内の様子">
             </div>
           </div>
         </section>
         <section class="p-features" id="features">
           <div class="p-features__inner l-inner">
             <h3 class="p-features__title">
-              <img src="/assets/images/features/features-title.svg" alt="Key Features" class="p-features__title-img">
+              <img src="./assets/images/features/features-title.svg" alt="Key Features" class="p-features__title-img">
             </h3>
             <div class="p-features__slider-area">
               <div class="swiper p-features__slider" id="features-swiper">
@@ -281,12 +293,12 @@
                   <!-- アイテム１ -->
                   <div class="swiper-slide p-features__item">
                     <div class="p-features__item-image">
-                      <img src="/assets/images/features/features-01.webp" alt="TRAINING SUPPORT"
+                      <img src="./assets/images/features/features-01.webp" alt="TRAINING SUPPORT"
                         class="p-features__item-img">
                     </div>
                     <div class="p-features__item-content">
                       <h4 class="p-features__item-title">
-                        <img src="/assets/images/features/features-text-01.svg" alt="TRAINING SUPPORT"
+                        <img src="./assets/images/features/features-text-01.svg" alt="TRAINING SUPPORT"
                           class="p-features__item-title-img c-features-title-img">
                       </h4>
                       <p class="p-features__item-text">24時間いつでも。仕事帰りや朝活、スキマ時間も。「行けるときに行く」が、ちゃんと続く理由です。</p>
@@ -295,16 +307,16 @@
                   <!-- アイテム2 -->
                   <div class="swiper-slide p-features__item">
                     <div class="p-features__item-image">
-                      <img src="/assets/images/features/features-02.webp" alt="OPEN 24 HOURS"
+                      <img src="./assets/images/features/features-02.webp" alt="OPEN 24 HOURS"
                         class="p-features__item-img">
                     </div>
                     <div class="p-features__item-content">
                       <h4 class="p-features__item-title">
-                        <img src="/assets/images/features/features-text-02.svg" alt="VALUE PRICE"
+                        <img src="./assets/images/features/features-text-02.svg" alt="VALUE PRICE"
                           class="p-features__item-title-img c-features-title-img">
                       </h4>
                       <div class="p-features__item-sub-title">
-                        <img src="/assets/images/features/features-text-02-sub.svg" alt="VALUE PRICE"
+                        <img src="./assets/images/features/features-text-02-sub.svg" alt="VALUE PRICE"
                           class="p-features__item-sub-title-img c-features-title-img">
                       </div>
                       <p class="p-features__item-text">24時間通い放題+マンツーマンサポート（5回まで無料）付きでこのプライス！</p>
@@ -314,11 +326,12 @@
                   <!-- アイテム3 -->
                   <div class="swiper-slide p-features__item">
                     <div class="p-features__item-image">
-                      <img src="/assets/images/features/features-03.webp" alt="FEELS GOOD" class="p-features__item-img">
+                      <img src="./assets/images/features/features-03.webp" alt="FEELS GOOD"
+                        class="p-features__item-img">
                     </div>
                     <div class="p-features__item-content">
                       <h4 class="p-features__item-title">
-                        <img src="/assets/images/features/features-text-03.svg" alt="OPEN 24 HOURS"
+                        <img src="./assets/images/features/features-text-03.svg" alt="OPEN 24 HOURS"
                           class="p-features__item-title-img c-features-title-img">
                       </h4>
                       <p class="p-features__item-text">空間からモチベーションを。心地よさと清潔さにこだわったトレーニング空間。</p>
@@ -327,12 +340,12 @@
                   <!-- アイテム4 -->
                   <div class="swiper-slide p-features__item">
                     <div class="p-features__item-image">
-                      <img src="/assets/images/features/features-04.webp" alt="TRAINING SUPPORT"
+                      <img src="./assets/images/features/features-04.webp" alt="TRAINING SUPPORT"
                         class="p-features__item-img">
                     </div>
                     <div class="p-features__item-content">
                       <h4 class="p-features__item-title">
-                        <img src="/assets/images/features/features-text-04.svg" alt="VALUE PRICE"
+                        <img src="./assets/images/features/features-text-04.svg" alt="VALUE PRICE"
                           class="p-features__item-title-img c-features-title-img">
                       </h4>
                       <p class="p-features__item-text">はじめてでも安心。基本から目的に合わせたトレーニングまで、ジム通いを「習慣」へと変えるマンツーマン・サポート。</p>
@@ -341,11 +354,12 @@
                   <!-- アイテム5 -->
                   <div class="swiper-slide p-features__item">
                     <div class="p-features__item-image">
-                      <img src="/assets/images/features/features-05.webp" alt="FEELS GOOD" class="p-features__item-img">
+                      <img src="./assets/images/features/features-05.webp" alt="FEELS GOOD"
+                        class="p-features__item-img">
                     </div>
                     <div class="p-features__item-content">
                       <h4 class="p-features__item-title">
-                        <img src="/assets/images/features/features-text-05.svg" alt="PERSONAL TRAINING"
+                        <img src="./assets/images/features/features-text-05.svg" alt="PERSONAL TRAINING"
                           class="p-features__item-title-img c-features-title-img">
                       </h4>
                       <p class="p-features__item-text">本気で変わりたい人には、プロの個別指導も。結果をしっかり出したい方におすすめです。</p>
@@ -354,10 +368,10 @@
                 </div>
                 <!-- Navigation -->
                 <div class="swiper-button-prev p-features__prev">
-                  <img src="/assets/images/common/arrow-white.svg" alt="前へ" class="p-features__arrow-img">
+                  <img src="./assets/images/common/arrow-white.svg" alt="前へ" class="p-features__arrow-img">
                 </div>
                 <div class="swiper-button-next p-features__next">
-                  <img src="/assets/images/common/arrow-white.svg" alt="次へ" class="p-features__arrow-img">
+                  <img src="./assets/images/common/arrow-white.svg" alt="次へ" class="p-features__arrow-img">
                 </div>
                 <!-- Pagination -->
                 <div class="swiper-pagination p-features__dots"></div>
@@ -369,11 +383,11 @@
           <div class="p-experience__inner">
             <!-- セクションタイトル -->
             <h3 class="p-experience__title">
-              <img src="/assets/images/experience/experience-title.svg" alt="マンツーマンサポートを今だけの特典で体験"
+              <img src="./assets/images/experience/experience-title.svg" alt="マンツーマンサポートを今だけの特典で体験"
                 class="p-experience__title-img">
             </h3>
             <div class="p-experience__sub-title">
-              <img src="/assets/images/experience/experience-sub-title.svg" alt="あなたはどっち派？">
+              <img src="./assets/images/experience/experience-sub-title.svg" alt="あなたはどっち派？">
             </div>
             <!-- ルート選択ラッパー -->
             <div class="p-experience__route-wrapper">
@@ -410,7 +424,7 @@
 
                     <!-- サービスロゴ/名前 -->
                     <div class="p-experience__route-service">
-                      <img src="/assets/images/experience/tresapo/tresapo-logo-01.svg" alt="トレサポ"
+                      <img src="./assets/images/experience/tresapo/tresapo-logo-01.svg" alt="トレサポ"
                         class="p-experience__route-service-logo">
                     </div>
 
@@ -438,7 +452,7 @@
                     <div class="p-experience__route-plus">
                       <!-- ロゴ -->
                       <div class="p-experience__route-plus-logo">
-                        <img src="/assets/images/experience/tresapo/tresapo-logo-02.svg" alt="トレサポPLUS"
+                        <img src="./assets/images/experience/tresapo/tresapo-logo-02.svg" alt="トレサポPLUS"
                           class="p-experience__route-plus-logo-img">
                       </div>
                       <!-- タイトル -->
@@ -450,11 +464,11 @@
                           <p class="p-experience__route-plus-text">目標までの道のりに寄り添います。</p>
                         </div>
                         <div class="p-experience__route-plus-text-02 ">
-                          5回まで無料 (1回30分)</div>
+                          月4回¥4,400円1回30分</div>
                       </div>
                       <!-- 料金表示 -->
                       <div class="p-experience__route-plus-price">
-                        <img src="/assets/images/experience/tresapo/tresapo-plus-info.svg" alt="月4回 ¥4,400 (1回30分)"
+                        <img src="./assets/images/experience/tresapo/tresapo-plus-info.svg" alt="月4回 ¥4,400 (1回30分)"
                           class="p-experience__route-plus-price-img">
                       </div>
                     </div>
@@ -464,7 +478,7 @@
                       <div class="p-reason__inner l-inner">
                         <!-- セクション見出し -->
                         <h3 class="p-reason-title">
-                          <img src="/assets/images/experience/tresapo/reason/reason-title.svg" alt="がんばらなくても ちゃんと続く理由"
+                          <img src="./assets/images/experience/tresapo/reason/reason-title.svg" alt="がんばらなくても ちゃんと続く理由"
                             class="p-reason-title-img">
                         </h3>
 
@@ -474,7 +488,7 @@
                             <!-- カード① -->
                             <li class="p-reason__card">
                               <div class="p-reason__card-icon">
-                                <img src="/assets/images/experience/tresapo/reason/reason-icon-01.svg" alt="">
+                                <img src="./assets/images/experience/tresapo/reason/reason-icon-01.svg" alt="">
                               </div>
                               <div class="p-reason__card-body">
                                 <h4 class="p-reason__card-title">自分専用のメニュー</h4>
@@ -485,7 +499,7 @@
                             <!-- カード② -->
                             <li class="p-reason__card">
                               <div class="p-reason__card-icon">
-                                <img src="/assets/images/experience/tresapo/reason/reason-icon-02.svg" alt=""
+                                <img src="./assets/images/experience/tresapo/reason/reason-icon-02.svg" alt=""
                                   class="p-reason__card-icon-img">
                               </div>
                               <div class="p-reason__card-body">
@@ -497,7 +511,7 @@
                             <!-- カード③ -->
                             <li class="p-reason__card">
                               <div class="p-reason__card-icon">
-                                <img src="/assets/images/experience/tresapo/reason/reason-icon-03.svg" alt=""
+                                <img src="./assets/images/experience/tresapo/reason/reason-icon-03.svg" alt=""
                                   class="p-reason__card-icon-img">
                               </div>
                               <div class="p-reason__card-body">
@@ -510,7 +524,7 @@
                       </div>
                       <!-- 下部画像 -->
                       <div class="p-reason__img">
-                        <img src="/assets/images/experience/tresapo/reason/reason-img.webp" alt="ジムでのトレーニング風景">
+                        <img src="./assets/images/experience/tresapo/reason/reason-img.webp" alt="ジムでのトレーニング風景">
                       </div>
                     </section>
 
@@ -518,7 +532,7 @@
                     <section class="p-voice">
                       <div class="p-voice__inner">
                         <h3 class="p-voice__title">
-                          <img src="/assets/images/experience/tresapo/voice/voice-title.svg"
+                          <img src="./assets/images/experience/tresapo/voice/voice-title.svg"
                             alt="トレサポプラスってどう？感想を聞いてみました！" class="p-voice__title-img">
                         </h3>
 
@@ -530,13 +544,13 @@
                                 <div class="p-voice__card-top">
                                   <div class="p-voice__card-icon-wrap">
                                     <div class="p-voice__icon">
-                                      <img src="/assets/images/experience/tresapo/voice/voice-icon-01.svg" alt="お客様の声"
+                                      <img src="./assets/images/experience/tresapo/voice/voice-icon-01.svg" alt="お客様の声"
                                         class="p-voice__icon-img">
                                     </div>
                                     <p class="p-voice__age">20代女性</p>
                                   </div>
-                                  <h4 class="p-voice__card-title">トレーナーさんの
-                                    温かい声かけが
+                                  <h4 class="p-voice__card-title">トレーナーさんの<br>
+                                    温かい声かけが<br>
                                     「続けられる自信」に!</h4>
                                 </div>
                                 <div class="p-voice__card-text-wrapper">
@@ -556,12 +570,12 @@
                                 <div class="p-voice__card-top">
                                   <div class="p-voice__card-icon-wrap">
                                     <div class="p-voice__icon">
-                                      <img src="/assets/images/experience/tresapo/voice/voice-icon-02.svg" alt="お客様の声"
+                                      <img src="./assets/images/experience/tresapo/voice/voice-icon-02.svg" alt="お客様の声"
                                         class="p-voice__icon-img">
                                     </div>
                                     <p class="p-voice__age">30代男性</p>
                                   </div>
-                                  <h4 class="p-voice__card-title">「自己流」の限界をサポートのおかげで突破できました！</h4>
+                                  <h4 class="p-voice__card-title">「自己流」の限界を<br>サポートのおかげで<br>突破できました！</h4>
                                 </div>
                                 <div class="p-voice__card-text-wrapper">
                                   <p class="p-voice__card-text">一人の筋トレに知識や経験の限界を感じ、「さらに上の次元」を知りたくて受講しました。
@@ -578,7 +592,7 @@
                                 <div class="p-voice__card-top">
                                   <div class="p-voice__card-icon-wrap">
                                     <div class="p-voice__icon">
-                                      <img src="/assets/images/experience/tresapo/voice/voice-icon-03.svg" alt="お客様の声"
+                                      <img src="./assets/images/experience/tresapo/voice/voice-icon-03.svg" alt="お客様の声"
                                         class="p-voice__icon-img">
                                     </div>
                                     <p class="p-voice__age">40代女性</p>
@@ -603,7 +617,7 @@
                                 <div class="p-voice__card-top">
                                   <div class="p-voice__card-icon-wrap">
                                     <div class="p-voice__icon">
-                                      <img src="/assets/images/experience/tresapo/voice/voice-icon-04.svg" alt="お客様の声"
+                                      <img src="./assets/images/experience/tresapo/voice/voice-icon-04.svg" alt="お客様の声"
                                         class="p-voice__icon-img">
                                     </div>
                                     <p class="p-voice__age">50代男性</p>
@@ -636,19 +650,33 @@
                     <section class="p-crew" id="crew">
                       <div class="p-crew__inner">
                         <h3 class="p-crew__title">
-                          <img src="/assets/images/experience/tresapo/crew/crew-title.svg" alt="Support Crew"
+                          <img src="./assets/images/experience/tresapo/crew/crew-title.svg" alt="Support Crew"
                             class="p-crew__title-img">
                         </h3>
                         <p class="p-crew__lead">リアルな経験を積んだ<br>頼れるサポートクルー</p>
 
                         <div class="p-crew__slider" id="crew-slider">
                           <!-- スライド1 -->
-                          <article class="p-crew__slide" data-crew="0">
+                          <article class="p-crew__slide" data-crew="3">
                             <div class="p-crew__card">
-                              <img src="/assets/images/experience/tresapo/crew/crew-01.webp" alt="Sena Ueno"
+                              <img src="./assets/images/experience/tresapo/crew/crew-04.webp" alt="Takeshi Yamamoto"
                                 class="p-crew__photo">
                               <div class="p-crew__name">
-                                <img src="/assets/images/experience/tresapo/crew/crew-name-01.svg" alt="Sena Ueno"
+                                <img src="./assets/images/experience/tresapo/crew/crew-name-04.svg"
+                                  alt="Takeshi Yamamoto" class="p-crew__name-img p-crew__name-img--04">
+                                <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
+                                  data-open="3"></button>
+                              </div>
+                            </div>
+                          </article>
+
+                          <!-- スライド2 -->
+                          <article class="p-crew__slide" data-crew="0">
+                            <div class="p-crew__card">
+                              <img src="./assets/images/experience/tresapo/crew/crew-01.webp" alt="Sena Ueno"
+                                class="p-crew__photo">
+                              <div class="p-crew__name">
+                                <img src="./assets/images/experience/tresapo/crew/crew-name-01.svg" alt="Sena Ueno"
                                   class="p-crew__name-img p-crew__name-img--01">
                                 <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
                                   data-open="0"></button>
@@ -656,13 +684,13 @@
                             </div>
                           </article>
 
-                          <!-- スライド2 -->
+                          <!-- スライド3 -->
                           <article class="p-crew__slide" data-crew="1">
                             <div class="p-crew__card">
-                              <img src="/assets/images/experience/tresapo/crew/crew-02.webp" alt="Yuki Tanaka"
+                              <img src="./assets/images/experience/tresapo/crew/crew-02.webp" alt="Yuki Tanaka"
                                 class="p-crew__photo">
                               <div class="p-crew__name">
-                                <img src="/assets/images/experience/tresapo/crew/crew-name-02.svg" alt="Yuki Tanaka"
+                                <img src="./assets/images/experience/tresapo/crew/crew-name-02.svg" alt="Yuki Tanaka"
                                   class="p-crew__name-img p-crew__name-img--02">
                                 <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
                                   data-open="1"></button>
@@ -670,13 +698,13 @@
                             </div>
                           </article>
 
-                          <!-- スライド3 -->
+                          <!-- スライド4 -->
                           <article class="p-crew__slide" data-crew="2">
                             <div class="p-crew__card">
-                              <img src="/assets/images/experience/tresapo/crew/crew-03.webp" alt="Mika Suzuki"
+                              <img src="./assets/images/experience/tresapo/crew/crew-03.webp" alt="Mika Suzuki"
                                 class="p-crew__photo">
                               <div class="p-crew__name">
-                                <img src="/assets/images/experience/tresapo/crew/crew-name-03.svg" alt="Mika Suzuki"
+                                <img src="./assets/images/experience/tresapo/crew/crew-name-03.svg" alt="Mika Suzuki"
                                   class="p-crew__name-img p-crew__name-img--03">
                                 <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
                                   data-open="2"></button>
@@ -684,25 +712,13 @@
                             </div>
                           </article>
 
-                          <!-- スライド4 -->
-                          <article class="p-crew__slide" data-crew="3">
-                            <div class="p-crew__card">
-                              <img src="/assets/images/experience/tresapo/crew/crew-04.webp" alt="Takeshi Yamamoto"
-                                class="p-crew__photo">
-                              <div class="p-crew__name">
-                                <img src="/assets/images/experience/tresapo/crew/crew-name-04.svg"
-                                  alt="Takeshi Yamamoto" class="p-crew__name-img p-crew__name-img--04">
-                                <button type="button" class="p-crew__open" aria-label="スタッフ詳細を開く"
-                                  data-open="3"></button>
-                              </div>
-                            </div>
-                          </article>
+
                         </div>
                         <!-- Pagination -->
                         <div class="p-crew__dots"></div>
                         <div class="p-crew__button">
-                          <a
-                            href="https://mypage.fitness24.jp/register/?_gl=1*1ho7pid*_gcl_au*MTM0MTY4NTAyNS4xNzAwMDIwMjQ4">
+                          <a href="https://mypage.fitness24.jp/register/?_gl=1*1ho7pid*_gcl_au*MTM0MTY4NTAyNS4xNzAwMDIwMjQ4"
+                            target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 274.69 62.23"
                               class="p-crew__button-svg">
                               <defs>
@@ -811,7 +827,7 @@
                     <div class="p-result__service">
                       <div class="p-result__service-inner">
                         <div class="p-result__service-logo-wrap">
-                          <img src="/assets/images/experience/result/result-logo.svg" alt="FITNESS24 PERSONAL"
+                          <img src="./assets/images/experience/result/result-logo.svg" alt="FITNESS24 PERSONAL"
                             class="p-result__service-logo">
                         </div>
                         <div class="p-result__service-text-wrap">
@@ -823,7 +839,7 @@
                         </div>
                       </div>
                       <div class="p-result__service-image-wrap">
-                        <img src="/assets/images/experience/result/result-01.webp" alt="FITNESS24 PERSONAL"
+                        <img src="./assets/images/experience/result/result-01.webp" alt="FITNESS24 PERSONAL"
                           class="p-result__service-image">
                       </div>
                     </div>
@@ -834,7 +850,7 @@
                   <div class="p-result__info">
                     <div class="p-result__info-inner l-inner">
                       <div class="p-result__info-item">
-                        <img src="/assets/images/experience/result/result-02.svg" alt="FITNESS24 PERSONAL">
+                        <img src="./assets/images/experience/result/result-02.svg" alt="FITNESS24 PERSONAL">
                       </div>
                       <!-- サービス説明 -->
                       <div class="p-result__info-description p-result__info-description--bottom">
@@ -845,26 +861,26 @@
                       </div>
                     </div>
                     <div class="p-result__info-img">
-                      <img src="/assets/images/experience/result/result-03.webp" alt="FITNESS24 PERSONAL">
+                      <img src="./assets/images/experience/result/result-03.webp" alt="FITNESS24 PERSONAL">
                     </div>
                   </div>
                   <!-- 継続プランセクション -->
                   <div class="p-result__continue">
                     <div class="p-result__continue-inner">
                       <div class="p-result__continue-header">
-                        <img src="/assets/images/experience/result/result-text.svg" alt="継続プラン">
+                        <img src="./assets/images/experience/result/result-text.svg" alt="継続プラン">
                       </div>
                       <div class="p-result__continue-box">
                         <p>継続プラン料金</p>
                       </div>
                       <div class="p-result__continue-discount">
-                        <img src="/assets/images/experience/result/result-50.svg" alt="初月 50%OFF!!"
+                        <img src="./assets/images/experience/result/result-50.svg" alt="初月 50%OFF!!"
                           class="p-result__continue-discount-img">
                       </div>
                       <div class="p-result__continue-link c-button-green">
                         <a href="#" class="c-button">
                           パーソナルプランについて<br>
-                          詳しくこちら
+                          詳しくはこちら
                         </a>
                       </div>
                     </div>
@@ -885,7 +901,7 @@
                         <!-- ブロック1: パーソナルトレーニング -->
                         <div class="p-result__training-block">
                           <div class="p-result__training-block-img">
-                            <img src="/assets/images/experience/result/training-01.webp" alt="パーソナルトレーニング"
+                            <img src="./assets/images/experience/result/training-01.webp" alt="パーソナルトレーニング"
                               class="p-result__training-img">
                           </div>
                           <p class="p-result__training-block-text">パーソナルトレーニング×<br>24時間セルフ利用のハイブリッドスタイル</p>
@@ -894,7 +910,7 @@
                         <!-- ブロック2: スペシャリストサポート -->
                         <div class="p-result__training-block">
                           <div class="p-result__training-block-img">
-                            <img src="/assets/images/experience/result/training-02.webp" alt="カラダづくりのスペシャリスト"
+                            <img src="./assets/images/experience/result/training-02.webp" alt="カラダづくりのスペシャリスト"
                               class="p-result__training-img">
                           </div>
                           <p class="p-result__training-block-text">カラダづくりのスペシャリストによる<br>指導・サポート</p>
@@ -903,7 +919,7 @@
                         <!-- ブロック3: 食事指導 -->
                         <div class="p-result__training-block">
                           <div class="p-result__training-block-img">
-                            <img src="/assets/images/experience/result/training-03.webp" alt="食事指導"
+                            <img src="./assets/images/experience/result/training-03.webp" alt="食事指導"
                               class="p-result__training-img">
                           </div>
                           <p class="p-result__training-block-text">ライフスタイルに合わせた食事指導</p>
@@ -920,7 +936,7 @@
                               <style>
                                 .training-btn-arrow {
                                   fill: none;
-                                  stroke: var(--svg-stroke-color, #0c3b2c);
+                                  stroke: var(--svg-stroke-color, #004639);
                                   stroke-linecap: round;
                                   stroke-linejoin: round;
                                   stroke-width: 1.29px;
@@ -928,7 +944,7 @@
                                 }
 
                                 .training-btn-bg {
-                                  fill: var(--svg-bg-color, #428d65);
+                                  fill: var(--svg-bg-color, #004639);
                                   opacity: 1 !important;
                                 }
 
@@ -1010,7 +1026,7 @@
         <section class="p-gallery" id="gallery">
           <div class="p-gallery__inner">
             <h3 class="p-gallery__title">
-              <img src="/assets/images/gallery/gallery-title.svg" alt="Gym Gallery" class="p-gallery__title-img">
+              <img src="./assets/images/gallery/gallery-title.svg" alt="Gym Gallery" class="p-gallery__title-img">
             </h3>
             <p class="p-gallery__lead">本格的な設備と快適で<br>心地よいトレーニング空間</p>
 
@@ -1018,52 +1034,52 @@
               <div class="p-gallery__track" id="gallery-track">
                 <!-- 画像1 -->
                 <div class="p-gallery__item">
-                  <img src="/assets/images/gallery/gallery-01.webp" alt="ジム設備" class="p-gallery__img">
+                  <img src="./assets/images/gallery/gallery-01.webp" alt="ジム設備" class="p-gallery__img">
                   <p class="p-gallery__tag">#シャワールーム<br>#江別野幌</p>
                 </div>
                 <!-- 画像2 -->
                 <div class="p-gallery__item">
-                  <img src="/assets/images/gallery/gallery-02.webp" alt="ジム設備" class="p-gallery__img">
+                  <img src="./assets/images/gallery/gallery-02.webp" alt="ジム設備" class="p-gallery__img">
                   <p class="p-gallery__tag">#バゲージスペース<br>#北見幸町</p>
                 </div>
                 <!-- 画像3 -->
                 <div class="p-gallery__item">
-                  <img src="/assets/images/gallery/gallery-03.webp" alt="ジム設備" class="p-gallery__img">
+                  <img src="./assets/images/gallery/gallery-03.webp" alt="ジム設備" class="p-gallery__img">
                   <p class="p-gallery__tag">#トレッドミル<br>#南郷7丁目</p>
                 </div>
                 <!-- 画像4 -->
                 <div class="p-gallery__item">
-                  <img src="/assets/images/gallery/gallery-04.webp" alt="ジム設備" class="p-gallery__img">
+                  <img src="./assets/images/gallery/gallery-04.webp" alt="ジム設備" class="p-gallery__img">
                   <p class="p-gallery__tag">#カーディオマシン<br>#桑園</p>
                 </div>
                 <!-- 画像5 -->
                 <div class="p-gallery__item">
-                  <img src="/assets/images/gallery/gallery-05.webp" alt="ジム設備" class="p-gallery__img">
+                  <img src="./assets/images/gallery/gallery-05.webp" alt="ジム設備" class="p-gallery__img">
                   <p class="p-gallery__tag">#フリーウェイト<br>#北見幸町</p>
                 </div>
                 <!-- 画像6 -->
                 <div class="p-gallery__item">
-                  <img src="/assets/images/gallery/gallery-06.webp" alt="ジム設備" class="p-gallery__img">
+                  <img src="./assets/images/gallery/gallery-06.webp" alt="ジム設備" class="p-gallery__img">
                   <p class="p-gallery__tag">#ダンベル<br>#円山</p>
                 </div>
                 <!-- 画像7 -->
                 <div class="p-gallery__item">
-                  <img src="/assets/images/gallery/gallery-07.webp" alt="ジム設備" class="p-gallery__img">
+                  <img src="./assets/images/gallery/gallery-07.webp" alt="ジム設備" class="p-gallery__img">
                   <p class="p-gallery__tag">#ウエイトマシン<br>#南平岸</p>
                 </div>
                 <!-- 画像8 -->
                 <div class="p-gallery__item">
-                  <img src="/assets/images/gallery/gallery-08.webp" alt="ジム設備" class="p-gallery__img">
+                  <img src="./assets/images/gallery/gallery-08.webp" alt="ジム設備" class="p-gallery__img">
                   <p class="p-gallery__tag">#ストレッチエリア<br>#円山</p>
                 </div>
                 <!-- 画像9 -->
                 <div class="p-gallery__item">
-                  <img src="/assets/images/gallery/gallery-09.webp" alt="ジム設備" class="p-gallery__img">
+                  <img src="./assets/images/gallery/gallery-09.webp" alt="ジム設備" class="p-gallery__img">
                   <p class="p-gallery__tag">#女性レストルーム<br>#円山</p>
                 </div>
                 <!-- 画像10 -->
                 <div class="p-gallery__item">
-                  <img src="/assets/images/gallery/gallery-10.webp" alt="ジム設備" class="p-gallery__img">
+                  <img src="./assets/images/gallery/gallery-10.webp" alt="ジム設備" class="p-gallery__img">
                   <p class="p-gallery__tag">#エントランス<br>#南平岸</p>
                 </div>
               </div>
@@ -1075,7 +1091,7 @@
         <section class="p-join" id="join">
           <div class="p-join__inner">
             <h3 class="p-join__title">
-              <img src="/assets/images/join/join-title.svg" alt="How to Join" class="p-join__title-img">
+              <img src="./assets/images/join/join-title.svg" alt="How to Join" class="p-join__title-img">
             </h3>
             <div class="p-join__accordion">
               <!-- 月会費 -->
@@ -1094,7 +1110,7 @@
                             class="p-join__price-unit">/月</span></span>
                       </div>
                       <div class="p-join__price-row">
-                        <span class="p-join__price-store">南4条山通</span>
+                        <span class="p-join__price-store">南4石山通</span>
                         <span class="p-join__price-value"><span class="p-join__price-yen">&yen;</span>7,040<span
                             class="p-join__price-unit">/月</span></span>
                       </div>
@@ -1136,7 +1152,7 @@
         <section class="p-locations" id="locations">
           <div class="p-locations__inner l-inner">
             <h3 class="p-locations__title">
-              <img src="/assets/images/locations/locations-title.svg" alt="Gym locations"
+              <img src="./assets/images/locations/locations-title.svg" alt="Gym locations"
                 class="p-locations__title-img">
             </h3>
             <div class="p-locations__body">
@@ -1146,11 +1162,11 @@
                 <p class="p-locations__text-note">※登録店の利用回数を超えない範囲</p>
               </div>
               <div class="p-locations__buttons">
-                <a href="https://www.fitness24.jp/gym-list" class="p-locations__btn">店舗情報</a>
+                <a href="https://www.fitness24.jp/gym-list" class="p-locations__btn" target="_blank"
+                  rel="noopener noreferrer">店舗情報</a>
                 <a href="#" class="p-locations__link" id="locations-map-link"
-                  data-image="/assets/images/locations/location-img-01.webp">
+                  data-image="./assets/images/locations/location-img-01.svg">
                   お近くのFITNESS24を探す
-                  <img src="/assets/images/locations/location-arrow-icon.svg" alt="" class="p-locations__link-icon">
                 </a>
               </div>
             </div>
@@ -1167,8 +1183,9 @@
         </section>
         <!-- 固定WEB予約ボタン（SP） -->
         <div class="p-sticky-footer p-sticky-footer--sp">
-          <a href="#" class="p-sticky-footer__link">
-            <img src="/assets/images/common/sticky-btn-sp.svg" alt="WEB予約" class="p-sticky-footer__img">
+          <a href="https://mypage.fitness24.jp/register/?_gl=1%2a1ho7pid%2a_gcl_au%2aMTM0MTY4NTAyNS4xNzAwMDIwMjQ4%E3%80%80"
+            class="p-sticky-footer__link" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/images/common/sticky-btn-sp.svg" alt="WEB予約" class="p-sticky-footer__img">
           </a>
         </div>
       </main>
@@ -1177,7 +1194,7 @@
       <footer class="p-footer">
         <div class="p-footer__inner">
           <div class="p-footer__logo">
-            <img src="/assets/images/common/logo-green.svg" alt="FITNESS24" class="p-footer__logo-img">
+            <img src="./assets/images/common/logo-green.svg" alt="FITNESS24" class="p-footer__logo-img">
           </div>
           <div class="p-footer__bottom">
             <p class="p-footer__copyright">©2026 FITNESS24</p>
@@ -1190,8 +1207,9 @@
       </footer>
       <!-- 固定WEB予約ボタン（PC） -->
       <div class="p-sticky-footer p-sticky-footer--pc" id="sticky-button-pc">
-        <a href="#" class="p-sticky-footer__link">
-          <img src="/assets/images/common/sticky-btn-pc.svg" alt="WEB予約" class="p-sticky-footer__img">
+        <a href="https://mypage.fitness24.jp/register/?_gl=1%2a1ho7pid%2a_gcl_au%2aMTM0MTY4NTAyNS4xNzAwMDIwMjQ4%E3%80%80"
+          class="p-sticky-footer__link" target="_blank" rel="noopener noreferrer">
+          <img src="./assets/images/common/sticky-btn-pc.svg" alt="WEB予約" class="p-sticky-footer__img">
         </a>
       </div>
 
@@ -1239,23 +1257,10 @@
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <!-- 機能ごとに分割されたJSファイル -->
-    <script type="module" src="./src/js/main.js"></script>
-    <script type="module" src="./src/js/header.js"></script>
-    <script type="module" src="./src/js/slider.js"></script>
-    <script type="module" src="./src/js/experience.js"></script>
-    <script type="module" src="./src/js/about-title.js"></script>
-    <script type="module" src="./src/js/crew-slider.js"></script>
-    <script type="module" src="./src/js/gallery-slider.js"></script>
-    <script type="module" src="./src/js/faq.js"></script>
-    <script type="module" src="./src/js/join-accordion.js"></script>
-    <script type="module" src="./src/js/privacy-modal.js"></script>
-    <script type="module" src="./src/js/locations-modal.js"></script>
-    <script type="module" src="./src/js/pagetop.js"></script>
-    <script type="module" src="./src/js/sticky-button.js"></script>
 
     <!-- Custom CSS -->
     <!-- custom.cssはstyle.cssの上書き専用（後から読み込まれるため優先される） -->
-    <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel="stylesheet" href="./assets/css/custom.css?v=1770196574537">
   </body>
 
 </html>

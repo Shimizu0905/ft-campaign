@@ -9,7 +9,12 @@
 .p-offer-details__inner {
   width: 100%;
   max-width: 430px;
-  margin-top: 40px;
+  margin: 40px auto 0;
+  padding: 0 32px;
+
+  @media (width <= 375px) {
+    padding: 0 prem(32);
+  }
 }
 
 .p-offer-details__main {
@@ -33,19 +38,18 @@
   width: 100%;
   max-width: 430px;
   margin: 20px auto;
+  padding: 0 18px;
   font-size: 12px;
   font-weight: $font-weight-r;
-  line-height: 1.6;
-  text-align: left;
+  line-height: 1.7;
+  text-align: justify;
+  text-align-last: left;
+  letter-spacing: 0.03em;
   color: $white;
 
   @media (width <= 375px) {
     margin-bottom: prem(20);
     font-size: prem(12);
-  }
-
-  p {
-    margin: 0;
   }
 }
 
