@@ -1,5 +1,5 @@
 // Support Crew モーダル機能（Slick対応）
-import $ from './vendor/jquery.js';
+import $ from './jquery-setup.js';
 
 // スタッフデータ（4人分）
 const crewData = [

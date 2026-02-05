@@ -14,7 +14,7 @@
 
 .p-fv__content {
   position: fixed;
-  top: 185px;
+  top: 124px;
   left: 50%;
   z-index: 0;
   padding: 0 20px;
@@ -51,7 +51,6 @@
   width: 221px;
   height: auto;
   margin: 0 auto;
-  filter: drop-shadow(2px 2px 8px rgb(0 0 0 / 30%));
 
   @include mq("md") {
     max-width: 240px;

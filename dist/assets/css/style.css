@@ -715,7 +715,7 @@ a:hover {
   width: 100%;
   max-width: 344.35px;
   margin: 0 auto;
-  padding: 30px 40px;
+  padding: 26px 40px;
   border-radius: 43.65px;
   font-size: 18px;
   font-weight: 700;
@@ -729,7 +729,7 @@ a:hover {
 @media (width <= 375px) {
   .c-button {
     max-width: 21.521875rem;
-    padding: 1.875rem 1.5rem;
+    padding: 1.625rem 1.5rem;
     border-radius: 2.728125rem;
     font-size: 1.125rem;
   }
@@ -1513,12 +1513,12 @@ a:hover {
   }
 }
 .p-about {
-  padding: 90px 0;
+  padding: 94px 0 76px;
   background-color: #fff;
 }
 @media (width <= 375px) {
   .p-about {
-    padding: 5.625rem 0;
+    padding: 5.875rem 0 4.75rem;
   }
 }
 
@@ -1529,8 +1529,14 @@ a:hover {
 }
 
 .p-about__title {
+  padding: 0 5px;
   text-align: center;
   overflow: hidden;
+}
+@media (width <= 375px) {
+  .p-about__title {
+    padding: 0 0.3125rem;
+  }
 }
 
 .p-about__title-img {
@@ -1594,25 +1600,31 @@ a:hover {
   }
 }
 
+.p-about__subtitle-01 {
+  letter-spacing: 0.03em;
+}
+
 .p-about__subtitle-large {
-  margin: 8px 0 0;
-  font-size: 28px;
+  display: inline-block;
+  margin: 3px 0 0;
+  font-size: 29px;
   font-weight: 700;
+  letter-spacing: -0.056em;
   color: #004639;
 }
 @media (width <= 375px) {
   .p-about__subtitle-large {
-    margin: 0.5rem 0 0;
+    margin: 0.1875rem 0 0;
     font-size: 1.75rem;
   }
 }
 
 .p-about__text {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 @media (width <= 375px) {
   .p-about__text {
-    margin-top: 0.625rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -1642,7 +1654,7 @@ a:hover {
 .p-about__img img {
   width: 100%;
   height: auto;
-  aspect-ratio: 360/486;
+  aspect-ratio: 360/500;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -2763,7 +2775,7 @@ body.is-gallery-lightbox-open {
 }
 
 .p-experience {
-  padding: 84px 0;
+  padding: 88px 0;
   background-color: #fff;
 }
 
@@ -2780,7 +2792,7 @@ body.is-gallery-lightbox-open {
 .p-experience__title-img {
   display: block;
   width: 100%;
-  max-width: 300px;
+  max-width: 287px;
   height: auto;
   margin: 0 auto;
   -o-object-fit: contain;
@@ -2788,13 +2800,13 @@ body.is-gallery-lightbox-open {
 }
 @media (width <= 375px) {
   .p-experience__title-img {
-    max-width: 18.75rem;
+    max-width: 17.9375rem;
   }
 }
 
 .p-experience__sub-title {
-  max-width: 262px;
-  margin: 24px auto 0;
+  max-width: 272px;
+  margin: 32px auto 0;
 }
 @media (width <= 375px) {
   .p-experience__sub-title {
@@ -2805,6 +2817,12 @@ body.is-gallery-lightbox-open {
 
 .p-experience__route-wrapper {
   width: 100%;
+  margin-top: -7px;
+}
+@media (width <= 375px) {
+  .p-experience__route-wrapper {
+    margin-top: -0.4375rem;
+  }
 }
 
 .p-experience__route-selector {
@@ -2827,7 +2845,7 @@ body.is-gallery-lightbox-open {
   border: none;
   border-radius: 20px 20px 0 0;
   font-size: 15.5px;
-  font-weight: 700;
+  font-weight: 500;
   color: #fff;
   cursor: pointer;
   transition: border-radius 0.3s ease, opacity 0.3s ease;
@@ -2908,7 +2926,7 @@ body.is-gallery-lightbox-open {
 
 .p-experience__route-header {
   margin-top: 0;
-  padding: 28px 16px 20px;
+  padding: 28px 16px 32px;
   border-top: none;
   border-radius: 0;
   text-align: center;
@@ -2972,7 +2990,7 @@ body.is-gallery-lightbox-open {
 }
 
 .p-experience__route-title br + .p-experience__route-title-text {
-  margin-top: 10px;
+  margin-top: 13px;
 }
 @media (width <= 375px) {
   .p-experience__route-title br + .p-experience__route-title-text {
@@ -3544,7 +3562,7 @@ body.is-gallery-lightbox-open {
 }
 
 .p-features {
-  padding: 64px 0 48px;
+  padding: 72px 0 52px;
   background-color: #e9e7e0;
   scroll-margin-top: 100px;
 }
@@ -3625,8 +3643,7 @@ body.is-gallery-lightbox-open {
 .p-features__slider .p-features__item-image {
   width: 100%;
   max-width: 310px;
-  margin: 0 auto;
-  margin-top: 24px;
+  margin: 45px auto 0;
 }
 @media (width <= 375px) {
   .p-features__slider .p-features__item-image {
@@ -3646,11 +3663,11 @@ body.is-gallery-lightbox-open {
 }
 
 .p-features__slider .p-features__item-content {
-  padding: 24px 10px;
+  padding: 24px 15px 0 20px;
 }
 @media (width <= 375px) {
   .p-features__slider .p-features__item-content {
-    padding: 1.5rem 0.625rem;
+    padding: 1.5rem 0.9375rem 0 1.25rem;
   }
 }
 
@@ -3681,7 +3698,8 @@ body.is-gallery-lightbox-open {
   margin: 0;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.85;
+  letter-spacing: 0.03em;
   color: #004639;
 }
 @media (width <= 375px) {
@@ -3741,7 +3759,7 @@ body.is-gallery-lightbox-open {
 .p-features__prev,
 .p-features__next {
   position: absolute;
-  top: 29%;
+  top: 28%;
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -3919,7 +3937,7 @@ body.is-gallery-lightbox-open {
 
 .p-fv__content {
   position: fixed;
-  top: 185px;
+  top: 124px;
   left: 50%;
   z-index: 0;
   padding: 0 20px;
@@ -3959,7 +3977,6 @@ body.is-gallery-lightbox-open {
   width: 221px;
   height: auto;
   margin: 0 auto;
-  filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.3));
 }
 @media screen and (max-width: 767px) {
   .p-fv__title-svg {
@@ -4092,13 +4109,13 @@ body.is-gallery-lightbox-open {
 }
 
 .p-offer-details__main {
-  padding: 20px 20px 40px;
+  padding: 20px 24px 26px;
   border-radius: 20.27px;
   background-color: #EBD5A1;
 }
 @media (width <= 375px) {
   .p-offer-details__main {
-    padding: 1.25rem 1.25rem 2.5rem;
+    padding: 1.25rem 1.5rem 1.625rem;
   }
 }
 
@@ -4113,7 +4130,7 @@ body.is-gallery-lightbox-open {
 .p-offer-details__text {
   width: 100%;
   max-width: 430px;
-  margin: 20px auto;
+  margin: 25px auto 0;
   padding: 0 18px;
   font-size: 12px;
   font-weight: 400;
@@ -4137,7 +4154,7 @@ body.is-gallery-lightbox-open {
   align-items: center;
   width: 100%;
   max-width: 430px;
-  margin: 48px auto 0;
+  margin: 56px auto 0;
 }
 
 .p-reason {
@@ -4956,7 +4973,7 @@ body.is-gallery-lightbox-open {
 .p-scroll-indicator__text {
   margin: 0;
   font-family: "futura-pt", "Century Gothic", arial, sans-serif;
-  font-size: 12px;
+  font-size: 24px;
   font-weight: 500;
   letter-spacing: 0.1em;
   color: #fff;
@@ -6398,18 +6415,33 @@ body.is-drawer-open .p-sticky-footer__link {
 }
 
 .comma,
-.kuten {
+.kuten,
+.kakko-open,
+.kakko-close,
+.nakaten {
   display: inline-block;
   vertical-align: baseline;
 }
 
 /* 読点「、」の調整 */
 .comma {
-  margin-right: -0.3em;
-  margin-left: 0.2em;
+  margin-right: -0.35em;
 }
 
 /* 句点「。」は 1/3 em くらい */
 .kuten {
-  margin-right: -0.25em;
+  margin-right: -0.37em;
+}
+
+.kakko-open {
+  margin-left: -0.35em;
+}
+
+.kakko-close {
+  margin-right: -0.35em;
+}
+
+.nakaten {
+  margin-right: -0.2em;
+  margin-left: -0.2em;
 }

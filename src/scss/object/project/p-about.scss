@@ -3,11 +3,11 @@
 @use "../../foundation/mixin" as *;
 
 .p-about {
-  padding: 90px 0 ;
+  padding: 94px 0 76px;
   background-color: $white;
 
   @media (width <= 375px) {
-    padding: prem(90) 0;
+    padding: prem(94) 0 prem(76);
   }
 }
 
@@ -18,8 +18,13 @@
 }
 
 .p-about__title {
+  padding: 0 5px;
   text-align: center;
   overflow: hidden;
+
+  @media (width <= 375px) {
+    padding: 0 prem(5);
+  }
 }
 
 .p-about__title-img {
@@ -84,23 +89,29 @@
   }
 }
 
+.p-about__subtitle-01 {
+  letter-spacing: 0.03em;
+}
+
 .p-about__subtitle-large {
-  margin: 8px 0 0;
-  font-size: 28px;
-  font-weight: $font-weight-b;
+  display: inline-block;
+  margin: 3px 0 0;
+  font-size: 29px;
+  font-weight: 700;
+  letter-spacing: -0.056em;
   color: $main-green;
 
   @media (width <= 375px) {
-    margin: prem(8) 0 0;
+    margin: prem(3) 0 0;
     font-size: prem(28);
   }
 }
 
 .p-about__text {
-  margin-top: 10px;
+  margin-top: 8px;
 
   @media (width <= 375px) {
-    margin-top: prem(10);
+    margin-top: prem(8);
   }
 }
 
@@ -128,6 +139,6 @@
 .p-about__img img {
   width: 100%;
   height: auto;
-  aspect-ratio: 360/486;
+  aspect-ratio: 360/500;
   object-fit: cover;
 }

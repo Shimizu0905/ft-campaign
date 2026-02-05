@@ -3,7 +3,7 @@
 @use "../../foundation/mixin" as *;
 
 .p-experience {
-  padding: 84px 0 ;
+  padding: 88px 0 ;
   background-color: $white;
 }
 
@@ -20,19 +20,19 @@
 .p-experience__title-img {
   display: block;
   width: 100%;
-  max-width: 300px;
+  max-width: 287px;
   height: auto;
   margin: 0 auto;
   object-fit: contain;
 
   @media (width <= 375px) {
-    max-width: prem(300);
+    max-width: prem(287);
   }
 }
 
 .p-experience__sub-title {
-  max-width: 262px;
-  margin: 24px auto 0;
+  max-width: 272px;
+  margin: 32px auto 0;
 
   @media (width <= 375px) {
     max-width: prem(262);
@@ -42,6 +42,11 @@
 
 .p-experience__route-wrapper {
   width: 100%;
+  margin-top: -7px;
+
+  @media (width <= 375px) {
+    margin-top: prem(-7);
+  }
 }
 
 .p-experience__route-selector {
@@ -63,7 +68,7 @@
   border: none;
   border-radius: 20px 20px 0 0;
   font-size: 15.5px;
-  font-weight: $font-weight-b;
+  font-weight: $font-weight-m;
   color: $white;
   cursor: pointer;
   transition: border-radius 0.3s ease, opacity 0.3s ease;
@@ -157,7 +162,7 @@
 // タブと一体化するため、margin-topは0、上側の角丸はなし
 .p-experience__route-header {
   margin-top: 0;
-  padding: 28px 16px 20px;
+  padding: 28px 16px 32px;
   border-top: none;
   border-radius: 0;
   text-align: center;
@@ -217,7 +222,7 @@
 }
 
 .p-experience__route-title br + .p-experience__route-title-text {
-  margin-top: 10px;
+  margin-top: 13px;
 
   @media (width <= 375px) {
     margin-top: prem(10);
@@ -228,7 +233,7 @@
   display: inline-flex;
   align-items: center;
   font-size: 30px;
-  font-weight: $font-weight-h;
+  font-weight: $font-weight-b;
   line-height: 1;
   color: $white;
 
@@ -250,25 +255,27 @@
 
 // サービスロゴ
 .p-experience__route-service {
-  padding: 30px 20px;
+  margin-top: 45px;
+  padding: 0 25px;
   text-align: center;
   background-color: $white;
 
   @media (width <= 375px) {
-    padding: prem(30) prem(20);
+    margin-top: prem(45);
+    padding: 0 prem(25);
   }
 }
 
 .p-experience__route-service-logo {
   display: block;
   width: 100%;
-  max-width: 200px;
+  max-width: 264px;
   height: auto;
   margin: 0 auto;
   object-fit: contain;
 
   @media (width <= 375px) {
-    max-width: prem(200);
+    max-width: prem(264);
   }
 }
 
@@ -301,7 +308,7 @@
 .p-experience__route-btn-staff {
   width: 100%;
   max-width: 275px;
-  margin: 0 auto;
+  margin: 21px auto 0;
   padding: 8px;
   border: none;
   border-radius: 17.5px;

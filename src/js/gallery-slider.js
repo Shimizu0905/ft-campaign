@@ -1,7 +1,7 @@
 // ============================================================
 // Gym Gallery - CSSアニメーション版（iOS安定化対応）
 // ============================================================
-import $ from './vendor/jquery.js';
+import $ from './jquery-setup.js';
 
 function initGallerySlider() {
   const track = document.getElementById('gallery-track');

@@ -14,6 +14,11 @@ export default defineConfig({
   base: './', // 相対パス化。サブディレクトリ配布でも崩れにくい
   publicDir: 'public', // publicフォルダを指定（デフォルトは'public'）
 
+  // jQueryをグローバルに公開（slick-carousel用）
+  optimizeDeps: {
+    include: ['jquery', 'slick-carousel'],
+  },
+
   css: {
     postcss: resolve(__dirname, 'postcss.config.js'),
     devSourcemap: true,

@@ -3,7 +3,7 @@
 @use "../../foundation/mixin" as *;
 
 .p-features {
-  padding: 64px 0 48px;
+  padding: 72px 0 52px;
   background-color: $bg-beige;
   scroll-margin-top: 100px;
 
@@ -85,8 +85,7 @@
 .p-features__slider .p-features__item-image {
   width: 100%;
   max-width: 310px;
-  margin: 0 auto;
-  margin-top: 24px;
+  margin: 45px auto 0;
 
   @media (width <= 375px) {
     margin-top: prem(24);
@@ -104,10 +103,10 @@
 }
 
 .p-features__slider .p-features__item-content {
-  padding: 24px 10px;
+  padding: 24px 15px 0 20px;
 
   @media (width <= 375px) {
-    padding: prem(24) prem(10);
+    padding: prem(24) prem(15) 0 prem(20);
   }
 }
 
@@ -136,7 +135,8 @@
   margin: 0;
   font-size: 14px;
   font-weight: $font-weight-r;
-  line-height: 1.8;
+  line-height: 1.85;
+  letter-spacing: 0.03em;
   color: $main-green;
 
   @media (width <= 375px) {
@@ -202,7 +202,7 @@
 .p-features__prev,
 .p-features__next {
   position: absolute;
-  top: 29%;
+  top: 28%;
   z-index: 10;
   display: flex;
   justify-content: center;

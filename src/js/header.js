@@ -1,5 +1,5 @@
 // ヘッダーとドロワーメニューの機能
-import $ from './vendor/jquery.js';
+import $ from './jquery-setup.js';
 
 // ヘッダー要素が存在する場合のみ実行
 $(function () {

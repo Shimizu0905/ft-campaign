@@ -40,7 +40,7 @@ export function wrapCommaKuten(target) {
           ) {
             return NodeFilter.FILTER_REJECT;
           }
-          if (!/[、。]/.test(node.nodeValue)) {
+          if (!/[、。「」・]/.test(node.nodeValue)) {
             return NodeFilter.FILTER_REJECT;
           }
           return NodeFilter.FILTER_ACCEPT;
@@ -54,7 +54,7 @@ export function wrapCommaKuten(target) {
 
     nodes.forEach((textNode) => {
       const text = textNode.nodeValue;
-      const regex = /[、。]/g;
+      const regex = /[、。「」・]/g;
       let last = 0;
       let m;
 
@@ -67,9 +67,26 @@ export function wrapCommaKuten(target) {
           );
         }
         const span = document.createElement('span');
-        span.className = m[0] === '、' ? 'comma' : 'kuten';
-        span.textContent = m[0];
-        frag.appendChild(span);
+
+switch (m[0]) {
+  case '、':
+    span.className = 'comma';
+    break;
+  case '。':
+    span.className = 'kuten';
+    break;
+  case '「':
+    span.className = 'kakko-open';
+    break;
+  case '」':
+    span.className = 'kakko-close';
+    break;
+  case '・':
+    span.className = 'nakaten';
+    break;
+}
+span.textContent = m[0];
+frag.appendChild(span);
         last = regex.lastIndex;
       }
 

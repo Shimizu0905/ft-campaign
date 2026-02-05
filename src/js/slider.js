@@ -4,7 +4,7 @@
  * - Slickを使用した実装
  * - 画面に入ってからスライダーをスタート
  */
-import $ from './vendor/jquery.js';
+import $ from './jquery-setup.js';
 
 // IntersectionObserver で要素が表示されたら1回だけコールバック実行
 const once = (selector, onEnter, options = {}) => {
