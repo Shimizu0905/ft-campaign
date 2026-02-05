@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "jquery": "^3.7.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "yakuhanjp": "^4.1.1"
   }
 }

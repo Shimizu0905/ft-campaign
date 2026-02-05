@@ -15,7 +15,8 @@
 
 /* 読点「、」の調整 */
 .comma {
-  margin-right: -0.35em;
+  margin-right: -0.5em;
+  margin-left: 0.1em;
 }
 
 /* 句点「。」は 1/3 em くらい */
@@ -24,11 +25,13 @@
 }
 
 .kakko-open {
-  margin-left: -0.35em;
+  margin-left: -0.8em;
+  letter-spacing: 0.09em;
 }
 
 .kakko-close {
-  margin-right: -0.35em;
+  margin-right: -0.5em;
+  margin-left: -0.05em;
 }
 
 .nakaten {

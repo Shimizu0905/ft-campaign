@@ -52,7 +52,9 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: $font-family-base;
+
+  // Yaku Han JPを約物のみに適用し、通常文字は既存フォントを優先
+  font-family: YakuHanJPs, $font-family-base;
   font-weight: $font-weight-r;
   color: $black;
   overflow-x: hidden;

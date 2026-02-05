@@ -324,7 +324,7 @@
 // トレサポトライアル（ライトグレー）
 .p-experience__route-trial {
   margin-top: 30px;
-  padding: 20px 40px 36px;
+  padding: 30px 40px 36px;
   background-color: #e8e6df;
 
   @media (width <= 375px) {
@@ -334,16 +334,18 @@
 }
 
 .p-experience__route-trial-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 0 16px;
-  padding-bottom: 12px;
+  padding-bottom: 8px;
   border-bottom: 1px solid $main-green;
   font-size: 22px;
   font-weight: $font-weight-b;
-  text-align: center;
   color: $main-green;
 
   @media (width <= 375px) {
-    padding-bottom: prem(12);
+    padding-bottom: prem(8);
   }
 }
 
@@ -393,9 +395,15 @@
 
 // トレサポPLUS（明るい緑背景）
 .p-experience__route-plus {
-  padding: 78px 38px 0;
+  margin-top: 20px;
+  padding: 60px 38px 0;
   text-align: center;
   background-color: $light-green;
+
+  @media (width <= 375px) {
+    margin-top: prem(20);
+    padding: 0 prem(38);
+  }
 }
 
 .p-experience__route-plus-logo {
@@ -417,7 +425,7 @@
 }
 
 .p-experience__route-plus-title-wrapper {
-  margin-top: 20px;
+  margin-top: 26px;
   padding: 0 16px;
 
   @media (width <= 375px) {
@@ -431,6 +439,7 @@
   font-weight: $font-weight-b;
   line-height: 1.6;
   text-align: center;
+  letter-spacing: 0.03em;
   color: $white;
 
   @media (width <= 375px) {
@@ -473,6 +482,7 @@
   font-weight: $font-weight-m;
   line-height: 1.2;
   text-align: center;
+  letter-spacing: 0.05em;
   color: $main-green;
   background-color: $white;
 
@@ -485,11 +495,11 @@
   }
 
 .p-experience__route-plus-price {
-  margin-top: 54px;
+  margin-top: 49px;
   text-align: center;
 
   @media (width <= 375px) {
-    margin-top: prem(54);
+    margin-top: prem(49);
   }
 }
 

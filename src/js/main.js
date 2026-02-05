@@ -7,10 +7,13 @@ import 'slick-carousel';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+// yakuhanjp（日本語フォント調整）
+import 'yakuhanjp/dist/css/yakuhanjp_s.css';
+
 import '../scss/style.scss';
 
 import './scroll-indicator.js';
-import { initCommaKuten } from './text-justify.js';
+import { initCommaKuten } from './text-justify.js'; // 句読点（。、）のみJS管理
 
 import './about-title.js';
 import './header.js';

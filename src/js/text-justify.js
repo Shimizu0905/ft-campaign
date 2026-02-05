@@ -75,12 +75,6 @@ switch (m[0]) {
   case '。':
     span.className = 'kuten';
     break;
-  case '「':
-    span.className = 'kakko-open';
-    break;
-  case '」':
-    span.className = 'kakko-close';
-    break;
   case '・':
     span.className = 'nakaten';
     break;

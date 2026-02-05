@@ -4,12 +4,12 @@
 
 // Support Crewセクション
 .p-crew {
-  padding: 116px 0 60px;
+  padding: 85px 0 60px;
   background-color: $light-green;
   overflow: visible;
 
   @media (width <= 375px) {
-    padding: prem(60) prem(0);
+    padding: prem(85) 0 prem(60);
   }
 }
 
@@ -85,6 +85,7 @@
   font-size: 18px;
   font-weight: $font-weight-b;
   text-align: center;
+  letter-spacing: 0.09em;
   color: $white;
 
   @media (width <= 375px) {
@@ -123,8 +124,8 @@
 
 // スライド（各スタッフカードのラッパー）
 .p-crew__slider .p-crew__slide {
-  padding: 0 10px;
-  opacity: 1; // 常に不透明度1
+  padding: 0 9px;
+  opacity: 1;
   transition: none; // アニメーションなし
   transform: scale(1); // 常に同じサイズ
 }
@@ -173,18 +174,18 @@
 // スタッフ写真（全て同じサイズ）
 .p-crew__photo {
   display: block !important;
-  width: 260px;
-  max-width: 100%;
+  width: 300px;
   height: auto;
   margin: 0 auto;
   opacity: 1 !important;
   visibility: visible !important;
   cursor: pointer;
-  aspect-ratio: 250 / 264;
+  aspect-ratio: 254 / 260;
   object-fit: cover;
 
   @media (width <= 375px) {
     width: prem(260);
+    max-width: 100%;
     margin-top: prem(16);
   }
 }
