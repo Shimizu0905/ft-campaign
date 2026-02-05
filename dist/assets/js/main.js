@@ -8376,12 +8376,6 @@ function wrapCommaKuten(target) {
           case "。":
             span.className = "kuten";
             break;
-          case "「":
-            span.className = "kakko-open";
-            break;
-          case "」":
-            span.className = "kakko-close";
-            break;
           case "・":
             span.className = "nakaten";
             break;
@@ -9156,55 +9150,55 @@ document.addEventListener("DOMContentLoaded", function() {
   initCrewModal();
 });
 function initGallerySlider() {
-  const track = document.getElementById("gallery-track");
-  const lightbox = document.getElementById("gallery-lightbox");
-  const lightboxImg = document.getElementById("gallery-lightbox-img");
-  const lightboxOverlay = document.getElementById("gallery-lightbox-overlay");
-  const lightboxClose = document.getElementById("gallery-lightbox-close");
-  if (!track) return;
-  const items = Array.from(track.querySelectorAll(".p-gallery__item"));
-  if (items.length > 0) {
-    items.forEach((item) => {
-      const clone = item.cloneNode(true);
-      clone.classList.add("p-gallery__item--clone");
-      track.appendChild(clone);
-    });
-  }
-  function openLightbox(imgSrc, imgAlt) {
-    if (!lightbox || !lightboxImg) return;
-    lightboxImg.src = imgSrc;
-    lightboxImg.alt = imgAlt || "ジム設備";
-    lightbox.classList.add("is-open");
-    document.body.style.overflow = "hidden";
-  }
-  function closeLightbox() {
-    if (!lightbox) return;
-    lightbox.classList.remove("is-open");
-    document.body.style.overflow = "";
-  }
-  track.addEventListener("click", (e) => {
-    const img = e.target.closest(".p-gallery__img");
-    if (!img) return;
-    e.preventDefault();
-    const imgSrc = img.src;
-    const imgAlt = img.alt;
-    openLightbox(imgSrc, imgAlt);
-  });
-  if (lightboxClose) {
-    lightboxClose.addEventListener("click", closeLightbox);
-  }
-  if (lightboxOverlay) {
-    lightboxOverlay.addEventListener("click", closeLightbox);
-  }
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && (lightbox == null ? void 0 : lightbox.classList.contains("is-open"))) {
-      closeLightbox();
-    }
+  const $track = $("#gallery-track");
+  if (!$track.length || !$.fn.slick) return;
+  if ($track.hasClass("slick-initialized")) return;
+  $track.slick({
+    autoplay: true,
+    autoplaySpeed: 1,
+    speed: 6e3,
+    cssEase: "linear",
+    infinite: true,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    variableWidth: false,
+    centerMode: false,
+    arrows: false,
+    dots: false,
+    pauseOnHover: false,
+    pauseOnFocus: false,
+    draggable: false,
+    swipe: false,
+    touchMove: false,
+    waitForAnimate: false,
+    useCSS: true,
+    useTransform: true,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 5,
+          speed: 7e3
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          speed: 6e3
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          speed: 5e3
+        }
+      }
+    ]
   });
 }
-document.addEventListener("DOMContentLoaded", function() {
-  initGallerySlider();
-});
+document.addEventListener("DOMContentLoaded", initGallerySlider);
 function initFAQ() {
   const faqItems = document.querySelectorAll(".p-faq__content-item");
   if (!faqItems.length) return;
