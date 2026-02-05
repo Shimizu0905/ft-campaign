@@ -123,12 +123,21 @@
   }
 }
 
+.p-features__slider .p-features__item-sub-title {
+  margin-top: -2px;
+  margin-bottom: 10px;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(10);
+  }
+}
+
 .p-features__slider .p-features__item-text {
   margin: 0;
   font-size: 14px;
   font-weight: $font-weight-r;
   line-height: 1.8;
-  color: $text-black;
+  color: $main-green;
 
   @media (width <= 375px) {
     font-size: prem(14);

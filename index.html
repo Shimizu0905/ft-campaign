@@ -73,21 +73,9 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet">
-    <!-- Slick CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
-    <!-- CSS -->
-    <!-- style.cssはJSからimportされるため、開発環境では不要（ビルド時に自動挿入） -->
-    <script type="module" src="./src/js/main.js"></script>
-    <script type="module" src="./src/js/header.js"></script>
-    <script type="module" src="./src/js/slider.js"></script>
-    <script type="module" src="./src/js/experience.js"></script>
-    <script type="module" src="./src/js/crew-slider.js"></script>
-    <script type="module" src="./src/js/gallery-slider.js"></script>
-    <script type="module" src="./src/js/faq.js"></script>
-    <script type="module" src="./src/js/join-accordion.js"></script>
-    <script type="module" src="./src/js/privacy-modal.js"></script>
-    <script type="module" src="./src/js/locations-modal.js"></script>
+    <!-- CSS & JavaScript -->
+    <!-- すべてのスタイルとスクリプトはmain.jsから読み込まれます -->
+    <script type="module" src="/src/js/main.js"></script>
   </head>
 
   <body>
@@ -246,10 +234,9 @@
               <img src="./assets/images/offer/offer-02.svg" alt="マンツーマンサポート特典 - トレサポプラス・単発パーソナルトレーニングの詳細"
                 class="p-offer-details__img">
             </div>
-            <div class="p-offer-details__text u-text-kuten">
-              <p>※特典の適用は2026年5月末までの在籍が条件となります。</p>
-              <p>※期間途中で退会の場合は、施設利用の有無に関わらず違約金¥10,000のお支払いが発生いたします。</p>
-              <p>※表示価格は全て税込です。</p>
+            <div class="p-offer-details__text">
+              <p>※特典の適用は2026年5月末までの在籍が条件となります<span class="kuten-period">。</span></p>
+              <p>※期間途中で退会の場合は<span class="">、施設利用の有無に関わらず違約金¥10,000のお支払いが発生いたします。※表示価格は全て税込です。</p>
             </div>
           </div>
           <div class="p-offer-details__button c-button-orenge">
@@ -1248,19 +1235,6 @@
       </div>
     </div>
 
-    <!-- JavaScript -->
-    <!-- jQuery（他のJSより先に読み込み必須） -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-    <!-- Slick -->
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-    <!-- 機能ごとに分割されたJSファイル -->
-
-    <!-- Custom CSS -->
-    <!-- custom.cssはstyle.cssの上書き専用（後から読み込まれるため優先される） -->
-    <link rel="stylesheet" href="./assets/css/custom.css?v=1770196574537">
   </body>
 
 </html>

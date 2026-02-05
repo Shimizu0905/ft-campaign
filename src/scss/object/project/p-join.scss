@@ -207,8 +207,8 @@
 .p-join__item-text {
   margin: 0;
   padding: 16px;
-  font-size: 14px;
-  font-weight: $font-weight-r;
+  font-size: 15px;
+  font-weight: $font-weight-m;
   line-height: 1.8;
   color: $main-green;
 
@@ -289,7 +289,7 @@
   font-size: 20px;
   font-weight: $font-weight-m;
   line-height: 1.2;
-  color: #2C5F2D;
+  color: $main-green;
   flex-shrink: 0;
 
   @media (width <= 375px) {
@@ -322,7 +322,7 @@
   border-top: 1px solid $main-green;
   border-bottom: 1px solid $main-green;
   font-size: 13px;
-  font-weight: $font-weight-r;
+  font-weight: $font-weight-m;
   line-height: 1.8;
   color: $main-green;
 
@@ -335,11 +335,11 @@
 
 .p-join__price-footnote {
   margin-top: 16px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: $font-weight-r;
   line-height: 1.6;
   text-align: center;
-  color: #999;
+  color: $main-green;
 
   @media (width <= 375px) {
     margin-top: prem(16);

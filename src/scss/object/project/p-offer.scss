@@ -3,11 +3,11 @@
 @use "../../foundation/mixin" as *;
 
 .p-offer {
-  padding: 40px 0 72px;
+  padding: 40px 0 70px;
   background-color: $main-green;
 
   @media (width <= 375px) {
-    padding: prem(40) 0 prem(72);
+    padding: prem(40) 0 prem(70);
   }
 }
 

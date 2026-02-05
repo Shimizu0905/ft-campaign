@@ -28,21 +28,12 @@ export default defineConfig({
     outDir: 'dist', // 静的運用ではdistが安全
     emptyOutDir: true, // 古い成果物を削除
     manifest: false, // 静的だけなら不要
-    minify: true, // 圧縮を有効化
+    minify: false, // 圧縮を無効化（読みやすい形式で出力）
+    cssMinify: false, // CSSの圧縮を無効化
     rollupOptions: {
-      // 複数のエントリーポイントを設定（JSファイルを分割）
+      // 単一エントリーポイント構成（main.jsから全てをimport）
       input: {
         main: resolve(projectRoot, 'src/js/main.js'),
-        header: resolve(projectRoot, 'src/js/header.js'),
-        slider: resolve(projectRoot, 'src/js/slider.js'),
-        experience: resolve(projectRoot, 'src/js/experience.js'),
-        'crew-slider': resolve(projectRoot, 'src/js/crew-slider.js'),
-        'gallery-slider': resolve(projectRoot, 'src/js/gallery-slider.js'),
-        faq: resolve(projectRoot, 'src/js/faq.js'),
-        'join-accordion': resolve(projectRoot, 'src/js/join-accordion.js'),
-        'privacy-modal': resolve(projectRoot, 'src/js/privacy-modal.js'),
-        // HTMLもエントリーポイントとして含める
-        index: resolve(projectRoot, 'index.html'),
       },
       output: {
         entryFileNames: 'assets/js/[name].js',

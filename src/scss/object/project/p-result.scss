@@ -586,8 +586,8 @@
   position: relative;
   display: inline-block;
   text-decoration: none;
-  overflow: hidden;
   opacity: 1 !important;
+  overflow: hidden;
 }
 
 .p-result__training-cta-button:hover {
@@ -603,6 +603,7 @@
   height: auto;
   opacity: 1 !important;
   transition: opacity 0s ease, color 0.3s ease, background-color 0.3s ease;
+
   --svg-bg-color: #{$light-green};
   --svg-text-color: #{$white};
   --svg-stroke-color: #0c3b2c;
@@ -610,6 +611,7 @@
 
 .p-result__training-cta-button:hover .p-result__training-cta-svg {
   opacity: 1 !important;
+
   --svg-bg-color: #{$white};
   --svg-text-color: #{$light-green};
   --svg-stroke-color: #{$white};

@@ -81,6 +81,7 @@
     --btn-text: #{$white};
     --btn-hover-bg: #{$white};
     --btn-hover-text: #{$main-orange};
+
     color: $white;
     background-color: $main-orange;
     transition: color 0.3s ease, background-color 0.3s ease, padding 0.3s ease, min-height 0.3s ease;
@@ -101,9 +102,8 @@
 
     &::before {
       position: absolute;
-      right: 40px;
       top: 50%;
-      transform: translateY(-50%);
+      right: 40px;
       z-index: 3;
       display: flex;
       justify-content: center;
@@ -114,9 +114,10 @@
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
-      content: '';
       opacity: 0;
       transition: opacity 0.3s ease, border-radius 0.3s ease;
+      transform: translateY(-50%);
+      content: '';
 
       @media (width <= 375px) {
         right: clamp(prem(24), 18.6%, prem(64));
@@ -138,8 +139,8 @@
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
-      content: '';
       transition: opacity 0.3s ease;
+      content: '';
 
       @media (width <= 375px) {
         width: prem(32);
@@ -149,8 +150,8 @@
     }
 
     &:hover::before {
-      opacity: 1;
       border-radius: 50%;
+      opacity: 1;
     }
 
     &:hover::after {
@@ -251,8 +252,8 @@
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
-      content: '';
       transition: background-image 0.3s ease;
+      content: '';
 
       @media (width <= 375px) {
         width: prem(32);

@@ -1,6 +1,9 @@
 // FAQアコーディオンの初期化
 function initFAQ() {
   const faqItems = document.querySelectorAll('.p-faq__content-item');
+  
+  // FAQ要素が存在しない場合は何もしない
+  if (!faqItems.length) return;
   faqItems.forEach(item => {
     const title = item.querySelector('.p-faq__content-item-title');
     const button = item.querySelector('.p-faq__content-item-title-icon');

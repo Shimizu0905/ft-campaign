@@ -43,9 +43,9 @@
   font-weight: $font-weight-r;
   line-height: 1.7;
   text-align: justify;
-  text-align-last: left;
   letter-spacing: 0.03em;
   color: $white;
+  text-align-last: left;
 
   @media (width <= 375px) {
     margin-bottom: prem(20);

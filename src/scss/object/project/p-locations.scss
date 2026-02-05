@@ -6,9 +6,11 @@
 .p-locations {
   padding: 60px 0;
   background-color: $bg-beige;
+  scroll-margin-top: 100px;
 
   @media (width <= 375px) {
     padding: prem(60) 0;
+    scroll-margin-top: prem(100);
   }
 }
 

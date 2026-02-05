@@ -59,8 +59,6 @@ body {
 
   // メニュー開いている時はスクロール禁止
   &.no-scroll {
-    position: fixed;
-    width: 100%;
     overflow: hidden;
   }
 }

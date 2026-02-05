@@ -1,8 +1,10 @@
+// タイトルアニメーション - IntersectionObserverで表示時にis-inviewクラスを追加
 const titles = document.querySelectorAll(
   '.p-fv__title, .p-about__title, .p-features__title, .p-crew__title, .p-gallery__title, .p-join__title, .p-locations__title'
 );
 
-if (titles.length > 0) {
+// 要素が存在する場合のみ実行
+if (titles.length) {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {

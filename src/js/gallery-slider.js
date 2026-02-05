@@ -1,4 +1,8 @@
-// Gym Gallery 流れるループスライダー
+// ============================================================
+// Gym Gallery - CSSアニメーション版（iOS安定化対応）
+// ============================================================
+import $ from './vendor/jquery.js';
+
 function initGallerySlider() {
   const track = document.getElementById('gallery-track');
   const lightbox = document.getElementById('gallery-lightbox');
@@ -8,34 +12,52 @@ function initGallerySlider() {
 
   if (!track) return;
 
-  // 要素を複製して無限ループを実現
-  function duplicateItems() {
-    const items = Array.from(track.querySelectorAll('.p-gallery__item'));
-    if (items.length === 0) return;
+  // ============================================================
+  // slick旧実装（コメントアウト - 参考用に残す）
+  // ============================================================
+  /*
+  const $slider = $('#gallery-track');
 
-    // 既存の複製を削除
-    const existingClones = track.querySelectorAll('.p-gallery__item--clone');
-    existingClones.forEach(clone => clone.remove());
+  $slider.slick({
+    autoplay: true,
+    autoplaySpeed: 0,           // 止まらずに連続
+    speed: 5000,                // 5秒かけてスライド
+    cssEase: 'linear',          // 等速で流れる
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: false,
+    pauseOnHover: false,        // ホバーでも止めない
+    pauseOnFocus: false,        // フォーカスでも止めない
+    draggable: false,
+    swipe: false,
+    touchMove: false,
+    variableWidth: true,
+    waitForAnimate: false,
+    useCSS: true,
+    useTransform: true,
+    accessibility: false
+  });
+  */
 
-    // 全アイテムを複製
+  // ============================================================
+  // CSS無限スクロール実装（slick不使用）
+  // ============================================================
+
+  // アイテムを複製して無限ループを実現
+  const items = Array.from(track.querySelectorAll('.p-gallery__item'));
+  if (items.length > 0) {
     items.forEach(item => {
       const clone = item.cloneNode(true);
-      clone.classList.add('p-gallery__item--clone');
+      clone.classList.add('p-gallery__item--clone'); // 複製識別用
       track.appendChild(clone);
     });
   }
 
-  // 初期化時に複製
-  duplicateItems();
-
-  // リサイズ時に再計算
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      duplicateItems();
-    }, 250);
-  });
+  // ============================================================
+  // Lightbox機能（引き続き使用）
+  // ============================================================
 
   // 画像クリックでLightbox表示
   function openLightbox(imgSrc, imgAlt) {
@@ -44,7 +66,7 @@ function initGallerySlider() {
     lightboxImg.src = imgSrc;
     lightboxImg.alt = imgAlt || 'ジム設備';
     lightbox.classList.add('is-open');
-    document.body.classList.add('is-gallery-lightbox-open');
+    document.body.style.overflow = 'hidden';
   }
 
   // Lightboxを閉じる
@@ -52,7 +74,7 @@ function initGallerySlider() {
     if (!lightbox) return;
 
     lightbox.classList.remove('is-open');
-    document.body.classList.remove('is-gallery-lightbox-open');
+    document.body.style.overflow = '';
   }
 
   // 画像クリックイベント（イベント委譲）
@@ -60,6 +82,7 @@ function initGallerySlider() {
     const img = e.target.closest('.p-gallery__img');
     if (!img) return;
 
+    e.preventDefault();
     const imgSrc = img.src;
     const imgAlt = img.alt;
     openLightbox(imgSrc, imgAlt);
@@ -79,84 +102,6 @@ function initGallerySlider() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && lightbox?.classList.contains('is-open')) {
       closeLightbox();
-    }
-  });
-
-  // スマホスワイプ対応（横スクロール）
-  let startX = 0;
-  let currentX = 0;
-  let isDragging = false;
-  let initialTransform = 0;
-
-  track.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    startX = e.touches[0].pageX;
-    // 現在のアニメーション位置を取得
-    const computedStyle = window.getComputedStyle(track);
-    const matrix = new DOMMatrix(computedStyle.transform);
-    initialTransform = matrix.e; // translateXの値
-    track.style.animationPlayState = 'paused';
-  }, { passive: true });
-
-  track.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    currentX = e.touches[0].pageX;
-    const diffX = currentX - startX;
-    // 現在のtransform位置にdiffXを加算
-    track.style.transform = `translateX(${initialTransform + diffX}px)`;
-  }, { passive: false });
-
-  track.addEventListener('touchend', () => {
-    if (!isDragging) return;
-    isDragging = false;
-    // transformをリセットしてアニメーションを再開
-    track.style.transform = '';
-    setTimeout(() => {
-      track.style.animationPlayState = 'running';
-    }, 100);
-  }, { passive: true });
-
-  // マウスドラッグ対応（PC）
-  let mouseStartX = 0;
-  let mouseInitialTransform = 0;
-  let isMouseDragging = false;
-
-  track.addEventListener('mousedown', (e) => {
-    isMouseDragging = true;
-    mouseStartX = e.pageX;
-    const computedStyle = window.getComputedStyle(track);
-    const matrix = new DOMMatrix(computedStyle.transform);
-    mouseInitialTransform = matrix.e;
-    track.style.animationPlayState = 'paused';
-    track.style.cursor = 'grabbing';
-  });
-
-  track.addEventListener('mousemove', (e) => {
-    if (!isMouseDragging) return;
-    e.preventDefault();
-    const diffX = e.pageX - mouseStartX;
-    track.style.transform = `translateX(${mouseInitialTransform + diffX}px)`;
-  });
-
-  track.addEventListener('mouseup', () => {
-    if (!isMouseDragging) return;
-    isMouseDragging = false;
-    track.style.cursor = '';
-    track.style.transform = '';
-    setTimeout(() => {
-      track.style.animationPlayState = 'running';
-    }, 100);
-  });
-
-  track.addEventListener('mouseleave', () => {
-    if (isMouseDragging) {
-      isMouseDragging = false;
-      track.style.cursor = '';
-      track.style.transform = '';
-      setTimeout(() => {
-        track.style.animationPlayState = 'running';
-      }, 100);
     }
   });
 }

@@ -177,10 +177,11 @@
   max-width: 100%;
   height: auto;
   margin: 0 auto;
-  aspect-ratio: 250 / 264;
-  object-fit: cover;
   opacity: 1 !important;
   visibility: visible !important;
+  cursor: pointer;
+  aspect-ratio: 250 / 264;
+  object-fit: cover;
 
   @media (width <= 375px) {
     width: prem(260);
@@ -545,7 +546,7 @@
   font-size: 16px;
   font-weight: $font-weight-m;
   line-height: 1.6;
-  color: $text-black;
+  color: $main-green;
 
   @media (width <= 375px) {
     margin-top: prem(16);
@@ -625,7 +626,7 @@
   font-weight: $font-weight-r;
   line-height: 1.6;
   text-align: left;
-  color: $text-black;
+  color: $main-green;
 
   @media (width <= 375px) {
     margin-top: prem(12);
@@ -644,7 +645,7 @@
   font-size: 14px;
   font-weight: $font-weight-r;
   line-height: 1.6;
-  color: $text-black;
+  color: $main-green;
 
   @media (width <= 375px) {
     gap: prem(12);
@@ -672,7 +673,7 @@
   font-size: 14px;
   font-weight: $font-weight-r;
   line-height: 1.6;
-  color: $text-black;
+  color: $main-green;
 
   @media (width <= 375px) {
     margin-top: prem(4);
@@ -686,7 +687,7 @@
   font-size: 14px;
   font-weight: $font-weight-r;
   line-height: 1.6;
-  color: $text-black;
+  color: $main-green;
 
   @media (width <= 375px) {
     font-size: prem(14);
@@ -720,8 +721,8 @@ body.is-modal-open {
   width: 100%;
   max-width: 275.35px;
   margin: 0 auto;
-  overflow: hidden;
   opacity: 1 !important;
+  overflow: hidden;
 }
 
 .p-crew__button-svg {
@@ -731,6 +732,7 @@ body.is-modal-open {
   width: 100%;
   height: auto;
   transition: all 0.3s ease;
+
   --svg-bg-color: #{$main-green};
   --svg-text-color: #{$white};
   --svg-stroke-color: #0c3b2c;

@@ -8,9 +8,9 @@
     "npm": "10.2.4"
   },
   "scripts": {
-    "dev": "vite --config .config/vite.config.js",
+    "dev": "npm run build && vite --config .config/vite.config.js",
     "copy-images": "echo '画像は public/assets/images に直接配置してください'",
-    "build": "npm run lint:css:fix && vite build --config .config/vite.config.js",
+    "build": "npm run lint:css:fix && vite build --config .config/vite.config.js && node scripts/add-version.js",
     "minify:js": "node scripts/minify-js.js",
     "minify:css": "node scripts/minify-css.js",
     "preview": "vite preview --config .config/vite.config.js",
@@ -35,5 +35,9 @@
     "stylelint-scss": "^6.13.0",
     "terser": "^5.44.1",
     "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "jquery": "^4.0.0",
+    "slick-carousel": "^1.8.1"
   }
 }

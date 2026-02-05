@@ -4,6 +4,7 @@
  * - Slickを使用した実装
  * - 画面に入ってからスライダーをスタート
  */
+import $ from './vendor/jquery.js';
 
 // IntersectionObserver で要素が表示されたら1回だけコールバック実行
 const once = (selector, onEnter, options = {}) => {
@@ -27,10 +28,10 @@ const once = (selector, onEnter, options = {}) => {
 function initSlickSliders() {
   // Features スライダー
   const featuresEl = document.querySelector('#features-swiper .swiper-wrapper');
-  if (featuresEl && typeof jQuery !== 'undefined' && jQuery.fn.slick) {
+  if (featuresEl && typeof $ !== 'undefined' && $.fn.slick) {
     once('#features-swiper', (target) => {
       const root = target.closest('section') || target.parentElement;
-      const $slider = jQuery(featuresEl);
+      const $slider = $(featuresEl);
       const dotsEl = root.querySelector('.p-features__dots');
 
       $slider.slick({
@@ -44,7 +45,7 @@ function initSlickSliders() {
         autoplaySpeed: 4000,
         pauseOnHover: true,
         dots: true,
-        appendDots: jQuery(dotsEl),
+        appendDots: $(dotsEl),
         arrows: true,
         prevArrow: root.querySelector('.p-features__prev'),
         nextArrow: root.querySelector('.p-features__next'),
@@ -66,10 +67,10 @@ function initSlickSliders() {
 
   // Voice スライダー
   const voiceEl = document.querySelector('#voice-swiper .swiper-wrapper');
-  if (voiceEl && typeof jQuery !== 'undefined' && jQuery.fn.slick) {
+  if (voiceEl && typeof $ !== 'undefined' && $.fn.slick) {
     once('#voice-swiper', (target) => {
       const root = target.closest('section') || target.parentElement;
-      const $slider = jQuery(voiceEl);
+      const $slider = $(voiceEl);
       const dotsEl = root.querySelector('.p-voice__dots');
 
       $slider.slick({
@@ -83,7 +84,7 @@ function initSlickSliders() {
         autoplaySpeed: 5000,
         pauseOnHover: true,
         dots: true,
-        appendDots: jQuery(dotsEl),
+        appendDots: $(dotsEl),
         arrows: true,
         prevArrow: root.querySelector('.p-voice__btn--prev'),
         nextArrow: root.querySelector('.p-voice__btn--next'),
@@ -97,9 +98,9 @@ function initSlickSliders() {
 
   // Crew スライダー（Slick使用）
   const crewEl = document.querySelector('.p-crew__slider');
-  if (crewEl && typeof jQuery !== 'undefined' && jQuery.fn.slick) {
+  if (crewEl && typeof $ !== 'undefined' && $.fn.slick) {
     once('.p-crew__slider', (target) => {
-      const $slider = jQuery(target);
+      const $slider = $(target);
       const $dots = $slider.closest('.p-crew__inner').find('.p-crew__dots');
 
       $slider.slick({

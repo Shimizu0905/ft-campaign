@@ -86,7 +86,7 @@ export function wrapCommaKuten(target) {
   });
 }
 
-export function initCommaKuten(selector = '.u-text-kuten') {
+export function initCommaKuten(selector = 'body') {
   const run = () => {
     const els = document.querySelectorAll(selector);
     if (els.length) wrapCommaKuten(els);

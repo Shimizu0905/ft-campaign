@@ -1,4 +1,6 @@
 // Support Crew モーダル機能（Slick対応）
+import $ from './vendor/jquery.js';
+
 // スタッフデータ（4人分）
 const crewData = [
   {
@@ -27,7 +29,7 @@ const crewData = [
         details: ['-168/優勝'],
       },
     ],
-    photo: '/assets/images/experience/tresapo/crew/crew-01.webp',
+    photo: './assets/images/experience/tresapo/crew/crew-01.webp',
   },
   {
     id: 1,
@@ -39,7 +41,7 @@ const crewData = [
       'ジムに通うことが楽しくなってくれると嬉しいので、会員様が常にモチベーションを高めていけるよう心がけて、目標に向けて全力サポートしていきます。今日も楽しかった！と思ってもらえるような時間を心がけています。',
     achievements: [
     ],
-    photo: '/assets/images/experience/tresapo/crew/crew-02.webp',
+    photo: './assets/images/experience/tresapo/crew/crew-02.webp',
   },
   {
     id: 2,
@@ -61,7 +63,7 @@ const crewData = [
         title: '2024 JBBF 北海道大会　−172/2位',
       },
     ],
-    photo: '/assets/images/experience/tresapo/crew/crew-03.webp',
+    photo: './assets/images/experience/tresapo/crew/crew-03.webp',
   },
   {
     id: 3,
@@ -77,7 +79,7 @@ const crewData = [
         details: ['JBBF 北海道大会メンズフィジーク<br>新人−172 4位<br>一般−172 5位'],
       },
     ],
-    photo: '/assets/images/experience/tresapo/crew/crew-04.webp',
+    photo: './assets/images/experience/tresapo/crew/crew-04.webp',
   },
 ];
 
@@ -253,6 +255,7 @@ function initCrewModal() {
 
   // モーダル開閉イベント（イベント委譲）
   document.addEventListener('click', (e) => {
+    // ボタンがクリックされた場合
     if (e.target.closest('.p-crew__open')) {
       const btn = e.target.closest('.p-crew__open');
       e.stopPropagation();
@@ -262,6 +265,16 @@ function initCrewModal() {
           '0'
       );
       openModal(crewId);
+    }
+    // 画像がクリックされた場合
+    else if (e.target.closest('.p-crew__photo')) {
+      const photo = e.target.closest('.p-crew__photo');
+      const slide = photo.closest('.p-crew__slide');
+      if (slide) {
+        e.stopPropagation();
+        const crewId = parseInt(slide.getAttribute('data-crew') || '0');
+        openModal(crewId);
+      }
     }
   });
 

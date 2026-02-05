@@ -5,6 +5,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const mapLink = document.getElementById('locations-map-link');
+  
+  // 要素が存在しない場合は何もしない
+  if (!mapLink) return;
+  
   const lightbox = document.getElementById('gallery-lightbox');
   const lightboxImg = document.getElementById('gallery-lightbox-img');
   const lightboxClose = document.getElementById('gallery-lightbox-close');

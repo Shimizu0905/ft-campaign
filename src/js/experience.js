@@ -1,6 +1,8 @@
 // Experience ルート切り替え
 // タブと下のルート見出しが一体化して見えるUI実装
-jQuery(function ($) {
+import $ from './vendor/jquery.js';
+
+$(function () {
   const $experience = $('.p-experience');
   if (!$experience.length) return;
 

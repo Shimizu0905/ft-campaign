@@ -81,12 +81,19 @@
 
 .p-sticky-footer__link {
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   pointer-events: auto;
 
   &:hover {
     opacity: 0.9;
   }
+}
+
+// ドロワーが開いている時は非表示
+body.is-drawer-open .p-sticky-footer__link {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .p-sticky-footer__btn {

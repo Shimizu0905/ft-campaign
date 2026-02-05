@@ -1,6 +1,9 @@
 // How to Joinアコーディオンの初期化
 function initJoinAccordion() {
   const items = document.querySelectorAll('.p-join__item');
+  
+  // アコーディオン要素が存在しない場合は何もしない
+  if (!items.length) return;
   items.forEach(item => {
     const header = item.querySelector('.p-join__item-header');
     if (!header) return;

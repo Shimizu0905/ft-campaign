@@ -128,7 +128,7 @@
   font-size: 12px;
   font-weight: $font-weight-m;
   text-align: center;
-  color: $text-black;
+  color: $main-green;
 
   @media (width <= 375px) {
     font-size: prem(12);
@@ -198,7 +198,7 @@
   font-weight: $font-weight-b;
   line-height: 1.65;
   text-align: left;
-  color: $text-black;
+  color: $main-green;
 
   @media (width <= 375px) {
     margin-top: prem(6);
@@ -213,9 +213,9 @@
   z-index: 10;
   width: 30px;
   height: 30px;
+  background-color: transparent;
   cursor: pointer;
   transform: translateY(-50%);
-  background-color: transparent;
 
   &::after {
     display: block;
@@ -225,8 +225,8 @@
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    content: '';
     transition: opacity 0.3s ease;
+    content: '';
   }
 
   &:hover {
