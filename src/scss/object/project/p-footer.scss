@@ -3,11 +3,11 @@
 // フッター
 .p-footer {
   width: 100%;
-  padding: 80px 20px 114px;
+  padding: 46px 30px 114px;
   background-color: $dark-green-2;
 
   @media (width <= 375px) {
-    padding: prem(80) prem(20) prem(48);
+    padding: prem(46) prem(30) prem(48);
   }
 }
 
@@ -18,22 +18,21 @@
 }
 
 .p-footer__logo {
-  margin-bottom: 80px;
+  margin-bottom: 52px;
   text-align: center;
 
   @media (width <= 375px) {
-    margin-bottom: prem(80);
+    margin-bottom: prem(52);
   }
 }
 
 .p-footer__logo-img {
   display: inline-block;
   width: auto;
-  height: 40px;
-  filter: brightness(0) invert(1);
+  max-width: 172px;
 
   @media (width <= 375px) {
-    height: prem(40);
+    max-width: prem(172);
   }
 }
 
@@ -48,6 +47,13 @@
   font-size: 14px;
   font-weight: $font-weight-r;
   color: $white;
+
+  img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: 9.84px;
+  }
 
   @media (width <= 375px) {
     font-size: prem(14);
@@ -78,19 +84,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 21px;
-  height: 21px;
-  border-radius: 50%;
-  font-size: 18px;
-  font-weight: $font-weight-b;
-  color: $main-green;
-  background-color: $white;
+  width: 20px;
+  height: 20px;
   transform: rotate(-90deg);
 
   @media (width <= 375px) {
-    width: prem(32);
-    height: prem(32);
-    font-size: prem(18);
+    width: prem(20);
+    height: prem(20);
   }
 }
 

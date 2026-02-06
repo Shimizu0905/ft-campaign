@@ -49,7 +49,7 @@
 
 // PC版ボタン（768px超でメインコンテンツ右側に固定）
 .p-sticky-footer--pc {
-  top: 50%;
+  bottom: -100px;
   left: calc(50% + 430px / 2);
   display: none;
   width: 77px;

@@ -166,10 +166,12 @@ function initCrewModal() {
     modal.classList.add('is-open');
     document.body.classList.add('is-modal-open');
 
-    // Slickを停止して該当スタッフを表示
+    // Slickを停止してスワイプ/ドラッグを無効化（位置は変更しない）
     if (window.crewSlider) {
       window.crewSlider.slick('slickPause');
-      window.crewSlider.slick('slickGoTo', index);
+      window.crewSlider.slick('slickSetOption', 'swipe', false, false);
+      window.crewSlider.slick('slickSetOption', 'draggable', false, false);
+      window.crewSlider.slick('slickSetOption', 'touchMove', false, false);
     }
   }
 
@@ -179,63 +181,28 @@ function initCrewModal() {
     modal.classList.remove('is-open');
     document.body.classList.remove('is-modal-open');
 
-    // Slickの自動再生を再開
+    // Slickのスワイプ/ドラッグを有効化して自動再生を再開
     if (window.crewSlider) {
+      window.crewSlider.slick('slickSetOption', 'swipe', true, false);
+      window.crewSlider.slick('slickSetOption', 'draggable', true, false);
+      window.crewSlider.slick('slickSetOption', 'touchMove', true, false);
       window.crewSlider.slick('slickPlay');
     }
   }
 
-  // モーダル内で次へ
+  // モーダル内で次へ（スライダーは動かさない）
   function modalGoToNext() {
     modalCurrentIndex = (modalCurrentIndex + 1) % crewData.length;
     updateModalContent(modalCurrentIndex);
-    if (window.crewSlider) {
-      window.crewSlider.slick('slickGoTo', modalCurrentIndex);
-    }
   }
 
-  // モーダル内で前へ
+  // モーダル内で前へ（スライダーは動かさない）
   function modalGoToPrev() {
     modalCurrentIndex = (modalCurrentIndex - 1 + crewData.length) % crewData.length;
     updateModalContent(modalCurrentIndex);
-    if (window.crewSlider) {
-      window.crewSlider.slick('slickGoTo', modalCurrentIndex);
-    }
   }
 
-  // モーダル内スワイプ
-  let modalStartX = 0;
-  let modalCurrentX = 0;
-  let isModalDragging = false;
-
-  function handleModalTouchStart(e) {
-    modalStartX = e.touches[0].clientX;
-    modalCurrentX = modalStartX;
-    isModalDragging = true;
-  }
-
-  function handleModalTouchMove(e) {
-    if (!isModalDragging) return;
-    modalCurrentX = e.touches[0].clientX;
-  }
-
-  function handleModalTouchEnd() {
-    if (!isModalDragging) return;
-    isModalDragging = false;
-
-    const diffX = modalCurrentX - modalStartX;
-    const threshold = 50;
-
-    if (Math.abs(diffX) > threshold) {
-      if (diffX > 0) {
-        modalGoToPrev();
-      } else {
-        modalGoToNext();
-      }
-    }
-  }
-
-  // モーダル内のナビゲーションボタン
+  // モーダル内のナビゲーションボタン（矢印のみで操作）
   const modalPrevBtn = document.getElementById('crew-modal-prev');
   const modalNextBtn = document.getElementById('crew-modal-next');
 
@@ -244,13 +211,6 @@ function initCrewModal() {
   }
   if (modalNextBtn) {
     modalNextBtn.addEventListener('click', modalGoToNext);
-  }
-
-  // モーダル内スワイプ
-  if (modal) {
-    modal.addEventListener('touchstart', handleModalTouchStart, { passive: true });
-    modal.addEventListener('touchmove', handleModalTouchMove, { passive: true });
-    modal.addEventListener('touchend', handleModalTouchEnd, { passive: true });
   }
 
   // モーダル開閉イベント（イベント委譲）

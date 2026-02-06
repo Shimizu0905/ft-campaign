@@ -89,6 +89,9 @@ function initSlickSliders() {
         prevArrow: root.querySelector('.p-voice__btn--prev'),
         nextArrow: root.querySelector('.p-voice__btn--next'),
         cssEase: 'ease-in-out',
+        swipeToSlide: true,
+        touchThreshold: 10,
+        waitForAnimate: true,
       });
     }, {
       threshold: 0.1,
@@ -117,6 +120,9 @@ function initSlickSliders() {
         appendDots: $dots,
         arrows: false,
         cssEase: 'ease-in-out',
+        swipeToSlide: true,
+        touchThreshold: 10,
+        waitForAnimate: true,
       });
 
       // グローバルに公開（モーダル等から使用可能に）

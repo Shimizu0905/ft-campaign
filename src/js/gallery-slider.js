@@ -17,7 +17,7 @@ function initGallerySlider() {
     speed: 6000,
     cssEase: 'linear',
     infinite: true,
-    slidesToShow: 6,
+    slidesToShow: 5,
     slidesToScroll: 1,
     variableWidth: false,
     centerMode: false,
@@ -35,7 +35,7 @@ function initGallerySlider() {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 4,
           speed: 7000
         }
       },

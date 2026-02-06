@@ -8541,7 +8541,10 @@ function initSlickSliders() {
         arrows: true,
         prevArrow: root.querySelector(".p-voice__btn--prev"),
         nextArrow: root.querySelector(".p-voice__btn--next"),
-        cssEase: "ease-in-out"
+        cssEase: "ease-in-out",
+        swipeToSlide: true,
+        touchThreshold: 10,
+        waitForAnimate: true
       });
     }, {
       threshold: 0.1,
@@ -8567,7 +8570,10 @@ function initSlickSliders() {
         dots: true,
         appendDots: $dots,
         arrows: false,
-        cssEase: "ease-in-out"
+        cssEase: "ease-in-out",
+        swipeToSlide: true,
+        touchThreshold: 10,
+        waitForAnimate: true
       });
       window.crewSlider = $slider;
     }, {
@@ -9052,7 +9058,9 @@ function initCrewModal() {
     document.body.classList.add("is-modal-open");
     if (window.crewSlider) {
       window.crewSlider.slick("slickPause");
-      window.crewSlider.slick("slickGoTo", index);
+      window.crewSlider.slick("slickSetOption", "swipe", false, false);
+      window.crewSlider.slick("slickSetOption", "draggable", false, false);
+      window.crewSlider.slick("slickSetOption", "touchMove", false, false);
     }
   }
   function closeModal() {
@@ -9060,47 +9068,19 @@ function initCrewModal() {
     modal.classList.remove("is-open");
     document.body.classList.remove("is-modal-open");
     if (window.crewSlider) {
+      window.crewSlider.slick("slickSetOption", "swipe", true, false);
+      window.crewSlider.slick("slickSetOption", "draggable", true, false);
+      window.crewSlider.slick("slickSetOption", "touchMove", true, false);
       window.crewSlider.slick("slickPlay");
     }
   }
   function modalGoToNext() {
     modalCurrentIndex = (modalCurrentIndex + 1) % crewData.length;
     updateModalContent(modalCurrentIndex);
-    if (window.crewSlider) {
-      window.crewSlider.slick("slickGoTo", modalCurrentIndex);
-    }
   }
   function modalGoToPrev() {
     modalCurrentIndex = (modalCurrentIndex - 1 + crewData.length) % crewData.length;
     updateModalContent(modalCurrentIndex);
-    if (window.crewSlider) {
-      window.crewSlider.slick("slickGoTo", modalCurrentIndex);
-    }
-  }
-  let modalStartX = 0;
-  let modalCurrentX = 0;
-  let isModalDragging = false;
-  function handleModalTouchStart(e) {
-    modalStartX = e.touches[0].clientX;
-    modalCurrentX = modalStartX;
-    isModalDragging = true;
-  }
-  function handleModalTouchMove(e) {
-    if (!isModalDragging) return;
-    modalCurrentX = e.touches[0].clientX;
-  }
-  function handleModalTouchEnd() {
-    if (!isModalDragging) return;
-    isModalDragging = false;
-    const diffX = modalCurrentX - modalStartX;
-    const threshold = 50;
-    if (Math.abs(diffX) > threshold) {
-      if (diffX > 0) {
-        modalGoToPrev();
-      } else {
-        modalGoToNext();
-      }
-    }
   }
   const modalPrevBtn = document.getElementById("crew-modal-prev");
   const modalNextBtn = document.getElementById("crew-modal-next");
@@ -9109,11 +9089,6 @@ function initCrewModal() {
   }
   if (modalNextBtn) {
     modalNextBtn.addEventListener("click", modalGoToNext);
-  }
-  if (modal) {
-    modal.addEventListener("touchstart", handleModalTouchStart, { passive: true });
-    modal.addEventListener("touchmove", handleModalTouchMove, { passive: true });
-    modal.addEventListener("touchend", handleModalTouchEnd, { passive: true });
   }
   document.addEventListener("click", (e) => {
     var _a;
@@ -9159,7 +9134,7 @@ function initGallerySlider() {
     speed: 6e3,
     cssEase: "linear",
     infinite: true,
-    slidesToShow: 6,
+    slidesToShow: 5,
     slidesToScroll: 1,
     variableWidth: false,
     centerMode: false,
@@ -9177,7 +9152,7 @@ function initGallerySlider() {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 4,
           speed: 7e3
         }
       },

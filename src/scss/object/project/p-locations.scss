@@ -4,7 +4,7 @@
 
 // Gym locationsセクション
 .p-locations {
-  padding: 60px 0;
+  padding: 112px 0 0;
   background-color: $bg-beige;
   scroll-margin-top: 100px;
 
@@ -26,14 +26,14 @@
   justify-content: center;
   align-items: baseline;
   gap: 8px;
-  margin: 0 0 40px;
+  margin: 0 0 33px;
   font-family: $font-family-en;
   text-align: center;
   overflow: hidden;
 
   @media (width <= 375px) {
     gap: prem(8);
-    margin-bottom: prem(40);
+    margin-bottom: prem(33);
   }
 }
 
@@ -106,18 +106,25 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  padding: 0 26px;
+}
+
+.p-locations__content {
+  width: 100%;
+  padding: 0 31px;
 
   @media (width <= 375px) {
-    padding: 0 prem(26);
+  .p-locations__body {
+    padding: 0 prem(31);
   }
+}
 }
 
 .p-locations__text {
   margin: 0;
-  font-size: 14px;
-  font-weight: $font-weight-r;
+  font-size: 16px;
+  font-weight: $font-weight-m;
   line-height: 1.8;
+  letter-spacing: 0.1em;
   color: $main-green;
 
   @media (width <= 375px) {
@@ -126,29 +133,30 @@
 }
 
 .p-locations__text-large {
-  margin: 8px 0 0;
+  margin: 2px 0 0;
   font-size: 24px;
   font-weight: $font-weight-b;
   line-height: 1.4;
+  letter-spacing: 0.15em;
   color: $main-green;
 
   @media (width <= 375px) {
-    margin-top: prem(8);
+    margin-top: prem(2);
     font-size: prem(24);
   }
 }
 
 .p-locations__text-note {
   margin: 4px 0 0;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: $font-weight-r;
   line-height: 1.6;
+  letter-spacing: 0.09em;
   color: $main-green;
-  opacity: 0.7;
 
   @media (width <= 375px) {
     margin-top: prem(4);
-    font-size: prem(11);
+    font-size: prem(12);
   }
 }
 
@@ -157,13 +165,15 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 16px;
+  gap: 21px;
   width: 100%;
-  margin-top: 32px;
+  margin-top: 21px;
+  padding: 0 20px;
 
   @media (width <= 375px) {
-    gap: prem(16);
-    margin-top: prem(32);
+    gap: prem(21);
+    margin-top: prem(21);
+    padding: 0 prem(20);
   }
 }
 
@@ -174,7 +184,7 @@
   align-items: center;
   gap: 12px;
   width: 100%;
-  padding: 16px 32px;
+  padding: 20px 32px;
   border-radius: 32px;
   font-size: 16px;
   font-weight: $font-weight-b;
@@ -188,7 +198,7 @@
   @media (width <= 375px) {
     gap: prem(12);
     max-width: prem(280);
-    padding: prem(16) prem(32);
+    padding: prem(20) prem(32);
     border-width: prem(2);
     border-radius: prem(40);
     font-size: prem(16);
@@ -270,10 +280,12 @@
   justify-content: center;
   align-items: center;
   gap: 4.7px;
-  font-size: 14px;
+  padding: 0 8px;
+  font-size: 15px;
   font-weight: $font-weight-m;
   line-height: 1.4;
   text-decoration: none;
+  letter-spacing: 0.07em;
   color: $main-green;
   transition: opacity 0.3s ease;
 

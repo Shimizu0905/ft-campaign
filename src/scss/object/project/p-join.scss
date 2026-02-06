@@ -4,7 +4,7 @@
 
 // How to Joinセクション
 .p-join {
-  padding: 60px 0;
+  padding: 121px 0 0;
   background-color: $bg-beige;
   scroll-margin-top: 100px;
 
@@ -23,13 +23,8 @@
 // タイトル
 .p-join__title {
   margin: 0;
-  margin-bottom: 40px;
   text-align: center;
   overflow: hidden;
-
-  @media (width <= 375px) {
-    margin-bottom: prem(40);
-  }
 }
 
 .p-join__title-img {
@@ -78,11 +73,6 @@
 .p-join__accordion {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-
-  @media (width <= 375px) {
-    gap: prem(16);
-  }
 }
 
 .p-join__item {
@@ -94,7 +84,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 30px 16px;
+  padding: 28px 16px;
   border: none;
   border-bottom: 1px solid $main-green;
   background: none;
@@ -206,7 +196,7 @@
 
 .p-join__item-text {
   margin: 0;
-  padding: 16px;
+  padding: 10px 16px;
   font-size: 15px;
   font-weight: $font-weight-m;
   line-height: 1.8;
@@ -222,24 +212,35 @@
   }
 }
 
+.p-join__item-text--small {
+  display: block;        // ← これ重要（インデントを効かせる）
+  padding-left: 1em;     // ← 1インデント分
+  font-size: 13px;
+  font-weight: $font-weight-m;
+  color: $main-green;
+
+  @media (width <= 375px) {
+    font-size: prem(13);
+  }
+}
+
 // ========================================
 // 料金表
 // ========================================
 .p-join__price-list {
   display: flex;
   flex-direction: column;
-  margin: prem(20) 0;
 }
 
 .p-join__price-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 16px;
+  padding: 32px 16px;
   border-bottom: 1px solid $main-green;
 
   @media (width <= 375px) {
-    padding: prem(30) prem(16);
+    padding: prem(32) prem(16);
   }
 
   &:last-child {
