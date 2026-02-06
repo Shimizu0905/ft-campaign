@@ -10,11 +10,11 @@
 
 // SP版ボタン（768px以下で画面下部に固定）
 .p-sticky-footer--sp {
-  bottom: 0;
+  bottom: -5px;
   left: 50%;
   display: block;
   width: 100%;
-  max-width: 430px;
+  max-width: 366px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
