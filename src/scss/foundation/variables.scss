@@ -45,7 +45,12 @@ $padding-sp: 20px;
 $font-family-ja: "ryo-gothic-plusn", "Hiragino Sans", "Meiryo", sans-serif;
 $font-family-en: "futura-pt", "Century Gothic", arial, sans-serif;
 $font-family-base: $font-family-ja;
-$base-font-size: 16px;
+$base-font-size: 16px; // prem()関数で使用する基準フォントサイズ
+$font-20-sp: clamp(16px,4.6vw,20px);
+$font-18-sp: clamp(15px,4.1vw,18px);
+$font-16-sp: clamp(12px,3.7vw,16px);
+$font-15-sp: clamp(12px,3.4vw,15px);
+$font-14-sp: clamp(11px,3.25vw,14px);
 
 // フォントウェイト (Adobe Fonts準拠)
 $font-weight-el: 200; // Extra Light

@@ -19,11 +19,11 @@ function initSlickSliders() {
       const dotsEl = root.querySelector(".p-features__dots");
       $slider.slick({
         infinite: true,
-        speed: 600,
+        speed: 700,
         slidesToShow: 1,
         slidesToScroll: 1,
         centerMode: true,
-        centerPadding: "0px",
+        centerPadding: "10px",
         autoplay: true,
         autoplaySpeed: 4e3,
         pauseOnHover: true,
@@ -37,7 +37,7 @@ function initSlickSliders() {
           {
             breakpoint: 768,
             settings: {
-              centerPadding: "0px"
+              centerPadding: "10px"
             }
           }
         ]
@@ -86,7 +86,7 @@ function initSlickSliders() {
         slidesToShow: 1,
         slidesToScroll: 1,
         centerMode: true,
-        centerPadding: "15%",
+        centerPadding: "12%",
         // 画面幅の15%を両脇に表示
         autoplay: true,
         autoplaySpeed: 3500,

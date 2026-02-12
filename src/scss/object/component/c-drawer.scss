@@ -5,81 +5,122 @@
 // ========================================
 .c-drawer {
   position: fixed;
-  top: 0;
-  left: 0;
   z-index: 9000;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100vh;
+  height: 100dvh;
+  min-height: -webkit-fill-available;
   opacity: 0;
+  overflow: hidden;
   transition: opacity 0.3s ease;
+  inset: 0;
   pointer-events: none;
 
   &.is-active {
     opacity: 1;
     pointer-events: auto;
   }
+
+  // 白のベール（blurはここだけにする）
+  &::before {
+    position: fixed;
+    z-index: 1; // overlay(0)の上、content(2)の下
+    background: rgb(255 255 255 / 45%);
+    content: "";
+    inset: 0;
+    backdrop-filter: blur(10px);
+  }
 }
 
 // オーバーレイ（ぼかし背景）
 .c-drawer__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
+  z-index: 0;
   width: 100%;
-  height: 100%;
+  height: 100dvh;
   background-image: url('/assets/images/fv/fv-overlay.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  inset: 0;
   
   // WebP対応
   @supports (background-image: url('/assets/images/fv/fv-overlay.webp')) {
     background-image: url('/assets/images/fv/fv-overlay.webp');
   }
 
-  // 明るくぼかす効果
+  // 画像だけにする（白とblurは削除）
   &::after {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgb(255 255 255 / 60%);
-    backdrop-filter: blur(30px);
-    content: '';
+    background: transparent;
+    content: "";
+    inset: 0;
+    backdrop-filter: none;
   }
 }
 
-// メニューコンテンツ
 .c-drawer__content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 100%;
   max-width: 430px;
   height: 100%;
+  min-height: 100dvh;
   margin: 0 auto;
-  padding: 102px 20px 40px;
-  background: rgb(255 255 255 / 45%);
+  background: rgb(255 255 255 / 40%);
   overflow-y: auto;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  transform: translateY(-100%);
-  backdrop-filter: blur(10px);
+  transform: translateY(-100dvh);
+  -webkit-overflow-scrolling: touch;
 
-  @media (width <= 375px) {
-    padding: 102px prem(20) prem(40);
-  }
+  /* 既存paddingはOK（75pxはヘッダー分ならそのまま） */
+  padding-block: calc(env(safe-area-inset-top) + 16px)
+                 calc(env(safe-area-inset-bottom) + 16px);
+  padding-inline: 20px;
+  backdrop-filter: none;
 
   .c-drawer.is-active & {
     transform: translateY(0);
   }
 }
 
+@media (height <= 630px) {
+  .c-drawer__content {
+    justify-content: flex-start;
+
+    /* 上の余白を縮める（pxよりvhの方が端末差に強い） */
+    padding-top: calc(env(safe-area-inset-top) + clamp(12px, 15vh, 50px));
+    padding-bottom: calc(env(safe-area-inset-bottom) + 50px);
+  }
+
+  /* CTAの固定marginが一番ズレ要因なので縮める */
+  .c-drawer__cta {
+    margin-top: 16px; /* 54pxはデカすぎて押し出す */
+  }
+
+  .c-drawer__social {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  .c-drawer__item a {
+    padding: 8px 10px;
+  }
+}
+
+
+
 // メニューリスト
 .c-drawer__menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   list-style: none;
 }
@@ -142,7 +183,7 @@
 }
 
 .c-drawer__item:nth-child(6) .c-drawer__item-img {
-  height: 21.51px;
+  height: 18.51px;
 }
 
 .c-drawer__item:nth-child(7) .c-drawer__item-img {
@@ -153,11 +194,12 @@
 .c-drawer__social {
   display: flex;
   gap: 4px;
-  margin-top: 30px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 
   @media (width <= 375px) {
-    gap: prem(4);
-    margin-top: prem(30);
+    margin-top: prem(16);
+    margin-bottom: prem(16);
   }
 }
 
@@ -165,16 +207,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 48px;
-  height: 48px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   text-decoration: none;
   color: $main-green;
   transition: all 0.3s ease;
 
   @media (width <= 375px) {
-    width: prem(48);
-    height: prem(48);
+    width: prem(28);
+    height: prem(28);
   }
 
   &:hover {

@@ -4,13 +4,17 @@
 // ヘッダー（新デザイン）
 // ========================================
 .c-header {
-  position: sticky;
+  // position: sticky;
+  position: fixed;
   top: 0;
+  left: 50%;
   z-index: 10000;
   width: 100%;
+  max-width: 430px;
   height: 50px;
   background: rgb(255 255 255 / 45%);
   transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  transform: translateX(-50%);
 
   &.is-scrolled {
     backdrop-filter: blur(15px);

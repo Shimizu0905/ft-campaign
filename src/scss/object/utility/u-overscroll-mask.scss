@@ -1,0 +1,24 @@
+// ========================================
+// 下方向オーバースクロールマスク（430px以下のみ）
+// ========================================
+.bottom-overscroll-mask {
+  display: none;
+
+  @media (width <= 430px) {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1; // p-sticky-footer (9999) より下に配置
+    display: block;
+    height: 100%;
+    background: #fff;
+    opacity: 0;
+    transition: opacity 0.15s;
+    pointer-events: none;
+
+    &.is-on {
+      opacity: 1;
+    }
+  }
+}

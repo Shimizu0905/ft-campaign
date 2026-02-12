@@ -1,32 +1,13 @@
 // main.js
-// jQueryをグローバル化（slick-carouselより先に読み込む）
+// jQueryをグローバル化
 import './jquery-setup.js';
-
-// slick-carousel（jQueryプラグイン）
-import 'slick-carousel';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 // yakuhanjp（日本語フォント調整）
 import 'yakuhanjp/dist/css/yakuhanjp_s.css';
 
 import '../scss/style.scss';
 
-import './scroll-indicator.js';
-import { initCommaKuten } from './text-justify.js'; // 句読点（。、）のみJS管理
-
-import './about-title.js';
+// ヘッダー機能
 import './header.js';
-import './slider.js';
-import './experience.js';
-import './crew-slider.js';
-import './gallery-slider.js';
-import './faq.js';
-import './join-accordion.js';
-import './privacy-modal.js';
-import './locations-modal.js';
-import './sticky-button.js';
+// ページトップボタン
 import './pagetop.js';
-
-// main全体に句読点処理
-initCommaKuten('main');

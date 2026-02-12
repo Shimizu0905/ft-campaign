@@ -1,0 +1,84 @@
+@use '../../foundation' as *;
+
+// フッター
+.p-footer {
+  width: 100%;
+  padding: 49px 0 169px;
+  background-color: $dark-green;
+
+  @media (width <= 375px) {
+    padding: prem(49) 0 prem(169);
+  }
+}
+
+.p-footer__logo {
+  display: block;
+  width: 100%;
+  max-width: 178px;
+  margin: 0 auto;
+}
+
+.p-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 56px;
+  padding: 0 25px 0 36px;
+
+  @media (width <= 375px) {
+    margin-top: prem(56);
+    padding: 0 prem(25) 0 prem(36);
+  }
+}
+
+.p-footer__copyright {
+  text-align: center;
+  color: $white;
+
+  img {
+    display: block;
+    width: 100.57px;
+    height: 9.84px;
+    margin: 0 auto;
+  }
+
+  small {
+    font-size: 14px;
+    font-weight: $regular;
+    color: $white;
+
+    @media (width <= 375px) {
+      font-size: prem(14);
+    }
+
+    @include mq("md") {
+      font-size: 13px;
+
+      @media (width <= 375px) {
+      font-size: prem(13);
+      }
+    }
+  }
+}
+
+.p-footer__pagetop {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: auto;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  background: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  appearance: none;
+}
+
+.p-footer__pagetop-icon {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}

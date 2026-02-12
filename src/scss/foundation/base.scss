@@ -18,6 +18,14 @@
 }
 
 html {
+  background-color: transparent;
+
+  // オーバースクロールを許可（背景引き伸ばしのため）
+
+  @media (width <= 430px) {
+    background-color: #fff;
+  }
+
   @if $break-flg == 0 {
     @media (width <= 375px) {
       font-size: vw(375, strip-unit($base-font-size));
@@ -50,6 +58,7 @@ html {
 }
 
 body {
+  position: relative;
   margin: 0;
   padding: 0;
 
@@ -57,11 +66,24 @@ body {
   font-family: YakuHanJPs, $font-family-base;
   font-weight: $font-weight-r;
   color: $black;
+
+  // 背景は常に透明（各セクションが自身の背景を持つ）
+  // オーバースクロール時はhtmlの白背景が見える
+  background-color: transparent;
   overflow-x: hidden;
+
+  // オーバースクロールを許可（背景引き伸ばしのため）
+
+  // スムーズスクロール最適化
+  -webkit-overflow-scrolling: touch;
 
   // メニュー開いている時はスクロール禁止
   &.no-scroll {
     overflow: hidden;
+  }
+
+  @media (width <= 430px) {
+    min-height: 100vh;
   }
 }
 
@@ -90,4 +112,11 @@ a:hover {
       opacity: 1;
     }
   }
+}
+
+.p-footer,
+main,
+.p-contents {
+  position: relative;
+  z-index: 1000;
 }

@@ -1,0 +1,272 @@
+@use '../../foundation' as *;
+
+// ========================================
+// ボタンコンポーネント
+// ========================================
+
+.c-button {
+  position: relative;
+  z-index: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 344.35px;
+  margin: 0 auto;
+  padding: 30px 40px;
+  border-radius: 43.65px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--btn-text, #212529);
+  background-color: var(--btn-bg, transparent);
+  overflow: hidden;
+  transition: color 0.3s ease;
+  isolation: isolate;
+
+  @media (width <= 375px) {
+    max-width: clamp(18.75rem, 90.48%, 21.5219rem);
+    padding: clamp(1.25rem, 7.3vw, 1.875rem);
+    font-size: clamp(1.125rem, 4.1vw, 1.5rem);
+  }
+
+  &:hover {
+    color: var(--btn-hover-text, #fff);
+    opacity: 1;
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+    font-size: 20px;
+    font-weight: 700;
+    color: inherit;
+    transition: color 0.3s ease;
+
+    @media (width <= 375px) {
+      font-size: clamp(1.25rem, 4.7vw, 1.875rem);
+    }
+  }
+}
+
+.c-button__text {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: inherit;
+}
+
+.c-button--invert {
+  --btn-bg: #EE780C;
+  --btn-text: #fff;
+  --btn-hover-bg: #fff;
+  --btn-hover-text: #EE780C;
+
+  color: #fff;
+  background-color: #EE780C;
+
+  &::before {
+    content: none;
+  }
+
+  .c-button__text,
+  .c-button__text span {
+    color: inherit;
+  }
+}
+
+// ========================================
+// オレンジボタン
+// ========================================
+.c-button-orenge .c-button {
+  --btn-bg: #EE780C;
+  --btn-text: #fff;
+  --btn-hover-bg: #fff;
+  --btn-hover-text: #EE780C;
+
+  color: #fff;
+  background-color: #EE780C;
+  transition: color 0.3s ease, background-color 0.3s ease, padding 0.3s ease, min-height 0.3s ease;
+
+  span {
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+
+  &:hover {
+    color: #EE780C;
+    background-color: #fff;
+
+    span {
+      color: #EE780C;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-image: url('/assets/images/common/arrow-white-orange.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.3s ease, border-radius 0.3s ease;
+    transform: translateY(-50%);
+    content: "";
+
+    @media (width <= 375px) {
+      right: clamp(1.5rem, 18.6%, 4rem);
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  &::after {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+    background-image: url('/assets/images/common/arrow-orange.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: opacity 0.3s ease;
+    content: "";
+
+    @media (width <= 375px) {
+      width: 2rem;
+      height: 2rem;
+      margin-left: clamp(1.5rem, 18.6%, 4rem);
+    }
+  }
+
+  &:hover::before {
+    border-radius: 50%;
+    opacity: 1;
+  }
+
+  &:hover::after {
+    opacity: 0;
+  }
+
+  &.c-button--invert {
+    --btn-bg: #EE780C;
+    --btn-text: #fff;
+    --btn-hover-bg: #fff;
+    --btn-hover-text: #EE780C;
+
+    color: var(--btn-text);
+    background-color: var(--btn-bg);
+    transition: color 0.3s ease, background-color 0.3s ease, padding 0.3s ease, min-height 0.3s ease;
+
+    &::before {
+      content: none;
+    }
+
+    &:hover {
+      color: var(--btn-hover-text);
+      background-color: var(--btn-hover-bg);
+      opacity: 1;
+    }
+
+    .c-button__text,
+    .c-button__text span,
+    span {
+      color: inherit;
+    }
+
+    &::after {
+      background-color: transparent;
+      background-image: url('/assets/images/common/arrow-orange.svg');
+    }
+
+    &:hover::after {
+      border-radius: 0;
+      background-color: transparent;
+      background-image: url('/assets/images/common/arrow-white-orange.svg');
+    }
+  }
+}
+
+// ========================================
+// グリーンボタン
+// ========================================
+.c-button-green .c-button {
+  width: 100%;
+  max-width: 298px;
+  margin: 0 auto;
+  padding: 13px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+
+  --btn-bg: #fff;
+  --btn-text: #004639;
+  --btn-hover-bg: #004639;
+  --btn-hover-text: #fff;
+
+  color: #004639;
+  background-color: #fff;
+  transition: color 0.3s ease, background-color 0.3s ease, padding 0.3s ease, min-height 0.3s ease;
+
+  @media (width <= 375px) {
+    max-width: 18.75rem;
+    padding: 0.8125rem 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  span {
+    color: #004639;
+    transition: color 0.3s ease;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #004639;
+    opacity: 1;
+
+    span {
+      color: #fff;
+    }
+  }
+
+  &::after {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    background-image: url('/assets/images/common/arrow-green.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease;
+    content: "";
+
+    @media (width <= 375px) {
+      width: 2rem;
+      height: 2rem;
+      margin-left: clamp(1.5rem, 18.6%, 4rem);
+    }
+  }
+
+  &:hover::after {
+    background-image: url('/assets/images/common/arrow-white.svg');
+  }
+}

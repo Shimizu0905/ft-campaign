@@ -11,18 +11,28 @@ $(function () {
   const $drawer = $(".js-drawer");
   let scrollY = 0;
 
+  const syncScrollLock = () => {
+    const isOpen = $drawer.hasClass("is-active");
+    $body.toggleClass("no-scroll is-drawer-open", isOpen);
+  };
+
   function openMenu() {
     $hamburger.addClass("is-active");
     $drawer.addClass("is-active");
     $header.addClass("is-active");
     $body.addClass("no-scroll is-drawer-open");
+    syncScrollLock();
   }
 
   function closeMenu() {
     $hamburger.removeClass("is-active");
     $drawer.removeClass("is-active");
     $header.removeClass("is-active");
+
+    // 強制的にスクロール復帰
     $body.removeClass("no-scroll is-drawer-open");
+    document.documentElement.classList.remove("no-scroll"); // 念のため
+    syncScrollLock();
   }
 
   // ハンバーガーメニューのクリックイベント
@@ -32,6 +42,7 @@ $(function () {
     } else {
       openMenu();
     }
+    setTimeout(syncScrollLock, 0);
   });
 
   // オーバーレイのクリックイベント（メニューを閉じる）
@@ -39,8 +50,25 @@ $(function () {
     closeMenu();
   });
 
-  // ドロワーメニュー内のリンククリック時（メニューを閉じる）
-  $(".c-drawer__item a").on('click', function () {
+  // ドロワーメニュー内のリンククリック時（メニューを閉じてスムーススクロール）
+  $(".c-drawer__item a[href^='#']").on('click', function (e) {
+    e.preventDefault();
+    const targetId = $(this).attr('href');
+    const $target = $(targetId);
+    closeMenu();
+
+    if ($target.length) {
+      // メニューが閉じるアニメーション後にスクロール
+      setTimeout(function () {
+        $target[0].scrollIntoView({ behavior: 'smooth' });
+        // URLにハッシュを残さない
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }, 300);
+    }
+  });
+
+  // 外部リンク（#以外）の場合はメニューを閉じるだけ
+  $(".c-drawer__item a").not("[href^='#']").on('click', function () {
     closeMenu();
   });
 
@@ -58,7 +86,9 @@ $(function () {
     if (window.matchMedia("(min-width: 768px)").matches) {
       $(".js-hamburger").removeClass("is-active");
       $(".js-drawer").removeClass("is-active");
+      // 強制的にスクロール復帰
       $("body").removeClass("no-scroll is-drawer-open");
+      document.documentElement.classList.remove("no-scroll"); // 念のため
     }
   });
 });

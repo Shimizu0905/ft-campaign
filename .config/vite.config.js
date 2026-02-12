@@ -25,6 +25,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `@use "sass:math";`,
+        api: 'modern-compiler', // 新しいSass APIを使用（非推奨警告を解消）
       },
     },
   },
@@ -33,8 +34,9 @@ export default defineConfig({
     outDir: 'dist', // 静的運用ではdistが安全
     emptyOutDir: true, // 古い成果物を削除
     manifest: false, // 静的だけなら不要
-    minify: false, // 圧縮を無効化（読みやすい形式で出力）
-    cssMinify: false, // CSSの圧縮を無効化
+    minify: 'terser', // JS圧縮を有効化（本番用）
+    cssMinify: true, // CSS圧縮を有効化（ファイルサイズ60-70%削減）
+    sourcemap: false, // 本番ではソースマップ不要（必要な場合はtrueに）
     rollupOptions: {
       // 単一エントリーポイント構成（main.jsから全てをimport）
       input: {
